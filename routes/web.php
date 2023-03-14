@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VehicleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::view('/','login');
+Route::post('/user',[VehicleController::class,'admin']);
+Route::post('/createuser',[VehicleController::class,'createuser']) ;
+Route::get('/user',[VehicleController::class,'userlist']);
+
+// Route::view('/','login');
+// Route::post('/user',[VehicleController::class,'admin']);
+// Route::get('/user',[VehicleController::class,'userlist']);
+// Route::post('/createuser',[VehicleController::class,'createuser']) ;
+

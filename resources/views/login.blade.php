@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log_in</title>
+    <title>LogIn</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
@@ -15,9 +15,8 @@
 body {
     font-family: 'EB Garamond', serif;
     overflow: hidden;
-	background: linear-gradient(90deg, #8f8dd2, #4430d4);
+	background: linear-gradient(90deg, #bbbbc4, 	#b8b8ee);
 }
-
 .container {
 	display: flex;
 	align-items: center;
@@ -26,7 +25,7 @@ body {
 }
 
 .screen {
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);
+	background: linear-gradient(90deg, #5D54A4, 	#ddddfc);
 	position: relative;
 	height: 500px;
 	width: 400px;
@@ -76,7 +75,7 @@ body {
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	background: linear-gradient(270deg, #625a9e, #a3a0de);
 	top: -24px;
 	right: 0;
 	border-radius: 32px;
@@ -161,16 +160,18 @@ body {
     <div class="container">
         <div class="screen">
             <div class="screen__content">
-                <form class="login">
+                <form class="login" action="/user" method="POST" autocomplete="off">
+                    @csrf
+
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder="User name / Email">
+                        <input type="text" class="login__input" placeholder=" Enter Your Email" name="email" required>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password">
+                        <input type="password" class="login__input" placeholder="Password"  name="password" required>
                     </div>
-                    <button class="button login__submit">
+                    <button class="button login__submit" type="submit" >
                         <span class="button__text">Log In Now</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>
