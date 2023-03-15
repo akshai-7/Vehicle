@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+Use App\Models\Vehicle;
 class VehicleController extends Controller
 {
     public function admin(Request $request){
@@ -16,6 +17,7 @@ class VehicleController extends Controller
         }
             return redirect('/user');
     }
+    //driver
     public function createuser(Request $request){
         $request->validate([
             'name'=>'required',
@@ -71,4 +73,64 @@ class VehicleController extends Controller
          session()->flash('message',' Updated Successfully');
          return redirect('/user');
      }
+     public function delete($id){
+        User::find($id)->delete();
+        session()->flash('message1',' User is Deleted');
+        return redirect('/user');
+    }
+
+//vehicle
+     public function createvehicle(Request $request){
+        dd($request);
+        $request->validate([
+           'number_plate'=>'required',
+           'vehicle_name'=>'required',
+           'vehicle_type'=>'required',
+           'mileage'=>'required',
+        ]);
+        $vehicle=new Vehicle();
+        $vehicle->number_plate=$request['number_plate'];
+        $vehicle->vehicle_name=$request['vehicle_name'];
+        $vehicle->vehicle_type=$request['vehicle_type'];
+        $vehicle->mileage=$request['mileage'];
+        $vehicle->save();
+        session()->flash('message','Vehicle is Created');
+        return redirect('/user');
+    }
+    public function vehiclelist(){
+        $vehicle=Vehicle::all();
+        return view('vehiclelist',compact('vehicle'));
+    }
+    public function updatevehicle(Request $request,$id){
+        $request->validate([
+            'number_plate'=>'required',
+            'vehicle_name'=>'required',
+            'vehicle_type'=>'required',
+            'mileage'=>'required',
+         ]);
+         $id= $request->id;
+             $vehicle1=Vehicle::find($id);
+             if ($vehicle1==null){
+                 return response()->json(['message'=>'Invalid Id']);
+             }
+         $vehicle=Vehicle::where('id',$id)->first();
+         $vehicle->number_plate=$request['number_plate'];
+         $vehicle->vehicle_name=$request['vehicle_name'];
+         $vehicle->vehicle_type=$request['vehicle_type'];
+         $vehicle->mileage=$request['mileage'];
+         $vehicle->save();
+         session()->flash('message','Updated Successfully');
+         return redirect('/vehiclelist');
+    }
+    public function remove($id){
+        Vehicle::find($id)->delete();
+        session()->flash('message1',' Vehicle is Deleted');
+        return redirect('/vehiclelist');
+    }
+
+    //assign
+    public function assign(){
+        $user=User::all();
+        $vehicle=Vehicle::all();
+    }
 }

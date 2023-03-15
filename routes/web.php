@@ -15,9 +15,19 @@ use App\Http\Controllers\VehicleController;
 */
 
 Route::view('/','login');
+//driver
 Route::post('/user',[VehicleController::class,'admin']);
 Route::post('/createuser',[VehicleController::class,'createuser']) ;
 Route::get('/user',[VehicleController::class,'userlist']);
 Route::post('/updateuserdetails/{id}',[VehicleController::class,'updateuserdetails']);
+Route::get('/delete/{id}',[VehicleController::class,'delete']);
+
+//vehicle
+Route::post('/createvehicle',[VehicleController::class,'createvehicle']) ;
+Route::get('/vehiclelist',[VehicleController::class,'vehiclelist']);
+Route::post('/updatevehicle/{id}',[VehicleController::class,'updatevehicle']);
+Route::get('/remove/{id}',[VehicleController::class,'remove']);
+
+
 
 

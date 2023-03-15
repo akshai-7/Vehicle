@@ -19,6 +19,8 @@ class CreateVehiclesTable extends Migration
             $table->string('vehicle_name');
             $table->string('vehicle_type');
             $table->string('mileage');
+            $table->string('assigned_to')->nullable();;
+            $table->string('name')->nullable();;
             $table->timestamps();
         });
     }
