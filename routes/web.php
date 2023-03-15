@@ -29,5 +29,12 @@ Route::post('/updatevehicle/{id}',[VehicleController::class,'updatevehicle']);
 Route::get('/remove/{id}',[VehicleController::class,'remove']);
 
 
+Route::get('/vehicleassign',[VehicleController::class,'vehicleassign']);
+Route::post('/vehicleassignlist',[VehicleController::class,'vehicleassignlist']);
+Route::get('/vehicleassignedlist',[VehicleController::class,'vehicleassignedlist']);
+
+
+
+
 
 

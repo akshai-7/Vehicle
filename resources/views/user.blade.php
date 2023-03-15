@@ -11,346 +11,18 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
 	<title>M&D Foundations</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
-            :root{
-                --header-height: 3rem;
-                --first-color:#b8b8ee;
-                --first-color-light:black;
-                --white-color: #F7F6FB;
-                --z-fixed: 100;
-                --light: #F9F9F9;
-                --grey: #eee;
-                --dark-grey: #AAAAAA;
-                --dark: #342E37;s
-            }
-            html {
-                overflow-y: hidden;
-            }
-            body{
-                font-family: 'EB Garamond', serif;
-                /* font-family: 'Times New Roman', Times, serif; */
-                background: var(--grey);
-                overflow: hidden;
-            }
-            a{
-                text-decoration: none;
-            }
-            #container{
-                width: 100%;
-                height: 100vh;
-                display: flex;
-                flex-direction: row;
-            }
-            #div-1{
-                width: 5%;
-                height: 200;
-                background:#bebef0;
-
-            }
-            #div-2{
-                width: 95%;
-                height: 200;
-                position: relative;
-            }
-            #message{
-                position:fixed;
-                top: 70px;
-                right: 10px;
-                animation-duration: 1s;
-            }
-            #headers{
-                width: 100%;
-                padding: 10px;
-                display: flex;
-                justify-content: space-between;
-                align-content: center;
-                background: #bebef0;
-            }
-            .icon-name{
-                justify-content: center;
-                align-items: center;
-                align-content: center;
-                display: flex;
-               flex: 1
-
-            }
-            .nav_name{
-                flex: 2;
-                display: none;
-            }
-
-            .header{
-                width: inherit;
-                height: var(--header-height);
-                position: fixed;
-                top: 0;
-                left: 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0 1rem;
-                background-color: var(--white-color);
-                z-index: var(--z-fixed);
-                transition: .5s
-            }
-            .header_toggle{
-                color: black;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-            #img-container{
-                width: 100%;
-                height: 100px;
-                display: flex;
-                justify-content: center;
-                align-items: center
-            }
-            #img-logo{
-                width: 60%;
-            }
-            #img-logo1{
-                width: 80%;
-                border-radius: 50%;
-                margin-right: -155px;
-                margin-top: -10px;
-            }
-            .nav_list{
-                width: 100%;
-                padding: 0 10px;
-                height: 7vh;
-                border-radius: 4px;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                color: black
-            }
-            .nav_list:hover{
-                width: 100%;
-                padding: 0 10px;
-                height: 7vh;
-                border-radius: 4px;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                border-radius: 10px;
-                background: whitesmoke;
-                color:blue;
-            }
-            .nav_icon{
-                font-size: 1.25rem
-            }
-            main {
-                position: relative;
-                width: 85%;
-                left: 120px;
-            }
-            .table-data{
-                margin-top: 10%;
-                border-radius:8px;
-                background:var(--light);
-                padding: 24px;
-                overflow-x: auto;
-            }
-            .head {
-                display: flex;
-            }
-            .head h3 {
-                margin-right: auto;
-                font-weight: 600;
-                color: #06064b;
-            }
-
-            .order table {
-                width: 100%;
-                margin-top: 2%;
-            }
-            .order table th {
-                padding-bottom: 12px;
-                font-size: 17px;
-                color: #06064b;
-                border-bottom: 1px solid var(--grey);
-            }
-            .order table td {
-                padding: 16px 0;
-            }
-            #add{
-                background: #bebef0;
-                border-radius: 5px;
-                border: 1px solid #0a0230;
-                color:#0a0230;
-                cursor: pointer;
-                top:-5px;
-                height: 30px;
-                position: relative;
-                width: 90px;
-                dn
-            }
-            .table_row {
-                background: rgb(237, 233, 233);
-            }
-            .table_row:hover {
-                background: white;
-            }
-            .table_row:hover  .table_data{
-                color: black;
-            }
-            .main{
-                /* margin-top: 30px; */
-                height: 80%;
-                overflow: scroll;
-            }
-            .main::-webkit-scrollbar {
-             display: none;
-            }
-            .popup {
-                display: none;
-                position: fixed;
-                padding: 20px;
-                width: 700px;
-                height: 450px;
-                left: 50%;
-                margin-left: -250px;
-                top: 30%;
-                margin-top: -50px;
-                background: #FFF;
-                z-index: 20;
-                align-items: center;
-                justify-content: center;
-            }
-
-            #popup:after {
-                position: fixed;
-                content: "";
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background: rgba(0,0,0,0.5);
-
-                z-index: -2;
-            }
-            #popup:before {
-                position: absolute;
-                content: "";
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background:var(--light);
-                z-index: -1;
-            }
-            #popup1:after {
-                position: fixed;
-                content: "";
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background: rgba(0,0,0,0.5);
-
-                z-index: -2;
-            }
-            #popup1:before {
-                position: absolute;
-                content: "";
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background:var(--light);
-                z-index: -1;
-            }
-            #popup2:after {
-                position: fixed;
-                content: "";
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background: rgba(0,0,0,0.5);
-
-                z-index: -2;
-            }
-            #popup2:before {
-                position: absolute;
-                content: "";
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background:var(--light);
-                z-index: -1;
-            }
-            form{
-                margin-left: 50px;
-            }
-            .table-data1{
-                position: relative;
-                color: #06064b;
-                margin-top: 50px;
-                margin-left: 120px;
-                width: 220px;
-                height: 90px;
-                border-radius:8px;
-                background: var(--light);
-            }
-            .usercount{
-                margin-left: 15px;
-                padding:10px;
-            }
-            .close{
-                margin-left: 600px;
-                margin-bottom: 10%;
-            }
-            .open-button {
-                padding: 13px 10px;
-                cursor: pointer;
-                position: fixed;
-                right: 28px;
-            }
-            .form-popup {
-                display: none;
-                position: fixed;
-                padding:10px;
-                height: 100px;
-                width: 200px;
-                margin-top: 50px;
-                right: 45px;
-                background:var(--light);
-                border-radius: 4px;
-                z-index: 9;
-            }
-            .form-group {
-                display: flex;
-                justify-content: space-between;
-            }
-            .report1{
-                display: flex;
-            }
-            .report{
-                width: 40%;
-            }
-            .subreport{
-                margin-left: 50px;
-                width: 40%;
-            }
-            .vehicle {
-                margin-left: 10px;
-            }
-
-</style>
 <body>
 <section id="container">
-
     <div id="div-1">
        <div id="img-container">
         <img  id="img-logo" src="{{url('images/m-d-foundation.png')}}">
        </div>
         <a class="nav_list" href="/user" ><div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div> <div class="nav_name">Drivers </div> </a>
         <a  class="nav_list" href="/vehiclelist" ><div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">Vehicles</span> </a>
-        <a  class="nav_list" href="/assign"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Vehicle Assign</span> </a>
+        <a  class="nav_list" href="/vehicleassign"><div class="icon-name"><i class="fa-solid fa-list-ol"></i></div><span class="nav_name"> Vehicle Assign</span> </a>
+        <a  class="nav_list" href="/vehicleassignedlist"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Vehicle Assigned List</span> </a>
         <a  class="nav_list"href="/"> <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">SignOut</span> </a>
     </div>
     <div id="div-2">
@@ -560,30 +232,28 @@
                     <div class="vehicle">
                         <div class="form-group row mt-4">
                             <label class="col-sm-2 col-form-label">Number_Plate</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-9">
                                 <input type="text" name="number_plate" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')*{{$message}}@enderror</div>
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">Vehicle_Name</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-9">
                                 <input type="text" name="vehicle_name" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_name')*{{$message}}@enderror</div>
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">Vehicle_Type</label>
-
-                            <div class="col-sm-10">
-                                {{-- <select  name="vehicle_type" class="form-control" >
-                                    <option name="vehicle_type" value="">Car</option>
-                                    <option  name="vehicle_type"value="">Truck</option>
-                                  </select> --}}
-                                <input type="text" name="vehicle_type" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_type')*{{$message}}@enderror</div>
+                            <div class="col-sm-9">
+                                <select  name="vehicle_type" class="form-select">
+                                    <option  value="Car">Car</option>
+                                    <option  value="Truck">Truck</option>
+                                  </select>
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
                             <label  class="col-sm-2 col-form-label"> Mileage</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-9">
                               <input type="text" name="mileage" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')*{{$message}}@enderror</div>
                               <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
                             </div>

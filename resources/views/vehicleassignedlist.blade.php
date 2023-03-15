@@ -50,28 +50,35 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Vehicle Details</h3>
+						<h3>Vehicle Assigned List</h3>
 					</div>
                     <table>
                         <thead class="text-primary">
                             <th style="text-align:center;">Id</th>
+                            <th style="text-align:center;">Driver_Id</th>
+                            <th style="text-align:center;">Vehicle_Id</th>
+                            <th style="text-align:center;">Driver Name</th>
+                            <th style="text-align:center;">Email</th>
+                            <th style="text-align:center;">Mobile.No</th>
                             <th style="text-align:center;">Number plate</th>
-                            <th style="text-align:center;">Vehicle Name</th>
-                            <th style="text-align:center;">Vehicle Type</th>
                             <th style="text-align:center;">Mileage</th>
                             <th style="text-align:center;">Action</th>
                         </thead>
                         <tbody>
-                            @foreach($vehicle as $vehicle)
+                            @foreach($assign as $assign)
+                            {{-- @dd($assign); --}}
                                  <tr class="table_row">
-                                    <td style="text-align:center;" class="table_data">{{$vehicle->id}}</td>
-                                    <td style="text-align:center;" class="table_data">{{$vehicle->number_plate}}</td>
-                                    <td style="text-align:center;" class="table_data">{{$vehicle->vehicle_name}}</td>
-                                    <td style="text-align:center;" class="table_data">{{$vehicle->vehicle_type}}</td>
-                                    <td style="text-align:center;" class="table_data">{{$vehicle->mileage}}Km</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->id}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->driver_id}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->name}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->email}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->mobile}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->number_plate}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->mileage}}Km</td>
                                     <td style="text-align:center;" class="table_data">
                                     <a onclick="show('popup')"><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
-                                    <a href="/remove/{{$vehicle->id}}"><i class="fa-solid fa-trash btn btn-danger" ></i></a></td>
+                                    <a href="/remove/{{$assign->id}}"><i class="fa-solid fa-trash btn btn-danger" ></i></a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -79,7 +86,7 @@
 				</div>
 			</div>
 		</main>
-        <div class="popup" id="popup">
+        {{-- <div class="popup" id="popup">
             <form action="/updatevehicle/{id}" method="POST" autocomplete="off"  >
                 @csrf
                 <a href="#" onclick="hide('popup')" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
@@ -118,7 +125,7 @@
                         </div>
                     </div>
             </form>
-        </div>
+        </div> --}}
     </div>
 
 </section>

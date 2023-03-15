@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 Use App\Models\Vehicle;
+use App\Models\Assign;
 class VehicleController extends Controller
 {
     public function admin(Request $request){
@@ -37,7 +38,7 @@ class VehicleController extends Controller
         $user->password=Hash::make($request['password']);
         $user->mobile=$request['mobile'];
         $user->save();
-        session()->flash('message','User is Created');
+        session()->flash('message','Driver is Created');
         return redirect('/user');
     }
     public function userlist(){
@@ -81,7 +82,6 @@ class VehicleController extends Controller
 
 //vehicle
      public function createvehicle(Request $request){
-        dd($request);
         $request->validate([
            'number_plate'=>'required',
            'vehicle_name'=>'required',
@@ -129,8 +129,33 @@ class VehicleController extends Controller
     }
 
     //assign
-    public function assign(){
-        $user=User::all();
+    public function vehicleassign(){
+        $role='user';
+        $user=User::where('role',$role)->get();
         $vehicle=Vehicle::all();
+        return view('/vehicleassign',compact('vehicle'),compact('user'));
+    }
+    public function vehicleassignlist(Request $request){
+        $number_plate=$request['number_plate'];
+        $name=$request['name'];
+        $user=User::where('name',$name)->first();
+        $vehicle=Vehicle::where('number_plate',$number_plate)->first();
+
+        $assign=new Assign();
+        $assign->driver_id=$user->id;
+        $assign->name=$user->name;
+        $assign->email=$user->email;
+        $assign->mobile=$user->mobile;
+        $assign->vehicle_id=$vehicle->id;
+        $assign->number_plate=$vehicle->number_plate;
+        $assign->mileage=$vehicle->mileage;
+        $assign->save();
+
+        // $assign=Assign::all();
+        // return view('/vehicleassignedlist',compact('assign'));
+    }
+    public function vehicleassignedlist(){
+        $assign=Assign::all();
+        return view('/vehicleassignedlist',compact('assign'));
     }
 }
