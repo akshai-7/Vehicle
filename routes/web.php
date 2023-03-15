@@ -18,9 +18,6 @@ Route::view('/','login');
 Route::post('/user',[VehicleController::class,'admin']);
 Route::post('/createuser',[VehicleController::class,'createuser']) ;
 Route::get('/user',[VehicleController::class,'userlist']);
+Route::post('/updateuserdetails/{id}',[VehicleController::class,'updateuserdetails']);
 
-// Route::view('/','login');
-// Route::post('/user',[VehicleController::class,'admin']);
-// Route::get('/user',[VehicleController::class,'userlist']);
-// Route::post('/createuser',[VehicleController::class,'createuser']) ;
 

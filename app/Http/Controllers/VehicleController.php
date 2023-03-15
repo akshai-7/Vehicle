@@ -45,4 +45,30 @@ class VehicleController extends Controller
         $user1=User::where('role',$role1)->first();
         return view('/user',['user'=>$user],['user1'=>$user1]);
     }
+    public function updateuserdetails(Request $request,$id){
+        $request->validate([
+            'name'=>'required',
+            'gender'=>'required',
+            'date_of_birth'=>'required',
+            'address'=>'required',
+            'email'=>'required|email',
+            'mobile'=>'required',
+         ]);
+         $id= $request->id;
+             $data1=User::find($id);
+             if ($data1==null){
+                 return response()->json(['message'=>'Invalid Id']);
+             }
+         $user= User::where('id',$id)->first();
+         $user->name=$request['name'];
+         $user->gender=$request['gender'];
+         $user->date_of_birth=$request['date_of_birth'];
+         $user->address=$request['address'];
+         $user->email=$request['email'];
+         $user->password=Hash::make($request['password']);
+         $user->mobile=$request['mobile'];
+         $user->save();
+         session()->flash('message',' Updated Successfully');
+         return redirect('/user');
+     }
 }

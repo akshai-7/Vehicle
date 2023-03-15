@@ -66,7 +66,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-content: center;
-                background: #bebef0;
+                /* background: #bebef0; */
             }
             .icon-name{
                 justify-content: center;
@@ -239,6 +239,48 @@
                 background:var(--light);
                 z-index: -1;
             }
+            #popup1:after {
+                position: fixed;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(0,0,0,0.5);
+
+                z-index: -2;
+            }
+            #popup1:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background:var(--light);
+                z-index: -1;
+            }
+            #popup2:after {
+                position: fixed;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(0,0,0,0.5);
+
+                z-index: -2;
+            }
+            #popup2:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background:var(--light);
+                z-index: -1;
+            }
             form{
                 margin-left: 50px;
             }
@@ -345,7 +387,7 @@
                     <div class="head">
                         <h3>Driver Details</h3>
                         <a href="#" style="margin-right: 20px"><input type="submit" value="Add-Driver" class="text-primary button" id="add" onclick="show('popup')"></a>
-                        <a href="#" style="margin-right: 20px"><input type="submit" value="Add-Vehicle" class="text-primary button" id="add" onclick="show('popup')"></a>
+                        <a href="#" style="margin-right: 20px"><input type="submit" value="Add-Vehicle" class="text-primary button" id="add" onclick="show('popup2')"></a>
                     </div>
                     <table class="">
                         <thead class="text-primary">
@@ -374,7 +416,7 @@
                                     <td style="text-align:center;" class="table_data">{{$user->created_at->format('d.m.Y')}}</td>
                                     <td style="text-align:center;" class="table_data">
                                         <a href="/driver/{{$user->id}}"><i class="fa-solid fa-eye btn  text-white" style="background:#06064b"></i></a>
-                                        <a href="/updateuser/{{$user->id}}" ><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
+                                        <a href="#"  onclick="show('popup1')"><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
                                         <a href="/createdriver/{{$user->id}}"><i class="fa-solid fa-plus btn btn-secondary"></i></a>
                                         <a href="/delete/{{$user->id}}" ><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                     </td>
@@ -446,6 +488,125 @@
                 </div>
             </form>
         </div>
+        <div class="popup" id="popup1">
+            <form action="/updateuserdetails/{id}" method="POST" autocomplete="off"  >
+                @csrf
+                <a href="#" onclick="hide('popup1')" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
+                <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Driver</h5>
+                <div class="report1" >
+                    <div class="report">
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2  col-form-label"> Id</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="id" class="form-control" value="{{$user->id}}" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2  col-form-label"> Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="name" class="form-control" value="{{$user->name}}" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> Gender</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="gender" class="form-control" value="{{$user->gender}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')*{{$message}}@enderror</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="date_of_birth" class="form-control" value="{{$user->date_of_birth}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')*{{$message}}@enderror</div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="subreport">
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2 col-form-label"> Address</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="address" class="form-control" value="{{$user->address}}" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label"> Email</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="email" class="form-control" value="{{$user->email}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2 col-form-label" > Mobile</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="mobile" class="form-control" value="{{$user->mobile}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')*{{$message}}@enderror</div>
+                                <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="popup" id="popup2">
+            <form action="/createvehicle" method="POST" autocomplete="off"  >
+                @csrf
+                <a href="#" onclick="hide('popup2')" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
+
+                <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Create Vehicle</h5>
+                <div class="report1" >
+                    <div class="report">
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2  col-form-label"> Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="name" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> Gender</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="gender" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')*{{$message}}@enderror</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="date_of_birth" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')*{{$message}}@enderror</div>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2 col-form-label"> Address</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="address" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')*{{$message}}@enderror</div>
+                                </div>
+                            </div>
+
+                    </div>
+                    <div class="subreport">
+
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label"> Email</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="email" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="password" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('password')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2 col-form-label"> Mobile</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="mobile" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')*{{$message}}@enderror</div>
+                                <input type="submit" name="" value="Submit" class="btn text-white mt-5" style="float:right;background:#06064b;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
 
@@ -494,6 +655,7 @@
         var hide = function(id) {
             $(id).style.display ='none';
         }
+
 //admin popup
         function openForm() {
                 document.getElementById("myForm").style.display = "block";
