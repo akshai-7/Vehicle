@@ -48,6 +48,7 @@ class VehicleController extends Controller
         $user1=User::where('role',$role1)->first();
         return view('/user',['user'=>$user],['user1'=>$user1]);
     }
+
     public function updateuserdetails(Request $request,$id){
         $request->validate([
             'name'=>'required',
@@ -62,7 +63,7 @@ class VehicleController extends Controller
              if ($data1==null){
                  return response()->json(['message'=>'Invalid Id']);
              }
-         $user= User::where('id',$id)->first();
+         $user= User::where('id',$id)->get();
          $user->name=$request['name'];
          $user->gender=$request['gender'];
          $user->date_of_birth=$request['date_of_birth'];
@@ -150,12 +151,15 @@ class VehicleController extends Controller
         $assign->number_plate=$vehicle->number_plate;
         $assign->mileage=$vehicle->mileage;
         $assign->save();
-
-        // $assign=Assign::all();
-        // return view('/vehicleassignedlist',compact('assign'));
+        return redirect('/vehicleassignedlist');
     }
     public function vehicleassignedlist(){
         $assign=Assign::all();
         return view('/vehicleassignedlist',compact('assign'));
+    }
+    public function deleteId($id){
+        Assign::find($id)->delete();
+        session()->flash('message1',' Vehicle is Deleted');
+        return redirect('/vehicleassignedlist');
     }
 }

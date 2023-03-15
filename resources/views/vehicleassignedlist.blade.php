@@ -19,10 +19,11 @@
         <div id="img-container">
          <img  id="img-logo" src="{{url('images/m-d-foundation.png')}}">
         </div>
-         <a class="nav_list" href="/user" ><div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div> <div class="nav_name">Drivers </div> </a>
-         <a  class="nav_list" href="/vehiclelist" ><div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">vehicles</span> </a>
-         <a  class="nav_list" href="/vehicleassign"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Vehicle Assign</span> </a>
-         <a  class="nav_list"href="/" > <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">SignOut</span> </a>
+        <a class="nav_list" href="/user" ><div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div> <div class="nav_name">Drivers </div> </a>
+        <a  class="nav_list" href="/vehiclelist" ><div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">Vehicles</span> </a>
+        <a  class="nav_list" href="/vehicleassign"><div class="icon-name"><i class="fa-solid fa-folder-open"></i></div><span class="nav_name"> Vehicle Assign</span> </a>
+        <a  class="nav_list" href="/vehicleassignedlist"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name">Assigned List</span> </a>
+        <a  class="nav_list"href="/"> <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">SignOut</span> </a>
     </div>
     <div id="div-2">
         <header class="headers" id="headers">
@@ -78,7 +79,7 @@
                                     <td style="text-align:center;" class="table_data">{{$assign->mileage}}Km</td>
                                     <td style="text-align:center;" class="table_data">
                                     <a onclick="show('popup')"><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
-                                    <a href="/remove/{{$assign->id}}"><i class="fa-solid fa-trash btn btn-danger" ></i></a></td>
+                                    <a href="/deleteId/{{$assign->id}}"><i class="fa-solid fa-trash btn btn-danger" ></i></a></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -21,8 +21,8 @@
        </div>
         <a class="nav_list" href="/user" ><div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div> <div class="nav_name">Drivers </div> </a>
         <a  class="nav_list" href="/vehiclelist" ><div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">Vehicles</span> </a>
-        <a  class="nav_list" href="/vehicleassign"><div class="icon-name"><i class="fa-solid fa-list-ol"></i></div><span class="nav_name"> Vehicle Assign</span> </a>
-        <a  class="nav_list" href="/vehicleassignedlist"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Vehicle Assigned List</span> </a>
+        <a  class="nav_list" href="/vehicleassign"><div class="icon-name"><i class="fa-solid fa-folder-open"></i></div><span class="nav_name"> Vehicle Assign</span> </a>
+        <a  class="nav_list" href="/vehicleassignedlist"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Assigned List</span> </a>
         <a  class="nav_list"href="/"> <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">SignOut</span> </a>
     </div>
     <div id="div-2">
@@ -33,8 +33,8 @@
                 <div class="container">
                     <a type="button"  onclick="closeForm()" style="color:black;margin-left:140px;"><i class="fa-solid fa-xmark"></i></a>
                     <div class="cls" style="margin-top:-20px;color:rgb(106, 106, 233);">
-                        <tr > <i class="fa-solid fa-user" ></i> {{$user1->name}}</tr><br>
-                    <tr> <i class="fa-solid fa-envelope"></i> {{$user1->email}}</tr><br>
+                        {{-- <tr > <i class="fa-solid fa-user" ></i> {{$user1->name}}</tr><br>
+                    <tr> <i class="fa-solid fa-envelope"></i> {{$user1->email}}</tr><br> --}}
                     <a href="/"  style="color:rgb(106, 106, 233);"> <i class="fa-solid fa-arrow-right-from-bracket"  style="color:rgb(106, 106, 233)"></i> Log Out</a><br>
 
                     </div>
@@ -93,7 +93,7 @@
                                     <td style="text-align:center;" class="table_data">{{$user->role}}</td>
                                     <td style="text-align:center;" class="table_data">{{$user->created_at->format('d.m.Y')}}</td>
                                     <td style="text-align:center;" class="table_data">
-                                        <a onclick="show('popup1')"><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
+                                        <a  onclick="show('popup1')" ><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
                                         <a href="/delete/{{$user->id}}" ><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                     </td>
                                 </tr>
@@ -107,7 +107,6 @@
             <form action="/createuser" method="POST" autocomplete="off"  >
                 @csrf
                 <a href="#" onclick="hide('popup')" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
-
                 <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Create Driver</h5>
                 <div class="report1" >
                     <div class="report">
@@ -157,7 +156,6 @@
                             <div class="col-sm-9">
                                 <input type="text" name="mobile" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')*{{$message}}@enderror</div>
                                 <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
-
                             </div>
                         </div>
                     </div>
@@ -165,7 +163,7 @@
             </form>
         </div>
         <div class="popup" id="popup1">
-            <form action="/updateuserdetails/{id}" method="POST" autocomplete="off"  >
+            <form action="/updateuserdetails/{id}" method="POST" autocomplete="off" >
                 @csrf
                 <a href="#" onclick="hide('popup1')" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
                 <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Driver</h5>
