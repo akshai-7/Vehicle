@@ -148,11 +148,11 @@
         width: 100%;
         margin-top: 2%;
     }
-    .order table th {
+    .th {
         padding-bottom: 12px;
         font-size: 17px;
-        color: black;
-        border-bottom: 1px solid var(--grey);
+        color: #06064b;
+
     }
     .order table td {
         padding: 16px 0;
@@ -236,7 +236,7 @@
                                 <div>
                                     <table class="table table-bordered mt-3" style="border: 1px solid grey">
                                         <thead class="">
-                                                <tr class="">
+                                                <tr class="th">
                                                     <th class="col-md-1" style="text-align:center;">S.no</th>
                                                     <th style="text-align:center;" class="col-md-2 ">View</th>
                                                     <th style="text-align:center;" class="col-md-2 ">Image</th>
@@ -289,7 +289,7 @@
                             <div>
                                 <table class="table table-bordered mt-3" style="border: 1px solid grey" >
                                         <thead class="">
-                                                <tr>
+                                                <tr class="th">
                                                     <th class="col-md-1" style="text-align:center;">S.no</th>
                                                     <th style="text-align:center;" class="col-md-2 ">View</th>
                                                     <th style="text-align:center;" class="col-md-2 ">Image</th>
@@ -342,7 +342,7 @@
                             <div>
                                 <table class="table table-bordered mt-3" style="border: 1px solid grey">
                                         <thead class="">
-                                                <tr>
+                                                <tr class="th">
                                                     <th class="col-md-1" style="text-align:center;">S.no</th>
                                                     <th style="text-align:center;" class="col-md-2 ">View</th>
                                                     <th style="text-align:center;" class="col-md-2 ">Image</th>

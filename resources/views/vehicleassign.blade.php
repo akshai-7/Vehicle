@@ -68,11 +68,10 @@
                             <option value="{{$vehicle->number_plate}}" name="number_plate" >{{$vehicle->number_plate}}</option>
                             @endforeach
                         </select>
-
                     </div>
                     <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
-
                 </form>
+                {{-- <a href="/user"><input type="submit" name="" value="Back" class="btn text-white mt-4" style="float:right;background:#e93c3c;"></a> --}}
 				</div>
 			</div>
 		</main>

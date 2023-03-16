@@ -51,6 +51,12 @@ class VehicleController extends Controller
         $user1=User::where('role',$role1)->first();
         return view('/user',['user'=>$user],['user1'=>$user1]);
     }
+    public function updateuser($id){
+        $user=User::where('id',$id)->get();
+        $role='user';
+        $user1=User::where('role',$role)->get();
+        return view('/updateuser',['user'=>$user],['user1'=>$user1]);
+    }
     public function updateuserdetails(Request $request,$id){
         $request->validate([
             'name'=>'required',
@@ -143,7 +149,6 @@ class VehicleController extends Controller
         $name=$request['name'];
         $user=User::where('name',$name)->first();
         $vehicle=Vehicle::where('number_plate',$number_plate)->first();
-
         $assign=new Assign();
         $assign->driver_id=$user->id;
         $assign->name=$user->name;
@@ -164,6 +169,8 @@ class VehicleController extends Controller
         session()->flash('message1',' Vehicle is Deleted');
         return redirect('/vehicleassignedlist');
     }
+
+    //inspections
     public function weeklyinspection($id){
         return view('/inspection',compact('id'));
     }
@@ -189,7 +196,6 @@ class VehicleController extends Controller
         $assign=Assign::where('id',$id)->latest('id')->first();
         $assign_id=$assign->id;
         $data= $request->all();
-        // dd($data);
         foreach($data['view'] as $row =>$value){
             $data1=array(
             'assign_id'=>$assign_id,
@@ -202,7 +208,6 @@ class VehicleController extends Controller
             Visual::create($data1);
         }
         $data2= $request->all();
-        // dd($data2);
         foreach($data2['view'] as $key =>$value){
             $data3=array(
             'assign_id'=>$assign_id,

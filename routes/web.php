@@ -15,13 +15,13 @@ use App\Http\Controllers\VehicleController;
 */
 
 Route::view('/','login');
-//driver
 Route::post('/user',[VehicleController::class,'admin']);
+//driver
 Route::post('/createuser',[VehicleController::class,'createuser']) ;
 Route::get('/user',[VehicleController::class,'userlist']);
+Route::get('/updateuser/{id}',[VehicleController::class,'updateuser']);
 Route::post('/updateuserdetails/{id}',[VehicleController::class,'updateuserdetails']);
 Route::get('/delete/{id}',[VehicleController::class,'delete']);
-
 
 //vehicle
 Route::post('/createvehicle',[VehicleController::class,'createvehicle']) ;
