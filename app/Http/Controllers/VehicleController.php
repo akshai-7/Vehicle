@@ -140,8 +140,10 @@ class VehicleController extends Controller
     //assign
     public function vehicleassign(){
         $role='user';
-        $user=User::where('role',$role)->get();
-        $vehicle=Vehicle::all();
+        $vehicle_id=null;
+        $user=User::where('role',$role)->where('vehicle_id',$vehicle_id)->get();
+        $assigned_id=null;
+        $vehicle=Vehicle::where('assigned_id',$assigned_id)->get();
         return view('/vehicleassign',compact('vehicle'),compact('user'));
     }
     public function vehicleassignlist(Request $request){
@@ -158,6 +160,16 @@ class VehicleController extends Controller
         $assign->number_plate=$vehicle->number_plate;
         $assign->mileage=$vehicle->mileage;
         $assign->save();
+
+        $user=User::where('name',$name)->first();
+        $user->vehicle_id=$vehicle->id;
+        $user->vehicle_no=$vehicle->number_plate;
+        $user->save();
+
+        $vehicle=Vehicle::where('number_plate',$number_plate)->first();
+        $vehicle->assigned_id=$user->id;
+        $vehicle->name=$user->name;
+        $vehicle->save();
         return redirect('/vehicleassignedlist');
     }
     public function vehicleassignedlist(){
@@ -165,8 +177,19 @@ class VehicleController extends Controller
         return view('/vehicleassignedlist',compact('assign'));
     }
     public function deleteId($id){
-        Assign::find($id)->delete();
-        session()->flash('message1',' Vehicle is Deleted');
+        $assign=Assign::where('id',$id)->first();
+        $user_id=$assign->vehicle_id;
+        $user=User::where('vehicle_id',$user_id)->first();
+        $user->vehicle_id=null;
+        $user->vehicle_no=null;
+        $user->save();
+        $driver_id=$assign->driver_id;
+        $vehicle=Vehicle::where('assignid',$driver_id)->first();
+        $vehicle->assigned_id=null;
+        $vehicle->name=null;
+        $vehicle->save();
+        Assign::where('id',$id)->delete();
+        session()->flash('message1','Deleted');
         return redirect('/vehicleassignedlist');
     }
 

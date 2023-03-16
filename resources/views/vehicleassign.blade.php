@@ -54,24 +54,23 @@
 						<h3>Vehicle Assign</h3>
 					</div>
                 <form action="/vehicleassignlist" method="POST">
-                    @csrf
+                @csrf
                     <div class="select">
-                        <select class="form-select"   name="name">
-                            <option >Please Select Driver</option>
-                            @foreach($user as $user)
-                            <option value="{{$user->name}}" name="name" >{{$user->name}}</option>
-                            @endforeach
+                        <select class="form-select"  style="width: 400px;" name="name">
+                                <option >Please Select Driver</option>
+                                @foreach($user as $user)
+                                <option value="{{$user->name}}" name="name" >{{$user->name}}</option>
+                                @endforeach
                         </select>
-                        <select class="form-select" name="number_plate" >
-                            <option >Please Select Vehicle</option>
-                            @foreach($vehicle as $vehicle)
-                            <option value="{{$vehicle->number_plate}}" name="number_plate" >{{$vehicle->number_plate}}</option>
-                            @endforeach
+                        <select class="form-select" name="number_plate" style="width: 400px;" >
+                                <option >Please Select Vehicle</option>
+                                @foreach($vehicle as $vehicle)
+                                <option value="{{$vehicle->number_plate}}" name="number_plate" >{{$vehicle->number_plate}}</option>
+                                @endforeach
                         </select>
                     </div>
-                    <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
+                        <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
                 </form>
-                {{-- <a href="/user"><input type="submit" name="" value="Back" class="btn text-white mt-4" style="float:right;background:#e93c3c;"></a> --}}
 				</div>
 			</div>
 		</main>

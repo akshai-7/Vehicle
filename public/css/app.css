@@ -221,6 +221,7 @@ main {
             margin-bottom: 10%;
         }
         .select{
+            margin-top: 20px;
             display: flex;
-
+            justify-content: space-evenly;
         }
