@@ -27,11 +27,11 @@
     </div>
     <div id="div-2">
         <header class="headers" id="headers">
-            <div class="header_toggle" id="toggle-container"> <i class='bx bx-menu ' id="header-toggle"></i> </div>
+            <div class="header_toggle" id="toggle-container"><i class='bx bx-x' id='header-toggle'></i></div>
             <a href="#" class="open-button" onclick="openForm()"><img  id="img-logo1" src="{{url('images/user-2.png')}}"></a>
             <div class="form-popup" id="myForm">
                 <div class="container">
-                    <a type="button"  onclick="closeForm()" style="color:black;margin-left:140px;"><i class="fa-solid fa-xmark"></i></a>
+                    <a type="button"  onclick="closeForm()" style="color:black;margin-left:140px;"><i class='bx bx-menu ' id="header-toggle"></i></i></a>
                     <div class="cls" style="margin-top:-20px;color:black">
                         <tr > <i class="fa-solid fa-user" ></i> {{$user1->name}}</tr><br>
                     <tr> <i class="fa-solid fa-envelope"></i> {{$user1->email}}</tr><br>
@@ -81,7 +81,7 @@
                             <th style="text-align:center;">Action</th>
                         </thead>
                         <tbody>
-                            @foreach($user as $user)
+                            @foreach($users as $user)
                                  <tr class="table_row">
                                     <td style="text-align:center;" class="table_data">{{$loop->iteration}}</td>
                                     <td style="text-align:center;" class="table_data">{{$user->name}}</td>
@@ -99,10 +99,15 @@
                                 </tr>
                             @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </div>
+            <div class="col-sm-12" style="margin-left: 500px;">
+                {!! $users->links() !!}
+            </div>
         </main>
+
         <div class="popup" id="popup">
             <form action="/createuser" method="POST" autocomplete="off"  >
                 @csrf
@@ -258,15 +263,13 @@
             </form>
         </div>
     </div>
-
-
 </section>
 
 </body>
 <script>
     //sidebar
             var toggleBtn=document.getElementById("toggle-container");
-            var isOpen=false;
+            var isOpen=true;
             toggleBtn.addEventListener("click",()=>{
                 if(isOpen){
                     var divsToHide = document.getElementsByClassName("nav_name");
@@ -314,5 +317,7 @@
         function closeForm() {
                 document.getElementById("myForm").style.display = "none";
     }
+
+
 </script>
 </html>

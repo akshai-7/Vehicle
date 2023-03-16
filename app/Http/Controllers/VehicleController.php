@@ -46,10 +46,10 @@ class VehicleController extends Controller
     }
     public function userlist(){
         $role='user';
-        $user=User::where('role',$role)->get();
+        $users=User::where('role',$role)->paginate(2);
         $role1='admin';
         $user1=User::where('role',$role1)->first();
-        return view('/user',['user'=>$user],['user1'=>$user1]);
+        return view('/user',['users'=>$users],['user1'=>$user1]);
     }
     public function updateuser($id){
         $user=User::where('id',$id)->get();

@@ -44,12 +44,12 @@
 
     }
     #div-1{
-        width: 5%;
+        width: 15%;
         height: 200;
         background: #bebef0;
     }
     #div-2{
-        width: 95%;
+        width: 85%;
         height: 200;
     }
     #headers{
@@ -70,7 +70,7 @@
     }
     .nav_name{
         flex: 2;
-        display: none;
+        display: block;
     }
 
     .header{
@@ -134,6 +134,7 @@
         position: relative;
         width: 85%;
         left: 120px;
+
     }
     .table-data{
         /* background: var(--light); */
@@ -208,6 +209,7 @@
        width: 40%;
     }
 </style>
+
 <body>
 <section id="container">
         <div id="div-1">
@@ -222,7 +224,7 @@
         </div>
         <div id="div-2">
             <header class="headers" id="headers">
-                 <div class="header_toggle" id="toggle-container"> <i class='bx bx-menu ' id="header-toggle"></i> </div>
+                 <div class="header_toggle" id="toggle-container"> <i class='bx bx-x ' id="header-toggle"></i> </div>
             </header>
                 <h3> Inspection Details</h3>
             <form action="/store/{id}" method="POST" autocomplete="off" class="main">
@@ -231,7 +233,7 @@
                     <main>
                         <div class="table-data">
                                 <div class="head">
-                                    <h5 class="" style="color:#06064b;">Visual Check</h5>
+                                    <h5 class="" style="color:#06064b;"></h5>Visual Check</h5>
                                 </div>
                                 <div>
                                     <table class="table table-bordered mt-3" style="border: 1px solid grey">
@@ -426,9 +428,10 @@
             </form>
         </div>
 </section>
+
 <script>
     var toggleBtn=document.getElementById("toggle-container");
-    var isOpen=false;
+    var isOpen=true;
     toggleBtn.addEventListener("click",()=>{
         if(isOpen){
             var divsToHide = document.getElementsByClassName("nav_name");
@@ -441,7 +444,6 @@
 
                     divsToHide[i].style.display = "none"; // depending on what you're doing
                 }
-
             isOpen=!isOpen;
         }else{
             document.getElementById("div-1").style.width="15%";
@@ -456,6 +458,9 @@
             isOpen=!isOpen;
         }
 })
+
+
+
 </script>
 </body>
 </html>

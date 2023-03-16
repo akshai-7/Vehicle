@@ -27,7 +27,7 @@
     </div>
     <div id="div-2">
         <header class="headers" id="headers">
-            <div class="header_toggle" id="toggle-container"> <i class='bx bx-menu ' id="header-toggle"></i> </div>
+            <div class="header_toggle" id="toggle-container"> <i class='bx bx-x ' id="header-toggle"></i> </div>
         </header>
         <div class="message" id="message">
             @if (session()->has('message'))

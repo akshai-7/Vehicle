@@ -29,13 +29,13 @@ a{
     flex-direction: row;
 }
 #div-1{
-    width: 5%;
+    width: 15%;
     height: 200;
     background:#bebef0;
 
 }
 #div-2{
-    width: 95%;
+    width: 85%;
     height: 200;
     position: relative;
 }
@@ -62,7 +62,7 @@ a{
 }
 .nav_name{
     flex: 2;
-    display: none;
+    display: block;
 }
 
 .header{
@@ -325,4 +325,7 @@ form{
     margin-left: 10px;
     height: 400px;
     width: 500px;
+}
+.page{
+    margin-left: 500px;
 }
