@@ -53,7 +53,7 @@
 					<div class="head">
 						<h3>Vehicle Assigned List</h3>
 					</div>
-                    <table>
+                    <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                         <thead class="text-primary">
                             <th style="text-align:center;">Id</th>
                             <th style="text-align:center;">Driver_Id</th>
@@ -78,7 +78,8 @@
                                     <td style="text-align:center;" class="table_data">{{$assign->number_plate}}</td>
                                     <td style="text-align:center;" class="table_data">{{$assign->mileage}}Km</td>
                                     <td style="text-align:center;" class="table_data">
-                                    <a onclick="show('popup')"><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
+                                    {{-- <a onclick="show('popup')"><i class="fa-solid fa-edit btn btn-success" ></i></i></a> --}}
+                                    <a href="/inspection/{{$assign->id}}"><i class="fa-solid fa-plus btn btn-secondary"></i></a>
                                     <a href="/deleteId/{{$assign->id}}"><i class="fa-solid fa-trash btn btn-danger" ></i></a></td>
                                 </tr>
                             @endforeach
@@ -87,46 +88,6 @@
 				</div>
 			</div>
 		</main>
-        {{-- <div class="popup" id="popup">
-            <form action="/updatevehicle/{id}" method="POST" autocomplete="off"  >
-                @csrf
-                <a href="#" onclick="hide('popup')" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
-                <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Vehicle</h5>
-                    <div class="vehicle">
-                        <div class="form-group row mt-4">
-                            <label class="col-sm-2 col-form-label">Id</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="id" class="form-control"  value="{{$vehicle->id}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')*{{$message}}@enderror</div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4">
-                            <label class="col-sm-2 col-form-label">Number_Plate</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="number_plate" class="form-control"  value="{{$vehicle->number_plate}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')*{{$message}}@enderror</div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4 ">
-                            <label class="col-sm-2 col-form-label">Vehicle_Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="vehicle_name" class="form-control"  value="{{$vehicle->vehicle_name}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_name')*{{$message}}@enderror</div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4 ">
-                            <label class="col-sm-2 col-form-label">Vehicle_Type</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="vehicle_type" class="form-control" value="{{$vehicle->vehicle_type}}" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_type')*{{$message}}@enderror</div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4">
-                            <label  class="col-sm-2 col-form-label"> Mileage</label>
-                            <div class="col-sm-10">
-                              <input type="text" name="mileage" class="form-control" value="{{$vehicle->mileage}}" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')*{{$message}}@enderror</div>
-                              <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
-                            </div>
-                        </div>
-                    </div>
-            </form>
-        </div> --}}
     </div>
 
 </section>
@@ -159,15 +120,7 @@
             isOpen=!isOpen;
         }
     })
-    $ = function(id) {
-        return document.getElementById(id);
-        }
-        var show = function(id) {
-            $(id).style.display ='block';
-        }
-        var hide = function(id) {
-            $(id).style.display ='none';
-        }
+
 </script>
 
 </body>

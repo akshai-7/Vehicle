@@ -67,7 +67,7 @@
                         <a style="margin-right:20px;" ><input type="submit" value="Add-Driver"  id="add"  onclick="show('popup')"></a>
                         <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add" onclick="show('popup2')"></a>
                     </div>
-                    <table>
+                    <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                         <thead>
                             <th style="text-align:center;">S.No</th>
                             <th style="text-align:center;">Name</th>
@@ -93,7 +93,7 @@
                                     <td style="text-align:center;" class="table_data">{{$user->role}}</td>
                                     <td style="text-align:center;" class="table_data">{{$user->created_at->format('d.m.Y')}}</td>
                                     <td style="text-align:center;" class="table_data">
-                                        <a  onclick="show('popup1')" ><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
+                                        <a heft="#" onclick="show('popup1')" ><i class="fa-solid fa-edit btn btn-success" ></i></i></a>
                                         <a href="/delete/{{$user->id}}" ><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                     </td>
                                 </tr>
@@ -138,7 +138,6 @@
 
                     </div>
                     <div class="subreport">
-
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label"> Email</label>
                             <div class="col-sm-9">

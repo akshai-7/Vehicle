@@ -53,7 +53,7 @@
 					<div class="head">
 						<h3>Vehicle Details</h3>
 					</div>
-                    <table>
+                    <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                         <thead class="text-primary">
                             <th style="text-align:center;">Id</th>
                             <th style="text-align:center;">Number plate</th>

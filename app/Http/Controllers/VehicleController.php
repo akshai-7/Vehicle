@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 Use App\Models\Vehicle;
 use App\Models\Assign;
+use App\Models\Visual;
+use App\Models\Vehiclecheck;
+use App\Models\Cabin;
 class VehicleController extends Controller
 {
     public function admin(Request $request){
@@ -48,7 +51,6 @@ class VehicleController extends Controller
         $user1=User::where('role',$role1)->first();
         return view('/user',['user'=>$user],['user1'=>$user1]);
     }
-
     public function updateuserdetails(Request $request,$id){
         $request->validate([
             'name'=>'required',
@@ -63,7 +65,7 @@ class VehicleController extends Controller
              if ($data1==null){
                  return response()->json(['message'=>'Invalid Id']);
              }
-         $user= User::where('id',$id)->get();
+         $user= User::where('id',$id)->first();
          $user->name=$request['name'];
          $user->gender=$request['gender'];
          $user->date_of_birth=$request['date_of_birth'];
@@ -160,6 +162,70 @@ class VehicleController extends Controller
     public function deleteId($id){
         Assign::find($id)->delete();
         session()->flash('message1',' Vehicle is Deleted');
+        return redirect('/vehicleassignedlist');
+    }
+    public function weeklyinspection($id){
+        return view('/inspection',compact('id'));
+    }
+    public function store(Request $request){
+        $request->validate([
+            'view'=>'required',
+            'image'=>'required',
+            'feedback'=>'required',
+            'action'=>'required',
+            'notes'=>'required',
+            'view1'=>'required',
+            'image1'=>'required',
+            'feedback1'=>'required',
+            'action1'=>'required',
+            'notes1'=>'required',
+            'view2'=>'required',
+            'image2'=>'required',
+            'feedback2'=>'required',
+            'action2'=>'required',
+            'notes2'=>'required',
+        ]);
+        $id=$request->id;
+        $assign=Assign::where('id',$id)->latest('id')->first();
+        $assign_id=$assign->id;
+        $data= $request->all();
+        // dd($data);
+        foreach($data['view'] as $row =>$value){
+            $data1=array(
+            'assign_id'=>$assign_id,
+            'view'=>$data['view'][$row],
+            'image'=> $data['image'][$row],
+            'feedback'=>$data['feedback'][$row],
+            'notes'=> $data['notes'][$row],
+            'action'=> $data['action'][$row],
+            );
+            Visual::create($data1);
+        }
+        $data2= $request->all();
+        // dd($data2);
+        foreach($data2['view'] as $key =>$value){
+            $data3=array(
+            'assign_id'=>$assign_id,
+            'view'=>$data2['view1'][$key],
+            'image'=> $data2['image1'][$key],
+            'feedback'=>$data2['feedback1'][$key],
+            // 'notes'=> $data2['notes1'][$key],
+            'action'=> $data2['action1'][$key],
+            );
+            Vehiclecheck::create($data3);
+        }
+        $data4= $request->all();
+        foreach($data4['view'] as $list =>$value){
+            $data5=array(
+            'assign_id'=>$assign_id,
+            'view'=>$data4['view2'][$list],
+            'image'=> $data4['image2'][$list],
+            'feedback'=>$data4['feedback2'][$list],
+            // 'notes'=> $data4['notes2'][$list],
+            'action'=> $data4['action2'][$list],
+            );
+            Cabin::create($data5);
+        }
         return redirect('/vehicleassignedlist');
     }
 }

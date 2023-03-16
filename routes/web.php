@@ -35,6 +35,8 @@ Route::post('/vehicleassignlist',[VehicleController::class,'vehicleassignlist'])
 Route::get('/vehicleassignedlist',[VehicleController::class,'vehicleassignedlist']);
 Route::get('/deleteId/{id}',[VehicleController::class,'deleteId']);
 
+Route::get('/inspection/{id}',[VehicleController::class,'weeklyinspection']);
+Route::post('/store/{id}',[VehicleController::class,'store']);
 
 
 
