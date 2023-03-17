@@ -11,7 +11,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
     <link rel="stylesheet" href="css/app.css">
-
 	<title>M&D Foundations</title>
 </head>
 <body>
@@ -53,36 +52,57 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Vehicle Assign</h3>
+						<h3>Vehicle Assigned List</h3>
 					</div>
-                <form action="/vehicleassignlist" method="POST">
-                @csrf
-                    <div class="select">
-                        <select class="form-select"  style="width: 400px;" name="name">
-                                <option >Please Select Driver</option>
-                                @foreach($user as $user)
-                                <option value="{{$user->name}}" name="name" >{{$user->name}}</option>
-                                @endforeach
-                        </select>
-                        <select class="form-select" name="number_plate" style="width: 400px;" >
-                                <option >Please Select Vehicle</option>
-                                @foreach($vehicle as $vehicle)
-                                <option value="{{$vehicle->number_plate}}" name="number_plate" >{{$vehicle->number_plate}}</option>
-                                @endforeach
-                        </select>
-                    </div>
-                        <input type="submit" name="" value="Submit" class="btn text-white mt-4" style="float:right;background:#06064b;">
-                </form>
+                    <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+                        <thead class="text-primary">
+                            <th style="text-align:center;">Id</th>
+                            <th style="text-align:center;">Report.no</th>
+                            <th style="text-align:center;">Driver Name</th>
+                            <th style="text-align:center;">Email</th>
+                            <th style="text-align:center;">Mobile.No</th>
+                            <th style="text-align:center;">Number plate</th>
+                            <th style="text-align:center;">Mileage</th>
+                            <th style="text-align:center;">Inspection_date</th>
+                            <th style="text-align:center;">Next_inspection</th>
+                            {{-- <th style="text-align:center;">Over_due</th> --}}
+                            <th style="text-align:center;">Action</th>
+                        </thead>
+                        <tbody>
+                            @foreach($inspection as $inspection)
+                                 <tr class="table_row">
+                                    <td style="text-align:center;" class="table_data">{{$inspection->id}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->report_no}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->name}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->email}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->mobile}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->number_plate}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->mileage}}Km</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->date}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$inspection->next_inspection}}</td>
+                                    {{-- <td style="text-align:center;" class="table_data">
+                                        @if($inspection->next_inspection >= date('d.m.y'))
+                                            <button type="button" class="btn btn-sucess btn-sm">No</button>
+                                        @else
+                                            <button type="button" class="btn btn-daer btn-sm">Yes</button>
+                                        @endif
+                                    </td> --}}
+                                    <td style="text-align:center;" class="table_data">
+                                    <a href="/details/{{$inspection->id}}"><i class="fa-solid fa-eye btn  text-white" style="background:#06064b "></i></a>
+                                    {{-- <a href="/deleteId/{{$inspection->id}}"><i class="fa-solid fa-trash btn btn-danger" ></i></a></td> --}}
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 				</div>
 			</div>
 		</main>
-
     </div>
 
 </section>
 <script>
     var toggleBtn=document.getElementById("toggle-container");
-    var isOpen=true;
+    var isOpen=false;
     toggleBtn.addEventListener("click",()=>{
         if(isOpen){
             var divsToHide = document.getElementsByClassName("nav_name");

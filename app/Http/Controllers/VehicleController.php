@@ -11,6 +11,7 @@ use App\Models\Vehiclecheck;
 use App\Models\Cabin;
 use App\Models\Inspection;
 use Illuminate\Support\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 class VehicleController extends Controller
 {
     public function admin(Request $request){
@@ -185,8 +186,8 @@ class VehicleController extends Controller
         $user->vehicle_id=null;
         $user->vehicle_no=null;
         $user->save();
-        $driver_id=$assign->driver_id;
-        $vehicle=Vehicle::where('assignid',$driver_id)->first();
+        $assigned_id=$assign->driver_id;
+        $vehicle=Vehicle::where('assigned_id',$assigned_id)->first();
         $vehicle->assigned_id=null;
         $vehicle->name=null;
         $vehicle->save();
@@ -219,7 +220,11 @@ class VehicleController extends Controller
             'notes2'=>'required',
         ]);
 
+        $id=$request->id;
+        $assign=Assign::where('id',$id)->first();
+
         $inspection=new Inspection;
+        $inspection->assign_id =$assign->id;
         $inspection->report_no =$request['reportno'];
         $inspection->name=$request['name'];
         $inspection->email=$request['email'];
@@ -230,14 +235,12 @@ class VehicleController extends Controller
         $inspection->mileage=$request['mileage'];
         $inspection->save();
 
-
-        $id=$request->id;
-        $assign=Assign::where('id',$id)->latest('id')->first();
         $assign_id=$assign->id;
+        $assign_id=Inspection::where('assign_id',$assign_id)->first();
         $data= $request->all();
         foreach($data['view'] as $row =>$value){
             $data1=array(
-            'assign_id'=>$assign_id,
+            'assign_id'=>$assign_id->id,
             'view'=>$data['view'][$row],
             'image'=> $data['image'][$row],
             'feedback'=>$data['feedback'][$row],
@@ -249,7 +252,7 @@ class VehicleController extends Controller
         $data2= $request->all();
         foreach($data2['view'] as $key =>$value){
             $data3=array(
-            'assign_id'=>$assign_id,
+            'assign_id'=>$assign_id->id,
             'view'=>$data2['view1'][$key],
             'image'=> $data2['image1'][$key],
             'feedback'=>$data2['feedback1'][$key],
@@ -261,7 +264,7 @@ class VehicleController extends Controller
         $data4= $request->all();
         foreach($data4['view'] as $list =>$value){
             $data5=array(
-            'assign_id'=>$assign_id,
+            'assign_id'=>$assign_id->id,
             'view'=>$data4['view2'][$list],
             'image'=> $data4['image2'][$list],
             'feedback'=>$data4['feedback2'][$list],
@@ -270,6 +273,36 @@ class VehicleController extends Controller
             );
             Cabin::create($data5);
         }
-        return redirect('/vehicleassignedlist');
+        return redirect('/inspectiondetails');
+    }
+
+    public function inspection(){
+        $inspection=Inspection::all();
+        return view('/inspectiondetails',compact('inspection'));
+    }
+
+    public function check($assign_id){
+        $visual= Visual::where('assign_id',$assign_id)->get();
+        $vehicle = Vehiclecheck::where('assign_id',$assign_id)->get();
+        $cabin= Cabin::where('assign_id',$assign_id)->get();
+        return view('/details',['cabin'=>$cabin,'visual'=>$visual,'vehicle'=>$vehicle]);
+    }
+
+    public function summary($assign_id){
+        $visual= Visual::where('assign_id',$assign_id)->get();
+        $vehicle = Vehiclecheck::where('assign_id',$assign_id)->get();
+        $cabin= Cabin::where('assign_id',$assign_id)->get();
+        return view('/summary',['cabin'=>$cabin,'visual'=>$visual,'vehicle'=>$vehicle]);
+    }
+
+    public function pdf($assign_id){
+        $visual= Visual::where('assign_id',$assign_id)->get();
+        $vehicle = Vehiclecheck::where('assign_id',$assign_id)->get();
+        $cabin= Cabin::where('assign_id',$assign_id)->get();
+        $pdf = Pdf::loadView('userpdf',['cabin'=>$cabin,'visual'=>$visual,'vehicle'=>$vehicle]);
+        return $pdf->download('userpdf.pdf');
+    }
+    public function edit($assign_id){
+        return redirect('/details/'.$assign_id);
     }
 }

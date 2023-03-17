@@ -10,7 +10,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
+
 	<title>M&D Foundations</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,11 +21,12 @@
        <div id="img-container">
         <img  id="img-logo" src="{{url('images/m-d-foundation.png')}}">
        </div>
-        <a class="nav_list" href="/user" ><div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div> <div class="nav_name">Drivers </div> </a>
-        <a  class="nav_list" href="/vehiclelist" ><div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">Vehicles</span> </a>
-        <a  class="nav_list" href="/vehicleassign"><div class="icon-name"><i class="fa-solid fa-folder-open"></i></div><span class="nav_name"> Vehicle Assign</span> </a>
-        <a  class="nav_list" href="/vehicleassignedlist"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Assigned List</span> </a>
-        <a  class="nav_list"href="/"> <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">SignOut</span> </a>
+        <a class="nav_list gradient-hover-effect" href="/user" ><div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div> <div class="nav_name">Drivers </div> </a>
+        <a  class="nav_list gradient-hover-effect" href="/vehiclelist" ><div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">Vehicles</span> </a>
+        <a  class="nav_list gradient-hover-effect" href="/vehicleassign"><div class="icon-name"><i class="fa-solid fa-user-pen"></i></div><span class="nav_name"> Vehicle Assign</span> </a>
+        <a  class="nav_list gradient-hover-effect" href="/vehicleassignedlist"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Assigned List</span> </a>
+        <a  class="nav_list gradient-hover-effect" href="/inspectiondetails"><div class="icon-name"> <i class="fa-solid fa-list-check"></i> </div><span class="nav_name"> Inspection List</span> </a>
+        <a  class="nav_list gradient-hover-effect"href="/"> <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">SignOut</span> </a>
     </div>
     <div id="div-2">
         <header class="headers" id="headers">
@@ -31,12 +34,11 @@
             <a href="#" class="open-button" onclick="openForm()"><img  id="img-logo1" src="{{url('images/user-2.png')}}"></a>
             <div class="form-popup" id="myForm">
                 <div class="container">
-                    <a type="button"  onclick="closeForm()" style="color:black;margin-left:140px;"><i class='bx bx-menu ' id="header-toggle"></i></i></a>
+                    <a type="button"  onclick="closeForm()" style="color:black;margin-left:140px;"><i class='bx bx-x ' id="header-toggle"></i></i></a>
                     <div class="cls" style="margin-top:-20px;color:black">
                         <tr > <i class="fa-solid fa-user" ></i> {{$user1->name}}</tr><br>
                     <tr> <i class="fa-solid fa-envelope"></i> {{$user1->email}}</tr><br>
                     <a href="/"  style="color:black;"> <i class="fa-solid fa-arrow-right-from-bracket"  style="color:black"></i> Log Out</a><br>
-
                     </div>
                 </div>
             </div>
@@ -317,7 +319,6 @@
         function closeForm() {
                 document.getElementById("myForm").style.display = "none";
     }
-
 
 </script>
 </html>

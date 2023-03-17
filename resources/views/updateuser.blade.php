@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
-	<title>M&D Foundations</title>
+    <title>M&D Foundations</title>
 </head>
 <style>
         @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
@@ -46,7 +46,7 @@
     #div-1{
         width: 5%;
         height: 200;
-        background:#bebef0;
+        background:#f0d6d6;
 
     }
     #div-2{
@@ -66,7 +66,7 @@
         display: flex;
         justify-content: space-between;
         align-content: center;
-        background: #bebef0;
+        background: #f0d6d6;
     }
     .icon-name{
         justify-content: center;
@@ -117,27 +117,32 @@
         margin-top: -10px;
     }
     .nav_list{
-        width: 100%;
-        padding: 0 10px;
-        height: 7vh;
-        border-radius: 4px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        color: black
-    }
-    .nav_list:hover{
-        width: 100%;
-        padding: 0 10px;
-        height: 7vh;
-        border-radius: 4px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        border-radius: 10px;
-        background: whitesmoke;
-        color:blue;
-    }
+            width: 100%;
+            height: 7vh;
+            display: flex;
+            margin: 5px;
+            padding: 0.875em 2em;
+            font-family: inherit;
+            color: #000;
+            text-decoration: none;
+            transition:0.3s;
+            place-content: center;
+        }
+        .nav_list:hover{
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            margin: 5px;
+            height: 7vh;
+            display: flex;
+            justify-content: space-evenly;
+            border-radius: 10px;
+            box-shadow: 4px 7px 5px 0px #F7D4D4;
+            align-items: center;
+            background: linear-gradient(90deg, #b53f3f, transparent) #f18e8e;
+            color: #fff;
+
+        }
     .nav_icon{
         font-size: 1.25rem
     }
@@ -313,6 +318,7 @@
         <a  class="nav_list" href="/vehiclelist" ><div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">Vehicles</span> </a>
         <a  class="nav_list" href="/vehicleassign"><div class="icon-name"><i class="fa-solid fa-folder-open"></i></div><span class="nav_name"> Vehicle Assign</span> </a>
         <a  class="nav_list" href="/vehicleassignedlist"><div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Assigned List</span> </a>
+        <a  class="nav_list" href="/inspectiondetails"><div class="icon-name"> <i class="fa-solid fa-list-check"></i> </div><span class="nav_name"> Inspection List</span> </a>
         <a  class="nav_list"href="/"> <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">SignOut</span> </a>
     </div>
     <div id="div-2">

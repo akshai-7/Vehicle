@@ -15,7 +15,8 @@
 body {
     font-family: 'EB Garamond', serif;
     overflow: hidden;
-	background: linear-gradient(90deg, #bbbbc4, 	#b8b8ee);
+    /* background: linear-gradient(90deg,#f5abab , transparent)  #feecec; */
+    background: linear-gradient(90deg,rgb(239, 215, 215) , transparent)  #e0c1c1;
 }
 .container {
 	display: flex;
@@ -25,11 +26,11 @@ body {
 }
 
 .screen {
-	background: linear-gradient(90deg, #5D54A4, 	#ddddfc);
+	background: linear-gradient(90deg, #f18e8e, 	#f2bebe);
 	position: relative;
 	height: 500px;
 	width: 400px;
-	box-shadow: 0px 0px 24px #201a57;
+	box-shadow: 0px 0px 24px #f2bebe;
 }
 
 .screen__content {
@@ -66,7 +67,7 @@ body {
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #6C63AC;
+	background: #f57777;
 	top: -172px;
 	right: 0;
 	border-radius: 32px;
@@ -75,7 +76,7 @@ body {
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #625a9e, #a3a0de);
+	background: linear-gradient(270deg, #f1b2b2, #f58989);
 	top: -24px;
 	right: 0;
 	border-radius: 32px;
@@ -84,7 +85,7 @@ body {
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #7E7BB9;
+	background: #f57777;
 	top: 420px;
 	right: 50px;
 	border-radius: 60px;
@@ -94,6 +95,7 @@ body {
 	width: 320px;
 	padding: 30px;
 	padding-top: 156px;
+    margin-top: -130px;
 }
 
 .login__field {
@@ -104,12 +106,12 @@ body {
 .login__icon {
 	position: absolute;
 	top: 30px;
-	color: #7875B5;
+	color: #f57777;
 }
 
 .login__input {
 	border: none;
-	border-bottom: 2px solid #D1D1D4;
+	border-bottom: 2px solid #f57777;
 	background: none;
 	padding: 10px;
 	padding-left: 24px;
@@ -122,7 +124,7 @@ body {
 .login__input:focus,
 .login__input:hover {
 	outline: none;
-	border-bottom-color: #6A679E;
+	border-bottom-color: #f57777;
 }
 
 .login__submit {
@@ -131,14 +133,14 @@ body {
 	margin-top: 30px;
 	padding: 16px 20px;
 	border-radius: 26px;
-	border: 1px solid #D4D3E8;
+	border: 1px solid #ebebf7;
 	text-transform: uppercase;
 	font-weight: 700;
 	display: flex;
 	align-items: center;
 	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
+	color: #f57777;
+	box-shadow: 0px 2px 2px #f29f9f;
 	cursor: pointer;
 	transition: .2s;
 }
@@ -146,23 +148,35 @@ body {
 .login__submit:active,
 .login__submit:focus,
 .login__submit:hover {
-	border-color: #6A679E;
+	border-color: #f57777;
 	outline: none;
 }
 
 .button__icon {
 	font-size: 24px;
 	margin-left: auto;
-	color: #7875B5;
+	color: #f57777;
+}
+img{
+    width: 150px;
+    margin-top:60px;
+    margin-left:60px;
+    border: 2px solid #f57777;
+    border-radius: 4px;
+    padding: 10px;
 }
 </style>
 <body>
+
     <div class="container">
+
         <div class="screen">
             <div class="screen__content">
+
+                    <img  id="img-logo" src="{{url('images/m-d-foundation.png')}}">
+
                 <form class="login" action="/user" method="POST" autocomplete="off">
                     @csrf
-
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
                         <input type="text" class="login__input" placeholder=" Enter Your Email" name="email" required>
@@ -178,7 +192,8 @@ body {
                 </form>
             </div>
             <div class="screen__background">
-                <span class="screen__background__shape screen__background__shape4"></span>
+
+                <span class="screen__background__shape screen__background__shape4"> </span>
                 <span class="screen__background__shape screen__background__shape3"></span>
                 <span class="screen__background__shape screen__background__shape2"></span>
                 <span class="screen__background__shape screen__background__shape1"></span>
