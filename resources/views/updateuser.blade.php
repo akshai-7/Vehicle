@@ -21,7 +21,7 @@
         --white-color: #F7F6FB;
         --z-fixed: 100;
         --light: #F9F9F9;
-        --grey: #eee;
+        --grey: #f8efef;
         --dark-grey: #AAAAAA;
         --dark: #342E37;
     }
@@ -108,7 +108,10 @@
         align-items: center
     }
     #img-logo{
-        width: 60%;
+        width: 80%;
+            border: 2px solid rgba(187,17,56,255);
+            border-radius: 4px;
+            padding: 10px;
     }
     #img-logo1{
         width: 80%;
@@ -123,25 +126,26 @@
             margin: 5px;
             padding: 0.875em 2em;
             font-family: inherit;
-            color: #000;
+            color: #2d0404;
             text-decoration: none;
             transition:0.3s;
             place-content: center;
         }
         .nav_list:hover{
             width: 100%;
-            padding: 0 10px;
-            box-sizing: border-box;
-            margin: 5px;
             height: 7vh;
             display: flex;
-            justify-content: space-evenly;
+            margin: 5px;
+            padding: 0.875em 2em;
+            font-family: inherit;
+            color: #2d0404;
+            text-decoration: none;
+            transition:0.3s;
+            place-content: center;
             border-radius: 10px;
-            box-shadow: 4px 7px 5px 0px #F7D4D4;
-            align-items: center;
-            background: linear-gradient(90deg, #b53f3f, transparent) #f18e8e;
-            color: #fff;
-
+            box-shadow: 2px 5px 3px 0px #9d9a9a;
+            background: linear-gradient(90deg, #fba6a6, transparent) #fbd6d6;
+            color: rgba(187,17,56,255);
         }
     .nav_icon{
         font-size: 1.25rem

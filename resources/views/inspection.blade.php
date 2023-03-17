@@ -21,7 +21,7 @@
         --white-color: #F7F6FB;
         --z-fixed: 100;
         --light: #F9F9F9;
-        --grey: #eee;
+        --grey: #f8efef;
         --dark-grey: #AAAAAA;
         --dark: #342E37;s
     }
@@ -46,7 +46,7 @@
     #div-1{
         width: 15%;
         height: 200;
-        background: #bebef0;
+        background: #f0d6d6;
     }
     #div-2{
         width: 85%;
@@ -58,7 +58,7 @@
         display: flex;
         justify-content: space-between;
         align-content: center;
-        background: #bebef0;
+        background: #f0d6d6;
     }
     .icon-name{
         justify-content: center;
@@ -103,30 +103,39 @@
         align-items: center
     }
     #img-logo{
-        width: 60%;
+        width: 80%;
+            border: 2px solid rgba(187,17,56,255);
+            border-radius: 4px;
+            padding: 10px;
     }
     .nav_list{
-        width: 100%;
-        padding: 0 10px;
-        height: 7vh;
-        border-radius: 4px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        color: black
-    }
-    .nav_list:hover{
-        width: 100%;
-        padding: 0 10px;
-        height: 7vh;
-        border-radius: 4px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        border-radius: 10px;
-        background: whitesmoke;
-        color:blue;
-    }
+            width: 100%;
+            height: 7vh;
+            display: flex;
+            margin: 5px;
+            padding: 0.875em 2em;
+            font-family: inherit;
+            color: #2d0404;
+            text-decoration: none;
+            transition:0.3s;
+            place-content: center;
+        }
+        .nav_list:hover{
+            width: 100%;
+            height: 7vh;
+            display: flex;
+            margin: 5px;
+            padding: 0.875em 2em;
+            font-family: inherit;
+            color: #2d0404;
+            text-decoration: none;
+            transition:0.3s;
+            place-content: center;
+            border-radius: 10px;
+            box-shadow: 2px 5px 3px 0px #9d9a9a;
+            background: linear-gradient(90deg, #fba6a6, transparent) #fbd6d6;
+            color: rgba(187,17,56,255);
+        }
     .nav_icon{
         font-size: 1.25rem
     }
@@ -143,7 +152,7 @@
     h3{
         margin-left: 20px;
         margin-top: 20px;
-        color: #06064b;
+        color: #d05572;
     }
     .order table {
         width: 100%;

@@ -49,7 +49,8 @@ class VehicleController extends Controller
     }
     public function userlist(){
         $role='user';
-        $users=User::where('role',$role)->paginate(2);
+        // $users=User::where('role',$role)->paginate(2);
+        $users=User::where('role',$role)->get();
         $role1='admin';
         $user1=User::where('role',$role1)->first();
         return view('/user',['users'=>$users],['user1'=>$user1]);

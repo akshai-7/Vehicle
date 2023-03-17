@@ -179,7 +179,7 @@ img{
                     @csrf
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder=" Enter Your Email" name="email" required>
+                        <input type="text" class="login__input" placeholder="Enter Your Email" name="email" required>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>

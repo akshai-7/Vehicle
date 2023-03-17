@@ -22,7 +22,7 @@
             --white-color: #F7F6FB;
             --z-fixed: 100;
             --light: #F9F9F9;
-            --grey: #eee;
+            --grey: #f8efef;
             --dark-grey: #AAAAAA;
             --dark: #342E37;s
         }
@@ -112,36 +112,41 @@
             align-items: center
         }
         #img-logo{
-            width: 60%;
+            width: 80%;
+            border: 2px solid rgba(187,17,56,255);
+            border-radius: 4px;
+            padding: 10px;
         }
         .nav_list{
-    width: 100%;
-    height: 7vh;
-    display: flex;
-    margin: 5px;
-    padding: 0.875em 2em;
-    font-family: inherit;
-    color: #000;
-    text-decoration: none;
-    transition:0.3s;
-    place-content: center;
-}
-.nav_list:hover{
-    width: 100%;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin: 5px;
-    height: 7vh;
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: 10px;
-    box-shadow: 4px 7px 5px 0px #F7D4D4;
-    align-items: center;
-    background: linear-gradient(90deg, #b53f3f, transparent) #f18e8e;
-    color: #fff;
+            width: 100%;
+            height: 7vh;
+            display: flex;
+            margin: 5px;
+            padding: 0.875em 2em;
+            font-family: inherit;
+            color: #2d0404;
+            text-decoration: none;
+            transition:0.3s;
+            place-content: center;
+        }
+        .nav_list:hover{
+            width: 100%;
+            height: 7vh;
+            display: flex;
+            margin: 5px;
+            padding: 0.875em 2em;
+            font-family: inherit;
+            color: #2d0404;
+            text-decoration: none;
+            transition:0.3s;
+            place-content: center;
+            border-radius: 10px;
+            box-shadow: 2px 5px 3px 0px #9d9a9a;
+            background: linear-gradient(90deg, #fba6a6, transparent) #fbd6d6;
+            color: rgba(187,17,56,255);
+        }
 
-}
-                .nav_icon{
+        .nav_icon{
             font-size: 1.25rem
         }
         main {
@@ -200,8 +205,7 @@
             transition: 0.6s;
         }
         button.active {
-            /* background:#bb1138; */
-            background: linear-gradient(90deg,  #f18e8e, transparent) #b53f3f;
+            background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
             color: white
         }
         .main{

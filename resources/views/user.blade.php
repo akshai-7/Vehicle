@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="col-sm-12" style="margin-left: 500px;">
-                {!! $users->links() !!}
+                {{-- {!! $users->links() !!} --}}
             </div>
         </main>
 
