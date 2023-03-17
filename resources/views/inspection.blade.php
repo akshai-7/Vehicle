@@ -229,11 +229,61 @@
                 <h3> Inspection Details</h3>
             <form action="/store/{id}" method="POST" autocomplete="off" class="main">
                 @csrf
-                <input type="hidden" name="id" value="{{$id}}">
+                <input type="hidden" name="id" value="{{$assign->id}}">
                     <main>
                         <div class="table-data">
+                            <div class="report1" >
+                                <div class="report">
+                                    <div class="form-group row mt-5 ">
+                                        <label for="" class="col-sm-2 col-form-label"> Report.no</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" name="reportno" value="{{$assign->number_plate}}-{{date('d.m.Y')}}" class="form-control"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('report')*{{$message}}@enderror</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-5 ">
+                                        <label for="" class="col-sm-2  col-form-label"> Name</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" name="name" value="{{$assign->name}}" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')*{{$message}}@enderror</div>
+                                        </div>
+                                    </div>
+                                        <div class="form-group row mt-5 ">
+                                            <label for="" class="col-sm-2  col-form-label"> Email</label>
+                                            <div class="col-sm-9">
+                                              <input type="text" name="email" value="{{$assign->email}}"  class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')*{{$message}}@enderror</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mt-5 ">
+                                            <label for="" class="col-sm-2 col-form-label"> Phone</label>
+                                            <div class="col-sm-9">
+                                              <input type="text" name="mobile" value="{{$assign->mobile}}"  class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')*{{$message}}@enderror</div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="subreport">
+                                    <div class="form-group row mt-5">
+                                        <label for="" class="col-sm-2  col-form-label"> Date</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" name="date" class="form-control"  value="{{date('d.m.Y')}}"><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')*{{$message}}@enderror</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-5">
+                                        <label for="" class="col-sm-2 col-form-label">NumberPlate</label>
+                                        <div class="col-sm-8">
+                                          <input type="text" name="number_plate" value="{{$assign->number_plate}}"  class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')*{{$message}}@enderror</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-5 ">
+                                        <label for="" class="col-sm-2 col-form-label"> Mileage</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" name="mileage"  placeholder="Current Reading"   class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')*{{$message}}@enderror</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                                 <div class="head">
-                                    <h5 class="" style="color:#06064b;"></h5>Visual Check</h5>
+                                    <h5 class="mt-5" style="color:#06064b;">Visual Check</h5>
                                 </div>
                                 <div>
                                     <table class="table table-bordered mt-3" style="border: 1px solid grey">
@@ -458,6 +508,9 @@
             isOpen=!isOpen;
         }
 })
+
+
+
 
 
 

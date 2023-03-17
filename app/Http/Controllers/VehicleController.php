@@ -9,6 +9,8 @@ use App\Models\Assign;
 use App\Models\Visual;
 use App\Models\Vehiclecheck;
 use App\Models\Cabin;
+use App\Models\Inspection;
+use Illuminate\Support\Carbon;
 class VehicleController extends Controller
 {
     public function admin(Request $request){
@@ -195,7 +197,8 @@ class VehicleController extends Controller
 
     //inspections
     public function weeklyinspection($id){
-        return view('/inspection',compact('id'));
+        $assign=Assign::where('id',$id)->first();
+        return view('/inspection',compact('assign'));
     }
     public function store(Request $request){
         $request->validate([
@@ -215,6 +218,19 @@ class VehicleController extends Controller
             'action2'=>'required',
             'notes2'=>'required',
         ]);
+
+        $inspection=new Inspection;
+        $inspection->report_no =$request['reportno'];
+        $inspection->name=$request['name'];
+        $inspection->email=$request['email'];
+        $inspection->mobile=$request['mobile'];
+        $inspection->date =$request['date'];
+        $inspection->next_inspection =Carbon::now()->endOfWeek(Carbon::FRIDAY)->format('d.m.Y');
+        $inspection->number_plate =$request['number_plate'];
+        $inspection->mileage=$request['mileage'];
+        $inspection->save();
+
+
         $id=$request->id;
         $assign=Assign::where('id',$id)->latest('id')->first();
         $assign_id=$assign->id;

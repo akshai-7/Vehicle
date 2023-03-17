@@ -57,10 +57,10 @@
                         <thead class="text-primary">
                             <th style="text-align:center;">Id</th>
                             <th style="text-align:center;">Driver_Id</th>
-                            <th style="text-align:center;">Vehicle_Id</th>
                             <th style="text-align:center;">Driver Name</th>
                             <th style="text-align:center;">Email</th>
                             <th style="text-align:center;">Mobile.No</th>
+                            <th style="text-align:center;">Vehicle_Id</th>
                             <th style="text-align:center;">Number plate</th>
                             <th style="text-align:center;">Mileage</th>
                             <th style="text-align:center;">Action</th>
@@ -71,10 +71,10 @@
                                  <tr class="table_row">
                                     <td style="text-align:center;" class="table_data">{{$assign->id}}</td>
                                     <td style="text-align:center;" class="table_data">{{$assign->driver_id}}</td>
-                                    <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td>
                                     <td style="text-align:center;" class="table_data">{{$assign->name}}</td>
                                     <td style="text-align:center;" class="table_data">{{$assign->email}}</td>
                                     <td style="text-align:center;" class="table_data">{{$assign->mobile}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td>
                                     <td style="text-align:center;" class="table_data">{{$assign->number_plate}}</td>
                                     <td style="text-align:center;" class="table_data">{{$assign->mileage}}Km</td>
                                     <td style="text-align:center;" class="table_data">
