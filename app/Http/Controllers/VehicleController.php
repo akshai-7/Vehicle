@@ -31,6 +31,7 @@ class VehicleController extends Controller
             'gender'=>'required',
             'date_of_birth'=>'required',
             'address'=>'required',
+            'company'=>'required',
             'email'=>'required|email',
             'password'=>'required|',
             'mobile'=>'required',
@@ -40,6 +41,7 @@ class VehicleController extends Controller
         $user->gender=$request['gender'];
         $user->date_of_birth=$request['date_of_birth'];
         $user->address=$request['address'];
+        $user->company=$request['company'];
         $user->email=$request['email'];
         $user->password=Hash::make($request['password']);
         $user->mobile=$request['mobile'];

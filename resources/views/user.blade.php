@@ -78,6 +78,7 @@
                             <th style="text-align:center;">Email</th>
                             <th style="text-align:center;">Mobile.no</th>
                             <th style="text-align:center;">Address</th>
+                            <th style="text-align:center;">Company</th>
                             <th style="text-align:center;">Role</th>
                             <th style="text-align:center;">Creation Date</th>
                             <th style="text-align:center;">Action</th>
@@ -92,6 +93,7 @@
                                     <td style="text-align:center;" class="table_data">{{$user->email}}</td>
                                     <td style="text-align:center;" class="table_data">{{$user->mobile}}</td>
                                     <td style="text-align:center;" class="table_data">{{$user->address}}</td>
+                                    <td style="text-align:center;" class="table_data">{{$user->company}}</td>
                                     <td style="text-align:center;" class="table_data">{{$user->role}}</td>
                                     <td style="text-align:center;" class="table_data">{{$user->created_at->format('d.m.Y')}}</td>
                                     <td style="text-align:center;" class="table_data">
@@ -144,7 +146,14 @@
                             </div>
 
                     </div>
+
                     <div class="subreport">
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2 col-form-label"> Company</label>
+                            <div class="col-sm-9">
+                              <input type="text" name="company" class="form-control" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')*{{$message}}@enderror</div>
+                            </div>
+                        </div>
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label"> Email</label>
                             <div class="col-sm-9">
