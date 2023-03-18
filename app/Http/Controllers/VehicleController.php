@@ -286,6 +286,7 @@ class VehicleController extends Controller
 
     public function check($assign_id){
         $visual= Visual::where('assign_id',$assign_id)->get();
+        // dd($visual);
         $vehicle = Vehiclecheck::where('assign_id',$assign_id)->get();
         $cabin= Cabin::where('assign_id',$assign_id)->get();
         return view('/details',['cabin'=>$cabin,'visual'=>$visual,'vehicle'=>$vehicle]);

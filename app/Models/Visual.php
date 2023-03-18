@@ -15,4 +15,7 @@ class Visual extends Model
         'feedback',
         'action'
         ];
+
+        protected $casts = [
+            'image'=>'array', ];
 }

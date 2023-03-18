@@ -20,3 +20,4 @@ use App\Http\Controllers\ApiController;
 // });
 
 Route::post('/login',[ApiController::class,'login']);
+Route::post('/visualcheck/{user_id}',[ApiController::class,'visualcheck'])->middleware('auth:sanctum');

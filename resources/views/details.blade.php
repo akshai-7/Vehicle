@@ -278,7 +278,7 @@
                                 <th style="text-align:center;">Image</th>
                                 <th style="text-align:center;">Feed Back</th>
                                 <th style="text-align:center;">Action</th>
-                                <th style="text-align:center;"></th>
+                                <th style="text-align:center;">Action</th>
                             </thead>
                             <tbody>
                                 @foreach($visual as $visual)
