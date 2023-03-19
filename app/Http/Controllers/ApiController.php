@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Assign;
 use App\Models\Cabin;
 use App\Models\User;
+use App\Models\Inspection;
 use App\Models\Vehicle;
 use App\Models\Vehiclecheck;
 use App\Models\Visual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 class ApiController extends Controller
 {
@@ -26,34 +28,48 @@ class ApiController extends Controller
             return response()->json(['error' => 'Unauthorised'], 401);
         }
     }
+    public function inspection(Request $request, $id)
+    {
+        // dd($id);
 
+
+        $assign = Assign::where('id', $id)->first();
+        if ($assign == null) {
+            return response()->json(['message' => 'Invalid Id'], 401);
+        }
+        $inspection = new Inspection;
+        $inspection->assign_id = $assign->id;
+        $inspection->report_no = $request['reportno'];
+        $inspection->name = $request['name'];
+        $inspection->email = $request['email'];
+        $inspection->mobile = $request['mobile'];
+        $inspection->date = date('d.m.y');
+        $inspection->next_inspection = Carbon::now()->endOfWeek(Carbon::FRIDAY)->format('d.m.Y');
+        $inspection->number_plate = $request['number_plate'];
+        $inspection->mileage = $request['mileage'];
+        $inspection->save();
+        return response()->json(['message' => 'Data Stored Successfully', "data" => $inspection], 200);
+    }
     public function visualcheck(Request $request, $id)
     {
-        //     $request->validate([
-        //         'type'=>'required',
-        //        'image'=>'required',
-        //        'name'=>'required',
-        //        'notes'=>'required',
-        //        'status'=>'required',
-
-        // ]);
-
-        // dd($request->name);
+        $request->validate([
+            'type' => 'required',
+            'image' => 'required',
+            'name' => 'required',
+            'notes' => 'required',
+            'status' => 'required',
+        ]);
 
         $name = $request->name;
         $image = $request->file("image");
         $notes = $request->notes;
         $status = $request->status;
-
-        $a = array();
-        // dd($image);
-
+        $data = array();
         foreach (array_keys($name) as $row) {
             $img = array();
 
             if ($image == null) {
                 return response()->json(['message' => 'Image field Required'], 200);
-
             }
 
             for ($i = 0; $i < count($image); $i++) {
@@ -64,13 +80,10 @@ class ApiController extends Controller
 
                 if (array_keys($image[$i])[0] == $row) {
                     $imgname = $image[$i][$row]->getClientOriginalName();
-                    // $location=public_path($imgname);
                     $imageName = time() . '.' . $image[$i][$row]->extension();
                     $image[$i][$row]->move(public_path('images'), $imageName);
                     array_push($img, $imageName);
-
                 }
-
             }
 
             $data1 = array(
@@ -80,9 +93,9 @@ class ApiController extends Controller
                 'status' => $status[$row],
                 'notes' => $notes[$row],
             );
-            array_push($a, $data1);
+            array_push($data, $data1);
 
-            $visual = Assign::where('id', $id)->first();
+            $visual = Inspection::where('id', $id)->first();
             if ($visual == null) {
                 return response()->json(['message' => 'Invalid Id'], 401);
             }
@@ -102,7 +115,6 @@ class ApiController extends Controller
                     return response()->json(['message' => 'Duplicated Entry'], 401);
                 };
                 Visual::create($data2);
-
             }
             if (strtolower($request->type) === "cabin") {
                 $visual = Cabin::where('assign_id', $id)->where('view', $name[$row])->first();
@@ -110,7 +122,6 @@ class ApiController extends Controller
                     return response()->json(['message' => 'Duplicated Entry'], 401);
                 };
                 Cabin::create($data2);
-
             }
             if (strtolower($request->type) === "vehicle") {
                 $visual = Vehiclecheck::where('assign_id', $id)->where('view', $name[$row])->first();
@@ -118,12 +129,9 @@ class ApiController extends Controller
                     return response()->json(['message' => 'Duplicated Entry'], 401);
                 };
                 Vehiclecheck::create($data2);
-
             }
-
         };
 
-        return response()->json(['message' => 'Data Stored Successfully', "data" => $a], 200);
+        return response()->json(['message' => 'Data Stored Successfully', "data" => $data], 200);
     }
-
 }
