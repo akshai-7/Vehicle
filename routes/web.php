@@ -41,9 +41,8 @@ Route::get('/deleteId/{id}', [VehicleController::class, 'deleteId']);
 Route::get('/inspection/{id}', [VehicleController::class, 'weeklyinspection']);
 Route::post('/store/{id}', [VehicleController::class, 'store']);
 Route::get('/inspectiondetails', [VehicleController::class, 'inspection']);
+
 Route::get('/details/{id}', [VehicleController::class, 'check']);
-
-
 //visusal
 Route::get('/updatevisualcheck/{id}', [VehicleController::class, 'updatevisualcheck']);
 Route::post('/visualupdate/{id}', [VehicleController::class, 'visualupdate']);
