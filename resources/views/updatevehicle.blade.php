@@ -305,10 +305,7 @@
         padding: 10px;
     }
 
-    .close {
-        margin-left: 600px;
-        margin-bottom: 10%;
-    }
+
 
     .open-button {
         padding: 13px 10px;
@@ -348,10 +345,21 @@
         width: 40%;
     }
 
+
     .vehicle {
         margin-left: 10px;
-        height: 400px;
-        width: 500px;
+
+    }
+
+    .close {
+        margin-left: 600px;
+        margin-bottom: 10%;
+    }
+
+    .select {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-evenly;
     }
 </style>
 
@@ -429,43 +437,33 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <h3>Driver Details</h3>
-                            <a style="margin-right:20px;"><input type="submit" value="Add-Driver" id="add"
-                                    onclick="show('popup')"></a>
-                            <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add"
-                                    onclick="show('popup2')"></a>
+                            <h3>Vehicle Details</h3>
                         </div>
                         <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
-                            <thead>
-                                <th style="text-align:center;">S.No</th>
-                                <th style="text-align:center;">Name</th>
-                                <th style="text-align:center;">Gender</th>
-                                <th style="text-align:center;">D.O.B</th>
-                                <th style="text-align:center;">Email</th>
-                                <th style="text-align:center;">Mobile.no</th>
-                                <th style="text-align:center;">Address</th>
-                                <th style="text-align:center;">Role</th>
-                                <th style="text-align:center;">Creation Date</th>
+                            <thead class="text-primary">
+                                <th style="text-align:center;">Id</th>
+                                <th style="text-align:center;">Number plate</th>
+                                <th style="text-align:center;">Vehicle Name</th>
+                                <th style="text-align:center;">Vehicle Type</th>
+                                <th style="text-align:center;">Mileage</th>
                                 <th style="text-align:center;">Action</th>
                             </thead>
                             <tbody>
-                                @foreach ($user1 as $user1)
+                                @foreach ($vehicle as $vehicle)
                                     <tr class="table_row">
-                                        <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                                        <td style="text-align:center;" class="table_data">{{ $user1->name }}</td>
-                                        <td style="text-align:center;" class="table_data">{{ $user1->gender }}</td>
-                                        <td style="text-align:center;" class="table_data">{{ $user1->date_of_birth }}
+                                        <td style="text-align:center;" class="table_data">{{ $vehicle->id }}</td>
+                                        <td style="text-align:center;" class="table_data">{{ $vehicle->number_plate }}
                                         </td>
-                                        <td style="text-align:center;" class="table_data">{{ $user1->email }}</td>
-                                        <td style="text-align:center;" class="table_data">{{ $user1->mobile }}</td>
-                                        <td style="text-align:center;" class="table_data">{{ $user1->address }}</td>
-                                        <td style="text-align:center;" class="table_data">{{ $user1->role }}</td>
+                                        <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_name }}
+                                        </td>
+                                        <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_type }}
+                                        </td>
+                                        <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}Km
+                                        </td>
                                         <td style="text-align:center;" class="table_data">
-                                            {{ $user1->created_at->format('d.m.Y') }}</td>
-                                        <td style="text-align:center;" class="table_data">
-                                            <a href="/updateuser/{{ $user1->id }}"><i
-                                                    class="fa-solid fa-edit btn btn-success"></i></a>
-                                            <a href="/delete/{{ $user1->id }}"><i
+                                            <a onclick="show('popup')"><i
+                                                    class="fa-solid fa-edit btn btn-success"></i></i></a>
+                                            <a href="/remove/{{ $vehicle->id }}"><i
                                                     class="fa-solid fa-trash btn btn-danger"></i></a>
                                         </td>
                                     </tr>
@@ -476,98 +474,69 @@
                 </div>
             </main>
             <div class="popup" id="popup">
-                <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
+                <form action="/updatevehicle/{id}" method="POST" autocomplete="off">
                     @csrf
-                    <a href="/user" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
-                    <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Driver</h5>
-                    @foreach ($user as $user)
-                        <div class="report1">
-                            <div class="report">
-                                <div class="form-group row mt-4 ">
-                                    <label for="" class="col-sm-2  col-form-label"> Id</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="id" class="form-control"
-                                            value="{{ $user->id }}">
-                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
-                                                *{{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row mt-4 ">
-                                    <label for="" class="col-sm-2  col-form-label"> Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="name" class="form-control"
-                                            value="{{ $user->name }}">
-                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                                                *{{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row mt-4 ">
-                                    <label for="" class="col-sm-2  col-form-label"> Gender</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="gender" class="form-control"
-                                            value="{{ $user->gender }}">
-                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
-                                                *{{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-4 ">
-                                    <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="date_of_birth" class="form-control"
-                                            value="{{ $user->date_of_birth }}">
-                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
-                                                *{{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="subreport">
-                                <div class="form-group row mt-4 ">
-                                    <label for="" class="col-sm-2 col-form-label"> Address</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="address" class="form-control"
-                                            value="{{ $user->address }}">
-                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
-                                                *{{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row mt-4">
-                                    <label for="" class="col-sm-2  col-form-label"> Email</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="email" class="form-control"
-                                            value="{{ $user->email }}">
-                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
-                                                *{{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row mt-4 ">
-                                    <label for="" class="col-sm-2 col-form-label"> Mobile</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="mobile" class="form-control"
-                                            value="{{ $user->mobile }}">
-                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
-                                                *{{ $message }}
-                                            @enderror
-                                        </div>
-                                        <input type="submit" name="" value="Submit"
-                                            class="btn text-white mt-4" style="float:right;background:#06064b;">
-                                    </div>
+                    <a href="/vehiclelist" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
+                    <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Vehicle</h5>
+                    <div class="vehicle">
+                        <div class="form-group row mt-4">
+                            <label class="col-sm-2 col-form-label">Id</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="id" class="form-control"
+                                    value="{{ $vehicle->id }}">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
+                                        *{{ $message }}
+                                    @enderror
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                        <div class="form-group row mt-4">
+                            <label class="col-sm-2 col-form-label">Number_Plate</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="number_plate" class="form-control"
+                                    value="{{ $vehicle->number_plate }}">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label">Vehicle_Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="vehicle_name" class="form-control"
+                                    value="{{ $vehicle->vehicle_name }}">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_name')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label">Vehicle_Type</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="vehicle_type" class="form-control"
+                                    value="{{ $vehicle->vehicle_type }}">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_type')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label class="col-sm-2 col-form-label"> Mileage</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="mileage" class="form-control"
+                                    value="{{ $vehicle->mileage }}">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                                <input type="submit" name="" value="Submit" class="btn text-white mt-4"
+                                    style="float:right;background:#06064b;">
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
 

@@ -127,6 +127,12 @@ class VehicleController extends Controller
         $vehicle = Vehicle::all();
         return view('vehiclelist', compact('vehicle'));
     }
+    public function updatevehicles($id)
+    {
+
+        $vehicle = Vehicle::where('id', $id)->get();
+        return view('/updatevehicle', ['vehicle' => $vehicle]);
+    }
     public function updatevehicle(Request $request, $id)
     {
         $request->validate([
@@ -313,6 +319,158 @@ class VehicleController extends Controller
         return view('/details', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
     }
 
+    public function updatevisualcheck($id)
+    {
+        $visual = Visual::where('id', $id)->get();
+        return view('/updatevisualcheck', ['visual' => $visual]);
+    }
+    public function visualupdate(Request $request, $id)
+    {
+
+        $request->validate([
+            'view' => 'required',
+            'image' => 'required',
+            'feedback' => 'required',
+            'action' => 'required',
+        ]);
+        $id = $request->assign_id;
+        $data1 = Inspection::find($id);
+        if ($data1 == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+
+        $data2 = $request->id;
+
+        $data3 = Visual::find($data2);
+        if ($data3 == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+        $visual = Visual::where('assign_id', $data1->id)->where('id', $data3->id)->first();
+        $visual->view = $request['view'];
+        $visual->image = $request['image'];
+        if ($request->hasfile('image')) {
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            $location = public_path($name);
+            $visual->image = $name;
+        }
+        $visual->feedback = $request['feedback'];
+        $visual->action = $request['action'];
+        $visual->save();
+        session()->flash('message', ' Updated Successfully');
+        return redirect('/details/' . $data1->id);
+    }
+    public function deletevisual($id)
+    {
+        $user = Visual::find($id);
+        $user->delete();
+        $data = $user->assign_id;
+        session()->flash('message1', 'Deleted');
+        return redirect('/details/' . $data);
+    }
+
+
+    public function updatevehiclecheck($id)
+    {
+        $vehicle = Vehiclecheck::where('id', $id)->get();
+        return view('/updatevehiclecheck', ['vehicle' => $vehicle]);
+    }
+    public function vehicleupdate(Request $request, $id)
+    {
+
+        $request->validate([
+            'view' => 'required',
+            'image' => 'required',
+            'feedback' => 'required',
+            'action' => 'required',
+        ]);
+        $id = $request->assign_id;
+        $data1 = Inspection::find($id);
+        if ($data1 == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+
+        $data2 = $request->id;
+
+        $data3 = Vehiclecheck::find($data2);
+        if ($data3 == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+        $vehicle = Vehiclecheck::where('assign_id', $data1->id)->where('id', $data3->id)->first();
+        $vehicle->view = $request['view'];
+        $vehicle->image = $request['image'];
+        if ($request->hasfile('image')) {
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            $location = public_path($name);
+            $vehicle->image = $name;
+        }
+        $vehicle->feedback = $request['feedback'];
+        $vehicle->action = $request['action'];
+        $vehicle->save();
+        session()->flash('message', ' Updated Successfully');
+        return redirect('/details/' . $data1->id);
+    }
+    public function deletevehicle($id)
+    {
+        $user = Vehiclecheck::find($id);
+        $user->delete();
+        $data = $user->assign_id;
+        session()->flash('message1', 'Deleted');
+        return redirect('/details/' . $data);
+    }
+
+    public function updatecabincheck($id)
+
+    {
+
+        $cabin = Cabin::where('id', $id)->get();
+        return view('/updatecabincheck', ['cabin' => $cabin]);
+    }
+    public function cabinupdate(Request $request, $id)
+    {
+
+        $request->validate([
+            'view' => 'required',
+            'image' => 'required',
+            'feedback' => 'required',
+            'action' => 'required',
+        ]);
+        $id = $request->assign_id;
+
+        $data1 = Inspection::find($id);
+        if ($data1 == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+
+        $data2 = $request->id;
+        $data3 = Cabin::find($data2);
+        if ($data3 == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+        $cabin = Cabin::where('assign_id', $data1->id)->where('id', $data3->id)->first();
+        $cabin->view = $request['view'];
+        $cabin->image = $request['image'];
+        if ($request->hasfile('image')) {
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            $location = public_path($name);
+            $cabin->image = $name;
+        }
+        $cabin->feedback = $request['feedback'];
+        $cabin->action = $request['action'];
+        $cabin->save();
+        session()->flash('message', ' Updated Successfully');
+        return redirect('/details/' . $data1->id);
+    }
+    public function deletecabin($id)
+    {
+        $user = Cabin::find($id);
+        $user->delete();
+        $data = $user->assign_id;
+        session()->flash('message1', 'Deleted');
+        return redirect('/details/' . $data);
+    }
     public function summary($assign_id)
     {
         $visual = Visual::where('assign_id', $assign_id)->get();

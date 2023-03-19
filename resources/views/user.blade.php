@@ -127,7 +127,6 @@
                                         <td style="text-align:center;" class="table_data">
                                             <a href="/updateuser/{{ $user->id }}"><i
                                                     class="fa-solid fa-edit btn btn-success"></i></a>
-                                            {{-- <button  onclick="show('popup1')" value="{{$user->id}}" ><i class="fa-solid fa-edit btn btn-success"></i></button> --}}
                                             <a href="/delete/{{ $user->id }}"><i
                                                     class="fa-solid fa-trash btn btn-danger"></i></a>
                                         </td>

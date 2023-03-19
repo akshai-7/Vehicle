@@ -30,9 +30,14 @@ class ApiController extends Controller
     }
     public function inspection(Request $request, $id)
     {
-        // dd($id);
-
-
+        $request->validate([
+            'reportno' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'number_plate' => 'required',
+            'mileage' => 'required',
+        ]);
         $assign = Assign::where('id', $id)->first();
         if ($assign == null) {
             return response()->json(['message' => 'Invalid Id'], 401);
