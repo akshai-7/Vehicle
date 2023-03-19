@@ -64,6 +64,7 @@ class VehicleController extends Controller
         return view('/updateuser',['user'=>$user],['user1'=>$user1]);
     }
     public function updateuserdetails(Request $request,$id){
+
         $request->validate([
             'name'=>'required',
             'gender'=>'required',

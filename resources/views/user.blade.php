@@ -98,6 +98,7 @@
                                     <td style="text-align:center;" class="table_data">{{$user->created_at->format('d.m.Y')}}</td>
                                     <td style="text-align:center;" class="table_data">
                                         <a  href="/updateuser/{{$user->id}}"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                        {{-- <button  onclick="show('popup1')" value="{{$user->id}}" ><i class="fa-solid fa-edit btn btn-success"></i></button> --}}
                                         <a href="/delete/{{$user->id}}" ><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                     </td>
                                 </tr>
@@ -182,7 +183,7 @@
                 @csrf
                 <a href="#" onclick="hide('popup1')" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
                 <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Driver</h5>
-                <div class="report1" >
+                <div class="report1">
                     <div class="report">
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Id</label>
@@ -191,7 +192,7 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2  col-form-label"> Name</label>
+                            <label for="" class="col-sm-2  col-form-label">Name</label>
                             <div class="col-sm-9">
                               <input type="text" name="name" class="form-control" value="{{$user->name}}" ><div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')*{{$message}}@enderror</div>
                             </div>

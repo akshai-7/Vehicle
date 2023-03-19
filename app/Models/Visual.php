@@ -16,6 +16,5 @@ class Visual extends Model
         'action'
         ];
 
-        protected $casts = [
-            'image'=>'array', ];
+
 }
