@@ -13,7 +13,6 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
     <title>M&D Foundations</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/app.css">
     <script src="{{ asset('js/style.js') }}" defer></script>
     <link href="{{ asset('css/update.css') }}" rel="stylesheet">
 

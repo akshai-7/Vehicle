@@ -156,7 +156,7 @@
 
             main {
                 position: relative;
-                width:90%;
+                width:95%;
                 left: 40px;
             }
 
@@ -206,7 +206,6 @@
             }
 
             .popup {
-                /* display: none; */
                 position: fixed;
                 padding: 20px;
                 width: 700px;
@@ -220,6 +219,20 @@
                 align-items: center;
                 justify-content: center;
             }
+                        .popreport{
+                                position: fixed;
+                                    padding: 10px;
+                                    width: 700px;
+                                    height: 680px;
+                                    left: 50%;
+                                    margin-left: -350px;
+                                    top: 20%;
+                                    margin-top: -80px;
+                                    background: #FFF;
+                                    z-index: 20;
+                                    align-items: center;
+                                    justify-content: center;
+                        }
 
             #popup:after {
                 position: fixed;
@@ -314,29 +327,34 @@
                 width: 500px;
             }
 
- .tablinks {
-     padding: 5px 5px;
-     border: none;
-     border-radius: 4px;
-     outline: none;
-     cursor: pointer;
-     transition: 0.6s;
- }
+                .tablinks {
+                    padding: 5px 5px;
+                    border: none;
+                    border-radius: 4px;
+                    outline: none;
+                    cursor: pointer;
+                    transition: 0.6s;
+                }
 
- button.active {
-     background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
-     color: white
- }
+                button.active {
+                    background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
+                    color: white
+                }
 
-  #Cabin {
-      overflow: scroll;
-      height: 65%;
-      position: relative;
-      width: 85%;
-      left: 120px;
-      margin-top: 20px;
-  }
+                #Cabin {
+                        overflow: scroll;
+                        height: 65%;
+                        position: relative;
+                        width: 85%;
+                        left: 120px;
+                        margin-top: 20px;
+                    }
 
-  #Cabin::-webkit-scrollbar {
-      display: none;
-  }
+                    #Cabin::-webkit-scrollbar {
+                        display: none;
+                    }
+
+
+
+
+

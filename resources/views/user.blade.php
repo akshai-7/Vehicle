@@ -157,7 +157,7 @@
             </div>
         </form>
     </div>
-    <div class="popup" id="popup1">
+    {{-- <div class="popup" id="popup1">
         <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
             @csrf
             <a href="#" onclick="hide('popup1')" style="color:black;" class="close"><i
@@ -244,7 +244,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> --}}
     <div class="popup" id="popup2">
         <form action="/createvehicle" method="POST" autocomplete="off">
             @csrf
