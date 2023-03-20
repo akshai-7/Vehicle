@@ -358,3 +358,114 @@
 
 
 
+
+
+
+/* .popup {
+    display: none;
+    position: fixed;
+    padding: 20px;
+    width: 700px;
+    height: 450px;
+    left: 50%;
+    margin-left: -350px;
+    top: 30%;
+    margin-top: -50px;
+    background: #FFF;
+    z-index: 20;
+    align-items: center;
+    justify-content: center;
+}
+
+#popup:after {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: -2;
+}
+
+#popup:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--light);
+    z-index: -1;
+}
+
+#popup1:after {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: -2;
+}
+
+ #add {
+     background: #f0d6d6;
+     border-radius: 5px;
+     border: 1px solid rgb(148, 35, 35);
+     color: #bc1c41;
+     font-weight: bold;
+     cursor: pointer;
+     top: -5px;
+     height: 30px;
+     position: relative;
+     width: 90px;
+
+ }
+
+#popup1:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--light);
+    z-index: -1;
+}
+
+#popup2:after {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: -2;
+}
+
+#popup2:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--light);
+    z-index: -1;
+}
+.head {
+    display: flex;
+}
+
+.head h3 {
+    margin-right: auto;
+    font-weight: 600;
+    color: #d05572;
+    /* color: #06064b; */
+/* }  */

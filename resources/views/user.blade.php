@@ -53,9 +53,6 @@
                 </table>
             </div>
         </div>
-        {{-- <div class="col-sm-12" style="margin-left: 500px;">
-            {!! $users->links() !!}
-        </div> --}}
     </main>
 
     <div class="popup" id="popup">
@@ -157,94 +154,6 @@
             </div>
         </form>
     </div>
-    {{-- <div class="popup" id="popup1">
-        <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
-            @csrf
-            <a href="#" onclick="hide('popup1')" style="color:black;" class="close"><i
-                    class="fa-solid fa-xmark"></i></a>
-            <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Driver</h5>
-            <div class="report1">
-                <div class="report">
-                    <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2  col-form-label"> Id</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="id" class="form-control" value="{{ $user->id }}">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
-                                    *{{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2  col-form-label">Name</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control" value="{{ $user->name }}">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                                    *{{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2  col-form-label"> Gender</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="gender" class="form-control" value="{{ $user->gender }}">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
-                                    *{{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="date_of_birth" class="form-control"
-                                value="{{ $user->date_of_birth }}">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
-                                    *{{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="subreport">
-                    <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2 col-form-label"> Address</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="address" class="form-control" value="{{ $user->address }}">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
-                                    *{{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row mt-4">
-                        <label for="" class="col-sm-2  col-form-label"> Email</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="email" class="form-control" value="{{ $user->email }}">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
-                                    *{{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2 col-form-label"> Mobile</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="mobile" class="form-control" value="{{ $user->mobile }}">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
-                                    *{{ $message }}
-                                @enderror
-                            </div>
-                            <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                                style="float:right;background:#06064b;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div> --}}
     <div class="popup" id="popup2">
         <form action="/createvehicle" method="POST" autocomplete="off">
             @csrf

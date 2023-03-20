@@ -37,7 +37,7 @@
             </div>
         </div>
     </main>
-    <div class="popup" id="popup">
+    {{-- <div class="popup" id="popup">
         <form action="/updatevehicle/{id}" method="POST" autocomplete="off">
             @csrf
             <a href="#" onclick="hide('popup')" style="color:black;" class="close"><i
@@ -89,6 +89,6 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> --}}
     </div>
 @endsection
