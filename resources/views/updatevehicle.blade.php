@@ -443,7 +443,6 @@
                             <thead class="text-primary">
                                 <th style="text-align:center;">Id</th>
                                 <th style="text-align:center;">Number plate</th>
-                                <th style="text-align:center;">Vehicle Name</th>
                                 <th style="text-align:center;">Vehicle Type</th>
                                 <th style="text-align:center;">Mileage</th>
                                 <th style="text-align:center;">Action</th>
@@ -453,9 +452,6 @@
                                     <tr class="table_row">
                                         <td style="text-align:center;" class="table_data">{{ $vehicle->id }}</td>
                                         <td style="text-align:center;" class="table_data">{{ $vehicle->number_plate }}
-                                        </td>
-                                        <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_name }}
-                                        </td>
                                         <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_type }}
                                         </td>
                                         <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}Km
@@ -496,17 +492,6 @@
                                 <input type="text" name="number_plate" class="form-control"
                                     value="{{ $vehicle->number_plate }}">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4 ">
-                            <label class="col-sm-2 col-form-label">Vehicle_Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="vehicle_name" class="form-control"
-                                    value="{{ $vehicle->vehicle_name }}">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_name')
                                         *{{ $message }}
                                     @enderror
                                 </div>

@@ -57,8 +57,8 @@
                         <a type="button" onclick="closeForm()" style="color:black;margin-left:140px;"><i
                                 class='bx bx-x ' id="header-toggle"></i></i></a>
                         <div class="cls" style="margin-top:-20px;color:black">
-                            {{-- <tr > <i class="fa-solid fa-user" ></i> {{$user1->name}}</tr><br>
-                    <tr> <i class="fa-solid fa-envelope"></i> {{$user1->email}}</tr><br> --}}
+                            <tr> <i class="fa-solid fa-user"></i> {{ $user1->name }}</tr><br>
+                            <tr> <i class="fa-solid fa-envelope"></i> {{ $user1->email }}</tr><br>
                             <a href="/" style="color:black;"> <i class="fa-solid fa-arrow-right-from-bracket"
                                     style="color:black"></i> Log Out</a><br>
                         </div>
@@ -349,16 +349,6 @@
                             <div class="col-sm-9">
                                 <input type="text" name="number_plate" class="form-control">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4 ">
-                            <label class="col-sm-2 col-form-label">Vehicle_Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="vehicle_name" class="form-control">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_name')
                                         *{{ $message }}
                                     @enderror
                                 </div>

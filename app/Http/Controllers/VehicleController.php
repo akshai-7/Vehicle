@@ -109,13 +109,11 @@ class VehicleController extends Controller
     {
         $request->validate([
             'number_plate' => 'required',
-            'vehicle_name' => 'required',
             'vehicle_type' => 'required',
             'mileage' => 'required',
         ]);
         $vehicle = new Vehicle();
         $vehicle->number_plate = $request['number_plate'];
-        $vehicle->vehicle_name = $request['vehicle_name'];
         $vehicle->vehicle_type = $request['vehicle_type'];
         $vehicle->mileage = $request['mileage'];
         $vehicle->save();
@@ -137,7 +135,6 @@ class VehicleController extends Controller
     {
         $request->validate([
             'number_plate' => 'required',
-            'vehicle_name' => 'required',
             'vehicle_type' => 'required',
             'mileage' => 'required',
         ]);
@@ -148,7 +145,6 @@ class VehicleController extends Controller
         }
         $vehicle = Vehicle::where('id', $id)->first();
         $vehicle->number_plate = $request['number_plate'];
-        $vehicle->vehicle_name = $request['vehicle_name'];
         $vehicle->vehicle_type = $request['vehicle_type'];
         $vehicle->mileage = $request['mileage'];
         $vehicle->save();
@@ -272,7 +268,7 @@ class VehicleController extends Controller
                 'view' => $data['view'][$row],
                 'image' => $data['image'][$row],
                 'feedback' => $data['feedback'][$row],
-                'notes' => $data['notes'][$row],
+                // 'notes' => $data['notes'][$row],
                 'action' => $data['action'][$row],
             );
             Visual::create($data1);

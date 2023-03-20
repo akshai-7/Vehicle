@@ -250,7 +250,7 @@
         position: fixed;
         padding: 20px;
         width: 700px;
-        height: 450px;
+        height: 550px;
         left: 50%;
         margin-left: -350px;
         top: 30%;
@@ -477,7 +477,7 @@
                     @csrf
                     <a href="/details/{{ $visual->assign_id }}" style="color:black;" class="close"><i
                             class="fa-solid fa-xmark"></i></a>
-                    <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update VisualDamage
+                    <h5 class="" style="color:#06064b;"> Update Visual Damage
                     </h5>
                     <div class="vehicle">
                         <div class="form-group row mt-4">
@@ -492,7 +492,7 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4">
-                            <label class="col-sm-2 col-form-label">Id</label>
+                            <label class="col-sm-2 col-form-label"> Assign_Id</label>
                             <div class="col-sm-10">
                                 <input type="text" name="assign_id" class="form-control"
                                     value="{{ $visual->assign_id }}">
