@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Assign;
 use App\Models\Cabin;
 use App\Models\User;
+use App\Models\Report;
 use App\Models\Inspection;
 use App\Models\Vehicle;
 use App\Models\Vehiclecheck;
@@ -54,6 +55,39 @@ class ApiController extends Controller
         $inspection->mileage = $request['mileage'];
         $inspection->save();
         return response()->json(['message' => 'Data Stored Successfully', "data" => $inspection], 200);
+    }
+
+    public function report(Request $request, $id)
+    {
+        $request->validate([
+            'date' => 'required',
+            'location' => 'required',
+            'witnessed_by' => 'required',
+            'mobile' => 'required',
+            'statement' => 'required',
+            'image' => 'required',
+        ]);
+
+        $assign = Assign::where('id', $id)->first();
+        if ($assign == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+        $report = new  Report();
+        $report->assign_id = $assign->id;
+        $report->date = $request['date'];
+        $report->location = $request['location'];
+        $report->witnessed_by = $request['witnessed_by'];
+        $report->mobile = $request['mobile'];
+        $report->statement = $request['statement'];
+        $report->image = $request['image'];
+        if ($request->hasfile('image')) {
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            $location = public_path($name);
+            $report->image = $name;
+        }
+        $report->save();
+        return response()->json(['message' => 'Data Stored Successfully', "data" => $report], 200);
     }
     public function visualcheck(Request $request, $id)
     {

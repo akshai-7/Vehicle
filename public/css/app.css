@@ -133,8 +133,8 @@ a{
 }
 main {
     position: relative;
-    width: 85%;
-    left: 120px;
+    width: 95%;
+    left: 30px;
 }
 .table-data{
     margin-top: 10%;
@@ -164,17 +164,7 @@ main {
 .order table td {
     padding: 16px 0;
 }
-#add{
-    background: rgb(254,231,154);
-    border-radius: 5px;
-    border: 1px solid #D69E31;
-    color: #85592e;
-    cursor: pointer;
-    top:-5px;
-    height: 30px;
-    position: relative;
-    width: 80px;
-}
+
 .table_row {
     background: rgb(237, 233, 233);
 }

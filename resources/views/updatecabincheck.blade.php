@@ -388,6 +388,10 @@
                 <div class="icon-name"> <i class="fa-solid fa-list-check"></i> </div><span class="nav_name"> Inspection
                     List</span>
             </a>
+            <a class="nav_list gradient-hover-effect" href="/reportlist">
+                <div class="icon-name"> <i class="fa-solid fa-list-check"></i> </div><span class="nav_name"> Report
+                    List</span>
+            </a>
             <a class="nav_list"href="/">
                 <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span
                     class="nav_name">SignOut</span>

@@ -11,6 +11,7 @@ use App\Models\Vehiclecheck;
 use App\Models\Visual;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use App\Models\Report;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -246,7 +247,6 @@ class VehicleController extends Controller
 
         $id = $request->id;
         $assign = Assign::where('id', $id)->first();
-
         $inspection = new Inspection;
         $inspection->assign_id = $assign->id;
         $inspection->report_no = $request['reportno'];
@@ -297,7 +297,6 @@ class VehicleController extends Controller
             );
             Cabin::create($data5);
         }
-        return redirect('/inspectiondetails');
     }
 
     public function inspection()
@@ -306,10 +305,53 @@ class VehicleController extends Controller
         return view('/inspectiondetails', compact('inspection'));
     }
 
+    public function report($id)
+    {
+        $report = Assign::where('id', $id)->first();
+        return view('/report', compact('report'));
+    }
+
+    public function reportonincident(Request $request, $id)
+    {
+        $request->validate([
+            'date' => 'required',
+            'location' => 'required',
+            'witnessed_by' => 'required',
+            'mobile' => 'required',
+            'statement' => 'required',
+            'image' => 'required',
+        ]);
+        $id = $request->id;
+        $assign = Assign::where('id', $id)->first();
+        if ($assign == null) {
+            return response()->json(['message' => 'Invalid Id']);
+        }
+        $report = new  Report();
+        $report->assign_id = $assign->id;
+        $report->date = $request['date'];
+        $report->location = $request['location'];
+        $report->witnessed_by = $request['witnessed_by'];
+        $report->mobile = $request['mobile'];
+        $report->statement = $request['statement'];
+        $report->image = $request['image'];
+        $report->save();
+        return redirect('/reportlist');
+    }
+    public function reportlist()
+    {
+        $report = Report::all();
+        return view('/reportlist', compact('report'));
+    }
+    public function deletereport($id)
+    {
+        Report::find($id)->delete();
+        session()->flash('message1', ' Report is Deleted');
+        return redirect('/reportlist');
+    }
+
     public function check($assign_id)
     {
         $visual = Visual::where('assign_id', $assign_id)->get();
-        // dd($visual);
         $vehicle = Vehiclecheck::where('assign_id', $assign_id)->get();
         $cabin = Cabin::where('assign_id', $assign_id)->get();
         return view('/details', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);

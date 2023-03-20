@@ -42,6 +42,14 @@ Route::get('/inspection/{id}', [VehicleController::class, 'weeklyinspection']);
 Route::post('/store/{id}', [VehicleController::class, 'store']);
 Route::get('/inspectiondetails', [VehicleController::class, 'inspection']);
 
+Route::get('/report/{id}', [VehicleController::class, 'report']);
+Route::post('/reportonincident/{id}', [VehicleController::class, 'reportonincident']);
+Route::get('/reportlist', [VehicleController::class, 'reportlist']);
+Route::get('/deletereport/{id}', [VehicleController::class, 'deletereport']);
+
+
+
+
 Route::get('/details/{id}', [VehicleController::class, 'check']);
 //visusal
 Route::get('/updatevisualcheck/{id}', [VehicleController::class, 'updatevisualcheck']);
