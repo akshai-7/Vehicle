@@ -224,3 +224,16 @@ main {
             display: flex;
             justify-content: space-evenly;
         }
+ .tablinks {
+     padding: 5px 5px;
+     border: none;
+     border-radius: 4px;
+     outline: none;
+     cursor: pointer;
+     transition: 0.6s;
+ }
+
+ button.active {
+     background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
+     color: white
+ }
