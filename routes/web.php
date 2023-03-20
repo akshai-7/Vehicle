@@ -2,8 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AssignController;
+use App\Http\Controllers\InspectionController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\VisualdamageController;
+use App\Http\Controllers\VehiclecheckController;
+use App\Http\Controllers\CabinController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,15 +21,16 @@ use Illuminate\Validation\Rule;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//login
 Route::view('/', 'login');
-Route::post('/user', [VehicleController::class, 'admin']);
+Route::post('/user', [LoginController::class, 'admin']);
+
 //driver
-Route::post('/createuser', [VehicleController::class, 'createuser']);
-Route::get('/user', [VehicleController::class, 'userlist']);
-Route::get('/updateuser/{id}', [VehicleController::class, 'updateuser']);
-Route::post('/updateuserdetails/{id}', [VehicleController::class, 'updateuserdetails']);
-Route::get('/delete/{id}', [VehicleController::class, 'delete']);
+Route::post('/createuser', [UserController::class, 'createuser']);
+Route::get('/user', [UserController::class, 'userlist']);
+Route::get('/updateuser/{id}', [UserController::class, 'updateuser']);
+Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
+Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 //vehicle
 Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
@@ -32,39 +40,38 @@ Route::post('/updatevehicle/{id}', [VehicleController::class, 'updatevehicle']);
 Route::get('/remove/{id}', [VehicleController::class, 'remove']);
 
 //assign
-Route::get('/vehicleassign', [VehicleController::class, 'vehicleassign']);
-Route::post('/vehicleassignlist', [VehicleController::class, 'vehicleassignlist']);
-Route::get('/vehicleassignedlist', [VehicleController::class, 'vehicleassignedlist']);
-Route::get('/deleteId/{id}', [VehicleController::class, 'deleteId']);
+Route::get('/vehicleassign', [AssignController::class, 'vehicleassign']);
+Route::post('/vehicleassignlist', [AssignController::class, 'vehicleassignlist']);
+Route::get('/vehicleassignedlist', [AssignController::class, 'vehicleassignedlist']);
+Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 
 //inspection
-Route::get('/inspection/{id}', [VehicleController::class, 'weeklyinspection']);
-Route::post('/store/{id}', [VehicleController::class, 'store']);
-Route::get('/inspectiondetails', [VehicleController::class, 'inspection']);
+Route::get('/inspection/{id}', [InspectionController::class, 'weeklyinspection']);
+Route::post('/store/{id}', [InspectionController::class, 'store']);
+Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
 
-Route::get('/report/{id}', [VehicleController::class, 'report']);
-Route::post('/reportonincident/{id}', [VehicleController::class, 'reportonincident']);
-Route::get('/reportlist', [VehicleController::class, 'reportlist']);
-Route::get('/deletereport/{id}', [VehicleController::class, 'deletereport']);
+//report
+Route::get('/report/{id}', [ReportController::class, 'report']);
+Route::post('/reportonincident/{id}', [ReportController::class, 'reportonincident']);
+Route::get('/reportlist', [ReportController::class, 'reportlist']);
+Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
 
 
-
-
-Route::get('/details/{id}', [VehicleController::class, 'check']);
+Route::get('/details/{id}', [VisualdamageController::class, 'check']);
 //visusal
-Route::get('/updatevisualcheck/{id}', [VehicleController::class, 'updatevisualcheck']);
-Route::post('/visualupdate/{id}', [VehicleController::class, 'visualupdate']);
-Route::get('/deletevisual/{id}', [VehicleController::class, 'deletevisual']);
+Route::get('/updatevisualcheck/{id}', [VisualdamageController::class, 'updatevisualcheck']);
+Route::post('/visualupdate/{id}', [VisualdamageController::class, 'visualupdate']);
+Route::get('/deletevisual/{id}', [VisualdamageController::class, 'deletevisual']);
 
 //vehicle
-Route::get('/updatevehiclecheck/{id}', [VehicleController::class, 'updatevehiclecheck']);
-Route::post('/vehicleupdate/{id}', [VehicleController::class, 'vehicleupdate']);
-Route::get('/deletevehicle/{id}', [VehicleController::class, 'deletevehicle']);
+Route::get('/updatevehiclecheck/{id}', [VehiclecheckController::class, 'updatevehiclecheck']);
+Route::post('/vehicleupdate/{id}', [VehiclecheckController::class, 'vehicleupdate']);
+Route::get('/deletevehicle/{id}', [VehiclecheckController::class, 'deletevehicle']);
 
 //cabin
-Route::get('/updatecabincheck/{id}', [VehicleController::class, 'updatecabincheck']);
-Route::post('/cabinupdate/{id}', [VehicleController::class, 'cabinupdate']);
-Route::get('/deletecabin/{id}', [VehicleController::class, 'deletecabin']);
+Route::get('/updatecabincheck/{id}', [CabinController::class, 'updatecabincheck']);
+Route::post('/cabinupdate/{id}', [CabinController::class, 'cabinupdate']);
+Route::get('/deletecabin/{id}', [CabinController::class, 'deletecabin']);
 
 //reportsummary
 Route::get('/summary/{id}', [VehicleController::class, 'summary']);

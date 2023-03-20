@@ -26,7 +26,7 @@ class ApiController extends Controller
             $assign = Assign::where('vehicle_id', $vehicle_id)->first();
             return response()->json(["status" => "true", $response, "user" => [$user], "vehicle" => [$vehicle], "assign" => [$assign]], 200);
         } else {
-            return response()->json(['error' => 'Unauthorised'], 401);
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
     }
     public function inspection(Request $request, $id)

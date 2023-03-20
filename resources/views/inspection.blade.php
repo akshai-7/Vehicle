@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>M&D Foundations</title>
+    <link href="{{ asset('css/update.css') }}" rel="stylesheet">
+
 </head>
-<style>
+{{-- <style>
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
     :root {
@@ -251,7 +253,7 @@
         margin-left: 50px;
         width: 40%;
     }
-</style>
+</style> --}}
 
 <body>
     <section id="container">
@@ -286,15 +288,12 @@
             </a>
         </div>
         <div id="div-2">
-            <header class="headers" id="headers">
-                <div class="header_toggle" id="toggle-container"> <i class='bx bx-x ' id="header-toggle"></i> </div>
-            </header>
             <h3> Inspection Details</h3>
             <form action="/store/{id}" method="POST" autocomplete="off" class="main">
                 @csrf
                 <input type="hidden" name="id" value="{{ $assign->id }}">
-                <main>
-                    <div class="table-data">
+                <main class="mainid">
+                    <div class="">
                         <div class="report1">
                             <div class="report">
                                 <div class="form-group row mt-5 ">
@@ -469,7 +468,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="table-data">
+                    <div class="">
                         <div class="head">
                             <h5 class="" style="color:#06064b;">Vehicle Check</h5>
                         </div>
@@ -560,7 +559,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="table-data">
+                    <div class="">
                         <div class="head">
                             <h5 class="" style="color:#06064b;">Cabin Check</h5>
                         </div>
@@ -670,7 +669,8 @@
                                                 value="6" id="sno"></td>
                                         <td><input type="text" name="view2[]" class="form-control view border-0"
                                                 style="text-align:center;" id='view'
-                                                value="Mirrors/Glass/Visibility"></td>
+                                                value="Mirrors/Glass/Visibility">
+                                        </td>
                                         <td><input type="file" name="image2[]" class="form-control image border-0"
                                                 style="text-align:center;" id='image'></td>
                                         <td><input type="text" name="feedback2[]"
@@ -688,7 +688,8 @@
                                                 value="7" id="sno"></td>
                                         <td><input type="text" name="view2[]" class="form-control view border-0"
                                                 style="text-align:center;" id='view'
-                                                value="Truck Interior/Seat Belt"></td>
+                                                value="Truck Interior/Seat Belt">
+                                        </td>
                                         <td><input type="file" name="image2[]" class="form-control image border-0"
                                                 style="text-align:center;" id='image'></td>
                                         <td><input type="text" name="feedback2[]"
@@ -727,6 +728,7 @@
                         style="color:#06064b;"></a>
             </form>
         </div>
+        {{-- @endsection --}}
     </section>
 
     <script>
