@@ -1,6 +1,6 @@
 @extends('layouts.user')
 @section('content')
-    <div class="popreport" id="popup">
+    <div class="popreport" id="popreport">
         <form action="/reportonincident/{id}" method="POST" autocomplete="off">
             @csrf
             <a href="/vehicleassignedlist" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>

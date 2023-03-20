@@ -7,7 +7,7 @@
                 <div class="head">
                     <h3>Driver Details</h3>
                     <a style="margin-right:20px;"><input type="submit" value="Add-Driver" id="add"
-                            onclick="show('popup')"></a>
+                            onclick="show('popup1')"></a>
                     <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add"
                             onclick="show('popup2')"></a>
                 </div>
@@ -55,10 +55,10 @@
         </div>
     </main>
 
-    <div class="popup" id="popup">
+    <div class="popup1" id="popup1">
         <form action="/createuser" method="POST" autocomplete="off">
             @csrf
-            <a href="#" onclick="hide('popup')" style="color:black;" class="close"><i
+            <a href="#" onclick="hide('popup1')" style="color:black;" class="close"><i
                     class="fa-solid fa-xmark"></i></a>
             <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Create Driver</h5>
             <div class="report1">
@@ -154,7 +154,7 @@
             </div>
         </form>
     </div>
-    <div class="popup" id="popup2">
+    <div class="popup2" id="popup2">
         <form action="/createvehicle" method="POST" autocomplete="off">
             @csrf
             <a href="#" onclick="hide('popup2')" style="color:black;" class="close"><i

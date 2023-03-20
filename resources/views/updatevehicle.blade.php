@@ -24,7 +24,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}Km
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a onclick="show('popup')"><i class="fa-solid fa-edit btn btn-success"></i></i></a>
+                                    <a onclick="show('popup4')"><i class="fa-solid fa-edit btn btn-success"></i></i></a>
                                     <a href="/remove/{{ $vehicle->id }}"><i
                                             class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </main>
-    <div class="popup" id="popup">
+    <div class="popup4" id="popup4">
         <form action="/updatevehicle/{id}" method="POST" autocomplete="off">
             @csrf
             <a href="/vehiclelist" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>

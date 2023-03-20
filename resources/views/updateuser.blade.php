@@ -5,10 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Driver Details</h3>
-                    <a style="margin-right:20px;"><input type="submit" value="Add-Driver" id="add"
-                            onclick="show('popup')"></a>
-                    <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add"
-                            onclick="show('popup2')"></a>
+
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead>
@@ -50,7 +47,7 @@
             </div>
         </div>
     </main>
-    <div class="popup" id="popup">
+    <div class="popup3" id="popup3">
         <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
             @csrf
             <a href="/user" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
