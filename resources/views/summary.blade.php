@@ -9,10 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
-
     <title>M&D Foundations</title>
+    <link href="{{ asset('css/update.css') }}" rel="stylesheet">
+
 </head>
-<style>
+{{-- <style>
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
     :root {
@@ -22,10 +23,10 @@
         --white-color: #F7F6FB;
         --z-fixed: 100;
         --light: #F9F9F9;
-        --grey: #eee;
+        --grey: #f8efef;
         --dark-grey: #AAAAAA;
         --dark: #342E37;
-        s
+
     }
 
     html {
@@ -34,7 +35,6 @@
 
     body {
         font-family: 'EB Garamond', serif;
-        /* font-family: 'Times New Roman', Times, serif; */
         overflow: hidden;
         background: var(--grey);
     }
@@ -53,7 +53,6 @@
     #div-1 {
         width: 15%;
         height: 200;
-        /* margin-right:200px; */
         background: #f0d6d6;
     }
 
@@ -107,7 +106,6 @@
 
     .img {
         width: 100px;
-        /* height:40px; */
     }
 
     #img-container {
@@ -155,13 +153,13 @@
         font-size: 1.25rem
     }
 
-    main {
+    #main1 {
         position: relative;
         width: 80%;
         left: 120px;
     }
 
-    .table-data {
+    .table-data2 {
         padding: 15px;
         background: var(--light);
         overflow-x: auto;
@@ -213,13 +211,13 @@
         color: black;
     }
 
-    .main {
+    .main2 {
         margin-top: 30px;
         height: 75%;
         overflow: scroll;
     }
 
-    .main::-webkit-scrollbar {
+    .main1::-webkit-scrollbar {
         display: none;
     }
 
@@ -235,7 +233,7 @@
         right: 10px;
         animation-duration: 1s;
     }
-</style>
+</style> --}}
 
 <body>
     <section id="container">
@@ -274,11 +272,16 @@
         <div id="div-2">
             <div class="headers" id="headers">
                 <div class="header_toggle" id="toggle-container"> <i class='bx bx-x ' id="header-toggle"></i> </div>
-                {{-- <div class="header_img"> <img src="{{url('img/m-d-foundation.png')}}" class="img"> </div> --}}
             </div>
-            <h3> Report Summary</h3>
-            <main class="main">
-                <div class="table-data">
+
+
+            {{-- @extends('layouts.user')
+@section('content') --}}
+            <div class="head">
+                <h3> Report Summary</h3>
+            </div>
+            <main class="main2">
+                <div class="table-data2">
                     <div class="order">
                         <table class="table table-bordered">
                             <div class="check">
@@ -301,7 +304,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="table-data">
+                <div class="table-data2">
                     <div class="order">
                         <table class="table table-bordered">
                             <div class="check">
@@ -320,7 +323,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="table-data">
+                <div class="table-data2">
                     <div class="order">
                         <table class="table table-bordered">
                             <div class="check">
@@ -339,6 +342,7 @@
                         </table>
                     </div>
                 </div>
+
             </main>
             <div class="print">
                 <a href="/pdf/{{ $cabin->assign_id }}"><i class="fa-solid fa-print btn btn-danger"></i></a>
@@ -347,6 +351,7 @@
 
                 <a href="/edit/{{ $cabin->assign_id }}"><i class="fa-solid fa-edit btn btn-success"></i></a>
             </div>
+            {{-- @endsection --}}
     </section>
     <script>
         var toggleBtn = document.getElementById("toggle-container");

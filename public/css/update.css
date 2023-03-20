@@ -14,6 +14,7 @@
             }
             html {
                 overflow-y: hidden;
+                overflow-x: hidden;
             }
             body {
                 font-family: 'EB Garamond', serif;
@@ -146,6 +147,7 @@
                 padding: 24px;
                 overflow-x: auto;
             }
+
             .head {
                 display: flex;
             }
@@ -194,6 +196,7 @@
                 height: 80%;
                 overflow: scroll;
             }
+
             .main::-webkit-scrollbar {
                 display: none;
             }
@@ -201,7 +204,6 @@
             form {
                 margin-left: 50px;
             }
-
             .table-data1 {
                 position: relative;
                 color: #06064b;
@@ -212,7 +214,11 @@
                 border-radius: 8px;
                 background: var(--light);
             }
-
+                        .table-data2 {
+                            padding: 15px;
+                            background: var(--light);
+                            overflow-x: auto;
+                        }
             .usercount {
                 margin-left: 15px;
                 padding: 10px;
@@ -368,8 +374,19 @@
             .select {
                 display: flex;
             }
-
-
+            .print {
+                float: right;
+                margin-right: 100px;
+                margin-top: 20px;
+            }
+ .main2 {
+     margin-top: 30px;
+     height: 75%;
+     overflow: scroll;
+ }
+.main2::-webkit-scrollbar {
+    display: none;
+}
 
             .popup1 {
                 display: none;
@@ -549,6 +566,119 @@
             }
 
             #popreport:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: var(--light);
+                z-index: -1;
+            }
+
+            .popup5 {
+                position: fixed;
+                padding: 20px;
+                width: 700px;
+                height: 550px;
+                left: 50%;
+                margin-left: -350px;
+                top: 30%;
+                margin-top: -50px;
+                background: #FFF;
+                z-index: 20;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #popup5:after {
+                position: fixed;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.5);
+
+                z-index: -2;
+            }
+
+            #popup5:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: var(--light);
+                z-index: -1;
+            }
+            .popup6 {
+                position: fixed;
+                padding: 20px;
+                width: 700px;
+                height: 550px;
+                left: 50%;
+                margin-left: -350px;
+                top: 30%;
+                margin-top: -50px;
+                background: #FFF;
+                z-index: 20;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #popup6:after {
+                position: fixed;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.5);
+
+                z-index: -2;
+            }
+
+            #popup6:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: var(--light);
+                z-index: -1;
+            }
+            .popup7 {
+
+                position: fixed;
+                padding: 20px;
+                width: 700px;
+                height: 550px;
+                left: 50%;
+                margin-left: -350px;
+                top: 30%;
+                margin-top: -50px;
+                background: #FFF;
+                z-index: 20;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #popup7:after {
+                position: fixed;
+                content: "";
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.5);
+
+                z-index: -2;
+            }
+
+            #popup7:before {
                 position: absolute;
                 content: "";
                 top: 0;
