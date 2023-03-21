@@ -43,7 +43,7 @@
             <div class="vehicle">
                 <div class="form-group row mt-4">
                     <label class="col-sm-2 col-form-label">Id</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input type="text" name="id" class="form-control" value="{{ $vehicle->id }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
                                 *{{ $message }}
@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group row mt-4">
                     <label class="col-sm-2 col-form-label">Number_Plate</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input type="text" name="number_plate" class="form-control" value="{{ $vehicle->number_plate }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
                                 *{{ $message }}
@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group row mt-4 ">
                     <label class="col-sm-2 col-form-label">Vehicle_Type</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input type="text" name="vehicle_type" class="form-control" value="{{ $vehicle->vehicle_type }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_type')
                                 *{{ $message }}
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group row mt-4">
                     <label class="col-sm-2 col-form-label"> Mileage</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input type="text" name="mileage" class="form-control" value="{{ $vehicle->mileage }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
                                 *{{ $message }}

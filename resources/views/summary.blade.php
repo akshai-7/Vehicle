@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
     <title>M&D Foundations</title>
-    <link href="{{ asset('css/update.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/update.css') }}" rel="stylesheet"> --}}
 
 </head>
-{{-- <style>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
     :root {
@@ -153,14 +153,16 @@
         font-size: 1.25rem
     }
 
-    #main1 {
+    .main2 {
         position: relative;
-        width: 80%;
-        left: 120px;
+        width: 60%;
+        left: 180px;
+        height: 75%;
+        overflow: scroll;
     }
 
     .table-data2 {
-        padding: 15px;
+        padding: 7px;
         background: var(--light);
         overflow-x: auto;
     }
@@ -184,20 +186,10 @@
     }
 
     .order table td {
-        padding: 16px 0;
+        padding: 8px 0;
     }
 
-    #add {
-        background: rgb(254, 231, 154);
-        border-radius: 5px;
-        border: 1px solid #D69E31;
-        color: #85592e;
-        cursor: pointer;
-        top: -5px;
-        height: 30px;
-        position: relative;
-        width: 80px;
-    }
+
 
     .table_row {
         background: rgb(237, 233, 233);
@@ -211,13 +203,7 @@
         color: black;
     }
 
-    .main2 {
-        margin-top: 30px;
-        height: 75%;
-        overflow: scroll;
-    }
-
-    .main1::-webkit-scrollbar {
+    .main2::-webkit-scrollbar {
         display: none;
     }
 
@@ -233,7 +219,7 @@
         right: 10px;
         animation-duration: 1s;
     }
-</style> --}}
+</style>
 
 <body>
     <section id="container">

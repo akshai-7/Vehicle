@@ -386,7 +386,7 @@
             .main2::-webkit-scrollbar {
                 display: none;
             }
-            .form-control {
+            .form .form-control {
                 background: var(--grey);
             }
 

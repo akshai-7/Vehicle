@@ -49,6 +49,7 @@ Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 Route::get('/inspection/{id}', [InspectionController::class, 'weeklyinspection']);
 Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
+Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
 
 //report
 Route::get('/report/{id}', [ReportController::class, 'report']);

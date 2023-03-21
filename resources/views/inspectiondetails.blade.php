@@ -49,7 +49,9 @@
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/details/{{ $inspection->id }}"><i class="fa-solid fa-eye btn  text-white"
                                             style="background:#06064b "></i></a>
-                                    {{-- <a href="/deleteId/{{$inspection->id}}"><i class="fa-solid fa-trash btn btn-danger" ></i></a></td> --}}
+                                    <a href="/deleteinspection/{{ $inspection->id }}"><i
+                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

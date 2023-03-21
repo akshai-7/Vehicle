@@ -12,7 +12,6 @@ use Illuminate\Support\Carbon;
 
 class InspectionController extends Controller
 {
-    //inspections
     public function weeklyinspection($id)
     {
         $assign = Assign::where('id', $id)->first();
@@ -96,5 +95,11 @@ class InspectionController extends Controller
     {
         $inspection = Inspection::all();
         return view('/inspectiondetails', compact('inspection'));
+    }
+    public function deleteinspection($id)
+    {
+        Inspection::find($id)->delete();
+        session()->flash('message1', ' Inspection detail is Deleted');
+        return redirect('/inspectiondetails');
     }
 }
