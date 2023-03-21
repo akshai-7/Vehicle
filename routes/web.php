@@ -21,6 +21,7 @@ use App\Http\Controllers\CabinController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //login
 Route::view('/', 'login');
 Route::post('/user', [LoginController::class, 'admin']);

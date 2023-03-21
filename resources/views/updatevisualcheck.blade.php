@@ -79,7 +79,7 @@
                 <div class="form-group row mt-4 ">
                     <label class="col-sm-2 col-form-label">Image</label>
                     <div class="col-sm-10">
-                        <input type="file" name="image" class="form-control" value="{{ $visual->image }}">
+                        <input type="file" name="image[]" class="form-control" value="{{ $visual->image }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                 *{{ $message }}
                             @enderror

@@ -276,7 +276,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $visual->view }}</td>
                                 <td style="text-align:center;" class="table_data"><img
-                                        src="{{ url('images/' . $visual->image) }}"
+                                        src="{{ url('images/' . explode(',', $visual->image)[0]) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px"></td>
                                 <td style="text-align:center;" class="table_data">{{ $visual->feedback }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $visual->action }}</td>
@@ -308,21 +308,15 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->view }}</td>
-                                {{-- <td style="text-align:center;" class="table_data"><img
+                                <td style="text-align:center;" class="table_data"><img
                                         src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}" width="50px"
-                                        height="50px" alt="" class="rounded-0 border border-secondary "></td> --}}
-                                @foreach (explode(',', $vehicle->image) as $image)
-                                    <td style="text-align:center;" class="table_data "><img
-                                            src="{{ url('images/' . $image) }}" width="50px" height="50px" alt=""
-                                            class="rounded-0 border border-secondary ">
-                                        {{--
-                                        <div class="gallery-view">
-                                            <a class="img-poppu" href="{{ url('images/' . $image) }}">
-                                                <i class="fa fa-search-plus"></i>
-                                            </a>
-                                        </div> --}}
+                                        height="50px" alt="" class="rounded-0 border border-secondary "></td>
+                                {{-- @foreach (explode(',', $vehicle->image) as $image)
+                                    <td style="text-align:center;" class="table_data ">
+                                        <img src="{{ url('images/' . $image) }}" width="50px" height="50px"
+                                            alt="" class="rounded-0 border border-secondary ">
                                     </td>
-                                @endforeach
+                                @endforeach --}}
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->feedback }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->action }}</td>
@@ -356,8 +350,8 @@
                             <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                             <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
                             <td style="text-align:center;" class="table_data"><img
-                                    src="{{ url('images/' . $cabin->image) }}" width="50px" height="50px" alt=""
-                                    class="rounded-0 border border-secondary"></td>
+                                    src="{{ url('images/' . explode(',', $cabin->image)[0]) }}" width="50px"
+                                    height="50px" alt="" class="rounded-0 border border-secondary"></td>
                             <td style="text-align:center;" class="table_data">{{ $cabin->feedback }}</td>
                             <td style="text-align:center;" class="table_data">{{ $cabin->action }}</td>
                             <td style="text-align:center;" class="table_data">
