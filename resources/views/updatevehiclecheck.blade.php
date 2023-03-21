@@ -20,9 +20,11 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->view }}</td>
+
                                 <td style="text-align:center;" class="table_data"><img
                                         src="{{ url('images/' . $vehicle->image) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px"></td>
+                                        class="rounded-0 border border-secondary" width="50px" height="50px">
+                                </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->feedback }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->action }}</td>
