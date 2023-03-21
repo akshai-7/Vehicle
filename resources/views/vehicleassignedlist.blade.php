@@ -30,7 +30,7 @@
                                 {{-- <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}
                                 </td>
-                                <td style="text-align:center;" class="table_data">{{ $assign->mileage }}Km
+                                <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/inspection/{{ $assign->id }}"><i

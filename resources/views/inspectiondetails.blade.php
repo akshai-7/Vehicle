@@ -33,7 +33,7 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     {{ $inspection->number_plate }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $inspection->mileage }}Km
+                                <td style="text-align:center;" class="table_data">{{ $inspection->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->date }}
                                 </td>

@@ -23,7 +23,7 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_type }}
                                 </td>
-                                <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}Km</td>
+                                <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}</td>
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/updatevehicles/{{ $vehicle->id }}"><i
                                             class="fa-solid fa-edit btn btn-success"></i></a>

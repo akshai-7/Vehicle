@@ -280,8 +280,6 @@
                 <div class="icon-name"> <i class="fa-solid fa-list-check"></i> </div><span class="nav_name"> Inspection
                     List</span>
             </a>
-
-
             <a class="nav_list"href="/">
                 <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span
                     class="nav_name">SignOut</span>
@@ -330,7 +328,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row mt-5 ">
                                     <label for="" class="col-sm-2 col-form-label"> Phone</label>
                                     <div class="col-sm-9">
@@ -368,7 +365,7 @@
                                 <div class="form-group row mt-5 ">
                                     <label for="" class="col-sm-2 col-form-label"> Mileage</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="mileage" placeholder="Current Reading"
+                                        <input type="text" name="mileage" placeholder="Current Mileage"
                                             class="form-control">
                                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
                                                 *{{ $message }}
@@ -376,7 +373,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="head">

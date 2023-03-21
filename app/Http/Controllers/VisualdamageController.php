@@ -15,6 +15,9 @@ class VisualdamageController extends Controller
         $visual = Visual::where('assign_id', $assign_id)->get();
         $vehicle = Vehiclecheck::where('assign_id', $assign_id)->get();
         $cabin = Cabin::where('assign_id', $assign_id)->get();
+        if ($visual == null) {
+            return view('/inspectiondetails');
+        }
         return view('/details', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
     }
 
@@ -35,14 +38,14 @@ class VisualdamageController extends Controller
         $id = $request->assign_id;
         $data1 = Inspection::find($id);
         if ($data1 == null) {
-            return response()->json(['message' => 'Invalid Id']);
+            session()->flash('message', ' Invalid Id');
         }
 
         $data2 = $request->id;
 
         $data3 = Visual::find($data2);
         if ($data3 == null) {
-            return response()->json(['message' => 'Invalid Id']);
+            session()->flash('message', ' Invalid Id');
         }
         $visual = Visual::where('assign_id', $data1->id)->where('id', $data3->id)->first();
         $visual->view = $request['view'];

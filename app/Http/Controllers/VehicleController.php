@@ -34,7 +34,6 @@ class VehicleController extends Controller
     }
     public function updatevehicles($id)
     {
-
         $vehicle = Vehicle::where('id', $id)->get();
         return view('/updatevehicle', ['vehicle' => $vehicle]);
     }

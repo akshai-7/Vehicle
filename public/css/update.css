@@ -279,6 +279,10 @@
                 cursor: pointer;
                 transition: 0.6s;
             }
+            .tab_active{
+                background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
+                    color: white
+            }
 
             button.active {
                 background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
