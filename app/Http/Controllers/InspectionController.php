@@ -18,7 +18,9 @@ class InspectionController extends Controller
         return view('/inspection', compact('assign'));
     }
     public function store(Request $request)
+
     {
+
         $request->validate([
             'view' => 'required',
             'image' => 'required',
@@ -37,17 +39,17 @@ class InspectionController extends Controller
             'notes2' => 'required',
         ]);
 
-        $id = $request->id;
-        $assign = Assign::where('id', $id)->first();
+        $name = $request->name;
+        $assign = Assign::where('name', $name)->first();
         $inspection = new Inspection;
         $inspection->assign_id = $assign->id;
-        $inspection->report_no = $request['reportno'];
-        $inspection->name = $request['name'];
-        $inspection->email = $request['email'];
-        $inspection->mobile = $request['mobile'];
-        $inspection->date = $request['date'];
+        $inspection->report_no = $assign->number_plate . date('d-m-y');
+        $inspection->name = $assign->name;
+        $inspection->email = $assign->email;
+        $inspection->mobile = $assign->mobile;
+        $inspection->date = date('d-m-y');
         $inspection->next_inspection = Carbon::parse($request->date)->addDays(7);
-        $inspection->number_plate = $request['number_plate'];
+        $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
 

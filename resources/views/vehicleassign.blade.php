@@ -1,6 +1,6 @@
 @extends('layouts.user')
 @section('content')
-    <main>
+    <main class="main">
         <div class="table-data">
             <div class="order">
                 <div class="head">

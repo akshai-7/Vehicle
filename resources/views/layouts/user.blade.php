@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
     <title>M&D Foundations</title>
     <script src="{{ asset('js/style.js') }}" defer></script>
-    <link href="{{ asset('css/update.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -27,22 +27,27 @@
                 <div class="nav_name">Drivers </div>
             </a>
             <a class="nav_list gradient-hover-effect" href="/vehiclelist">
-                <div class="icon-name"> <i class="fa-solid fa-car"></i> </div><span class="nav_name">Vehicles</span>
+                <div class="icon-name"> <i class="fa-solid fa-car nav_icon"></i> </div><span
+                    class="nav_name">Vehicles</span>
             </a>
             <a class="nav_list gradient-hover-effect" href="/vehicleassign">
-                <div class="icon-name"><i class="fa-solid fa-user-pen"></i></div><span class="nav_name"> Vehicle
+                <div class="icon-name"><i class="fa-solid fa-user-pen nav_icon"></i></div><span class="nav_name">
+                    Vehicle
                     Assign</span>
             </a>
             <a class="nav_list gradient-hover-effect" href="/vehicleassignedlist">
-                <div class="icon-name"> <i class="fa-solid fa-list"></i> </div><span class="nav_name"> Assigned
+                <div class="icon-name"> <i class="fa-solid fa-list nav_icon"></i> </div><span class="nav_name">
+                    Assigned
                     List</span>
             </a>
             <a class="nav_list gradient-hover-effect" href="/inspectiondetails">
-                <div class="icon-name"> <i class="fa-solid fa-list-check"></i> </div><span class="nav_name"> Inspection
+                <div class="icon-name"> <i class="fa-solid fa-list-check nav_icon"></i> </div><span class="nav_name">
+                    Inspection
                     List</span>
             </a>
             <a class="nav_list gradient-hover-effect" href="/reportlist">
-                <div class="icon-name"> <i class="fa-solid fa-list-check"></i> </div><span class="nav_name"> Report
+                <div class="icon-name"> <i class="fa-solid fa-list-check nav_icon"></i> </div><span class="nav_name">
+                    Report
                     List</span>
             </a>
             <a class="nav_list gradient-hover-effect"href="/">

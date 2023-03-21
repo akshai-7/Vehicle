@@ -14,8 +14,9 @@ class ReportController extends Controller
         return view('/report', compact('report'));
     }
 
-    public function reportonincident(Request $request, $id)
+    public function reportonincident(Request $request)
     {
+
         $request->validate([
             'date' => 'required',
             'location' => 'required',
@@ -24,8 +25,8 @@ class ReportController extends Controller
             'statement' => 'required',
             'image' => 'required',
         ]);
-        $id = $request->id;
-        $assign = Assign::where('id', $id)->first();
+        $name = $request->name;
+        $assign = Assign::where('name', $name)->first();
         if ($assign == null) {
             return response()->json(['message' => 'Invalid Id']);
         }

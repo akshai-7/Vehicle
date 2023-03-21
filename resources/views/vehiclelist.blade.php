@@ -1,11 +1,13 @@
 @extends('layouts.user')
 
 @section('content')
-    <main>
+    <main class="main">
         <div class="table-data">
             <div class="order">
                 <div class="head">
                     <h3>Vehicle Details</h3>
+                    <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add"
+                            onclick="show('popup2')"></a>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead>
@@ -37,6 +39,48 @@
             </div>
         </div>
     </main>
+    <div class="popup2" id="popup2">
+        <form action="/createvehicle" method="POST" autocomplete="off">
+            @csrf
+            <a href="#" onclick="hide('popup2')" style="color:black;" class="close"><i
+                    class="fa-solid fa-xmark"></i></a>
 
+            <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Create Vehicle</h5>
+
+            <div class="vehicle">
+                <div class="form-group row mt-4">
+                    <label class="col-sm-2 col-form-label">Number_Plate</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="number_plate" class="form-control">
+                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
+                                *{{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mt-4 ">
+                    <label class="col-sm-2 col-form-label">Vehicle_Type</label>
+                    <div class="col-sm-9">
+                        <select name="vehicle_type" class="form-select">
+                            <option value="Car">Car</option>
+                            <option value="Truck">Truck</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mt-4 ">
+                    <label class="col-sm-2 col-form-label"> Mileage</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="mileage" class="form-control">
+                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
+                                *{{ $message }}
+                            @enderror
+                        </div>
+                        <input type="submit" name="" value="Submit" class="btn text-white mt-4"
+                            style="float:right;background:#06064b;">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     </div>
 @endsection

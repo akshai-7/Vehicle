@@ -55,6 +55,7 @@ class UserController extends Controller
             'name' => 'required',
             'gender' => 'required',
             'date_of_birth' => 'required',
+            'company' => 'required',
             'address' => 'required',
             'email' => 'required|email',
             'mobile' => 'required',
@@ -68,6 +69,7 @@ class UserController extends Controller
         $user->name = $request['name'];
         $user->gender = $request['gender'];
         $user->date_of_birth = $request['date_of_birth'];
+        $user->company = $request['company'];
         $user->address = $request['address'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);

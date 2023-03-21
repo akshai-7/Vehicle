@@ -100,6 +100,16 @@
                     </div>
                     <div class="subreport">
                         <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2 col-form-label"> Company</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="company" class="form-control" value="{{ $user->company }}">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label"> Address</label>
                             <div class="col-sm-9">
                                 <input type="text" name="address" class="form-control" value="{{ $user->address }}">

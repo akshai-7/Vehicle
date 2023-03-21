@@ -68,4 +68,16 @@
             evt.currentTarget.className += " active";
 
         }
-        document.getElementById("defaultOpen").click();
+document.getElementById("defaultOpen").click();
+
+
+
+//show password
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
