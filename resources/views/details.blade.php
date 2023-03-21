@@ -309,8 +309,8 @@
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->view }}</td>
                                 <td style="text-align:center;" class="table_data"><img
-                                        src="{{ url('images/' . $vehicle->image) }}" width="50px" height="50px"
-                                        alt="" class="rounded-0 border border-secondary "></td>
+                                        src="{{ url('images/' . explode(' ', $vehicle->image)[0]) }}" width="50px"
+                                        height="50px" alt="" class="rounded-0 border border-secondary "></td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->feedback }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->action }}</td>

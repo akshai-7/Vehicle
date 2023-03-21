@@ -33,10 +33,6 @@ class ApiController extends Controller
     {
         $request->validate([
             'reportno' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'mobile' => 'required',
-            'number_plate' => 'required',
             'mileage' => 'required',
         ]);
         $assign = Assign::where('id', $id)->first();
@@ -46,12 +42,12 @@ class ApiController extends Controller
         $inspection = new Inspection;
         $inspection->assign_id = $assign->id;
         $inspection->report_no = $request['reportno'];
-        $inspection->name = $request['name'];
-        $inspection->email = $request['email'];
-        $inspection->mobile = $request['mobile'];
+        $inspection->name = $assign->name;
+        $inspection->email =  $assign->email;
+        $inspection->mobile = $assign->mobile;
         $inspection->date = date('d.m.y');
         $inspection->next_inspection = Carbon::now()->endOfWeek(Carbon::FRIDAY)->format('d.m.Y');
-        $inspection->number_plate = $request['number_plate'];
+        $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
         return response()->json(['message' => 'Data Stored Successfully', "data" => $inspection], 200);
