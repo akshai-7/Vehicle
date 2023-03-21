@@ -22,7 +22,7 @@
             <div id="img-container">
                 <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
             </div>
-            <a class="nav_list gradient-hover-effect" href="/user">
+            <a class="nav_list gradient-hover-effect " href="/user">
                 <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
                 <div class="nav_name">Drivers </div>
             </a>

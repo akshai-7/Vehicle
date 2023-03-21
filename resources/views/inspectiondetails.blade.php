@@ -17,7 +17,7 @@
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Inspection_date</th>
                         <th style="text-align:center;">Next_inspection</th>
-                        {{-- <th style="text-align:center;">Over_due</th> --}}
+                        <th style="text-align:center;">Over_due</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
                     <tbody>
@@ -39,13 +39,13 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     {{ $inspection->next_inspection }}</td>
-                                {{-- <td style="text-align:center;" class="table_data">
-                                        @if ($inspection->next_inspection >= date('d.m.y'))
-                                            <button type="button" class="btn btn-sucess btn-sm">No</button>
-                                        @else
-                                            <button type="button" class="btn btn-daer btn-sm">Yes</button>
-                                        @endif
-                                    </td> --}}
+                                <td style="text-align:center;" class="table_data">
+                                    @if ($inspection->next_inspection >= date('d.m.y'))
+                                        <button type="button" class="btn btn-success btn-sm">No</button>
+                                    @else
+                                        <button type="button" class="btn btn-danger btn-sm">Yes</button>
+                                    @endif
+                                </td>
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/details/{{ $inspection->id }}"><i class="fa-solid fa-eye btn  text-white"
                                             style="background:#06064b "></i></a>

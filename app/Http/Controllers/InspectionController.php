@@ -46,13 +46,13 @@ class InspectionController extends Controller
         $inspection->email = $request['email'];
         $inspection->mobile = $request['mobile'];
         $inspection->date = $request['date'];
-        $inspection->next_inspection = Carbon::now()->endOfWeek(Carbon::FRIDAY)->format('d.m.Y');
+        $inspection->next_inspection = Carbon::parse($request->date)->addDays(7);
         $inspection->number_plate = $request['number_plate'];
         $inspection->mileage = $request['mileage'];
         $inspection->save();
 
         $assign_id = $assign->id;
-        $assign_id = Inspection::where('assign_id', $assign_id)->first();
+        $assign_id = Inspection::where('assign_id', $assign_id)->latest('id')->first();
         $data = $request->all();
         foreach ($data['view'] as $row => $value) {
             $data1 = array(
@@ -89,6 +89,7 @@ class InspectionController extends Controller
             );
             Cabin::create($data5);
         }
+        return redirect('/inspectiondetails');
     }
 
     public function inspection()

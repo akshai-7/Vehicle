@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,10 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
-    <title>M&D Foundations</title>
-    {{-- <link href="{{ asset('css/update.css') }}" rel="stylesheet"> --}}
+    <title>M&D Foundations</title> --}}
+{{-- <link href="{{ asset('css/update.css') }}" rel="stylesheet"> --}}
 
-</head>
+{{-- </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
@@ -258,87 +258,85 @@
         <div id="div-2">
             <div class="headers" id="headers">
                 <div class="header_toggle" id="toggle-container"> <i class='bx bx-x ' id="header-toggle"></i> </div>
-            </div>
+            </div> --}}
 
-
-            {{-- @extends('layouts.user')
-@section('content') --}}
-            <div class="head">
-                <h3> Report Summary</h3>
-            </div>
-            <main class="main2">
-                <div class="table-data2">
-                    <div class="order">
-                        <table class="table table-bordered">
-                            <div class="check">
-                                <h5>Visual Damage</h5>
-                            </div>
-                            <thead class=" col-md-1">
-                                <th style="text-align:center;" class="text-black col-md-2">View</th>
-                                <th style="text-align:center;" class="text-black col-md-2">Action</th>
-                            </thead>
-                            <tbody>
-                                @foreach ($visual as $visual)
-                                    <tr class="table_row">
-                                        <td style="text-align:center;" class="col-md-2 table_data">{{ $visual->view }}
-                                        </td>
-                                        <td style="text-align:center;" class="col-md-2 table_data">{{ $visual->action }}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+@extends('layouts.user')
+@section('content')
+    <div class="head">
+        <h3> Report Summary</h3>
+    </div>
+    <main class="main2">
+        <div class="table-data2">
+            <div class="order">
+                <table class="table table-bordered">
+                    <div class="check">
+                        <h5>Visual Damage</h5>
                     </div>
-                </div>
-                <div class="table-data2">
-                    <div class="order">
-                        <table class="table table-bordered">
-                            <div class="check">
-                                <h5> Vehicle Check</h5>
-                            </div>
-                            <tbody>
-                                @foreach ($vehicle as $vehicle)
-                                    <tr class="table_row">
-                                        <td style="text-align:center;" class="col-md-2 table_data">{{ $vehicle->view }}
-                                        </td>
-                                        <td style="text-align:center;" class="col-md-2 table_data">
-                                            {{ $vehicle->action }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="table-data2">
-                    <div class="order">
-                        <table class="table table-bordered">
-                            <div class="check">
-                                <h5>Cabin Check</h5>
-                            </div>
-                            <tbody>
-                                @foreach ($cabin as $cabin)
-                                    <tr class="table_row">
-                                        <td style="text-align:center;" class="col-md-2 table_data">{{ $cabin->view }}
-                                        </td>
-                                        <td style="text-align:center;" class="col-md-2 table_data">{{ $cabin->action }}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </main>
-            <div class="print">
-                <a href="/pdf/{{ $cabin->assign_id }}"><i class="fa-solid fa-print btn btn-danger"></i></a>
-                <a href="/send-email-using-gmail/{{ $cabin->assign_id }}"><i
-                        class="fa-solid fa-envelope btn btn-success"></i></a>
-
-                <a href="/edit/{{ $cabin->assign_id }}"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                    <thead class=" col-md-1">
+                        <th style="text-align:center;" class="text-black col-md-2">View</th>
+                        <th style="text-align:center;" class="text-black col-md-2">Action</th>
+                    </thead>
+                    <tbody>
+                        @foreach ($visual as $visual)
+                            <tr class="table_row">
+                                <td style="text-align:center;" class="col-md-2 table_data">{{ $visual->view }}
+                                </td>
+                                <td style="text-align:center;" class="col-md-2 table_data">{{ $visual->action }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            {{-- @endsection --}}
-    </section>
+        </div>
+        <div class="table-data2">
+            <div class="order">
+                <table class="table table-bordered">
+                    <div class="check">
+                        <h5> Vehicle Check</h5>
+                    </div>
+                    <tbody>
+                        @foreach ($vehicle as $vehicle)
+                            <tr class="table_row">
+                                <td style="text-align:center;" class="col-md-2 table_data">{{ $vehicle->view }}
+                                </td>
+                                <td style="text-align:center;" class="col-md-2 table_data">
+                                    {{ $vehicle->action }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="table-data2">
+            <div class="order">
+                <table class="table table-bordered">
+                    <div class="check">
+                        <h5>Cabin Check</h5>
+                    </div>
+                    <tbody>
+                        @foreach ($cabin as $cabin)
+                            <tr class="table_row">
+                                <td style="text-align:center;" class="col-md-2 table_data">{{ $cabin->view }}
+                                </td>
+                                <td style="text-align:center;" class="col-md-2 table_data">{{ $cabin->action }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <div class="print">
+        <a href="/pdf/{{ $cabin->assign_id }}"><i class="fa-solid fa-print btn btn-danger"></i></a>
+        {{-- <a href="/send-email-using-gmail/{{ $cabin->assign_id }}"><i class="fa-solid fa-envelope btn btn-success"></i></a> --}}
+
+        <a href="/edit/{{ $cabin->assign_id }}"><i class="fa-solid fa-edit btn btn-success"></i></a>
+    </div>
+@endsection
+{{-- </section>
     <script>
         var toggleBtn = document.getElementById("toggle-container");
         var isOpen = true;
@@ -375,4 +373,4 @@
     </script>
 </body>
 
-</html>
+</html> --}}

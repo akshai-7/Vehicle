@@ -347,8 +347,7 @@
                                 <div class="form-group row mt-5">
                                     <label for="" class="col-sm-2  col-form-label"> Date</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="date" class="form-control"
-                                            value="{{ date('d.m.Y') }}">
+                                        <input type="date" name="date" class="form-control">
                                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')
                                                 *{{ $message }}
                                             @enderror
