@@ -15,7 +15,7 @@
                         <th style="text-align:center;">Id</th>
                         {{-- <th style="text-align:center;">Driver_Id</th> --}}
                         <th style="text-align:center;">Driver Name</th>
-                        <th style="text-align:center;">Email</th>
+                        {{-- <th style="text-align:center;">Email</th> --}}
                         {{-- <th style="text-align:center;">Mobile.No</th> --}}
                         {{-- <th style="text-align:center;">Vehicle_Id</th> --}}
                         <th style="text-align:center;">Number plate</th>
@@ -29,7 +29,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
                                 {{-- <td style="text-align:center;" class="table_data">{{$assign->driver_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>
+                                {{-- <td style="text-align:center;" class="table_data">{{ $assign->email }}</td> --}}
                                 {{-- <td style="text-align:center;" class="table_data">{{ $assign->mobile }}</td> --}}
                                 {{-- <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}
@@ -37,7 +37,8 @@
                                 <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="#"><i class="fa-solid fa-eye btn btn-success"></i></a>
+                                    <a href="/updateassignlist/{{ $assign->id }}" onclick="show('popup9')"><i
+                                            class="fa-solid fa-eye btn btn-success"></i></a>
                                     <a href="/deleteId/{{ $assign->id }}"><i
                                             class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
@@ -49,7 +50,6 @@
         </div>
     </main>
     </div>
-
     <div class="popup8" id="popup8">
         <section id="container">
 
@@ -187,7 +187,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                         <tr>
                                             <td class="col-md-1"><input type="text" name="sno[]"
@@ -204,7 +204,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                         <tr>
                                             <td class="col-md-1"><input type="text" name="sno[]"
@@ -221,7 +221,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                         <tr>
                                             <td class="col-md-1"><input type="text" name="sno[]"
@@ -238,7 +238,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -276,7 +276,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action1[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                         <tr class="list">
                                             <td class="col-md-1"><input type="text" name="sno[]"
@@ -294,7 +294,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action1[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                         <tr class="list">
                                             <td class="col-md-1"><input type="text" name="sno[]"
@@ -311,7 +311,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action1[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                         <tr class="list">
                                             <td class="col-md-1"><input type="text" name="sno[]"
@@ -329,7 +329,7 @@
                                                     style="text-align:center;" id='notes'></td>
                                             <td><input type="text" name="action1[]"
                                                     class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder="Good/Bad"></td>
+                                                    id='action' placeholder=""></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -371,7 +371,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                             <tr class="list">
                                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -391,7 +391,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                             <tr class="list">
                                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -411,7 +411,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                             <tr class="list">
 
@@ -432,7 +432,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                             <tr class="list">
                                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -452,7 +452,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                             <tr class="list">
                                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -473,7 +473,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                             <tr class="list">
                                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -494,7 +494,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                             <tr class="list">
                                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -515,7 +515,7 @@
                                                         id='notes'></td>
                                                 <td><input type="text" name="action2[]"
                                                         class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder="Good/Bad"></td>
+                                                        id='action' placeholder=""></td>
                                             </tr>
                                         </tbody>
                                     </table>

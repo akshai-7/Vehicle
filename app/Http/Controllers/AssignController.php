@@ -52,6 +52,12 @@ class AssignController extends Controller
         $assigns = Assign::get();
         return view('/vehicleassignedlist', compact('assign', 'assigns'));
     }
+    public function updateassignlist($id)
+    {
+        $assign = Assign::where('id', $id)->get();
+        // dd($assign->id);
+        return view('/updateassignlist', compact('assign'));
+    }
     public function deleteId($id)
     {
         $assign = Assign::where('id', $id)->first();

@@ -1,5 +1,4 @@
 @extends('layouts.user')
-
 @section('content')
     <main class="main">
         <div class="table-data">

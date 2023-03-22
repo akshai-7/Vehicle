@@ -68,7 +68,7 @@
             evt.currentTarget.className += " active";
 
         }
-document.getElementById("defaultOpen").click();
+        document.getElementById("defaultOpen").click();
 
 
 
@@ -81,3 +81,6 @@ document.getElementById("defaultOpen").click();
                 x.type = "password";
             }
         }
+
+
+

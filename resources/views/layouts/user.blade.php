@@ -22,11 +22,11 @@
             <div id="img-container">
                 <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
             </div>
-            <a class="nav_list gradient-hover-effect " href="/user">
+            <a class="nav_list active" href="#" onclick="location.href = '/user';">
                 <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
                 <div class="nav_name">Drivers </div>
             </a>
-            <a class="nav_list gradient-hover-effect" href="/vehiclelist">
+            <a class="nav_list " href="/vehiclelist">
                 <div class="icon-name"> <i class="fa-solid fa-car nav_icon"></i> </div><span
                     class="nav_name">Vehicles</span>
             </a>
@@ -99,5 +99,17 @@
     </section>
 
 </body>
+<script>
+    var header = document.getElementById("div-1");
+    var btns = header.getElementsByClassName("nav_list");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace("active", "");
+            this.className += "active";
+        });
+    }
+</script>
 
 </html>

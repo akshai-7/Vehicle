@@ -13,8 +13,8 @@
                     <thead>
                         <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">Name</th>
-                        <th style="text-align:center;">Gender</th>
-                        <th style="text-align:center;">D.O.B</th>
+                        {{-- <th style="text-align:center;">Gender</th> --}}
+                        {{-- <th style="text-align:center;">D.O.B</th> --}}
                         <th style="text-align:center;">Email</th>
                         <th style="text-align:center;">Mobile.no</th>
                         <th style="text-align:center;">Address</th>
@@ -28,8 +28,8 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->name }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user->gender }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user->date_of_birth }}
+                                {{-- <td style="text-align:center;" class="table_data">{{ $user->gender }}</td> --}}
+                                {{-- <td style="text-align:center;" class="table_data">{{ $user->date_of_birth }} --}}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
@@ -37,7 +37,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    {{ $user->created_at->format('d.m.Y') }}</td>
+                                    {{ $user->created_at->format('Y-m-d') }}</td>
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/updateuser/{{ $user->id }}"><i
                                             class="fa-solid fa-edit btn btn-success"></i></a>
