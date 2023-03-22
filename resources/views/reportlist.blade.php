@@ -4,7 +4,7 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Report on Incident</h3>
+                    <h3>Report an Incident</h3>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
@@ -38,7 +38,6 @@
                                         src="{{ url('images/' . $report->image) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px"></td>
                                 <td style="text-align:center;" class="table_data">
-
                                     <a href="/deletereport/{{ $report->id }}"><i
                                             class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
