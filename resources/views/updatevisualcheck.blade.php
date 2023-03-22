@@ -41,7 +41,7 @@
     <div class="popup5" id="popup5">
         <form action="/visualupdate/{id}" method="POST" autocomplete="off">
             @csrf
-            <a href="/details/{{ $visual->assign_id }}" style="color:black;" class="close"><i
+            <a href="/details/{{ $visual->inspection_id }}" style="color:black;" class="close"><i
                     class="fa-solid fa-xmark"></i></a>
             <h5 class="" style="color:#06064b;"> Update Visual Damage
             </h5>
@@ -59,7 +59,7 @@
                 <div class="form-group row mt-4">
                     <label class="col-sm-2 col-form-label"> Assign_Id</label>
                     <div class="col-sm-10">
-                        <input type="text" name="assign_id" class="form-control" value="{{ $visual->assign_id }}">
+                        <input type="text" name="assign_id" class="form-control" value="{{ $visual->inspection_id }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('assign_id')
                                 *{{ $message }}
                             @enderror

@@ -5,10 +5,10 @@
             <div class="order">
                 <div class="head">
                     <h3>Vehicle Assigned List</h3>
-                    <a style="margin-right: 20px;"><input type="submit" value="Inspection" id="add"
-                            onclick="show('popup8')"></a>
-                    <a style="margin-right: 20px;"><input type="submit" value="Incident" id="add"
-                            onclick="show('popreport')"></a>
+                    <a style="margin-right: 10px;" type="" onclick="show('popup8')"><i
+                            class="fa-solid fa-plus btn btn-secondary"></i></a>
+                    <a style="margin-right: 10px;" type="" onclick="show('popreport')"><i
+                            class="fa-solid fa-file btn btn-primary"></i></a>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
@@ -37,7 +37,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-
+                                    <a href="#"><i class="fa-solid fa-eye btn btn-success"></i></a>
                                     <a href="/deleteId/{{ $assign->id }}"><i
                                             class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
@@ -56,7 +56,7 @@
             <div id="">
                 <a href="#" onclick="hide('popup8')" style="color:black;margin-left:1200px;" class="close"><i
                         class="fa-solid fa-xmark"></i></a>
-                <h3> Inspection Details</h3>
+                <h5> Inspection Details</h5>
 
                 <form action="/store/{id}" method="POST" autocomplete="off" class="main form">
                     @csrf
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
                             <div class="head">
-                                <h5 class="mt-5" style="color:#06064b;">Visual Check</h5>
+                                <h5 class="mt-5">Visual Check</h5>
                             </div>
                             <div class="form-control1">
                                 <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
@@ -246,7 +246,7 @@
                         </div>
                         <div class="">
                             <div class="head">
-                                <h5 class="" style="color:#06064b;">Vehicle Check</h5>
+                                <h5 class="">Vehicle Check</h5>
                             </div>
                             <div class="form-control1">
                                 <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
@@ -337,7 +337,7 @@
                         </div>
                         <div class="">
                             <div class="head">
-                                <h5 class="" style="color:#06064b;">Cabin Check</h5>
+                                <h5 class="">Cabin Check</h5>
                             </div>
                             <div class="form-control1">
                                 <div>
@@ -521,7 +521,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <a href="#"><input type="submit" value="Submit" class="text-black" id="add"
+                            <a href="#"><input type="submit" value="Submit" class="text-white" id="add"
                                     style="margin-left:1000px;"></a>
                     </main>
 
@@ -534,7 +534,7 @@
             @csrf
             <a href="/vehicleassignedlist" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
 
-            <h5 class="" style="color:#06064b;"> Report On Incident</h5>
+            <h5 class=""> Report On Incident</h5>
 
             <div class="vehicle">
 
@@ -606,8 +606,8 @@
                                 *{{ $message }}
                             @enderror
                         </div>
-                        <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                            style="float:right;background:#06064b;">
+                        <input type="submit" name="" value="Submit" class="btn text-white mt-4" id="add"
+                            style="float:right;">
                     </div>
                 </div>
             </div>

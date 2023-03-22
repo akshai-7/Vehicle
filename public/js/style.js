@@ -10,7 +10,7 @@
             document.getElementById("div-2").style.width = "95%";
 
             document.getElementById("toggle-container").innerHTML =
-                "<i class='bx bx-menu' id='header-toggle'></i>";
+                "<i class='fa-solid fa-chevron-right header_toggle'></i>";
             for (var i = 0; i < divsToHide.length; i++) {
 
                 divsToHide[i].style.display = "none";
@@ -21,7 +21,7 @@
             document.getElementById("div-2").style.transition = "0.6s";
             var divsToHide = document.getElementsByClassName("nav_name");
             document.getElementById("toggle-container").innerHTML =
-                "<i class='bx bx-x' id='header-toggle'></i>";
+                "<i class='fa-solid fa-chevron-left  header_toggle'></i>";
 
             for (var i = 0; i < divsToHide.length; i++) {
                 divsToHide[i].style.display = "block";

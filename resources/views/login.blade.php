@@ -4,17 +4,18 @@
         <div class="">
 
             <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
-
+            <h5>Login to your account</h5>
             <form class="login" action="/user" method="POST" autocomplete="off">
                 @csrf
                 <div class="login__field">
-                    <i class="login__icon fas fa-user"></i>
-                    <input type="text" class="login__input" placeholder="Enter Your Email" name="email" required>
+                    <label for="">Email</label>
+                    <input type="text" class="login__inpt form-control" placehlder="Enter Your Email" name="email"
+                        required>
                 </div>
                 <div class="login__field">
-                    <i class="login__icon fas fa-lock"></i>
-                    <input type="password" class="login__input" placeholder=" Enter Your Password" name="password" required
-                        id="myInput">
+                    <label for="">Password</label>
+                    <input type="password" class="login__inpu form-control" placehoder=" Enter Your Password"
+                        name="password" required id="myInput">
                     <label class="check"><input type="checkbox" onclick="myFunction()"> Show Password</label>
                 </div>
                 <button class="button login__submit" type="submit">

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>M&D Foundations</title>
-    <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style1.css') }}" rel="stylesheet"> --}}
 
 </head>
 {{-- <style>
@@ -354,8 +354,8 @@
                                 <div class="form-group row mt-5">
                                     <label for="" class="col-sm-2 col-form-label">NumberPlate</label>
                                     <div class="col-sm-8">
-                                        <input type="text" name="number_plate"
-                                            value="{{ $assign->number_plate }}" class="form-control">
+                                        <input type="text" name="number_plate" value="{{ $assign->number_plate }}"
+                                            class="form-control">
                                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
                                                 *{{ $message }}
                                             @enderror

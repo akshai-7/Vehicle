@@ -44,7 +44,7 @@
     <div class="popup6" id="popup6">
         <form action="/vehicleupdate/{id}" method="POST" autocomplete="off">
             @csrf
-            <a href="/details/{{ $vehicle->assign_id }}" style="color:black;" class="close"><i
+            <a href="/details/{{ $vehicle->inspection_id }}" style="color:black;" class="close"><i
                     class="fa-solid fa-xmark"></i></a>
             <h5 class="" style="color:#06064b;"> Update Vehicle Check
             </h5>
@@ -62,7 +62,7 @@
                 <div class="form-group row mt-4">
                     <label class="col-sm-2 col-form-label">Assign_Id</label>
                     <div class="col-sm-10">
-                        <input type="text" name="assign_id" class="form-control" value="{{ $vehicle->assign_id }}">
+                        <input type="text" name="assign_id" class="form-control" value="{{ $vehicle->inspection_id }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('assign_id')
                                 *{{ $message }}
                             @enderror

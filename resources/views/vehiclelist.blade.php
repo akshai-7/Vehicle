@@ -45,7 +45,7 @@
             <a href="#" onclick="hide('popup2')" style="color:black;" class="close"><i
                     class="fa-solid fa-xmark"></i></a>
 
-            <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Create Vehicle</h5>
+            <h5><i class="fa-solid fa-user"></i> Create Vehicle</h5>
 
             <div class="vehicle">
                 <div class="form-group row mt-4">
@@ -62,8 +62,10 @@
                     <label class="col-sm-2 col-form-label">Vehicle_Type</label>
                     <div class="col-sm-9">
                         <select name="vehicle_type" class="form-select">
-                            <option value="Car">Van</option>
-                            <option value="Truck">Truck</option>
+                            <option value="">Select</option>
+                            <option value="">Van</option>
+                            <option value="">Truck</option>
+                            <option value="">Car</option>
                         </select>
                     </div>
                 </div>
@@ -75,8 +77,8 @@
                                 *{{ $message }}
                             @enderror
                         </div>
-                        <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                            style="float:right;background:#06064b;">
+                        <input type="submit" name="" value="Submit" id="add" class="btn text-white mt-4"
+                            style="float:right;">
                     </div>
                 </div>
             </div>

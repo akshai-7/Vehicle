@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
     <title>M&D Foundations</title>
-    {{-- <link href="{{ asset('css/update.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
 
 </head>
-<style>
+{{-- <style>
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
     :root {
@@ -219,7 +219,7 @@
         right: 10px;
         animation-duration: 1s;
     }
-</style>
+</style> --}}
 
 <body>
     <section id="container">

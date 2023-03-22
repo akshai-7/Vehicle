@@ -57,7 +57,7 @@
             @csrf
             <a href="#" onclick="hide('popup1')" style="color:black;" class="close"><i
                     class="fa-solid fa-xmark"></i></a>
-            <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Create Driver</h5>
+            <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Create Driver</h5>
             <div class="report1">
                 <div class="report">
                     <div class="form-group row mt-4 ">
@@ -144,7 +144,7 @@
                                 @enderror
                             </div>
                             <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                                style="float:right;background:#06064b;">
+                                style="float:right;background:#bf0e3a;">
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
+.main {
+    margin-left: 34%;
+    margin-top: 60px;
+    background: linear-gradient(90deg, rgb(239, 239, 241), rgb(228, 228, 231));
+    width: 450px;
+    height: 600px;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(49, 49, 49, 0.14);
+}
+
+body {
+    font-family: "Mulish", sans-serif;
+    overflow: hidden;
+    background: rgb(242, 241, 255);
+}
+
+#message {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    animation-duration: 1s;
+}
+
+.login {
+    width: 350px;
+    padding: 20px;
+    padding-top: 156px;
+    margin-top: -130px;
+    margin-left: 40px;
+}
+
+.login__field {
+    padding: 20px 0px;
+    position: relative;
+}
+
+.login__icon {
+    position: absolute;
+    top: 30px;
+    /* color: #f57777; */
+    color: #bb1138;
+}
+
+.login__input {
+    border: none;
+    border-bottom: 2px solid #ee8f8f;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: 0.2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+    outline: none;
+    border-bottom-color: #ee8f8f;
+}
+
+.login__submit {
+    background: #fff;
+    font-size: 14px;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #ebebf7;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    color: #fff;
+    /* box-shadow: 0px 2px 2px #f29f/9f; */
+    cursor: pointer;
+    background: #bb1138;
+}
+
+.button__icon {
+    font-size: 20px;
+    margin-left: auto;
+    color: white;
+}
+
+img {
+    width: 150px;
+    margin-top: 30px;
+    margin-left: 140px;
+    /* border: 1px solid black; */
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.check {
+    margin-top: 10px;
+    font-size: 15px;
+}
+h5 {
+    margin-left: 115px;
+    margin-top: 40px;
+}

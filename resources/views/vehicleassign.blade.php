@@ -9,13 +9,13 @@
                 <form action="/vehicleassignlist" method="POST">
                     @csrf
                     <div class="select">
-                        <select class="form-select" style="width: 400px;" name="name">
+                        <select class="form-select" style="width: 500px;" name="name">
                             <option>Please Select Driver</option>
                             @foreach ($user as $user)
                                 <option value="{{ $user->name }}" name="name">{{ $user->name }}</option>
                             @endforeach
                         </select>
-                        <select class="form-select" name="number_plate" style="width: 400px;">
+                        <select class="form-select" name="number_plate" style="width: 500px;">
                             <option>Please Select Vehicle</option>
                             @foreach ($vehicle as $vehicle)
                                 <option value="{{ $vehicle->number_plate }}" name="number_plate">
@@ -23,8 +23,8 @@
                             @endforeach
                         </select>
                     </div>
-                    <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                        style="float:right;background:#06064b;">
+                    <input type="submit" name="" value="Submit" id="add" class="btn text-white mt-4"
+                        style="float:right;">
                 </form>
             </div>
         </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Auth\Events\Failed;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -17,9 +19,10 @@ class UserController extends Controller
             'address' => 'required',
             'company' => 'required',
             'email' => 'required|email',
-            'password' => 'required|',
+            'password' => 'required',
             'mobile' => 'required',
         ]);
+
         $user = new User();
         $user->name = $request['name'];
         $user->gender = $request['gender'];
@@ -37,9 +40,7 @@ class UserController extends Controller
     {
         $role = 'user';
         $users = User::where('role', $role)->get();
-        $role1 = 'admin';
-        $user1 = User::where('role', $role1)->first();
-        return view('/user', ['users' => $users], ['user1' => $user1]);
+        return view('/user', ['users' => $users]);
     }
     public function updateuser($id)
     {
@@ -59,6 +60,7 @@ class UserController extends Controller
             'address' => 'required',
             'email' => 'required|email',
             'mobile' => 'required',
+
         ]);
         $id = $request->id;
         $data1 = User::find($id);

@@ -11,8 +11,8 @@
                 <div class="form-group row mt-4">
                     <label class="col-sm-2 col-form-label">Assign_ID</label>
                     <div class="col-sm-9">
-                        <input type="text" name="id" value="{{ $report->id }}" class="form-control">
-                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')
+                        <input type="text" name="assign_id" value="{{ $report->id }}" class="form-control">
+                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('assign_id')
                                 *{{ $message }}
                             @enderror
                         </div>

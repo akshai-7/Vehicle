@@ -31,7 +31,7 @@
                     class="nav_name">Vehicles</span>
             </a>
             <a class="nav_list gradient-hover-effect" href="/vehicleassign">
-                <div class="icon-name"><i class="fa-solid fa-user-pen nav_icon"></i></div><span class="nav_name">
+                <div class="icon-name"><i class="fa-solid fa-link nav_icon"></i></div><span class="nav_name">
                     Vehicle
                     Assign</span>
             </a>
@@ -46,7 +46,7 @@
                     List</span>
             </a>
             <a class="nav_list gradient-hover-effect" href="/reportlist">
-                <div class="icon-name"> <i class="fa-solid fa-list-check nav_icon"></i> </div><span class="nav_name">
+                <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
                     Report
                     List</span>
             </a>
@@ -57,21 +57,21 @@
         </div>
         <div id="div-2">
             <header class="headers" id="headers">
-                <div class="header_toggle" id="toggle-container"><i class='bx bx-x' id='header-toggle'></i></div>
-                <a href="#" class="open-button" onclick="openForm()"><img id="img-logo1"
-                        src="{{ url('images/user-2.png') }}"></a>
-                <div class="form-popup" id="myForm">
+                <div class="header_toggle" id="toggle-container"><i class="fa-solid fa-chevron-left"></i></div>
+                {{-- <a href="#" class="open-button" onclick="openForm()"><img id="img-logo1"
+                        src="{{ url('images/user-2.png') }}"></a> --}}
+                {{-- <div class="form-popup" id="myForm">
                     <div class="container">
                         <a type="button" onclick="closeForm()" style="color:black;margin-left:140px;"><i
                                 class='bx bx-x ' id="header-toggle"></i></i></a>
                         <div class="cls" style="margin-top:-20px;color:black">
-                            {{-- <tr> <i class="fa-solid fa-user"></i> {{ $user1->name }}</tr><br>
-                            <tr> <i class="fa-solid fa-envelope"></i> {{ $user1->email }}</tr><br> --}}
+                            <tr> <i class="fa-solid fa-user"></i> {{ $user1->name }}</tr><br>
+                            <tr> <i class="fa-solid fa-envelope"></i> {{ $user1->email }}</tr><br>
                             <a href="/" style="color:black;"> <i class="fa-solid fa-arrow-right-from-bracket"
                                     style="color:black"></i> Log Out</a><br>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </header>
             <div class="message" id="message">
                 @if (session()->has('message'))
