@@ -257,7 +257,7 @@
         </div>
         <div id="div-2">
             <div class="headers" id="headers">
-                <div class="header_toggle" id="toggle-container"> <i class='bx bx-x ' id="header-toggle"></i> </div>
+                <div class="header_toggle" id="toggle-container"> <i class="fa-solid fa-chevron-left"></i></div>
             </div>
 
             {{-- @extends('layouts.user')
@@ -274,6 +274,7 @@
                             </div>
                             <thead class=" col-md-1">
                                 <th style="text-align:center;" class="text-black col-md-2">View</th>
+                                <th style="text-align:center;" class="text-black col-md-2">Image</th>
                                 <th style="text-align:center;" class="text-black col-md-2">Action</th>
                             </thead>
                             <tbody>
@@ -281,6 +282,10 @@
                                     <tr class="table_row">
                                         <td style="text-align:center;" class="col-md-2 table_data">{{ $visual->view }}
                                         </td>
+                                        <td style="text-align:center;" class=" col-md-2 table_data"><img
+                                                src="{{ url('images/' . explode(',', $visual->image)[0]) }}"
+                                                width="50px" height="50px" alt=""
+                                                class="rounded-0 border border-secondary "></td>
                                         <td style="text-align:center;" class="col-md-2 table_data">{{ $visual->action }}
                                         </td>
                                     </tr>
@@ -300,8 +305,13 @@
                                     <tr class="table_row">
                                         <td style="text-align:center;" class="col-md-2 table_data">{{ $vehicle->view }}
                                         </td>
+                                        <td style="text-align:center;" class=" col-md-2 table_data"><img
+                                                src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}"
+                                                width="50px" height="50px" alt=""
+                                                class="rounded-0 border border-secondary "></td>
                                         <td style="text-align:center;" class="col-md-2 table_data">
-                                            {{ $vehicle->action }}</td>
+                                            {{ $vehicle->action }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -319,7 +329,12 @@
                                     <tr class="table_row">
                                         <td style="text-align:center;" class="col-md-2 table_data">{{ $cabin->view }}
                                         </td>
-                                        <td style="text-align:center;" class="col-md-2 table_data">{{ $cabin->action }}
+                                        <td style="text-align:center;" class="col-md-2 table_data"><img
+                                                src="{{ url('images/' . explode(',', $cabin->image)[0]) }}"
+                                                width="50px" height="50px" alt=""
+                                                class="rounded-0 border border-secondary "></td>
+                                        <td style="text-align:center;" class="col-md-2 table_data">
+                                            {{ $cabin->action }}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -331,8 +346,6 @@
             </main>
             <div class="print">
                 <a href="/pdf/{{ $cabin->inspection_id }}"><i class="fa-solid fa-print btn btn-danger"></i></a>
-                {{-- <a href="/send-email-using-gmail/{{ $cabin->assign_id }}"><i class="fa-solid fa-envelope btn btn-success"></i></a> --}}
-
                 <a href="/edit/{{ $cabin->inspection_id }}"><i class="fa-solid fa-edit btn btn-success"></i></a>
             </div>
             {{-- @endsection --}}

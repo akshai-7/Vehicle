@@ -81,12 +81,13 @@
                         <div class="col-sm-9">
                             <input type="text" name="mileage" class="form-control" value="{{ $assign->mileage }}">
                         </div>
-                        <div class="form-group row mt-4">
-                            <label class="col-sm-2 col-form-label"> Assigned_Date</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="mileage" class="form-control" value="{{ $assign->created_at }}">
-                            </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2 col-form-label"> Assigned_Date</label>
+                        <div class="col-sm-9">
+                            <input type="" name="" class="form-control" value="{{ $assign->created_at }}">
                         </div>
+                    </div>
                 @endforeach
             </div>
         </form>

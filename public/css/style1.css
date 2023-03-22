@@ -138,7 +138,6 @@ table th {
     padding: 16px 0;
 }
 .table_row {
-    /* background: rgb(237, 233, 233); */
     font-size: 14px;
 }
 .table_row:hover {
@@ -175,6 +174,9 @@ h5 {
 
 form {
     margin-left: 50px;
+}
+.form .form-control {
+    background: #f9f9f9;
 }
 .table-data1 {
     position: relative;
@@ -239,7 +241,26 @@ form {
     margin-left: 20px;
     width: 50%;
 }
+.button {
+    margin-top: 25px;
+}
+#Visual {
+    margin-top: -70px;
+}
+#Vehicle {
+    margin-top: -70px;
+}
 
+#Cabin {
+    overflow: scroll;
+    height: 75%;
+    left: 120px;
+    margin-top: -70px;
+}
+
+#Cabin::-webkit-scrollbar {
+    display: none;
+}
 .vehicle {
     margin-left: 10px;
     height: 400px;
@@ -258,26 +279,11 @@ form {
     color: white;
 }
 
-/* .active {
-    width: 96%;
-    border-radius: 10px;
-    box-shadow: 2px 5px 3px 0px #9d9a9a;
-    background: #bf0e3a;
+button.active {
+    background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
     color: white;
-    border: none;
-    outline: none;
-} */
-
-#Cabin {
-    overflow: scroll;
-    height: 75%;
-    left: 120px;
-    margin-top: 20px;
 }
 
-#Cabin::-webkit-scrollbar {
-    display: none;
-}
 form {
     margin-left: 50px;
 }
@@ -292,12 +298,14 @@ form {
 }
 .print {
     float: right;
-    margin-right: 100px;
-    margin-top: 10px;
+    margin-right: 130px;
+    margin-top: 20px;
 }
 .main2 {
     margin-top: 30px;
+    margin-left: 100px;
     height: 75%;
+    width: 70%;
     overflow: scroll;
 }
 .main2::-webkit-scrollbar {

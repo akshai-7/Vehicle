@@ -28,14 +28,14 @@ class VisualdamageController extends Controller
     }
     public function visualupdate(Request $request, $id)
     {
-
+        // dd($request);
         $request->validate([
             'view' => 'required',
             'image' => 'required',
             'feedback' => 'required',
             'action' => 'required',
         ]);
-        $id = $request->assign_id;
+        $id = $request->inspection_id;
         $data1 = Inspection::find($id);
         if ($data1 == null) {
             session()->flash('message', ' Invalid Id');
@@ -47,7 +47,7 @@ class VisualdamageController extends Controller
         if ($data3 == null) {
             session()->flash('message', ' Invalid Id');
         }
-        $visual = Visual::where('assign_id', $data1->id)->where('id', $data3->id)->first();
+        $visual = Visual::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $visual->view = $request['view'];
         $visual->image = $request['image'];
         if ($request->hasfile('image')) {
@@ -66,7 +66,7 @@ class VisualdamageController extends Controller
     {
         $user = Visual::find($id);
         $user->delete();
-        $data = $user->assign_id;
+        $data = $user->inspection_id;
         session()->flash('message1', 'Deleted');
         return redirect('/details/' . $data);
     }

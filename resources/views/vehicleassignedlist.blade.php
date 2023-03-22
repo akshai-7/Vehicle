@@ -58,7 +58,7 @@
                         class="fa-solid fa-xmark"></i></a>
                 <h5> Inspection Details</h5>
 
-                <form action="/store/{id}" method="POST" autocomplete="off" class="main form">
+                <form action="/store/{id}" method="POST" autocomplete="off" class=" main form">
                     @csrf
                     <main class="mainid">
                         <div class="">
@@ -67,7 +67,7 @@
 
 
                                 <div class="form-group row mt-5 select ">
-                                    <select class="form-select" style="width: 400px;" name="name">
+                                    <select class="form-select form-control" style="width: 400px;" name="name">
                                         <option>Please Select Driver</option>
                                         @foreach ($assigns as $assign)
                                             <option value="{{ $assign->name }}">{{ $assign->name }}</option>

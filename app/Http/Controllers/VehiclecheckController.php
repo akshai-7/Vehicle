@@ -22,7 +22,7 @@ class VehiclecheckController extends Controller
             'feedback' => 'required',
             'action' => 'required',
         ]);
-        $id = $request->assign_id;
+        $id = $request->inspection_id;
         $data1 = Inspection::find($id);
         if ($data1 == null) {
             return response()->json(['message' => 'Invalid Id']);
@@ -34,7 +34,7 @@ class VehiclecheckController extends Controller
         if ($data3 == null) {
             return response()->json(['message' => 'Invalid Id']);
         }
-        $vehicle = Vehiclecheck::where('assign_id', $data1->id)->where('id', $data3->id)->first();
+        $vehicle = Vehiclecheck::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $vehicle->view = $request['view'];
         $vehicle->image = $request['image'];
         if ($request->hasfile('image')) {
@@ -53,7 +53,7 @@ class VehiclecheckController extends Controller
     {
         $user = Vehiclecheck::find($id);
         $user->delete();
-        $data = $user->assign_id;
+        $data = $user->inspection_id;
         session()->flash('message1', 'Deleted');
         return redirect('/details/' . $data);
     }
