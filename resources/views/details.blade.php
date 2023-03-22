@@ -261,7 +261,7 @@
         <div id="Visual" class="tabcontent">
             <div class="table-data">
 
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width1000px;">
                     <thead>
                         <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">View</th>
@@ -294,7 +294,7 @@
         </div>
         <div id="Vehicle" class="tabcontent">
             <div class="table-data">
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width1000px;">
                     <thead>
                         <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">View</th>
@@ -335,7 +335,7 @@
     </main>
     <div id="Cabin" class="tabcontent">
         <div class="table-data">
-            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width1000px;">
                 <thead>
                     <th style="text-align:center;">S.No</th>
                     <th style="text-align:center;">View</th>

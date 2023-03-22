@@ -136,11 +136,11 @@ class ApiController extends Controller
             }
 
             $data2 = array(
-                'assign_id' => $visual->id,
+                'inspection_id' => $visual->id,
                 'view' => $name[$row],
                 'image' => implode(",", $img),
                 'feedback' => $notes[$row],
-                // 'notes'=> $data['notes'][$row],
+                'notes' => $data['notes'][$row],
                 'action' => $status[$row],
             );
 

@@ -43,7 +43,7 @@ class ReportController extends Controller
     }
     public function reportlist()
     {
-        $report = Report::all();
+        $report = Report::with('assign')->get();
         return view('/reportlist', compact('report'));
     }
     public function deletereport($id)

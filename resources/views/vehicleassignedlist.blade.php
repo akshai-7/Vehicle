@@ -16,7 +16,7 @@
                         {{-- <th style="text-align:center;">Driver_Id</th> --}}
                         <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Email</th>
-                        <th style="text-align:center;">Mobile.No</th>
+                        {{-- <th style="text-align:center;">Mobile.No</th> --}}
                         {{-- <th style="text-align:center;">Vehicle_Id</th> --}}
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Mileage</th>
@@ -30,14 +30,13 @@
                                 {{-- <td style="text-align:center;" class="table_data">{{$assign->driver_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $assign->mobile }}</td>
+                                {{-- <td style="text-align:center;" class="table_data">{{ $assign->mobile }}</td> --}}
                                 {{-- <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-
 
                                     <a href="/deleteId/{{ $assign->id }}"><i
                                             class="fa-solid fa-trash btn btn-danger"></i></a>
@@ -540,7 +539,8 @@
             <div class="vehicle">
 
                 <div class="form-group row  select ">
-                    <select class="form-select" style="width: 400px;" name="name">
+                    <label class="col-sm-2 col-form-label">User</label>
+                    <select class="form-select" style="width: 350px;" name="name">
                         <option>Please Select Driver</option>
                         @foreach ($assigns as $assign)
                             <option value="{{ $assign->name }}">{{ $assign->name }}</option>

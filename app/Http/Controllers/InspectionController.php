@@ -43,11 +43,11 @@ class InspectionController extends Controller
         $assign = Assign::where('name', $name)->first();
         $inspection = new Inspection;
         $inspection->assign_id = $assign->id;
-        $inspection->report_no = $assign->number_plate . date('d-m-y');
+        $inspection->report_no = $assign->number_plate . date('Y-m-d');
         $inspection->name = $assign->name;
         $inspection->email = $assign->email;
         $inspection->mobile = $assign->mobile;
-        $inspection->date = date('d-m-y');
+        $inspection->date = date('Y-m-d');
         $inspection->next_inspection = Carbon::parse($request->date)->addDays(7);
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];

@@ -9,6 +9,11 @@ class Report extends Model
 {
     use HasFactory;
 
+    public function assign()
+    {
+        return $this->belongsTo(Assign::class, 'assign_id');
+    }
+
     protected $fillable = [
         'assign_id',
         'date',

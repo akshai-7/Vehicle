@@ -9,6 +9,10 @@
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
+                        <th style="text-align:center;">Name</th>
+                        </th>
+                        <th style="text-align:center;">Number_plate</th>
+                        </th>
                         <th style="text-align:center;">Date</th>
                         <th style="text-align:center;">Location</th>
                         <th style="text-align:center;">Witnessed_by</th>
@@ -20,6 +24,8 @@
                         @foreach ($report as $report)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $report->id }}</td>
+                                <td style="text-align:center;" class="table_data">{{ $report->assign->name }}</td>
+                                <td style="text-align:center;" class="table_data">{{ $report->assign->number_plate }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $report->date }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $report->location }}

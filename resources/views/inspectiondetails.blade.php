@@ -6,13 +6,13 @@
                 <div class="head">
                     <h3>Vehicle Inspection Details</h3>
                 </div>
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
                         <th style="text-align:center;">Report.no</th>
                         <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Email</th>
-                        <th style="text-align:center;">Mobile.No</th>
+                        {{-- <th style="text-align:center;">Mobile.No</th> --}}
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Inspection_date</th>
@@ -29,7 +29,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $inspection->name }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->email }}
                                 </td>
-                                <td style="text-align:center;" class="table_data">{{ $inspection->mobile }}
+                                {{-- <td style="text-align:center;" class="table_data">{{ $inspection->mobile }} --}}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     {{ $inspection->number_plate }}</td>
@@ -40,7 +40,7 @@
                                 <td style="text-align:center;" class="table_data">
                                     {{ $inspection->next_inspection }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    @if ($inspection->next_inspection >= date('d.m.y'))
+                                    @if ($inspection->next_inspection >= date('Y-m-d'))
                                         <button type="button" class="btn btn-success btn-sm">No</button>
                                     @else
                                         <button type="button" class="btn btn-danger btn-sm">Yes</button>
