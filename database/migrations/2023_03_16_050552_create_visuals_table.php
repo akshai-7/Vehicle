@@ -15,10 +15,11 @@ class CreateVisualsTable extends Migration
     {
         Schema::create('visuals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('assign_id');
+            $table->string('inspection_id');
             $table->string('view');
             $table->string('image');
             $table->string('feedback');
+            $table->string('notes');
             $table->string('action');
             $table->timestamps();
         });

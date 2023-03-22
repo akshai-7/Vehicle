@@ -10,11 +10,11 @@ class Cabin extends Model
     use HasFactory;
 
     protected $fillable = [
-        'assign_id',
+        'inspection_id',
         'view',
         'image',
         'feedback',
-        'action'
-        ];
+        'action',
+        'notes'
+    ];
 }
-

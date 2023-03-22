@@ -14,8 +14,8 @@ class AssignController extends Controller
         $role = 'user';
         $vehicle_id = null;
         $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
-        $assigned_id = null;
-        $vehicle = Vehicle::where('assigned_id', $assigned_id)->get();
+        $user_id = null;
+        $vehicle = Vehicle::where('user_id', $user_id)->get();
         return view('/vehicleassign', compact('vehicle'), compact('user'));
     }
     public function vehicleassignlist(Request $request)
@@ -25,7 +25,7 @@ class AssignController extends Controller
         $user = User::where('name', $name)->first();
         $vehicle = Vehicle::where('number_plate', $number_plate)->first();
         $assign = new Assign();
-        $assign->driver_id = $user->id;
+        $assign->user_id = $user->id;
         $assign->name = $user->name;
         $assign->email = $user->email;
         $assign->mobile = $user->mobile;
@@ -40,9 +40,10 @@ class AssignController extends Controller
         $user->save();
 
         $vehicle = Vehicle::where('number_plate', $number_plate)->first();
-        $vehicle->assigned_id = $user->id;
+        $vehicle->user_id = $user->id;
         $vehicle->name = $user->name;
         $vehicle->save();
+        session()->flash('message', 'Vehicle Assigned is Successfully');
         return redirect('/vehicleassignedlist');
     }
     public function vehicleassignedlist()
@@ -59,9 +60,9 @@ class AssignController extends Controller
         $user->vehicle_id = null;
         $user->vehicle_no = null;
         $user->save();
-        $assigned_id = $assign->driver_id;
-        $vehicle = Vehicle::where('assigned_id', $assigned_id)->first();
-        $vehicle->assigned_id = null;
+        $user_id = $assign->user_id;
+        $vehicle = Vehicle::where('user_id', $user_id)->first();
+        $vehicle->user_id = null;
         $vehicle->name = null;
         $vehicle->save();
         Assign::where('id', $id)->delete();

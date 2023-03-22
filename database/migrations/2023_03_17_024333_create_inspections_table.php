@@ -15,14 +15,15 @@ class CreateInspectionsTable extends Migration
     {
         Schema::create('inspections', function (Blueprint $table) {
             $table->id();
+            $table->string('assign_id');
             $table->string('report_no');
             $table->string('name');
             $table->string('email');
             $table->string('mobile');
             $table->string('number_plate');
             $table->string('mileage');
-            $table->string('date');
-            $table->string('next_inspection');
+            $table->date('date');
+            $table->date('next_inspection');
             $table->timestamps();
         });
     }

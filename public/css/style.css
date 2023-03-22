@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
 .main {
     background: linear-gradient(90deg, #eed9d9, #edc7c7);
@@ -12,7 +13,8 @@
 }
 
 body {
-    font-family: 'EB Garamond', serif;
+    /* font-family: 'EB Garamond', serif; */
+    font-family: "Mulish", sans-serif;
     overflow: hidden;
     background: linear-gradient(90deg, rgb(239, 231, 231), transparent) #e0c1c1;
 }
@@ -59,7 +61,7 @@ body {
     padding-left: 24px;
     font-weight: 700;
     width: 75%;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .login__input:active,
@@ -106,9 +108,3 @@ img {
     margin-top: 10px;
     font-size: 15px;
 }
-
-
-
-
-
-

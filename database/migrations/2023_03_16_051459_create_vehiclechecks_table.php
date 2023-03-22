@@ -15,7 +15,7 @@ class CreateVehiclechecksTable extends Migration
     {
         Schema::create('vehiclechecks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('assign_id');
+            $table->string('inspection_id');
             $table->string('view');
             $table->string('image');
             $table->string('feedback');

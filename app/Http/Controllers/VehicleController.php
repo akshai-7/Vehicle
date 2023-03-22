@@ -25,7 +25,7 @@ class VehicleController extends Controller
         $vehicle->mileage = $request['mileage'];
         $vehicle->save();
         session()->flash('message', 'Vehicle is Created');
-        return redirect('/user');
+        return redirect('/vehiclelist');
     }
     public function vehiclelist()
     {
@@ -65,24 +65,24 @@ class VehicleController extends Controller
     }
 
     //summary
-    public function summary($assign_id)
+    public function summary($inspection_id)
     {
-        $visual = Visual::where('assign_id', $assign_id)->get();
-        $vehicle = Vehiclecheck::where('assign_id', $assign_id)->get();
-        $cabin = Cabin::where('assign_id', $assign_id)->get();
+        $visual = Visual::where('inspection_id', $inspection_id)->get();
+        $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
+        $cabin = Cabin::where('inspection_id', $inspection_id)->get();
         return view('/summary', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
     }
 
-    public function pdf($assign_id)
+    public function pdf($inspection_id)
     {
-        $visual = Visual::where('assign_id', $assign_id)->get();
-        $vehicle = Vehiclecheck::where('assign_id', $assign_id)->get();
-        $cabin = Cabin::where('assign_id', $assign_id)->get();
+        $visual = Visual::where('inspection_id', $inspection_id)->get();
+        $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
+        $cabin = Cabin::where('inspection_id', $inspection_id)->get();
         $pdf = Pdf::loadView('userpdf', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
         return $pdf->download('userpdf.pdf');
     }
-    public function edit($assign_id)
+    public function edit($inspection_id)
     {
-        return redirect('/details/' . $assign_id);
+        return redirect('/details/' . $inspection_id);
     }
 }

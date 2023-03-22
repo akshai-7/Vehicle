@@ -59,7 +59,7 @@ Route::get('/reportlist', [ReportController::class, 'reportlist']);
 Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
 
 
-Route::get('/details/{id}', [VisualdamageController::class, 'check']);
+Route::get('/details/{inspection_id}', [VisualdamageController::class, 'check']);
 //visusal
 Route::get('/updatevisualcheck/{id}', [VisualdamageController::class, 'updatevisualcheck']);
 Route::post('/visualupdate/{id}', [VisualdamageController::class, 'visualupdate']);

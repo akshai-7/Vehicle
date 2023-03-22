@@ -367,7 +367,7 @@
         </div>
     </div>
     <div>
-        <a href="/summary/{{ $cabin->assign_id }}"><input type="submit" value="Summary" class="text-white"
+        <a href="/summary/{{ $cabin->inspection_id }}"><input type="submit" value="Summary" class="text-white"
                 style="background: #06064b;margin-left:900px;"></a>
     </div>
     </div>

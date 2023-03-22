@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 
 class VisualdamageController extends Controller
 {
-    public function check($assign_id)
+    public function check($inspection_id)
     {
-        $visual = Visual::where('assign_id', $assign_id)->get();
-        $vehicle = Vehiclecheck::where('assign_id', $assign_id)->get();
-        $cabin = Cabin::where('assign_id', $assign_id)->get();
+        $visual = Visual::where('inspection_id', $inspection_id)->get();
+        $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
+        $cabin = Cabin::where('inspection_id', $inspection_id)->get();
         if ($visual == null) {
             return view('/inspectiondetails');
         }
