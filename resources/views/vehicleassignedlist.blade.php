@@ -29,7 +29,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
                                 {{-- <td style="text-align:center;" class="table_data">{{$assign->driver_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $assign->email }}</td> --}}
+                                <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>
                                 {{-- <td style="text-align:center;" class="table_data">{{ $assign->mobile }}</td> --}}
                                 {{-- <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}

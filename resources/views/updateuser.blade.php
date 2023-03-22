@@ -51,7 +51,7 @@
         <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
             @csrf
             <a href="/user" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
-            <h5 class="" style="color:#06064b;"><i class="fa-solid fa-user"></i> Update Driver</h5>
+            <h5 class=""><i class="fa-solid fa-user"></i> Update Driver</h5>
             @foreach ($user as $user)
                 <div class="report1">
                     <div class="report">
@@ -138,7 +138,7 @@
                                     @enderror
                                 </div>
                                 <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                                    style="float:right;background:#06064b;">
+                                    id="add" style="float:right;">
                             </div>
                         </div>
                     </div>

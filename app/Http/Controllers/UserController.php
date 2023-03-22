@@ -38,7 +38,7 @@ class UserController extends Controller
     }
     public function userlist()
     {
-        $role = 'user';
+        $role = 'User';
         $users = User::where('role', $role)->get();
         return view('/user', ['users' => $users]);
     }
