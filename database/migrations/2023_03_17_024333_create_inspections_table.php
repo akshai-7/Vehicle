@@ -16,6 +16,7 @@ class CreateInspectionsTable extends Migration
         Schema::create('inspections', function (Blueprint $table) {
             $table->id();
             $table->string('assign_id');
+            $table->string('inspected_by');
             $table->string('report_no');
             $table->string('name');
             $table->string('email');

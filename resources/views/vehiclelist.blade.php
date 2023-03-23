@@ -62,9 +62,9 @@
                     <div class="col-sm-9">
                         <select name="vehicle_type" class="form-select">
                             <option value="">Select</option>
-                            <option value="">Van</option>
-                            <option value="">Truck</option>
-                            <option value="">Car</option>
+                            <option value="Van">Van</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Car">Car</option>
                         </select>
                     </div>
                 </div>

@@ -244,6 +244,8 @@ form {
 }
 .button {
     margin-top: 25px;
+    /* background: #000; */
+    display: flex;
 }
 #Visual {
     margin-top: -70px;
@@ -271,8 +273,10 @@ form {
     color: #bf0e3a;
 }
 .tablinks {
-    padding: 5px 5px;
-    border: none;
+    flex: 1;
+    padding-top: 10px;
+    margin: 4px;
+    border: 1px solid #bf0e3a;
     border-radius: 4px;
     outline: none;
     cursor: pointer;
@@ -281,6 +285,7 @@ form {
 
 button.active {
     background: #bf0e3a;
+    color: white;
 }
 
 form {
