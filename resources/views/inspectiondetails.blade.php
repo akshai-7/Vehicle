@@ -51,7 +51,7 @@
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/details/{{ $inspection->id }}"><i class="fa-solid fa-eye btn  text-white"
                                             style="background:#06064b " data-toggle="tooltip" data-placement="top"
-                                            title="Inspection-Details"></i></a>
+                                            title="View"></i></a>
                                     <a href="/deleteinspection/{{ $inspection->id }}"><i
                                             class="fa-solid fa-trash btn btn-danger" data-toggle="tooltip"
                                             data-placement="right" title="Delete"></i></a>

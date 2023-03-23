@@ -249,13 +249,13 @@
     <main class="main">
         <div class="button">
             <button class="tablinks " onclick="openCheck(event, 'Visual')" id="defaultOpen">
-                <h5>Visual Damage</h5>
+                <h6>Visual Damage</h6>
             </button>
             <button class="tablinks" onclick="openCheck(event, 'Vehicle')">
-                <h5>Vehicle Check</h5>
+                <h6>Vehicle Check</h6>
             </button>
             <button class="tablinks" onclick="openCheck(event,'Cabin')">
-                <h5>Cabin Checks</h5>
+                <h6>Cabin Checks</h6>
             </button>
         </div>
         <div id="Visual" class="tabcontent">
@@ -281,10 +281,11 @@
                                 <td style="text-align:center;" class="table_data">{{ $visual->feedback }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $visual->action }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/updatevisualcheck/{{ $visual->id }}"><i
+                                    <a href="/updatevisualcheck/{{ $visual->id }}" data-toggle="tooltip"
+                                        data-placement="top" title="Edit"><i
                                             class="fa-solid fa-edit btn btn-success"></i></a>
-                                    <a href="/deletevisual/{{ $visual->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                    <a href="/deletevisual/{{ $visual->id }}" data-toggle="tooltip" data-placement="top"
+                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -321,10 +322,11 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->action }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/updatevehiclecheck/{{ $vehicle->id }}"><i
+                                    <a href="/updatevehiclecheck/{{ $vehicle->id }}" data-toggle="tooltip"
+                                        data-placement="top" title="Edit"><i
                                             class="fa-solid fa-edit btn btn-success"></i></a>
-                                    <a href="/deletevehicle/{{ $vehicle->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                    <a href="/deletevehicle/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
+                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -355,10 +357,11 @@
                             <td style="text-align:center;" class="table_data">{{ $cabin->feedback }}</td>
                             <td style="text-align:center;" class="table_data">{{ $cabin->action }}</td>
                             <td style="text-align:center;" class="table_data">
-                                <a href="/updatecabincheck/{{ $cabin->id }}"><i
+                                <a href="/updatecabincheck/{{ $cabin->id }}" data-toggle="tooltip"
+                                    data-placement="top" title="Edit"><i
                                         class="fa-solid fa-edit btn btn-success"></i></a>
-                                <a href="/deletecabin/{{ $cabin->id }}"><i
-                                        class="fa-solid fa-trash btn btn-danger"></i></a>
+                                <a href="/deletecabin/{{ $cabin->id }}" data-toggle="tooltip" data-placement="top"
+                                    title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                             </td>
                         </tr>
                     @endforeach

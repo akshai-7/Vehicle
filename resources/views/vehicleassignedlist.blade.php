@@ -41,10 +41,11 @@
                                 <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/updateassignlist/{{ $assign->id }}" onclick="show('popup9')"><i
+                                    <a href="/updateassignlist/{{ $assign->id }}" onclick="show('popup9')"
+                                        data-toggle="tooltip" data-placement="top" title="Edit"><i
                                             class="fa-solid fa-eye btn btn-success"></i></a>
-                                    <a href="/deleteId/{{ $assign->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                    <a href="/deleteId/{{ $assign->id }}" data-toggle="tooltip" data-placement="top"
+                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach

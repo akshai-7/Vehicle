@@ -26,10 +26,10 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/updatevehicles/{{ $vehicle->id }}"><i
-                                            class="fa-solid fa-edit btn btn-success"></i></a>
-                                    <a href="/remove/{{ $vehicle->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                    <a href="/updatevehicles/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
+                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                    <a href="/remove/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
+                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach

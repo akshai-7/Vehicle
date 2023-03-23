@@ -13,13 +13,13 @@
                         </th>
                         <th style="text-align:center;">Number_plate</th>
                         </th>
-                        <th style="text-align:center;width:100px;">Date</th>
-                        <th style="text-align:center;width:80px;">Location</th>
-                        <th style="text-align:center;width:80px;">Witnessed_by</th>
-                        <th style="text-align:center;width:100px;">Mobile.no</th>
-                        <th style="text-align:center;">Statement</th>
-                        <th style="text-align:center;width:80px;">Image</th>
-                        <th style="text-align:center;width:100px;">Action</th>
+                        <th style="text-align:center;">Date</th>
+                        <th style="text-align:center;">Location</th>
+                        {{-- <th style="text-align:center;width:80px;">Witnessed_by</th> --}}
+                        {{-- <th style="text-align:center;width:100px;">Mobile.no</th> --}}
+                        {{-- <th style="text-align:center;">Statement</th> --}}
+                        <th style="text-align:center;">Image</th>
+                        <th style="text-align:center;">Action</th>
                     </thead>
                     <tbody>
                         @foreach ($report as $report)
@@ -31,18 +31,21 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $report->location }}
                                 </td>
-                                <td style="text-align:center;" class="table_data">{{ $report->witnessed_by }}
+                                {{-- <td style="text-align:center;" class="table_data">{{ $report->witnessed_by }} --}}
                                 </td>
-                                <td style="text-align:center;" class="table_data">{{ $report->mobile }}
+                                {{-- <td style="text-align:center;" class="table_data">{{ $report->mobile }} --}}
                                 </td>
-                                <td style="text-align:center;" class="table_data">{{ $report->statement }}
+                                {{-- <td style="text-align:center;" class="table_data">{{ $report->statement }} --}}
                                 </td>
                                 <td style="text-align:center;" class="table_data"><img
                                         src="{{ url('images/' . $report->image) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px"></td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/deletereport/{{ $report->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                    <a href="/updatereport/{{ $report->id }}" class="tool"><i
+                                            class="fa-solid fa-eye btn  text-white" style="background:#06064b "
+                                            data-toggle="tooltip" data-placement="top" title="View"></i></a>
+                                    <a href="/deletereport/{{ $report->id }}" data-toggle="tooltip" data-placement="top"
+                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach

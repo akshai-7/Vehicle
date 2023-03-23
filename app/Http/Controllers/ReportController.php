@@ -8,10 +8,11 @@ use App\Models\Report;
 
 class ReportController extends Controller
 {
-    public function report($id)
+    public function updatereport($id)
     {
-        $report = Assign::where('id', $id)->first();
-        return view('/report', compact('report'));
+
+        $report = Report::where('id', $id)->get();
+        return view('/updatereport', compact('report'));
     }
 
     public function reportonincident(Request $request)

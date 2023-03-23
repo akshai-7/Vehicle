@@ -226,6 +226,7 @@ form {
 
 .form-group {
     display: flex;
+    position: relative;
     justify-content: space-between;
 }
 
@@ -266,6 +267,9 @@ form {
     height: 400px;
     width: 500px;
 }
+.vehicle label {
+    color: #bf0e3a;
+}
 .tablinks {
     padding: 5px 5px;
     border: none;
@@ -274,14 +278,9 @@ form {
     cursor: pointer;
     transition: 0.6s;
 }
-.tab_active {
-    background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
-    color: white;
-}
 
 button.active {
-    background: linear-gradient(90deg, #fba6a6, transparent) #df9d9d;
-    color: white;
+    background: #bf0e3a;
 }
 
 form {
@@ -312,16 +311,18 @@ form {
     display: none;
 }
 
+.incident label {
+    color: #bf0e3a;
+}
+
 .popup1 {
     display: none;
     position: fixed;
     padding: 20px;
     width: 700px;
     height: 450px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
+    margin-left: 130px;
+    top: 25%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -357,10 +358,8 @@ form {
     padding: 20px;
     width: 700px;
     height: 450px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
+    margin-left: 130px;
+    top: 25%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -394,10 +393,8 @@ form {
     padding: 20px;
     width: 700px;
     height: 450px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
+    margin-left: 130px;
+    top: 25%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -432,10 +429,8 @@ form {
     padding: 20px;
     width: 700px;
     height: 450px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
+    margin-left: 130px;
+    top: 25%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -469,10 +464,8 @@ form {
     padding: 10px;
     width: 700px;
     height: 680px;
-    left: 50%;
-    margin-left: -350px;
-    top: 20%;
-    margin-top: -80px;
+    margin-left: 340px;
+    margin-top: 40px;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -507,10 +500,8 @@ form {
     padding: 20px;
     width: 700px;
     height: 550px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
+    margin-left: 130px;
+    top: 15%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -545,10 +536,8 @@ form {
     padding: 20px;
     width: 700px;
     height: 550px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
+    margin-left: 130px;
+    top: 15%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -583,48 +572,8 @@ form {
     padding: 20px;
     width: 700px;
     height: 550px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
-    background: #fff;
-    z-index: 20;
-    align-items: center;
-    justify-content: center;
-}
-
-#popup7:after {
-    position: fixed;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
-
-    z-index: -2;
-}
-
-#popup7:before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #f9f9f9;
-    z-index: -1;
-    border-radius: 7px;
-}
-.popup7 {
-    position: fixed;
-    padding: 20px;
-    width: 700px;
-    height: 550px;
-    left: 50%;
-    margin-left: -350px;
-    top: 30%;
-    margin-top: -50px;
+    margin-left: 130px;
+    top: 15%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -660,10 +609,8 @@ form {
     padding: 20px;
     width: 1250px;
     height: 730px;
-    left: 50%;
-    margin-left: -630px;
-    top: 10%;
-    margin-top: -50px;
+    margin-left: 100px;
+    top: 6%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -695,14 +642,13 @@ form {
     border-radius: 7px;
 }
 .popup9 {
+    font-size: 14px;
     position: fixed;
     padding: 20px;
     width: 700px;
     height: 600px;
-    left: 50%;
-    margin-left: -350px;
-    font-size: 14px;
-    margin-top: 80px;
+    margin-left: 350px;
+    top: 15%;
     background: #fff;
     z-index: 20;
     align-items: center;
@@ -717,11 +663,46 @@ form {
     bottom: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.5);
-
     z-index: -2;
 }
 
 #popup9:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #f9f9f9;
+    z-index: -1;
+    border-radius: 7px;
+}
+
+.popup10 {
+    position: fixed;
+    padding: 20px;
+    width: 700px;
+    height: 600px;
+    margin-left: 120px;
+    font-size: 14px;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+#popup10:after {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: -2;
+}
+
+#popup10:before {
     position: absolute;
     content: "";
     top: 0;

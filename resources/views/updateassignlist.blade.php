@@ -5,10 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Vehicle Assigned List</h3>
-                    <a style="margin-right: 10px;" type="" onclick="show('popup8')"><i
-                            class="fa-solid fa-plus btn btn-secondary"></i></a>
-                    <a style="margin-right: 10px;" type="" onclick="show('popreport')"><i
-                            class="fa-solid fa-file btn btn-primary"></i></a>
+
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
@@ -42,50 +39,50 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">User_Id</label>
                         <div class="col-sm-9">
-                            <input type="text" name="" class="form-control" value="{{ $assign->user_id }}">
+                            <p>{{ $assign->id }}</p>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control" value="{{ $assign->name }}">
+                            <p>{{ $assign->name }}</p>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="text" name="" class="form-control" value="{{ $assign->email }}">
+                            <p>{{ $assign->email }}</p>
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Mobile.no</label>
                         <div class="col-sm-9">
-                            <input type="text" name="mobile" class="form-control" value="{{ $assign->mobile }}">
+                            <p>{{ $assign->mobile }}</p>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">Vehicle_Id</label>
                         <div class="col-sm-9">
-                            <input type="text" name="" class="form-control" value="{{ $assign->vehicle_id }}">
+                            <p>{{ $assign->vehicle_id }}</p>
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Number_plate</label>
                         <div class="col-sm-9">
-                            <input type="text" name="" class="form-control" value="{{ $assign->number_plate }}">
+                            <p>{{ $assign->number_plate }}</p>
                         </div>
                     </div>
 
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label"> Mileage</label>
                         <div class="col-sm-9">
-                            <input type="text" name="mileage" class="form-control" value="{{ $assign->mileage }}">
+                            <p>{{ $assign->mileage }}</p>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label"> Assigned_Date</label>
                         <div class="col-sm-9">
-                            <input type="" name="" class="form-control" value="{{ $assign->created_at }}">
+                            <p>{{ $assign->created_at }}</p>
                         </div>
                     </div>
                 @endforeach
