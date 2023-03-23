@@ -24,6 +24,7 @@ class ApiController extends Controller
             $vehicle_id = $user->vehicle_id;
             $vehicle = Vehicle::where('id', $vehicle_id)->first();
             $assign = Assign::where('vehicle_id', $vehicle_id)->first();
+            // dd($assign);
             return response()->json(["status" => "true", $response, "user" => [$user], "vehicle" => [$vehicle], "assign" => [$assign]], 200);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -45,8 +46,8 @@ class ApiController extends Controller
         $inspection->name = $assign->name;
         $inspection->email =  $assign->email;
         $inspection->mobile = $assign->mobile;
-        $inspection->date = date('d.m.y');
-        $inspection->next_inspection = Carbon::now()->endOfWeek(Carbon::FRIDAY)->format('d.m.Y');
+        $inspection->date = date('Y-m-d');
+        $inspection->next_inspection = Carbon::now()->endOfWeek(Carbon::FRIDAY)->format('Y-m-d');
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
@@ -55,6 +56,7 @@ class ApiController extends Controller
 
     public function report(Request $request, $id)
     {
+
         $request->validate([
             'date' => 'required',
             'location' => 'required',

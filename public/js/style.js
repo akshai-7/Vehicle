@@ -83,6 +83,17 @@
         }
 
 
+//     var imagePopup = document.getElementById('imagePopup')
+// function popUpImage(val) {
+
+//     imagePopup.style.display="flex"
+// }
+//     imagePopup.addEventListener('click',()=>{imagePopup.style.display="none"})
+
+
+
+
+
   $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })

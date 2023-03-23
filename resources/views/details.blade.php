@@ -275,9 +275,17 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $visual->view }}</td>
-                                <td style="text-align:center;" class="table_data"><img
-                                        src="{{ url('images/' . explode(',', $visual->image)[0]) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px"></td>
+                                <td style="width:0px;" onclick="popUpImage('')">
+                                    <div id="imageContainer">
+                                        @foreach (explode(',', $visual->image) as $image)
+                                            <img src="{{ url('images/' . $image) }}"
+                                                class="rounded-0 border border-secondary" width="80px" height="80px">
+                                            <span></span>
+                                        @endforeach
+                                    </div>
+
+
+                                </td>
                                 <td style="text-align:center;" class="table_data">{{ $visual->feedback }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $visual->action }}</td>
                                 <td style="text-align:center;" class="table_data">
@@ -334,44 +342,52 @@
                 </table>
             </div>
         </div>
-    </main>
-    <div id="Cabin" class="tabcontent">
-        <div class="table-data">
-            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
-                <thead>
-                    <th style="text-align:center;">S.No</th>
-                    <th style="text-align:center;">View</th>
-                    <th style="text-align:center;">Image</th>
-                    <th style="text-align:center;">Feed Back</th>
-                    <th style="text-align:center;">Status</th>
-                    <th style="text-align:center;">Action</th>
-                </thead>
-                <tbody>
-                    @foreach ($cabin as $cabin)
-                        <tr class="table_row">
-                            <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                            <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
-                            <td style="text-align:center;" class="table_data"><img
-                                    src="{{ url('images/' . explode(',', $cabin->image)[0]) }}" width="50px"
-                                    height="50px" alt="" class="rounded-0 border border-secondary"></td>
-                            <td style="text-align:center;" class="table_data">{{ $cabin->feedback }}</td>
-                            <td style="text-align:center;" class="table_data">{{ $cabin->action }}</td>
-                            <td style="text-align:center;" class="table_data">
-                                <a href="/updatecabincheck/{{ $cabin->id }}" data-toggle="tooltip"
-                                    data-placement="top" title="Edit"><i
-                                        class="fa-solid fa-edit btn btn-success"></i></a>
-                                <a href="/deletecabin/{{ $cabin->id }}" data-toggle="tooltip" data-placement="top"
-                                    title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+
+        <div id="Cabin" class="tabcontent">
+            <div class="table-data">
+                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
+                    <thead>
+                        <th style="text-align:center;">S.No</th>
+                        <th style="text-align:center;">View</th>
+                        <th style="text-align:center;">Image</th>
+                        <th style="text-align:center;">Feed Back</th>
+                        <th style="text-align:center;">Status</th>
+                        <th style="text-align:center;">Action</th>
+                    </thead>
+                    <tbody>
+                        @foreach ($cabin as $cabin)
+                            <tr class="table_row">
+                                <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
+                                <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
+                                <td style="text-align:center;" class="table_data"><img
+                                        src="{{ url('images/' . explode(',', $cabin->image)[0]) }}" width="50px"
+                                        height="50px" alt="" class="rounded-0 border border-secondary"></td>
+                                <td style="text-align:center;" class="table_data">{{ $cabin->feedback }}</td>
+                                <td style="text-align:center;" class="table_data">{{ $cabin->action }}</td>
+                                <td style="text-align:center;" class="table_data">
+                                    <a href="/updatecabincheck/{{ $cabin->id }}" data-toggle="tooltip"
+                                        data-placement="top" title="Edit"><i
+                                            class="fa-solid fa-edit btn btn-success"></i></a>
+                                    <a href="/deletecabin/{{ $cabin->id }}" data-toggle="tooltip"
+                                        data-placement="top" title="Delete"><i
+                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+
+        {{-- <div id="imagePopup" onclick="closePopUpImage())">
+            <div id="imagePopupContent">
+
+            </div>
+        </div> --}}
+
+    </main>
     <div>
         <a href="/summary/{{ $cabin->inspection_id }}"><input type="submit" id="add" value="Summary"
                 class="text-white" style="margin-left:900px;margin-top:50px;"></a>
-    </div>
     </div>
 @endsection
