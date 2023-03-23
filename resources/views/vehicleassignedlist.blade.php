@@ -70,7 +70,6 @@
 
                             <div class="report1">
 
-
                                 <div class="form-group row mt-5 select ">
                                     <select class="form-select form-control" style="width: 400px;" name="name">
                                         <option>Please Select Driver</option>
@@ -160,6 +159,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" name="inspected_by" value="Admin">
                             </div>
                             <div class="head">
                                 <h5 class="mt-5">Visual Check</h5>

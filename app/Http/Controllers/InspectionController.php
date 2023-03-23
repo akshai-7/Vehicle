@@ -20,7 +20,6 @@ class InspectionController extends Controller
     public function store(Request $request)
 
     {
-
         $request->validate([
             'view' => 'required',
             'image' => 'required',
@@ -44,6 +43,7 @@ class InspectionController extends Controller
         $inspection = new Inspection;
         $inspection->assign_id = $assign->id;
         $inspection->report_no = $assign->number_plate . date('Y-m-d');
+        $inspection->inspected_by = $request['inspected_by'];
         $inspection->name = $assign->name;
         $inspection->email = $assign->email;
         $inspection->mobile = $assign->mobile;

@@ -27,7 +27,8 @@
                                 <td style="text-align:center;" class="table_data">{{ $inspection->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->report_no }}
                                 </td>
-                                <td></td>
+                                <td style="text-align:center;" class="table_data">{{ $inspection->inspected_by }}
+                                </td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->name }}</td>
                                 {{-- <td style="text-align:center;" class="table_data">{{ $inspection->email }} --}}
                                 </td>
