@@ -10,8 +10,9 @@
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
                         <th style="text-align:center;">Report.no</th>
+                        <th style="text-align:center;">Inspected_by</th>
                         <th style="text-align:center;">Driver Name</th>
-                        <th style="text-align:center;">Email</th>
+                        {{-- <th style="text-align:center;">Email</th> --}}
                         {{-- <th style="text-align:center;">Mobile.No</th> --}}
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Mileage</th>
@@ -26,8 +27,9 @@
                                 <td style="text-align:center;" class="table_data">{{ $inspection->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->report_no }}
                                 </td>
+                                <td></td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->name }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $inspection->email }}
+                                {{-- <td style="text-align:center;" class="table_data">{{ $inspection->email }} --}}
                                 </td>
                                 {{-- <td style="text-align:center;" class="table_data">{{ $inspection->mobile }} --}}
                                 </td>
@@ -48,9 +50,11 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/details/{{ $inspection->id }}"><i class="fa-solid fa-eye btn  text-white"
-                                            style="background:#06064b "></i></a>
+                                            style="background:#06064b " data-toggle="tooltip" data-placement="top"
+                                            title="Inspection-Details"></i></a>
                                     <a href="/deleteinspection/{{ $inspection->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                            class="fa-solid fa-trash btn btn-danger" data-toggle="tooltip"
+                                            data-placement="right" title="Delete"></i></a>
                                 </td>
                             </tr>
                         @endforeach

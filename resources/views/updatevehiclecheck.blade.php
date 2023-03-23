@@ -12,7 +12,7 @@
                         <th style="text-align:center;">View</th>
                         <th style="text-align:center;">Image</th>
                         <th style="text-align:center;">FeedBack</th>
-                        <th style="text-align:center;">Action</th>
+                        <th style="text-align:center;">Status</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
                     <tbody>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="form-group row mt-4">
-                    <label class="col-sm-2 col-form-label"> Action</label>
+                    <label class="col-sm-2 col-form-label"> Status</label>
                     <div class="col-sm-9">
                         <input type="text" name="action" class="form-control" value="{{ $vehicle->action }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action')

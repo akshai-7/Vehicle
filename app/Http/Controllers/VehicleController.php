@@ -6,6 +6,7 @@ use App\Models\Cabin;
 use App\Models\Vehicle;
 use App\Models\Vehiclecheck;
 use App\Models\Visual;
+use App\Models\Inspection;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -67,14 +68,16 @@ class VehicleController extends Controller
     //summary
     public function summary($inspection_id)
     {
+        $inspection = Inspection::where('id', $inspection_id)->get();
         $visual = Visual::where('inspection_id', $inspection_id)->get();
         $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
         $cabin = Cabin::where('inspection_id', $inspection_id)->get();
-        return view('/summary', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
+        return view('/summary', ['inspection' => $inspection, 'cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
     }
 
     public function pdf($inspection_id)
     {
+
         $visual = Visual::where('inspection_id', $inspection_id)->get();
         $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
         $cabin = Cabin::where('inspection_id', $inspection_id)->get();

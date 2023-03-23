@@ -3,7 +3,8 @@
 .main {
     margin-left: 34%;
     margin-top: 60px;
-    background: linear-gradient(90deg, rgb(239, 239, 241), rgb(228, 228, 231));
+    /* background: linear-gradient(90deg, rgb(239, 239, 241), rgb(228, 228, 231)); */
+    background: rgb(242, 241, 255);
     width: 450px;
     height: 600px;
     border-radius: 1.5em;
@@ -13,7 +14,7 @@
 body {
     font-family: "Mulish", sans-serif;
     overflow: hidden;
-    background: rgb(242, 241, 255);
+    background: linear-gradient(90deg, rgb(239, 239, 241), rgb(228, 228, 231));
 }
 
 #message {

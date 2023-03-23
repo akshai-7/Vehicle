@@ -5,17 +5,21 @@
             <div class="order">
                 <div class="head">
                     <h3>Vehicle Assigned List</h3>
-                    <a style="margin-right: 10px;" type="" onclick="show('popup8')"><i
-                            class="fa-solid fa-plus btn btn-secondary"></i></a>
-                    <a style="margin-right: 10px;" type="" onclick="show('popreport')"><i
-                            class="fa-solid fa-file btn btn-primary"></i></a>
+                    <div style="margin-right: 650px;">
+                        <a style="margin-right: 10px;" type="" onclick="show('popup8')" data-toggle="tooltip"
+                            data-placement="top" title="Inspection-Report"><i
+                                class="fa-solid fa-plus btn btn-secondary"></i></a>
+                        <a style="margin-right: 10px;" type="" onclick="show('popreport')" data-toggle="tooltip"
+                            data-placement="top" title="Report an incident"><i
+                                class="fa-solid fa-file btn btn-primary"></i></a>
+                    </div>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
                         {{-- <th style="text-align:center;">Driver_Id</th> --}}
                         <th style="text-align:center;">Driver Name</th>
-                        {{-- <th style="text-align:center;">Email</th> --}}
+                        <th style="text-align:center;">Email</th>
                         {{-- <th style="text-align:center;">Mobile.No</th> --}}
                         {{-- <th style="text-align:center;">Vehicle_Id</th> --}}
                         <th style="text-align:center;">Number plate</th>

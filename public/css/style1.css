@@ -299,13 +299,13 @@ form {
 .print {
     float: right;
     margin-right: 130px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .main2 {
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 100px;
-    height: 75%;
-    width: 70%;
+    height: 80%;
+    width: 80%;
     overflow: scroll;
 }
 .main2::-webkit-scrollbar {
@@ -659,9 +659,9 @@ form {
     position: fixed;
     padding: 20px;
     width: 1250px;
-    height: 750px;
+    height: 730px;
     left: 50%;
-    margin-left: -650px;
+    margin-left: -630px;
     top: 10%;
     margin-top: -50px;
     background: #fff;

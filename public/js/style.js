@@ -83,6 +83,6 @@
         }
 
 
-   document.getElementById("myButton").onclick = function () {
-        location.href = "www.yoursite.com";
-    };
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

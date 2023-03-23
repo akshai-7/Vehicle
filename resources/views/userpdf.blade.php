@@ -11,6 +11,38 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 </head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+        margin-left: 50px;
+
+    }
+
+    .check {
+        margin-left: 50px;
+    }
+
+    .sign {
+        margin-left: 550px;
+        margin-top: 100px;
+    }
+
+    .date {
+        margin-left: 550px;
+        margin-top: -30px;
+    }
+
+    .first {
+        margin-top: 30px;
+    }
+
+    h2 {
+        margin-left: 250px;
+    }
+</style>
 
 <body>
     <header class="headers" id="headers">
@@ -26,6 +58,17 @@
         @foreach ($visual as $visual)
             <tr style="tect-align:center;">
                 <td>{{ $visual->view }}</td>
+                @php
+                    $path = public_path('images/' . explode(',', $visual->image)[0]);
+                    $type = pathinfo($path, PATHINFO_EXTENSION);
+                    $data = file_get_contents($path);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                @endphp
+                <td style="text-align:center;" class=" col-md-2 table_data">
+                    <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                        class="rounded-0 border border-secondary ">
+                </td>
+                <td style="text-align:center; ">{{ $visual->feedback }}</td>
                 <td style="text-align:center; ">{{ $visual->action }}</td>
             </tr>
         @endforeach
@@ -35,7 +78,18 @@
         @foreach ($vehicle as $vehicle)
             <tr>
                 <td>{{ $vehicle->view }}</td>
-                <td style="text-align:center;">{{ $vehicle->action }}</td>
+                @php
+                    $path = public_path('images/' . explode(',', $vehicle->image)[0]);
+                    $type = pathinfo($path, PATHINFO_EXTENSION);
+                    $data = file_get_contents($path);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                @endphp
+                <td style="text-align:center;" class=" col-md-2 table_data">
+                    <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                        class="rounded-0 border border-secondary ">
+                </td>
+                <td style="text-align:center; ">{{ $vehicle->feedback }}</td>
+                <td style="text-align:center; ">{{ $vehicle->action }}</td>
             </tr>
         @endforeach
     </table>
@@ -44,7 +98,18 @@
         @foreach ($cabin as $cabin)
             <tr>
                 <td>{{ $cabin->view }}</td>
-                <td style="text-align: center">{{ $cabin->action }}</td>
+                @php
+                    $path = public_path('images/' . explode(',', $cabin->image)[0]);
+                    $type = pathinfo($path, PATHINFO_EXTENSION);
+                    $data = file_get_contents($path);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                @endphp
+                <td style="text-align:center;" class=" col-md-2 table_data">
+                    <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                        class="rounded-0 border border-secondary ">
+                </td>
+                <td style="text-align:center; ">{{ $cabin->feedback }}</td>
+                <td style="text-align:center; ">{{ $cabin->action }}</td>
             </tr>
         @endforeach
     </table>

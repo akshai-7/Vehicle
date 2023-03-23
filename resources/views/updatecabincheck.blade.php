@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="form-group row mt-4">
-                    <label class="col-sm-2 col-form-label"> Action</label>
+                    <label class="col-sm-2 col-form-label"> Status</label>
                     <div class="col-sm-9">
                         <input type="text" name="action" class="form-control" value="{{ $cabin->action }}">
                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action')
