@@ -24,7 +24,8 @@
                         @foreach ($users as $user)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user->name }}</td>
+                                <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
+                                </td>
                                 <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->address }}</td>
