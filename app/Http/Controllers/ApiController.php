@@ -52,6 +52,12 @@ class ApiController extends Controller
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
+
+        $id = $assign->id;
+        $assign = Assign::where('id', $id)->first();
+        $assign->last_inspection = $inspection->date;
+        $assign->next_inspection = $inspection->next_inspection;
+        $assign->save();
         return response()->json(['message' => 'Data Stored Successfully', "data" => $inspection], 200);
     }
 
