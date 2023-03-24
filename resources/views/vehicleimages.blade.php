@@ -1,6 +1,6 @@
 @extends('layouts.user')
 @section('content')
-    <main class="main">
+    {{-- <main class="main">
         <div class="table-data">
             <div class="order">
                 <div class="head">
@@ -21,7 +21,7 @@
                 </table>
             </div>
         </div>
-    </main>
+    </main> --}}
     <div class="popup6" id="popup6">
         <a href="/details/{{ $vehicle->inspection_id }}" style="color:black;" class="close"><i
                 class="fa-solid fa-xmark"></i></a>

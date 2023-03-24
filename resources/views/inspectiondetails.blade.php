@@ -36,10 +36,13 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     {{ $inspection->next_inspection }}</td>
+                                {{-- @dd(date('Y-m-d')); --}}
                                 <td style="text-align:center;" class="table_data">
-                                    @if ($inspection->next_inspection >= date('Y-m-d'))
+                                    @if ($inspection->next_inspection >= Carbon\Carbon::today())
+                                        {{-- <button type="button" class="btn btn-danger btn-sm">Yes</button> --}}
                                         <button type="button" class="btn btn-success btn-sm">No</button>
                                     @else
+                                        {{-- <button type="button" class="btn btn-success btn-sm">No</button> --}}
                                         <button type="button" class="btn btn-danger btn-sm">Yes</button>
                                     @endif
                                 </td>

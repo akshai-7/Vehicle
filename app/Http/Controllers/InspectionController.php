@@ -48,49 +48,56 @@ class InspectionController extends Controller
         $inspection->email = $assign->email;
         $inspection->mobile = $assign->mobile;
         $inspection->date = date('Y-m-d');
-        $inspection->next_inspection = Carbon::parse($request->date)->addDays(7);
+        $inspection->next_inspection = Carbon::now()->addDays(7)->format('Y-m-d');
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
 
-        $assign_id = $assign->id;
-        $assign_id = Inspection::where('assign_id', $assign_id)->latest('id')->first();
-        $data = $request->all();
-        foreach ($data['view'] as $row => $value) {
-            $data1 = array(
-                'inspection_id' => $assign_id->id,
-                'view' => $data['view'][$row],
-                'image' => $data['image'][$row],
-                'feedback' => $data['feedback'][$row],
-                'notes' => $data['notes'][$row],
-                'action' => $data['action'][$row],
-            );
-            Visual::create($data1);
-        }
-        $data2 = $request->all();
-        foreach ($data2['view'] as $key => $value) {
-            $data3 = array(
-                'inspection_id' => $assign_id->id,
-                'view' => $data2['view1'][$key],
-                'image' => $data2['image1'][$key],
-                'feedback' => $data2['feedback1'][$key],
-                'notes' => $data2['notes1'][$key],
-                'action' => $data2['action1'][$key],
-            );
-            Vehiclecheck::create($data3);
-        }
-        $data4 = $request->all();
-        foreach ($data4['view'] as $list => $value) {
-            $data5 = array(
-                'inspection_id' => $assign_id->id,
-                'view' => $data4['view2'][$list],
-                'image' => $data4['image2'][$list],
-                'feedback' => $data4['feedback2'][$list],
-                'notes' => $data4['notes2'][$list],
-                'action' => $data4['action2'][$list],
-            );
-            Cabin::create($data5);
-        }
+        $id = $assign->id;
+        $assign = Assign::where('id', $id)->first();
+        $assign->last_inspection = $inspection->date;
+        $assign->next_inspection = $inspection->next_inspection;
+        $assign->save();
+
+
+        // $assign_id = $assign->id;
+        // $assign_id = Inspection::where('assign_id', $assign_id)->latest('id')->first();
+        // $data = $request->all();
+        // foreach ($data['view'] as $row => $value) {
+        //     $data1 = array(
+        //         'inspection_id' => $assign_id->id,
+        //         'view' => $data['view'][$row],
+        //         'image' => $data['image'][$row],
+        //         'feedback' => $data['feedback'][$row],
+        //         'notes' => $data['notes'][$row],
+        //         'action' => $data['action'][$row],
+        //     );
+        //     Visual::create($data1);
+        // }
+        // $data2 = $request->all();
+        // foreach ($data2['view'] as $key => $value) {
+        //     $data3 = array(
+        //         'inspection_id' => $assign_id->id,
+        //         'view' => $data2['view1'][$key],
+        //         'image' => $data2['image1'][$key],
+        //         'feedback' => $data2['feedback1'][$key],
+        //         'notes' => $data2['notes1'][$key],
+        //         'action' => $data2['action1'][$key],
+        //     );
+        //     Vehiclecheck::create($data3);
+        // }
+        // $data4 = $request->all();
+        // foreach ($data4['view'] as $list => $value) {
+        //     $data5 = array(
+        //         'inspection_id' => $assign_id->id,
+        //         'view' => $data4['view2'][$list],
+        //         'image' => $data4['image2'][$list],
+        //         'feedback' => $data4['feedback2'][$list],
+        //         'notes' => $data4['notes2'][$list],
+        //         'action' => $data4['action2'][$list],
+        //     );
+        //     Cabin::create($data5);
+        // }
         return redirect('/inspectiondetails');
     }
 

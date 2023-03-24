@@ -47,7 +47,8 @@ class ApiController extends Controller
         $inspection->email =  $assign->email;
         $inspection->mobile = $assign->mobile;
         $inspection->date = date('Y-m-d');
-        $inspection->next_inspection = Carbon::now()->endOfWeek(Carbon::FRIDAY)->format('Y-m-d');
+        $inspection->next_inspection = Carbon::now()->addDays(7)->format('Y-m-d');
+        // $inspection->next_inspection = $request['date'];
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
