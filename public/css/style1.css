@@ -107,6 +107,7 @@ main {
     width: 95%;
     height: 100vh;
     left: 40px;
+    /* top: -20px; */
     overflow-y: scroll;
 }
 .table-data {
