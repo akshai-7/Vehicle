@@ -69,11 +69,13 @@ Route::get('/deletevisual/{id}', [VisualdamageController::class, 'deletevisual']
 
 //vehicle
 Route::get('/updatevehiclecheck/{id}', [VehiclecheckController::class, 'updatevehiclecheck']);
+Route::get('/vehicleimages/{id}', [VehiclecheckController::class, 'vehicleimages']);
 Route::post('/vehicleupdate/{id}', [VehiclecheckController::class, 'vehicleupdate']);
 Route::get('/deletevehicle/{id}', [VehiclecheckController::class, 'deletevehicle']);
 
 //cabin
 Route::get('/updatecabincheck/{id}', [CabinController::class, 'updatecabincheck']);
+Route::get('/cabinimages/{id}', [CabinController::class, 'cabinimages']);
 Route::post('/cabinupdate/{id}', [CabinController::class, 'cabinupdate']);
 Route::get('/deletecabin/{id}', [CabinController::class, 'deletecabin']);
 

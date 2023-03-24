@@ -8,6 +8,13 @@ use App\Models\Inspection;
 
 class VehiclecheckController extends Controller
 {
+
+    public function vehicleimages($id)
+    {
+
+        $vehicle = Vehiclecheck::where('id', $id)->first();
+        return view('/vehicleimages', ['vehicle' => $vehicle]);
+    }
     public function updatevehiclecheck($id)
     {
         $vehicle = Vehiclecheck::where('id', $id)->get();

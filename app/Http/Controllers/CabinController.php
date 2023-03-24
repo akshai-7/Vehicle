@@ -8,6 +8,13 @@ use App\Models\Cabin;
 
 class CabinController extends Controller
 {
+
+    public function cabinimages($id)
+    {
+
+        $cabin = Cabin::where('id', $id)->first();
+        return view('/cabinimages', ['cabin' => $cabin]);
+    }
     public function updatecabincheck($id)
     {
         $cabin = Cabin::where('id', $id)->get();

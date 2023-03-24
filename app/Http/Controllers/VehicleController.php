@@ -33,6 +33,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::all();
         return view('vehiclelist', compact('vehicle'));
     }
+
     public function updatevehicles($id)
     {
         $vehicle = Vehicle::where('id', $id)->get();

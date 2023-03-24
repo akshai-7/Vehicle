@@ -72,13 +72,13 @@
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->view }}</td>
                                 <td style="width:0px;" onclick="popUpImage('')">
-                                    <a href="/visualimages/{{ $visual->id }}">
+                                    <a href="/vehicleimages/{{ $vehicle->id }}">
                                         {{-- @foreach (explode(',', $visual->image) as $image)
                                             <img src="{{ url('images/' . $image) }}"
                                                 class="rounded-0 border border-secondary" width="80px" height="80px">
                                             <span></span>
                                         @endforeach --}}
-                                        <img src="{{ url('images/' . explode(',', $visual->image)[0]) }}"
+                                        <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}"
                                             class="rounded-0 border border-secondary" width="50px" height="50px">
                                     </a>
             </div>
@@ -115,13 +115,15 @@
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
                                 <td style="width:0px;" onclick="popUpImage('')">
-                                    <div id="imageContainer">
-                                        @foreach (explode(',', $cabin->image) as $image)
+                                    <a href="/cabinimages/{{ $cabin->id }}">
+                                        {{-- @foreach (explode(',', $visual->image) as $image)
                                             <img src="{{ url('images/' . $image) }}"
                                                 class="rounded-0 border border-secondary" width="80px" height="80px">
                                             <span></span>
-                                        @endforeach
-                                    </div>
+                                        @endforeach --}}
+                                        <img src="{{ url('images/' . explode(',', $cabin->image)[0]) }}"
+                                            class="rounded-0 border border-secondary" width="50px" height="50px">
+                                    </a>
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $cabin->feedback }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $cabin->action }}</td>
