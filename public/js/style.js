@@ -83,12 +83,12 @@
         }
 
 
-//     var imagePopup = document.getElementById('imagePopup')
-// function popUpImage(val) {
+    var imagePopup = document.getElementById('imagePopup')
+function popUpImage(val) {
 
-//     imagePopup.style.display="flex"
-// }
-//     imagePopup.addEventListener('click',()=>{imagePopup.style.display="none"})
+    imagePopup.style.display="flex"
+}
+    imagePopup.addEventListener('click',()=>{imagePopup.style.display="none"})
 
 
 

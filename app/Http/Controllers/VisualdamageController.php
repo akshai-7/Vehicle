@@ -27,6 +27,12 @@ class VisualdamageController extends Controller
         $visual = Visual::where('id', $id)->get();
         return view('/updatevisualcheck', ['visual' => $visual]);
     }
+    public function visualimages($id)
+    {
+
+        $visual = Visual::where('id', $id)->first();
+        return view('/visualimages', ['visual' => $visual]);
+    }
     public function visualupdate(Request $request, $id)
     {
         // dd($request);

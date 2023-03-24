@@ -9,7 +9,6 @@ use App\Models\Cabin;
 class CabinController extends Controller
 {
     public function updatecabincheck($id)
-
     {
         $cabin = Cabin::where('id', $id)->get();
         return view('/updatecabincheck', ['cabin' => $cabin]);
@@ -23,12 +22,10 @@ class CabinController extends Controller
             'action' => 'required',
         ]);
         $id = $request->inspection_id;
-
         $data1 = Inspection::find($id);
         if ($data1 == null) {
             return response()->json(['message' => 'Invalid Id']);
         }
-
         $data2 = $request->id;
         $data3 = Cabin::find($data2);
         if ($data3 == null) {

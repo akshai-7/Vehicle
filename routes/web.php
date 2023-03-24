@@ -63,6 +63,7 @@ Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
 Route::get('/details/{inspection_id}', [VisualdamageController::class, 'check']);
 //visusal
 Route::get('/updatevisualcheck/{id}', [VisualdamageController::class, 'updatevisualcheck']);
+Route::get('/visualimages/{id}', [VisualdamageController::class, 'visualimages']);
 Route::post('/visualupdate/{id}', [VisualdamageController::class, 'visualupdate']);
 Route::get('/deletevisual/{id}', [VisualdamageController::class, 'deletevisual']);
 

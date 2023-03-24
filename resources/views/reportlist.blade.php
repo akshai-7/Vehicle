@@ -9,7 +9,7 @@
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
-                        <th style="text-align:center;">Name</th>
+                        <th style="text-align:center;">Driver Name</th>
                         </th>
                         <th style="text-align:center;">Number_plate</th>
                         </th>
@@ -17,7 +17,7 @@
                         <th style="text-align:center;">Location</th>
                         {{-- <th style="text-align:center;width:80px;">Witnessed_by</th> --}}
                         {{-- <th style="text-align:center;width:100px;">Mobile.no</th> --}}
-                        {{-- <th style="text-align:center;">Statement</th> --}}
+                        <th style="text-align:center;">Statement</th>
                         <th style="text-align:center;">Image</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
@@ -31,11 +31,7 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $report->location }}
                                 </td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $report->witnessed_by }} --}}
-                                </td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $report->mobile }} --}}
-                                </td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $report->statement }} --}}
+                                <td style="text-align:center;width:300px;" class="table_data">{{ $report->statement }}
                                 </td>
                                 <td style="text-align:center;" class="table_data"><img
                                         src="{{ url('images/' . $report->image) }}"

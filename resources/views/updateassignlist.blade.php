@@ -10,11 +10,8 @@
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
-                        {{-- <th style="text-align:center;">Driver_Id</th> --}}
                         <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Email</th>
-                        {{-- <th style="text-align:center;">Mobile.No</th> --}}
-                        {{-- <th style="text-align:center;">Vehicle_Id</th> --}}
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Action</th>
@@ -43,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-sm-2 col-form-label">Name</label>
+                        <label class="col-sm-2 col-form-label">DriverName</label>
                         <div class="col-sm-9">
                             <p>{{ $assign->name }}</p>
                         </div>

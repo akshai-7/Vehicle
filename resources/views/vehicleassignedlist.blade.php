@@ -4,38 +4,29 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Vehicle Assigned List</h3>
-                    <div style="margin-right: 650px;">
-                        <a style="margin-right: 10px;" type="" onclick="show('popup8')" data-toggle="tooltip"
-                            data-placement="top" title="Inspection-Report"><i
-                                class="fa-solid fa-plus btn btn-secondary"></i></a>
-                        <a style="margin-right: 10px;" type="" onclick="show('popreport')" data-toggle="tooltip"
-                            data-placement="top" title="Report an incident"><i
-                                class="fa-solid fa-file btn btn-primary"></i></a>
+                    <div style="display:flex;">
+                        <h3>Vehicle Assigned List</h3>
+                        <a style="margin-left:30px;margin-top:10px;" onclick="show('popup8')"><input type="submit"
+                                value="Inspection" id="add"></a>
+                        <a style="margin-left:20px;margin-top:10px;" onclick="show('popreport')"><input type="submit"
+                                value="Incident" id="add"></a>
                     </div>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
-                        {{-- <th style="text-align:center;">Driver_Id</th> --}}
                         <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Email</th>
-                        {{-- <th style="text-align:center;">Mobile.No</th> --}}
-                        {{-- <th style="text-align:center;">Vehicle_Id</th> --}}
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
                     <tbody>
                         @foreach ($assign as $assign)
-                            {{-- @dd($assign); --}}
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
-                                {{-- <td style="text-align:center;" class="table_data">{{$assign->driver_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $assign->mobile }}</td> --}}
-                                {{-- <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td> --}}
                                 <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
@@ -67,9 +58,7 @@
                     @csrf
                     <main class="mainid">
                         <div class="">
-
                             <div class="report1">
-
                                 <div class="form-group row mt-5 select ">
                                     <select class="form-select form-control" style="width: 400px;" name="name">
                                         <option>Please Select Driver</option>
@@ -78,457 +67,335 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                {{-- <div class="report">
-                                    <div class="form-group row mt-5 ">
-                                        <label for="" class="col-sm-2 col-form-label"> Report.no</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="reportno"
-                                                value="{{ $assigns->number_plate }}-{{ date('d.m.Y') }}"
-                                                class="form-control">
-                                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('report')
-                                                    *{{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-5 ">
-                                        <label for="" class="col-sm-2  col-form-label"> Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="name" value="{{ $assign->name }}"
-                                                class="form-control">
-                                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                                                    *{{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-5 ">
-                                        <label for="" class="col-sm-2  col-form-label"> Email</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="email" value="{{ $assign->email }}"
-                                                class="form-control">
-                                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
-                                                    *{{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-5 ">
-                                        <label for="" class="col-sm-2 col-form-label"> Phone</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="mobile" value="{{ $assign->mobile }}"
-                                                class="form-control">
-                                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
-                                                    *{{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                <div class="subreport">
-                                    {{-- <div class="form-group row mt-5">
-                                        <label for="" class="col-sm-2  col-form-label"> Date</label>
-                                        <div class="col-sm-9">
-                                            <input type="date" name="date" class="form-control">
-                                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')
-                                                    *{{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-5">
-                                        <label for="" class="col-sm-2 col-form-label">NumberPlate</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="number_plate"
-                                                value="{{ $assign->number_plate }}" class="form-control">
-                                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
-                                                    *{{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div> --}}
-                                    <div class="form-group row mt-5 ">
-                                        {{-- <label for="" class="col-sm-2 col-form-label"> Mileage</label> --}}
-                                        <div class="col-sm-9">
-                                            <input type="text" name="mileage" placeholder="Current Mileage"
-                                                class="form-control">
-                                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
-                                                    *{{ $message }}
-                                                @enderror
-                                            </div>
+                                <div class="form-group row mt-5 ">
+                                    <div class="col-sm-9">
+                                        <input type="text" name="mileage" placeholder="Current Mileage"
+                                            class="form-control">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
+                                                *{{ $message }}
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
-                                <input type="hidden" name="inspected_by" value="Admin">
                             </div>
-                            <div class="head">
-                                <h5 class="mt-5">Visual Check</h5>
-                            </div>
-                            <div class="form-control1">
-                                <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
-                                    <thead class="">
-                                        <tr class="th">
-                                            <th class="col-md-1" style="text-align:center;">S.no</th>
-                                            <th style="text-align:center;" class="col-md-2 ">View</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Image</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Feed Back</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Notes</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='row'>
-                                        <tr class="">
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="1" id="sno"></td>
-                                            <td><input type="text" name="view[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Front"></td>
-                                            <td><input type="file" name="image[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="2" id="sno"></td>
-                                            <td><input type="text" name="view[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Near Side"></td>
-                                            <td><input type="file" name="image[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="3" id="sno"></td>
-                                            <td><input type="text" name="view[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Rear"></td>
-                                            <td><input type="file" name="image[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="4" id="sno"></td>
-                                            <td><input type="text" name="view[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Off-side"></td>
-                                            <td><input type="file" name="image[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <input type="hidden" name="inspected_by" value="Admin">
                         </div>
-                        <div class="">
-                            <div class="head">
-                                <h5 class="">Vehicle Check</h5>
-                            </div>
-                            <div class="form-control1">
-                                <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
-                                    <thead class="">
-                                        <tr class="th">
-                                            <th class="col-md-1" style="text-align:center;">S.no</th>
-                                            <th style="text-align:center;" class="col-md-2 ">View</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Image</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Feed Back</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Notes</th>
-                                            <th style="text-align:center;" class="col-md-2 ">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='row1'>
-                                        <tr class="list">
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="1" id="sno"></td>
-                                            <td><input type="text" name="view1[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Adblue levels"></td>
-                                            <td><input type="file" name="image1[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback1[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action1[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                        <tr class="list">
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="2" id="sno"></td>
-                                            <td><input type="text" name="view1[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Fuel/oil Leaks">
-                                            </td>
-                                            <td><input type="file" name="image1[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback1[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action1[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                        <tr class="list">
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="3" id="sno"></td>
-                                            <td><input type="text" name="view1[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Lights"></td>
-                                            <td><input type="file" name="image1[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback1[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action1[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                        <tr class="list">
-                                            <td class="col-md-1"><input type="text" name="sno[]"
-                                                    class="form-control col-md-1 border-0" style="text-align:center;"
-                                                    value="4" id="sno"></td>
-                                            <td><input type="text" name="view1[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Indicators/Signals">
-                                            </td>
-                                            <td><input type="file" name="image1[]" class="form-control image border-0"
-                                                    style="text-align:center;" id='image'></td>
-                                            <td><input type="text" name="feedback1[]"
-                                                    class="form-control feedback border-0" style="text-align:center;"
-                                                    id='feedback'></td>
-                                            <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                                    style="text-align:center;" id='notes'></td>
-                                            <td><input type="text" name="action1[]"
-                                                    class="form-control action border-0" style="text-align:center;"
-                                                    id='action' placeholder=""></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="head">
+                            <h5 class="mt-5">Visual Check</h5>
                         </div>
-                        <div class="">
-                            <div class="head">
-                                <h5 class="">Cabin Check</h5>
-                            </div>
-                            <div class="form-control1">
-                                <div>
-                                    <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
-                                        <thead class="">
-                                            <tr class="th">
-                                                <th class="col-md-1" style="text-align:center;">S.no</th>
-                                                <th style="text-align:center;" class="col-md-2 ">View</th>
-                                                <th style="text-align:center;" class="col-md-2 ">Image</th>
-                                                <th style="text-align:center;" class="col-md-2 ">Feed Back</th>
-                                                <th style="text-align:center;" class="col-md-2 ">Notes</th>
-                                                <th style="text-align:center;" class="col-md-2 ">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id='row2'>
-                                            <tr class="list">
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="1" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Steering"></td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                            <tr class="list">
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="2" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Wipers"></td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                            <tr class="list">
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="3" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Washers"></td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                            <tr class="list">
+                        <div class="form-control1">
+                            <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
+                                <thead class="">
+                                    <tr class="th">
+                                        <th class="col-md-1" style="text-align:center;">S.no</th>
+                                        <th style="text-align:center;" class="col-md-2 ">View</th>
+                                        <th style="text-align:center;" class="col-md-2 ">Image</th>
+                                        <th style="text-align:center;" class="col-md-2 ">Feed Back</th>
+                                        <th style="text-align:center;" class="col-md-2 ">Notes</th>
+                                        <th style="text-align:center;" class="col-md-2 ">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='row'>
+                                    <tr class="">
+                                        <td class="col-md-1"><input type="text" name="sno[]"
+                                                class="form-control col-md-1 border-0" style="text-align:center;"
+                                                value="1" id="sno"></td>
+                                        <td><input type="text" name="view[]" class="form-control view border-0"
+                                                style="text-align:center;" id='view' value="Front"></td>
+                                        <td><input type="file" name="image[]" class="form-control image border-0"
+                                                style="text-align:center;" id='image'></td>
+                                        <td><input type="text" name="feedback[]"
+                                                class="form-control feedback border-0" style="text-align:center;"
+                                                id='feedback'></td>
+                                        <td><input type="text" name="notes[]" class="form-control notes border-0"
+                                                style="text-align:center;" id='notes'></td>
+                                        <td><input type="text" name="action[]" class="form-control action border-0"
+                                                style="text-align:center;" id='action' placeholder=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-1"><input type="text" name="sno[]"
+                                                class="form-control col-md-1 border-0" style="text-align:center;"
+                                                value="2" id="sno"></td>
+                                        <td><input type="text" name="view[]" class="form-control view border-0"
+                                                style="text-align:center;" id='view' value="Near Side"></td>
+                                        <td><input type="file" name="image[]" class="form-control image border-0"
+                                                style="text-align:center;" id='image'></td>
+                                        <td><input type="text" name="feedback[]"
+                                                class="form-control feedback border-0" style="text-align:center;"
+                                                id='feedback'></td>
+                                        <td><input type="text" name="notes[]" class="form-control notes border-0"
+                                                style="text-align:center;" id='notes'></td>
+                                        <td><input type="text" name="action[]" class="form-control action border-0"
+                                                style="text-align:center;" id='action' placeholder=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-1"><input type="text" name="sno[]"
+                                                class="form-control col-md-1 border-0" style="text-align:center;"
+                                                value="3" id="sno"></td>
+                                        <td><input type="text" name="view[]" class="form-control view border-0"
+                                                style="text-align:center;" id='view' value="Rear"></td>
+                                        <td><input type="file" name="image[]" class="form-control image border-0"
+                                                style="text-align:center;" id='image'></td>
+                                        <td><input type="text" name="feedback[]"
+                                                class="form-control feedback border-0" style="text-align:center;"
+                                                id='feedback'></td>
+                                        <td><input type="text" name="notes[]" class="form-control notes border-0"
+                                                style="text-align:center;" id='notes'></td>
+                                        <td><input type="text" name="action[]" class="form-control action border-0"
+                                                style="text-align:center;" id='action' placeholder=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-1"><input type="text" name="sno[]"
+                                                class="form-control col-md-1 border-0" style="text-align:center;"
+                                                value="4" id="sno"></td>
+                                        <td><input type="text" name="view[]" class="form-control view border-0"
+                                                style="text-align:center;" id='view' value="Off-side"></td>
+                                        <td><input type="file" name="image[]" class="form-control image border-0"
+                                                style="text-align:center;" id='image'></td>
+                                        <td><input type="text" name="feedback[]"
+                                                class="form-control feedback border-0" style="text-align:center;"
+                                                id='feedback'></td>
+                                        <td><input type="text" name="notes[]" class="form-control notes border-0"
+                                                style="text-align:center;" id='notes'></td>
+                                        <td><input type="text" name="action[]" class="form-control action border-0"
+                                                style="text-align:center;" id='action' placeholder=""></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
+            <div class="">
+                <div class="head">
+                    <h5 class="">Vehicle Check</h5>
+                </div>
+                <div class="form-control1">
+                    <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
+                        <thead class="">
+                            <tr class="th">
+                                <th class="col-md-1" style="text-align:center;">S.no</th>
+                                <th style="text-align:center;" class="col-md-2 ">View</th>
+                                <th style="text-align:center;" class="col-md-2 ">Image</th>
+                                <th style="text-align:center;" class="col-md-2 ">Feed Back</th>
+                                <th style="text-align:center;" class="col-md-2 ">Notes</th>
+                                <th style="text-align:center;" class="col-md-2 ">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id='row1'>
+                            <tr class="list">
+                                <td class="col-md-1"><input type="text" name="sno[]"
+                                        class="form-control col-md-1 border-0" style="text-align:center;" value="1"
+                                        id="sno"></td>
+                                <td><input type="text" name="view1[]" class="form-control view border-0"
+                                        style="text-align:center;" id='view' value="Adblue levels"></td>
+                                <td><input type="file" name="image1[]" class="form-control image border-0"
+                                        style="text-align:center;" id='image'></td>
+                                <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
+                                        style="text-align:center;" id='feedback'></td>
+                                <td><input type="text" name="notes1[]" class="form-control notes border-0"
+                                        style="text-align:center;" id='notes'></td>
+                                <td><input type="text" name="action1[]" class="form-control action border-0"
+                                        style="text-align:center;" id='action' placeholder=""></td>
+                            </tr>
+                            <tr class="list">
+                                <td class="col-md-1"><input type="text" name="sno[]"
+                                        class="form-control col-md-1 border-0" style="text-align:center;" value="2"
+                                        id="sno"></td>
+                                <td><input type="text" name="view1[]" class="form-control view border-0"
+                                        style="text-align:center;" id='view' value="Fuel/oil Leaks">
+                                </td>
+                                <td><input type="file" name="image1[]" class="form-control image border-0"
+                                        style="text-align:center;" id='image'></td>
+                                <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
+                                        style="text-align:center;" id='feedback'></td>
+                                <td><input type="text" name="notes1[]" class="form-control notes border-0"
+                                        style="text-align:center;" id='notes'></td>
+                                <td><input type="text" name="action1[]" class="form-control action border-0"
+                                        style="text-align:center;" id='action' placeholder=""></td>
+                            </tr>
+                            <tr class="list">
+                                <td class="col-md-1"><input type="text" name="sno[]"
+                                        class="form-control col-md-1 border-0" style="text-align:center;" value="3"
+                                        id="sno"></td>
+                                <td><input type="text" name="view1[]" class="form-control view border-0"
+                                        style="text-align:center;" id='view' value="Lights"></td>
+                                <td><input type="file" name="image1[]" class="form-control image border-0"
+                                        style="text-align:center;" id='image'></td>
+                                <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
+                                        style="text-align:center;" id='feedback'></td>
+                                <td><input type="text" name="notes1[]" class="form-control notes border-0"
+                                        style="text-align:center;" id='notes'></td>
+                                <td><input type="text" name="action1[]" class="form-control action border-0"
+                                        style="text-align:center;" id='action' placeholder=""></td>
+                            </tr>
+                            <tr class="list">
+                                <td class="col-md-1"><input type="text" name="sno[]"
+                                        class="form-control col-md-1 border-0" style="text-align:center;" value="4"
+                                        id="sno"></td>
+                                <td><input type="text" name="view1[]" class="form-control view border-0"
+                                        style="text-align:center;" id='view' value="Indicators/Signals">
+                                </td>
+                                <td><input type="file" name="image1[]" class="form-control image border-0"
+                                        style="text-align:center;" id='image'></td>
+                                <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
+                                        style="text-align:center;" id='feedback'></td>
+                                <td><input type="text" name="notes1[]" class="form-control notes border-0"
+                                        style="text-align:center;" id='notes'></td>
+                                <td><input type="text" name="action1[]" class="form-control action border-0"
+                                        style="text-align:center;" id='action' placeholder=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="">
+                <div class="head">
+                    <h5 class="">Cabin Check</h5>
+                </div>
+                <div class="form-control1">
+                    <div>
+                        <table class="table table-bordered mt-3" style="border: 1px solid grey;width:1000px;">
+                            <thead class="">
+                                <tr class="th">
+                                    <th class="col-md-1" style="text-align:center;">S.no</th>
+                                    <th style="text-align:center;" class="col-md-2 ">View</th>
+                                    <th style="text-align:center;" class="col-md-2 ">Image</th>
+                                    <th style="text-align:center;" class="col-md-2 ">Feed Back</th>
+                                    <th style="text-align:center;" class="col-md-2 ">Notes</th>
+                                    <th style="text-align:center;" class="col-md-2 ">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id='row2'>
+                                <tr class="list">
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="1" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Steering"></td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="2" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Wipers"></td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="3" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Washers"></td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                                <tr class="list">
 
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="4" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Horn"></td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                            <tr class="list">
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="5" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Breakes inc.ABS/EBS"></td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                            <tr class="list">
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="6" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Mirrors/Glass/Visibility">
-                                                </td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                            <tr class="list">
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="7" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Truck Interior/Seat Belt">
-                                                </td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                            <tr class="list">
-                                                <td class="col-md-1"><input type="text" name="sno[]"
-                                                        class="form-control col-md-1 border-0" style="text-align:center;"
-                                                        value="8" id="sno"></td>
-                                                <td><input type="text" name="view2[]"
-                                                        class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Warining Lamps/MIL">
-                                                </td>
-                                                <td><input type="file" name="image2[]"
-                                                        class="form-control image border-0" style="text-align:center;"
-                                                        id='image'></td>
-                                                <td><input type="text" name="feedback2[]"
-                                                        class="form-control feedback border-0" style="text-align:center;"
-                                                        id='feedback'></td>
-                                                <td><input type="text" name="notes2[]"
-                                                        class="form-control notes border-0" style="text-align:center;"
-                                                        id='notes'></td>
-                                                <td><input type="text" name="action2[]"
-                                                        class="form-control action border-0" style="text-align:center;"
-                                                        id='action' placeholder=""></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <a href="#"><input type="submit" value="Submit" class="text-white" id="add"
-                                    style="margin-left:1000px;"></a>
-                    </main>
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="4" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Horn"></td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="5" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Breakes inc.ABS/EBS"></td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="6" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Mirrors/Glass/Visibility">
+                                    </td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="7" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Truck Interior/Seat Belt">
+                                    </td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="col-md-1"><input type="text" name="sno[]"
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="8" id="sno"></td>
+                                    <td><input type="text" name="view2[]" class="form-control view border-0"
+                                            style="text-align:center;" id='view' value="Warining Lamps/MIL">
+                                    </td>
+                                    <td><input type="file" name="image2[]" class="form-control image border-0"
+                                            style="text-align:center;" id='image'></td>
+                                    <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
+                                            style="text-align:center;" id='feedback'></td>
+                                    <td><input type="text" name="notes2[]" class="form-control notes border-0"
+                                            style="text-align:center;" id='notes'></td>
+                                    <td><input type="text" name="action2[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <a href="#"><input type="submit" value="Submit" class="text-white" id="add"
+                        style="margin-left:1000px;"></a>
+                </main>
 
                 </form>
             </div>

@@ -1,5 +1,4 @@
 @extends('layouts.user')
-
 @section('content')
     <main class="main">
         <div class="table-data">
@@ -12,9 +11,7 @@
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead>
                         <th style="text-align:center;">S.No</th>
-                        <th style="text-align:center;">Name</th>
-                        {{-- <th style="text-align:center;">Gender</th> --}}
-                        {{-- <th style="text-align:center;">D.O.B</th> --}}
+                        <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Email</th>
                         <th style="text-align:center;">Mobile.no</th>
                         <th style="text-align:center;">Address</th>
@@ -28,9 +25,6 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->name }}</td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $user->gender }}</td> --}}
-                                {{-- <td style="text-align:center;" class="table_data">{{ $user->date_of_birth }} --}}
-                                </td>
                                 <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $user->address }}</td>
@@ -41,7 +35,6 @@
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/updateuser/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
                                         title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
-
                                     <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
                                         title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>

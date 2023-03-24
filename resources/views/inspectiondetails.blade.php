@@ -1,6 +1,6 @@
 @extends('layouts.user')
 @section('content')
-    <main>
+    <main class="main">
         <div class="table-data">
             <div class="order">
                 <div class="head">
@@ -12,8 +12,6 @@
                         <th style="text-align:center;">Report.no</th>
                         <th style="text-align:center;">Inspected_by</th>
                         <th style="text-align:center;">Driver Name</th>
-                        {{-- <th style="text-align:center;">Email</th> --}}
-                        {{-- <th style="text-align:center;">Mobile.No</th> --}}
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Inspection_date</th>
@@ -30,10 +28,6 @@
                                 <td style="text-align:center;" class="table_data">{{ $inspection->inspected_by }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->name }}</td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $inspection->email }} --}}
-                                </td>
-                                {{-- <td style="text-align:center;" class="table_data">{{ $inspection->mobile }} --}}
-                                </td>
                                 <td style="text-align:center;" class="table_data">
                                     {{ $inspection->number_plate }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->mileage }}

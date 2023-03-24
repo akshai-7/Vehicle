@@ -246,22 +246,22 @@ form {
 }
 
 .button {
-    margin-top: 25px;
+    margin-top: 60px;
     /* background: #000; */
     display: flex;
 }
 #Visual {
-    margin-top: -70px;
+    margin-top: -95px;
 }
 #Vehicle {
-    margin-top: -70px;
+    margin-top: -95px;
 }
 
 #Cabin {
-    overflow: scroll;
-    height: 75%;
+    /* overflow-y: scroll; */
+    height: 95%;
     left: 120px;
-    margin-top: -70px;
+    margin-top: -95px;
 }
 
 #Cabin::-webkit-scrollbar {
@@ -313,7 +313,7 @@ form {
     margin-left: 100px;
     height: 80%;
     width: 80%;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 .main2::-webkit-scrollbar {
     display: none;
@@ -757,13 +757,16 @@ form {
 #imageContainer {
     overflow-x: scroll;
     /* padding: 0 20px; */
-    width: 250px;
-    height: 100px;
+    width: 100px;
+    height: 80px;
     display: flex;
     /* align-items: center;
     justify-content: center; */
 }
 
+#imageContainer::-webkit-scrollbar {
+    display: none;
+}
 span {
     margin: 5px;
 }
