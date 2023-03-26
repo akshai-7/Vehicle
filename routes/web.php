@@ -52,6 +52,7 @@ Route::get('/inspection/{id}', [InspectionController::class, 'weeklyinspection']
 Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
+Route::post('/search', [InspectionController::class, 'search']);
 
 //report
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);
