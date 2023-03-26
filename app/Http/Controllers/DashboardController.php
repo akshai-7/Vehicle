@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\Assign;
 use App\Models\Inspection;
+use App\Models\Report;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,6 +18,7 @@ class DashboardController extends Controller
         $vehicle = Vehicle::count();
         $assign = Assign::count();
         $inspection = Inspection::count();
-        return view('/dashboard', compact('user', 'vehicle', 'assign', 'inspection'));
+        $report = Report::count();
+        return view('/dashboard', compact('user', 'vehicle', 'assign', 'inspection', 'report'));
     }
 }

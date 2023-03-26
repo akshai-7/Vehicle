@@ -1,51 +1,51 @@
 @extends('layouts.user')
 @section('content')
-    <main class="main">
-        <div class="table-data">
-            <div class="order">
-                <div class="head">
-                    <h3>Driver Details</h3>
-                    <a style="margin-right:20px;"><input type="submit" value="Add-Driver" id="add"
-                            onclick="show('popup1')"></a>
-                </div>
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
-                    <thead>
-                        <th style="text-align:center;">S.No</th>
-                        <th style="text-align:center;">Driver Name</th>
-                        <th style="text-align:center;">Email</th>
-                        <th style="text-align:center;">Mobile.no</th>
-                        <th style="text-align:center;">Address</th>
-                        <th style="text-align:center;">Company</th>
-                        <th style="text-align:center;">Role</th>
-                        <th style="text-align:center;">Creation Date</th>
-                        <th style="text-align:center;">Action</th>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr class="table_row">
-                                <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                                <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
-                                </td>
-                                <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user->address }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
-                                <td style="text-align:center;" class="table_data">
-                                    {{ $user->created_at->format('Y-m-d') }}</td>
-                                <td style="text-align:center;" class="table_data">
-                                    <a href="/updateuser/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
-                                    <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+    {{-- <main class="main"> --}}
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Driver Details</h3>
+                <a style="margin-right:20px;"><input type="submit" value="Add-Driver" id="add"
+                        onclick="show('popup1')"></a>
             </div>
+            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+                <thead>
+                    <th style="text-align:center;">S.No</th>
+                    <th style="text-align:center;">Driver Name</th>
+                    <th style="text-align:center;">Email</th>
+                    <th style="text-align:center;">Mobile.no</th>
+                    <th style="text-align:center;">Address</th>
+                    <th style="text-align:center;">Company</th>
+                    <th style="text-align:center;">Role</th>
+                    <th style="text-align:center;">Creation Date</th>
+                    <th style="text-align:center;">Action</th>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr class="table_row">
+                            <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
+                            <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
+                            </td>
+                            <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user->address }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                {{ $user->created_at->format('Y-m-d') }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                <a href="/updateuser/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
+                                    title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
+                                    title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-    </main>
+    </div>
+    {{-- </main> --}}
 
     <div class="popup1" id="popup1">
         <form action="/createuser" method="POST" autocomplete="off">

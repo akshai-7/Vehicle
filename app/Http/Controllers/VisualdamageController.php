@@ -13,6 +13,11 @@ class VisualdamageController extends Controller
     public function check($inspection_id)
     {
 
+        $visual = Visual::where('inspection_id', $inspection_id)->first();
+        if ($visual == null) {
+            session()->flash('message1', ' Invalid Id');
+            return redirect('/inspectiondetails');
+        }
         $visual = Visual::where('inspection_id', $inspection_id)->get();
         $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
         $cabin = Cabin::where('inspection_id', $inspection_id)->get();

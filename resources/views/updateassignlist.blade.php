@@ -1,28 +1,28 @@
 @extends('layouts.user')
 @section('content')
-    <main class="main">
-        <div class="table-data">
-            <div class="order">
-                <div class="head">
-                    <h3>Vehicle Assigned List</h3>
+    {{-- <main class="main"> --}}
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Vehicle Assigned List</h3>
 
-                </div>
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
-                    <thead class="text-primary">
-                        <th style="text-align:center;">Id</th>
-                        <th style="text-align:center;">Driver Name</th>
-                        <th style="text-align:center;">Email</th>
-                        <th style="text-align:center;">Number plate</th>
-                        <th style="text-align:center;">Mileage</th>
-                        <th style="text-align:center;">Action</th>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
             </div>
+            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+                <thead class="text-primary">
+                    <th style="text-align:center;">Id</th>
+                    <th style="text-align:center;">Driver Name</th>
+                    <th style="text-align:center;">Email</th>
+                    <th style="text-align:center;">Number plate</th>
+                    <th style="text-align:center;">Mileage</th>
+                    <th style="text-align:center;">Action</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
-    </main>
+    </div>
+    {{-- </main> --}}
     </div>
     <div class="popup9" id="popup9">
         <form action="#" method="POST" autocomplete="off">

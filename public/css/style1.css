@@ -12,24 +12,27 @@ a {
     text-decoration: none;
     color: black;
 }
+.board {
+    margin-top: 20px;
+}
 .box {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 20px;
     display: flex;
     justify-content: space-between;
 }
 .box1 {
     display: flex;
-    width: 200px;
+    width: 350px;
     height: 100px;
-    /* background-color: rgb(236, 236, 239); */
-    background: linear-gradient(90deg, #eedadf, #d9bebe);
-    /* border: 1px solid black; */
-    /* border-radius: 7px; */
+    background: linear-gradient(90deg, #f8d3dc, #f1b8b8);
+    border-radius: 4px;
+    margin-top: 20px;
 }
 .driver {
     width: 100%;
     margin-top: 20px;
+    margin-left: 10px;
     border-radius: 7px 7px 0 0;
     padding: 5px;
     color: black;
@@ -37,6 +40,7 @@ a {
 .driver1 {
     width: 100%;
     margin-top: 10px;
+    margin-left: 10px;
     border-radius: 7px 7px 0 0;
     padding: 5px;
     color: black;
@@ -280,7 +284,7 @@ form {
 }
 
 .button {
-    margin-top: 20px;
+    margin-top: 60px;
     display: flex;
 }
 #Visual {
