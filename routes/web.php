@@ -10,6 +10,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\VisualdamageController;
 use App\Http\Controllers\VehiclecheckController;
 use App\Http\Controllers\CabinController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ use App\Http\Controllers\CabinController;
 
 //login
 Route::view('/', 'login');
+Route::view('dashboard', 'dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::post('/user', [LoginController::class, 'admin']);
 
 //driver

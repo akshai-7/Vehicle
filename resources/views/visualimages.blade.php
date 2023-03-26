@@ -1,10 +1,6 @@
 @extends('layouts.user')
 @section('content')
     <main class="main">
-
-
-
-
         <div class="popup5" id="popup5">
             <a href="/details/{{ $visual->inspection_id }}" style="color:black;" class="close"><i
                     class="fa-solid fa-xmark"></i></a>
@@ -16,8 +12,5 @@
                 @endforeach
             </div>
         </div>
-
-
-
     </main>
 @endsection

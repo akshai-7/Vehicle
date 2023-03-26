@@ -20,6 +20,6 @@ class LoginController extends Controller
             return redirect('/');
         }
         session()->flash('message', 'Login Successfully');
-        return redirect('/user');
+        return redirect('/dashboard');
     }
 }

@@ -22,7 +22,11 @@
             <div id="img-container">
                 <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
             </div>
-            <a class="nav_list active" href="#" onclick="location.href = '/user';" id="myButton">
+            <a class="nav_list active" href="/dashboard" id="myButton">
+                <div class="icon-name"><i class='bx bxs-dashboard'></i></div>
+                <div class="nav_name">Dashboard </div>
+            </a>
+            <a class="nav_list active" href="/user" id="myButton">
                 <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
                 <div class="nav_name">Drivers </div>
             </a>

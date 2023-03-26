@@ -12,13 +12,10 @@ class VisualdamageController extends Controller
 {
     public function check($inspection_id)
     {
-        $visual = Visual::where('inspection_id', $inspection_id)->get();
 
+        $visual = Visual::where('inspection_id', $inspection_id)->get();
         $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
         $cabin = Cabin::where('inspection_id', $inspection_id)->get();
-        if ($visual == null) {
-            return view('/inspectiondetails');
-        }
         return view('/details', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle,]);
     }
 

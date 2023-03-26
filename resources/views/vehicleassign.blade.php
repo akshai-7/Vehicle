@@ -15,7 +15,7 @@
                                 <option value="{{ $user->name }}" name="name">{{ $user->name }}</option>
                             @endforeach
                         </select>
-                        <select class="form-select" name="number_plate" style="width: 500px;">
+                        <select class="form-select" id="select" name="number_plate" style="width: 500px;">
                             <option>Please Select Vehicle</option>
                             @foreach ($vehicle as $vehicle)
                                 <option value="{{ $vehicle->number_plate }}" name="number_plate">

@@ -1,43 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main class="main">
-        <div class="table-data">
-            <div class="order">
-                <div class="head">
-                    <h3>Update Cabin Check</h3>
-                </div>
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
-                    <thead>
-                        <th style="text-align:center;">S.No</th>
-                        <th style="text-align:center;">View</th>
-                        <th style="text-align:center;">Image</th>
-                        <th style="text-align:center;">FeedBack</th>
-                        <th style="text-align:center;">Status</th>
-                        <th style="text-align:center;">Action</th>
-                    </thead>
-                    <tbody>
-                        @foreach ($cabin as $cabin)
-                            <tr class="table_row">
-                                <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
-                                <td style="text-align:center;" class="table_data"><img
-                                        src="{{ url('images/' . $cabin->image) }}" class="rounded-0 border border-secondary"
-                                        width="50px" height="50px"></td>
-                                <td style="text-align:center;" class="table_data">{{ $cabin->feedback }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $cabin->action }}</td>
-                                <td style="text-align:center;" class="table_data">
-                                    <a href="/updatecabincheck/{{ $cabin->id }}"><i
-                                            class="fa-solid fa-edit btn btn-success"></i></a>
-                                    <a href="/deletevisual/{{ $cabin->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </main> --}}
     <div class="popup7" id="popup7">
         <form action="/cabinupdate/{id}" method="POST" autocomplete="off">
             @csrf

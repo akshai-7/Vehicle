@@ -477,9 +477,9 @@
 
             <div class="vehicle">
 
-                <div class="form-group row  select ">
+                <div class="form-group mt-5">
                     <label class="col-sm-2 col-form-label">User</label>
-                    <select class="form-select" style="width: 350px;" name="name">
+                    <select class="form-select " style="width: 370px;" name="name">
                         <option>Please Select Driver</option>
                         @foreach ($assigns as $assign)
                             <option value="{{ $assign->name }}">{{ $assign->name }}</option>

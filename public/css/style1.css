@@ -10,7 +10,42 @@ body {
 }
 a {
     text-decoration: none;
+    color: black;
 }
+.box {
+    margin-top: 50px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.box1 {
+    display: flex;
+    width: 200px;
+    height: 100px;
+    /* background-color: rgb(236, 236, 239); */
+    background: linear-gradient(90deg, #eedadf, #d9bebe);
+    /* border: 1px solid black; */
+    /* border-radius: 7px; */
+}
+.driver {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 7px 7px 0 0;
+    padding: 5px;
+    color: black;
+}
+.driver1 {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 7px 7px 0 0;
+    padding: 5px;
+    color: black;
+}
+.count {
+    margin-top: 30px;
+    padding: 10px;
+}
+
 #container {
     width: 100%;
     height: 100vh;
@@ -245,8 +280,7 @@ form {
 }
 
 .button {
-    margin-top: 60px;
-    /* background: #000; */
+    margin-top: 20px;
     display: flex;
 }
 #Visual {
@@ -257,7 +291,6 @@ form {
 }
 
 #Cabin {
-    /* overflow-y: scroll; */
     height: 95%;
     left: 120px;
     margin-top: -95px;
@@ -300,8 +333,9 @@ form {
 
 .select {
     display: flex;
-    margin-left: 20px;
+    justify-content: space-between;
 }
+
 .print {
     float: right;
     margin-right: 130px;

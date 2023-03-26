@@ -1,43 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main class="main">
-        <div class="table-data">
-            <div class="order">
-                <div class="head">
-                    <h3>Update VisualDamage</h3>
-                </div>
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
-                    <thead>
-                        <th style="text-align:center;">S.No</th>
-                        <th style="text-align:center;">View</th>
-                        <th style="text-align:center;">Image</th>
-                        <th style="text-align:center;">FeedBack</th>
-                        <th style="text-align:center;">Status</th>
-                        <th style="text-align:center;">Action</th>
-                    </thead>
-                    <tbody>
-                        @foreach ($visual as $visual)
-                            <tr class="table_row">
-                                <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $visual->view }}</td>
-                                <td style="text-align:center;" class="table_data"><img
-                                        src="{{ url('images/' . $visual->image) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px"></td>
-                                <td style="text-align:center;" class="table_data">{{ $visual->feedback }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $visual->action }}</td>
-                                <td style="text-align:center;" class="table_data">
-                                    <a href="/updatevisualcheck/{{ $visual->id }}"><i
-                                            class="fa-solid fa-edit btn btn-success"></i></a>
-                                    <a href="/deletevisual/{{ $visual->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </main> --}}
     <div class="popup5" id="popup5">
         <form action="/visualupdate/{id}" method="POST" autocomplete="off">
             @csrf
