@@ -31,7 +31,7 @@
                         <th style="text-align:center;">Action</th>
                     </thead>
                     <tbody>
-                        @foreach ($inspection as $inspection)
+                        @foreach ($inspections as $inspection)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $inspection->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $inspection->report_no }}
@@ -59,9 +59,14 @@
                             </tr>
                         @endforeach
                     </tbody>
+
                 </table>
             </div>
+
         </div>
+        {{-- <div class="active">
+            {!! $inspections->links() !!}
+        </div> --}}
     </div>
     <div id="Vehicle" class="tabcontent">
         <div class="table-data">
@@ -77,7 +82,7 @@
                         <th style="text-align:center;">Over Due</th>
                     </thead>
                     <tbody>
-                        @foreach ($assign as $assign)
+                        @foreach ($assigns as $assign)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
@@ -101,6 +106,10 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
+        {{-- <div class="active">
+            {!! $assigns->links() !!}
+        </div> --}}
     </div>
 @endsection

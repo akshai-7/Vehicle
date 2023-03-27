@@ -147,6 +147,9 @@ main {
     left: 40px;
     overflow-y: scroll;
 }
+main::-webkit-scrollbar {
+    display: none;
+}
 .table-data {
     margin-top: 10%;
     border-radius: 8px;
@@ -304,15 +307,10 @@ form {
     margin-top: -95px;
 }
 
-/* #Cabin {
-    height: 95%;
-    left: 120px;
+#Cabin {
     margin-top: -95px;
-} */
+}
 
-/* #Cabin::-webkit-scrollbar {
-    display: none;
-} */
 .vehicle {
     margin-left: 10px;
     height: 400px;
@@ -352,6 +350,7 @@ form {
 .select {
     display: flex;
     justify-content: space-between;
+    margin-left: 20px;
 }
 
 .print {

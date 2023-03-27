@@ -44,9 +44,9 @@
             </table>
         </div>
     </div>
-    <div class="active">
+    {{-- <div class="active">
         {!! $users->links() !!}
-    </div>
+    </div> --}}
     <div class="popup1" id="popup1">
         <form action="/createuser" method="POST" autocomplete="off">
             @csrf

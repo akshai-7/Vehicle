@@ -16,7 +16,7 @@
                     <th style="text-align:center;">Action</th>
                 </thead>
                 <tbody>
-                    @foreach ($vehicle as $vehicle)
+                    @foreach ($vehicles as $vehicle)
                         <tr class="table_row">
                             <td style="text-align:center;" class="table_data">{{ $vehicle->id }}</td>
                             <td style="text-align:center;" class="table_data">{{ $vehicle->number_plate }}
@@ -36,6 +36,10 @@
             </table>
         </div>
     </div>
+    {{-- <div class="active">
+        {!! $vehicles->links() !!}
+    </div> --}}
+
     <div class="popup2" id="popup2">
         <form action="/createvehicle" method="POST" autocomplete="off">
             @csrf

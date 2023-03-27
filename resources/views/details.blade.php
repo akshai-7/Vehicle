@@ -51,6 +51,10 @@
                     @endforeach
                 </tbody>
             </table>
+            <div>
+                <a href="/summary/{{ $visual->inspection_id }}"><input type="submit" id="add" value="Summary"
+                        class="text-white" style="margin-left:1000px;margin-top:-20px;"></a>
+            </div>
         </div>
     </div>
     <div id="Vehicle" class="tabcontent">
@@ -94,6 +98,10 @@
         @endforeach
         </tbody>
         </table>
+        <div>
+            <a href="/summary/{{ $vehicle->inspection_id }}"><input type="submit" id="add" value="Summary"
+                    class="text-white" style="margin-left:1000px;margin-top:-20px;"></a>
+        </div>
     </div>
     </div>
     <div id="Cabin" class="tabcontent">
@@ -136,15 +144,16 @@
                     @endforeach
                 </tbody>
             </table>
+            <div>
+                <a href="/summary/{{ $cabin->inspection_id }}"><input type="submit" id="add" value="Summary"
+                        class="text-white" style="margin-left:1000px;margin-top:-20px;"></a>
+            </div>
         </div>
+
     </div>
     {{-- <div id="imagePopup" onclick="closePopUpImage())">
             <div id="imagePopupContent">
             </div>
         </div> --}}
     {{-- </main> --}}
-    <div>
-        <a href="/summary/{{ $cabin->inspection_id }}"><input type="submit" id="add" value="Summary"
-                class="text-white" style="margin-left:1000px;margin-top:50px;"></a>
-    </div>
 @endsection

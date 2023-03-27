@@ -103,9 +103,11 @@ class InspectionController extends Controller
 
     public function inspection()
     {
-        $inspection = Inspection::all();
-        $assign = Assign::all();
-        return view('/inspectiondetails', compact('inspection', 'assign'));
+        $inspections = Inspection::all();
+        $assigns = Assign::all();
+        // $inspections = Inspection::paginate(1);
+        // $assigns = Assign::paginate(1);
+        return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
     public function deleteinspection($id)
     {
