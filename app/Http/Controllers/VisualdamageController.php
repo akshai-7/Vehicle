@@ -8,6 +8,7 @@ use App\Models\Cabin;
 use App\Models\Inspection;
 use Illuminate\Http\Request;
 
+
 class VisualdamageController extends Controller
 {
     public function check($inspection_id)
@@ -37,7 +38,7 @@ class VisualdamageController extends Controller
     }
     public function visualupdate(Request $request, $id)
     {
-        // dd($request);
+
         $request->validate([
             'view' => 'required',
             'image' => 'required',
@@ -51,19 +52,19 @@ class VisualdamageController extends Controller
         }
 
         $data2 = $request->id;
-
         $data3 = Visual::find($data2);
         if ($data3 == null) {
             session()->flash('message', ' Invalid Id');
         }
+
         $visual = Visual::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $visual->view = $request['view'];
-        $visual->image = $request['image'];
 
-        if ($request->hasfile('image')) {
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
-            $location = public_path($name);
+            $path = public_path('images');
+            $imagepath = $request->image->move($path, $name);
             $visual->image = $name;
         }
         $visual->feedback = $request['feedback'];
@@ -72,6 +73,8 @@ class VisualdamageController extends Controller
         session()->flash('message', ' Updated Successfully');
         return redirect('/details/' . $data1->id);
     }
+
+
     public function deletevisual($id)
     {
         $user = Visual::find($id);

@@ -95,7 +95,7 @@ class ApiController extends Controller
     }
     public function visualcheck(Request $request, $id)
     {
-        // dd($request);
+
         $request->validate([
             'type' => 'required',
             'image' => 'required',
@@ -111,6 +111,7 @@ class ApiController extends Controller
         $status = $request->status;
         $feedback = $request->feedback;
         $data = array();
+        // dd($name);
         foreach (array_keys($name) as $row) {
             $img = array();
 

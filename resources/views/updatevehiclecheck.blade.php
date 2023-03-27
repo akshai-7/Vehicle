@@ -1,7 +1,7 @@
 @extends('layouts.user')
 @section('content')
     <div class="popup6" id="popup6">
-        <form action="/vehicleupdate/{id}" method="POST" autocomplete="off">
+        <form action="/vehicleupdate/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
             @csrf
             @foreach ($vehicle as $vehicle)
                 <a href="/details/{{ $vehicle->inspection_id }}" style="color:black;" class="close"><i

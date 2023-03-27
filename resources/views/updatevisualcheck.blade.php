@@ -1,7 +1,7 @@
 @extends('layouts.user')
 @section('content')
     <div class="popup5" id="popup5">
-        <form action="/visualupdate/{id}" method="POST" autocomplete="off">
+        <form action="/visualupdate/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
             @csrf
             @foreach ($visual as $visual)
                 <a href="/details/{{ $visual->inspection_id }}" style="color:black;" class="close"><i
@@ -45,7 +45,7 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-9">
-                            <input type="file" name="image" value="">
+                            <input type="file" name="image" class="form-control" placeholder="image">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                     *{{ $message }}
                                 @enderror

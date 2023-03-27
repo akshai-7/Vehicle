@@ -43,11 +43,11 @@ class VehiclecheckController extends Controller
         }
         $vehicle = Vehiclecheck::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $vehicle->view = $request['view'];
-        $vehicle->image = $request['image'];
-        if ($request->hasfile('image')) {
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
-            $location = public_path($name);
+            $path = public_path('images');
+            $imagepath = $request->image->move($path, $name);
             $vehicle->image = $name;
         }
         $vehicle->feedback = $request['feedback'];
