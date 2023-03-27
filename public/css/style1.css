@@ -304,15 +304,15 @@ form {
     margin-top: -95px;
 }
 
-#Cabin {
+/* #Cabin {
     height: 95%;
     left: 120px;
     margin-top: -95px;
-}
+} */
 
-#Cabin::-webkit-scrollbar {
+/* #Cabin::-webkit-scrollbar {
     display: none;
-}
+} */
 .vehicle {
     margin-left: 10px;
     height: 400px;
@@ -337,6 +337,10 @@ button.active {
     color: white;
 }
 
+.pagination {
+    float: right;
+    margin-top: 10px;
+}
 form {
     margin-left: 50px;
 }
@@ -352,8 +356,8 @@ form {
 
 .print {
     float: right;
-    margin-right: 130px;
-    margin-top: 10px;
+    margin-top: 20px;
+    padding: 30px;
 }
 
 .incident label {

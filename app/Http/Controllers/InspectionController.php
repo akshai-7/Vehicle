@@ -18,9 +18,7 @@ class InspectionController extends Controller
         return view('/inspection', compact('assign'));
     }
     public function store(Request $request)
-
     {
-        // dd($request);
         $request->validate([
             'view' => 'required',
             'image' => 'required',
@@ -49,7 +47,8 @@ class InspectionController extends Controller
         $inspection->email = $assign->email;
         $inspection->mobile = $assign->mobile;
         $inspection->date = date('Y-m-d');
-        $inspection->next_inspection = Carbon::now()->addDays(7)->format('Y-m-d');
+        // $inspection->next_inspection = Carbon::now()->addDays(7)->format('Y-m-d');
+        $inspection->next_inspection = Carbon::parse($request->date)->endOfWeek(Carbon::FRIDAY)->format('Y-m-d');
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
@@ -59,7 +58,6 @@ class InspectionController extends Controller
         $assign->last_inspection = $inspection->date;
         $assign->next_inspection = $inspection->next_inspection;
         $assign->save();
-
 
         $assign_id = $assign->id;
         $assign_id = Inspection::where('assign_id', $assign_id)->latest('id')->first();
@@ -89,7 +87,7 @@ class InspectionController extends Controller
             Vehiclecheck::create($data3);
         }
         $data4 = $request->all();
-        foreach ($data4['view'] as $list => $value) {
+        foreach ($data4['view2'] as $list => $value) {
             $data5 = array(
                 'inspection_id' => $assign_id->id,
                 'view' => $data4['view2'][$list],

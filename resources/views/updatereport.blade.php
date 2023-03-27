@@ -41,12 +41,6 @@
 
                         </div>
                     </div>
-                    {{-- <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 col-form-label">Statement</label>
-                        <div class="col-sm-9">
-                            <p>{{ $report->statement }}</p>
-                        </div>
-                    </div> --}}
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-9">

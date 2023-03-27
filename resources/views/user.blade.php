@@ -1,6 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main class="main"> --}}
     <div class="table-data">
         <div class="order">
             <div class="head">
@@ -45,8 +44,9 @@
             </table>
         </div>
     </div>
-    {{-- </main> --}}
-
+    <div class="active">
+        {!! $users->links() !!}
+    </div>
     <div class="popup1" id="popup1">
         <form action="/createuser" method="POST" autocomplete="off">
             @csrf

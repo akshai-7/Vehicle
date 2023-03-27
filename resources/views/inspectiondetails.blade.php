@@ -7,7 +7,6 @@
             <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> </button>
         </div>
     </form> --}}
-    {{-- <main class="main"> --}}
     <div class="button">
         <button class="tablinks " onclick="openCheck(event, 'Visual')" id="defaultOpen">
             <h6>Completed Vehicle Inspection </h6>
@@ -104,5 +103,4 @@
             </div>
         </div>
     </div>
-    {{-- </main> --}}
 @endsection

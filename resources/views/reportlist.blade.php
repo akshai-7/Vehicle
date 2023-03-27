@@ -1,6 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main> --}}
     <div class="table-data">
         <div class="order">
             <div class="head">
@@ -15,8 +14,6 @@
                     </th>
                     <th style="text-align:center;">Date</th>
                     <th style="text-align:center;">Location</th>
-                    {{-- <th style="text-align:center;width:80px;">Witnessed_by</th> --}}
-                    {{-- <th style="text-align:center;width:100px;">Mobile.no</th> --}}
                     <th style="text-align:center;">Statement</th>
                     <th style="text-align:center;">Image</th>
                     <th style="text-align:center;">Action</th>
@@ -49,5 +46,4 @@
             </table>
         </div>
     </div>
-    {{-- </main> --}}
 @endsection

@@ -1,6 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main class="main"> --}}
     <div class="table-data">
         <div class="order">
             <div class="head">
@@ -17,25 +16,18 @@
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                 <thead class="text-primary">
                     <th style="text-align:center;">Id</th>
-                    {{-- <th style="text-align:center;">Driver_Id</th> --}}
                     <th style="text-align:center;">Driver Name</th>
                     <th style="text-align:center;">Email</th>
-                    {{-- <th style="text-align:center;">Mobile.No</th> --}}
-                    {{-- <th style="text-align:center;">Vehicle_Id</th> --}}
                     <th style="text-align:center;">Number plate</th>
                     <th style="text-align:center;">Mileage</th>
                     <th style="text-align:center;">Action</th>
                 </thead>
                 <tbody>
                     @foreach ($assign as $assign)
-                        {{-- @dd($assign); --}}
                         <tr class="table_row">
                             <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
-                            {{-- <td style="text-align:center;" class="table_data">{{$assign->driver_id}}</td> --}}
                             <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
                             <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>
-                            {{-- <td style="text-align:center;" class="table_data">{{ $assign->mobile }}</td> --}}
-                            {{-- <td style="text-align:center;" class="table_data">{{$assign->vehicle_id}}</td> --}}
                             <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
@@ -53,7 +45,6 @@
             </table>
         </div>
     </div>
-    {{-- </main> --}}
     </div>
     <div class="popup8" id="popup8">
         <section id="container">
@@ -82,7 +73,6 @@
                                 <div class="subreport">
 
                                     <div class="form-group row mt-5 ">
-                                        {{-- <label for="" class="col-sm-2 col-form-label"> Mileage</label> --}}
                                         <div class="col-sm-9">
                                             <input type="text" name="mileage" placeholder="Current Mileage"
                                                 class="form-control">

@@ -1,6 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main class="main"> --}}
     <div class="table-data">
         <div class="order">
             <div class="head">
@@ -27,8 +26,5 @@
                     style="float:right;">
             </form>
         </div>
-    </div>
-    {{-- </main> --}}
-
     </div>
 @endsection

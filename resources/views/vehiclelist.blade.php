@@ -1,6 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main class="main"> --}}
     <div class="table-data">
         <div class="order">
             <div class="head">
@@ -37,7 +36,6 @@
             </table>
         </div>
     </div>
-    {{-- </main> --}}
     <div class="popup2" id="popup2">
         <form action="/createvehicle" method="POST" autocomplete="off">
             @csrf

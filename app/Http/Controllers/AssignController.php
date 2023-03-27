@@ -55,7 +55,6 @@ class AssignController extends Controller
     public function updateassignlist($id)
     {
         $assign = Assign::where('id', $id)->get();
-        // dd($assign->id);
         return view('/updateassignlist', compact('assign'));
     }
     public function deleteId($id)

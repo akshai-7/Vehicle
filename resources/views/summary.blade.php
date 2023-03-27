@@ -4,15 +4,14 @@
         <h3> Report Summary</h3>
     </div>
 
-    {{-- <main class="main2"> --}}
     <div class="table-data2  ">
         <div class="order">
             <table class="table table-bordered mt-5">
 
                 <thead class=" col-md-1">
-                    <th style="text-align:center;color:#bf0e3a;" class=" col-md-2">Inspection_Id</th>
-                    <th style="text-align:center;color:#bf0e3a;" class=" col-md-2">Driver Name</th>
-                    <th style="text-align:center;color:#bf0e3a;" class="col-md-2">Number_plate</th>
+                    <th style="text-align:center;" class=" col-md-2">Inspection_Id</th>
+                    <th style="text-align:center;" class=" col-md-2">Driver Name</th>
+                    <th style="text-align:center;" class="col-md-2">Number_plate</th>
                 </thead>
                 <tbody>
                     @foreach ($inspection as $inspection)
@@ -119,11 +118,4 @@
             <a href="/edit/{{ $cabin->inspection_id }}"><i class="fa-solid fa-edit btn btn-success"></i></a>
         </div>
     </div>
-
-    {{-- </main> --}}
-    {{-- <div class="print">
-        <a href="/pdf/{{ $cabin->inspection_id }}" data-toggle="tooltip" data-placement="top" title="Print"><i
-                class="fa-solid fa-print btn btn-danger"></i></a>
-        <a href="/edit/{{ $cabin->inspection_id }}"><i class="fa-solid fa-edit btn btn-success"></i></a>
-    </div> --}}
 @endsection

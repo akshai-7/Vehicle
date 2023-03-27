@@ -95,18 +95,21 @@ class ApiController extends Controller
     }
     public function visualcheck(Request $request, $id)
     {
+        // dd($request);
         $request->validate([
             'type' => 'required',
             'image' => 'required',
             'name' => 'required',
             'notes' => 'required',
             'status' => 'required',
+            'feedback' => 'required'
         ]);
 
         $name = $request->name;
         $image = $request->file("image");
         $notes = $request->notes;
         $status = $request->status;
+        $feedback = $request->feedback;
         $data = array();
         foreach (array_keys($name) as $row) {
             $img = array();
@@ -135,6 +138,7 @@ class ApiController extends Controller
                 'image' => $img,
                 'status' => $status[$row],
                 'notes' => $notes[$row],
+                'feedback' => $feedback[$row],
             );
             array_push($data, $data1);
 
@@ -147,27 +151,27 @@ class ApiController extends Controller
                 'inspection_id' => $visual->id,
                 'view' => $name[$row],
                 'image' => implode(",", $img),
-                'feedback' => $notes[$row],
-                'notes' => $data['notes'][$row],
+                'notes' => $notes[$row],
+                'feedback' => $feedback[$row],
                 'action' => $status[$row],
             );
 
             if (strtolower($request->type) === "visual") {
-                $visual = Visual::where('assign_id', $id)->where('view', $name[$row])->first();
+                $visual = Visual::where('inspection_id', $id)->where('view', $name[$row])->first();
                 if ($visual != null) {
                     return response()->json(['message' => 'Duplicated Entry'], 401);
                 };
                 Visual::create($data2);
             }
             if (strtolower($request->type) === "cabin") {
-                $visual = Cabin::where('assign_id', $id)->where('view', $name[$row])->first();
+                $visual = Cabin::where('inspection_id', $id)->where('view', $name[$row])->first();
                 if ($visual != null) {
                     return response()->json(['message' => 'Duplicated Entry'], 401);
                 };
                 Cabin::create($data2);
             }
             if (strtolower($request->type) === "vehicle") {
-                $visual = Vehiclecheck::where('assign_id', $id)->where('view', $name[$row])->first();
+                $visual = Vehiclecheck::where('inspection_id', $id)->where('view', $name[$row])->first();
                 if ($visual != null) {
                     return response()->json(['message' => 'Duplicated Entry'], 401);
                 };

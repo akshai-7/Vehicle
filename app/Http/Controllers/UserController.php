@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Pagination\Paginator;
+
 
 class UserController extends Controller
 {
@@ -39,7 +41,7 @@ class UserController extends Controller
     public function userlist()
     {
         $role = 'User';
-        $users = User::where('role', $role)->get();
+        $users = User::where('role', $role)->paginate(2);
         return view('/user', ['users' => $users]);
     }
     public function updateuser($id)

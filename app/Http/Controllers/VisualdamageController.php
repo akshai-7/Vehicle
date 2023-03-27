@@ -59,12 +59,13 @@ class VisualdamageController extends Controller
         $visual = Visual::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $visual->view = $request['view'];
         $visual->image = $request['image'];
-        if ($request->hasfile('image')) {
-            $image = $request->file('image');
-            $name = $image->getClientOriginalName();
-            $location = public_path($name);
-            $visual->image = $name;
-        }
+
+        // if ($request->hasfile('image')) {
+        //     $image = $request->file('image');
+        //     $name = $image->getClientOriginalName();
+        //     $location = public_path($name);
+        //     $visual->image = $name;
+        // }
         $visual->feedback = $request['feedback'];
         $visual->action = $request['action'];
         $visual->save();
