@@ -54,7 +54,8 @@
                         class="fa-solid fa-xmark"></i></a>
                 <h5> Inspection Details</h5>
 
-                <form action="/store/{id}" method="POST" autocomplete="off" class=" main form">
+                <form action="/store/{id}" method="POST" enctype="multipart/form-data" autocomplete="off"
+                    class=" main form">
                     @csrf
                     <main class="mainid">
                         <div class="">
@@ -107,8 +108,8 @@
                                                     value="1" id="sno"></td>
                                             <td><input type="text" name="view[]" class="form-control view border-0"
                                                     style="text-align:center;" id='view' value="Front"></td>
-                                            <td><input type="file" name="image[]" class="form-control "
-                                                    style="text-align:center;" id='image'></td>
+                                            <td><input type="file" name="Front[]" class="form-control "
+                                                    style="text-align:center;" id='image' multiple></td>
                                             <td><input type="text" name="feedback[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>
@@ -123,9 +124,9 @@
                                                     class="form-control col-md-1 border-0" style="text-align:center;"
                                                     value="2" id="sno"></td>
                                             <td><input type="text" name="view[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Near Side"></td>
-                                            <td><input type="file" name="image[]" class="form-control "
-                                                    style="text-align:center;" id='image'></td>
+                                                    style="text-align:center;" id='view' value="Near-Side"></td>
+                                            <td><input type="file" name="Near-Side[]" class="form-control "
+                                                    style="text-align:center;" id='image' multiple></td>
                                             <td><input type="text" name="feedback[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>
@@ -141,8 +142,8 @@
                                                     value="3" id="sno"></td>
                                             <td><input type="text" name="view[]" class="form-control view border-0"
                                                     style="text-align:center;" id='view' value="Rear"></td>
-                                            <td><input type="file" name="image[]" class="form-control image "
-                                                    style="text-align:center;" id='image'></td>
+                                            <td><input type="file" name="Rear[]" class="form-control image "
+                                                    style="text-align:center;" id='image' multiple></td>
                                             <td><input type="text" name="feedback[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>
@@ -158,8 +159,8 @@
                                                     value="4" id="sno"></td>
                                             <td><input type="text" name="view[]" class="form-control view border-0"
                                                     style="text-align:center;" id='view' value="Off-side"></td>
-                                            <td><input type="file" name="image[]" class="form-control image "
-                                                    style="text-align:center;" id='image'></td>
+                                            <td><input type="file" name="Off-side[]" class="form-control image "
+                                                    style="text-align:center;" id='image' multiple></td>
                                             <td><input type="text" name="feedback[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>

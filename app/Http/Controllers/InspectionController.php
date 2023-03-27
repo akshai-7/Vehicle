@@ -19,23 +19,25 @@ class InspectionController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'view' => 'required',
-            'image' => 'required',
-            'feedback' => 'required',
-            'action' => 'required',
-            'notes' => 'required',
-            'view1' => 'required',
-            'image1' => 'required',
-            'feedback1' => 'required',
-            'action1' => 'required',
-            'notes1' => 'required',
-            'view2' => 'required',
-            'image2' => 'required',
-            'feedback2' => 'required',
-            'action2' => 'required',
-            'notes2' => 'required',
-        ]);
+        // dd($request);
+        // $request->validate([
+        //     'view' => 'required',
+        //     'frontImage' => 'required',
+        //     'image' => 'required',
+        //     'feedback' => 'required',
+        //     'action' => 'required',
+        //     'notes' => 'required',
+        //     'view1' => 'required',
+        //     'image1' => 'required',
+        //     'feedback1' => 'required',
+        //     'action1' => 'required',
+        //     'notes1' => 'required',
+        //     'view2' => 'required',
+        //     'image2' => 'required',
+        //     'feedback2' => 'required',
+        //     'action2' => 'required',
+        //     'notes2' => 'required',
+        // ]);
 
         $name = $request->name;
         $assign = Assign::where('name', $name)->first();
@@ -63,41 +65,54 @@ class InspectionController extends Controller
         $assign_id = Inspection::where('assign_id', $assign_id)->latest('id')->first();
         $data = $request->all();
         foreach ($data['view'] as $row => $value) {
+            $img = array();
+
+
+
+            for ($i = 0; $i < count($data[$data['view'][$row]]); $i++) {
+                // $imgname = $data["Front"][$i]->getClientOriginalName();
+                $imageName = time() . '.' . $data[$data['view'][$row]][$i]->getClientOriginalName();
+                $data[$data['view'][$row]][$i]->move(public_path('images'), $imageName);
+                array_push($img, $imageName);
+            }
+
+
             $data1 = array(
                 'inspection_id' => $assign_id->id,
                 'view' => $data['view'][$row],
-                'image' => $data['image'][$row],
+                'image' =>  implode(",", $img),
                 'feedback' => $data['feedback'][$row],
                 'notes' => $data['notes'][$row],
                 'action' => $data['action'][$row],
             );
+
             Visual::create($data1);
         }
 
-        $data2 = $request->all();
-        foreach ($data2['view'] as $key => $value) {
-            $data3 = array(
-                'inspection_id' => $assign_id->id,
-                'view' => $data2['view1'][$key],
-                'image' => $data2['image1'][$key],
-                'feedback' => $data2['feedback1'][$key],
-                'notes' => $data2['notes1'][$key],
-                'action' => $data2['action1'][$key],
-            );
-            Vehiclecheck::create($data3);
-        }
-        $data4 = $request->all();
-        foreach ($data4['view2'] as $list => $value) {
-            $data5 = array(
-                'inspection_id' => $assign_id->id,
-                'view' => $data4['view2'][$list],
-                'image' => $data4['image2'][$list],
-                'feedback' => $data4['feedback2'][$list],
-                'notes' => $data4['notes2'][$list],
-                'action' => $data4['action2'][$list],
-            );
-            Cabin::create($data5);
-        }
+        // $data2 = $request->all();
+        // foreach ($data2['view'] as $key => $value) {
+        //     $data3 = array(
+        //         'inspection_id' => $assign_id->id,
+        //         'view' => $data2['view1'][$key],
+        //         'image' => $data2['image1'][$key],
+        //         'feedback' => $data2['feedback1'][$key],
+        //         'notes' => $data2['notes1'][$key],
+        //         'action' => $data2['action1'][$key],
+        //     );
+        //     Vehiclecheck::create($data3);
+        // }
+        // $data4 = $request->all();
+        // foreach ($data4['view2'] as $list => $value) {
+        //     $data5 = array(
+        //         'inspection_id' => $assign_id->id,
+        //         'view' => $data4['view2'][$list],
+        //         'image' => $data4['image2'][$list],
+        //         'feedback' => $data4['feedback2'][$list],
+        //         'notes' => $data4['notes2'][$list],
+        //         'action' => $data4['action2'][$list],
+        //     );
+        //     Cabin::create($data5);
+        // }
         return redirect('/inspectiondetails');
     }
 

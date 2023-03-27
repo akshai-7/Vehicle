@@ -111,7 +111,7 @@ class ApiController extends Controller
         $status = $request->status;
         $feedback = $request->feedback;
         $data = array();
-        // dd($name);
+
         foreach (array_keys($name) as $row) {
             $img = array();
 
