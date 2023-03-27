@@ -21,7 +21,6 @@
                     </div>
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">Inspection_id</label>
-                        <p></p>
                         <div class="col-sm-9">
                             <input type="text" name="inspection_id" class="form-control"
                                 value="{{ $vehicle->inspection_id }}">
