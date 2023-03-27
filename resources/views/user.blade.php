@@ -38,6 +38,7 @@
                                 <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                             </td>
+                            <p></p>
                         </tr>
                     @endforeach
                 </tbody>
