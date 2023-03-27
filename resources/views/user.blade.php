@@ -30,14 +30,14 @@
                             <td style="text-align:center;" class="table_data">{{ $user->address }}</td>
                             <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
                             <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
-                            <td style="text-align:center;" class="table_data">
+                            {{-- <td style="text-align:center;" class="table_data">
                                 {{ $user->created_at->format('Y-m-d') }}</td>
                             <td style="text-align:center;" class="table_data">
                                 <a href="/updateuser/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
                                     title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
                                 <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
-                            </td>
+                            </td> --}}
 
                         </tr>
                     @endforeach
