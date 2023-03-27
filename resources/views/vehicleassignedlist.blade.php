@@ -196,9 +196,9 @@
                                                     class="form-control col-md-1 border-0" style="text-align:center;"
                                                     value="1" id="sno"></td>
                                             <td><input type="text" name="view1[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Adblue levels"></td>
-                                            <td><input type="file" name="image1[]" class="form-control image "
-                                                    style="text-align:center;" id='image'></td>
+                                                    style="text-align:center;" id='view' value="Adblue-levels"></td>
+                                            <td><input type="file" name="Adblue-levels[]" class="form-control image "
+                                                    style="text-align:center;" id='image' multiple></td>
                                             <td><input type="text" name="feedback1[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>
@@ -213,10 +213,10 @@
                                                     class="form-control col-md-1 border-0" style="text-align:center;"
                                                     value="2" id="sno"></td>
                                             <td><input type="text" name="view1[]" class="form-control view border-0"
-                                                    style="text-align:center;" id='view' value="Fuel/oil Leaks">
+                                                    style="text-align:center;" id='view' value="Fuel&Oil-Leaks">
                                             </td>
-                                            <td><input type="file" name="image1[]" class="form-control image"
-                                                    style="text-align:center;" id='image'></td>
+                                            <td><input type="file" name="Fuel&Oil-Leaks[]" class="form-control image"
+                                                    style="text-align:center;" id='image' multiple></td>
                                             <td><input type="text" name="feedback1[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>
@@ -232,8 +232,8 @@
                                                     value="3" id="sno"></td>
                                             <td><input type="text" name="view1[]" class="form-control view border-0"
                                                     style="text-align:center;" id='view' value="Lights"></td>
-                                            <td><input type="file" name="image1[]" class="form-control image "
-                                                    style="text-align:center;" id='image'></td>
+                                            <td><input type="file" name="Lights[]" class="form-control image "
+                                                    style="text-align:center;" id='image' multiple></td>
                                             <td><input type="text" name="feedback1[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>
@@ -250,8 +250,9 @@
                                             <td><input type="text" name="view1[]" class="form-control view border-0"
                                                     style="text-align:center;" id='view' value="Indicators/Signals">
                                             </td>
-                                            <td><input type="file" name="image1[]" class="form-control image "
-                                                    style="text-align:center;" id='image'></td>
+                                            <td><input type="file" name="Indicators/Signals[]"
+                                                    class="form-control image " style="text-align:center;" id='image'
+                                                    multiple></td>
                                             <td><input type="text" name="feedback1[]"
                                                     class="form-control feedback border-0" style="text-align:center;"
                                                     id='feedback'></td>
@@ -290,8 +291,8 @@
                                                 <td><input type="text" name="view2[]"
                                                         class="form-control view border-0" style="text-align:center;"
                                                         id='view' value="Steering"></td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
-                                                        style="text-align:center;" id='image'></td>
+                                                <td><input type="file" name="Steering[]" class="form-control image "
+                                                        style="text-align:center;" id='image' multiple></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
                                                         id='feedback'></td>
@@ -308,8 +309,8 @@
                                                         value="2" id="sno"></td>
                                                 <td><input type="text" name="view2[]"
                                                         class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Wipers"></td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
+                                                        id='view' value="Wipers" multiple></td>
+                                                <td><input type="file" name="Wipers[]" class="form-control image "
                                                         style="text-align:center;" id='image'></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
@@ -328,8 +329,8 @@
                                                 <td><input type="text" name="view2[]"
                                                         class="form-control view border-0" style="text-align:center;"
                                                         id='view' value="Washers"></td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
-                                                        style="text-align:center;" id='image'></td>
+                                                <td><input type="file" name="Washers[]" class="form-control image "
+                                                        style="text-align:center;" id='image' multiple></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
                                                         id='feedback'></td>
@@ -348,8 +349,8 @@
                                                 <td><input type="text" name="view2[]"
                                                         class="form-control view border-0" style="text-align:center;"
                                                         id='view' value="Horn"></td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
-                                                        style="text-align:center;" id='image'></td>
+                                                <td><input type="file" name="Horn[]" class="form-control image "
+                                                        style="text-align:center;" id='image' multiple></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
                                                         id='feedback'></td>
@@ -366,9 +367,10 @@
                                                         value="5" id="sno"></td>
                                                 <td><input type="text" name="view2[]"
                                                         class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Breakes inc.ABS/EBS"></td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
-                                                        style="text-align:center;" id='image'></td>
+                                                        id='view' value="Breakes-inc-ABS/EBS"></td>
+                                                <td><input type="file" name="Breakes-inc-ABS/EBS[]"
+                                                        class="form-control image " style="text-align:center;"
+                                                        id='image' multiple></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
                                                         id='feedback'></td>
@@ -387,8 +389,9 @@
                                                         class="form-control view border-0" style="text-align:center;"
                                                         id='view' value="Mirrors/Glass/Visibility">
                                                 </td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
-                                                        style="text-align:center;" id='image'></td>
+                                                <td><input type="file" name="Mirrors/Glass/Visibility[]"
+                                                        class="form-control image " style="text-align:center;"
+                                                        id='image' multiple></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
                                                         id='feedback'></td>
@@ -405,10 +408,11 @@
                                                         value="7" id="sno"></td>
                                                 <td><input type="text" name="view2[]"
                                                         class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Truck Interior/Seat Belt">
+                                                        id='view' value="Truck-Interior/SeatBelt">
                                                 </td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
-                                                        style="text-align:center;" id='image'></td>
+                                                <td><input type="file" name="Truck-Interior/SeatBelt[]"
+                                                        class="form-control image " style="text-align:center;"
+                                                        id='image' multiple></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
                                                         id='feedback'></td>
@@ -425,10 +429,11 @@
                                                         value="8" id="sno"></td>
                                                 <td><input type="text" name="view2[]"
                                                         class="form-control view border-0" style="text-align:center;"
-                                                        id='view' value="Warining Lamps/MIL">
+                                                        id='view' value="WariningLamps/MIL">
                                                 </td>
-                                                <td><input type="file" name="image2[]" class="form-control image "
-                                                        style="text-align:center;" id='image'></td>
+                                                <td><input type="file" name="WariningLamps/MIL[]"
+                                                        class="form-control image " style="text-align:center;"
+                                                        id='image' multiple></td>
                                                 <td><input type="text" name="feedback2[]"
                                                         class="form-control feedback border-0" style="text-align:center;"
                                                         id='feedback'></td>
