@@ -37,10 +37,10 @@
 
         <div class="table-data">
             <form action="/search" method="GET" class="filter" autocomplete="off">
-                {{-- <div class="col-md-5">
+                <div class="col-md-5">
                     <label>Filter by Date</label>
                     <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
-                </div> --}}
+                </div>
                 <div class="col-md-5">
                     <label>Filter by Name</label>
                     {{-- <input type="text" name="name" value="" class="form-control"> --}}
@@ -58,18 +58,19 @@
             </form>
             <div class="order">
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
-                    <thead class="text-primary">
-                        <th style="text-align:center;">Id</th>
-                        <th style="text-align:center;">Report.no</th>
-                        <th style="text-align:center;">Inspected_by</th>
-                        <th style="text-align:center;">Driver Name</th>
-                        <th style="text-align:center;">Number plate</th>
-                        <th style="text-align:center;">Mileage</th>
-                        <th style="text-align:center;">Inspection_date</th>
-                        <th style="text-align:center;">Status</th>
-                        <th style="text-align:center;">Action</th>
-                    </thead>
+
                     <tbody>
+                        <thead class="text-primary">
+                            <th style="text-align:center;">Id</th>
+                            <th style="text-align:center;">Report.no</th>
+                            <th style="text-align:center;">Inspected_by</th>
+                            <th style="text-align:center;">Driver Name</th>
+                            <th style="text-align:center;">Number plate</th>
+                            <th style="text-align:center;">Mileage</th>
+                            <th style="text-align:center;">Inspection_date</th>
+                            <th style="text-align:center;">Status</th>
+                            <th style="text-align:center;">Action</th>
+                        </thead>
                         @foreach ($inspections as $inspection)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $inspection->id }}</td>
@@ -100,6 +101,9 @@
                     </tbody>
 
                 </table>
+                @if (count($inspections) < 1)
+                    <p>Data not found</p>
+                @endif
             </div>
 
         </div>

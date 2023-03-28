@@ -136,13 +136,14 @@ class InspectionController extends Controller
     {
 
         $assigns = Assign::all();
-        // dd($request->date);
-        if ($request->date) {
+        // dd($request);
+        if ($request->name == "Select") {
             $inspections = Inspection::where('created_at', $request->date)->get();
+        } else {
+            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->get();
         }
-        if ($request->name) {
-            $inspections = Inspection::where('name', $request->name)->get();
-        }
+
+
         return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
 }
