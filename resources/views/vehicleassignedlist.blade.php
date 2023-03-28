@@ -48,12 +48,11 @@
     </div>
     <div class="popup8" id="popup8">
         <section id="container">
-
-            <div id="">
-                <a href="#" onclick="hide('popup8')" style="color:black;margin-left:1200px;" class="close"><i
-                        class="fa-solid fa-xmark"></i></a>
-                <h5> Inspection Details</h5>
-
+            <div>
+                <h5 style="margin-top: 50px">
+                    <a href="#" onclick="hide('popup8')" style="color:black;margin-left:1200px;" class="clos"><i
+                            class="fa-solid fa-xmark"></i></a> Inspection Details
+                </h5>
                 <form action="/store/{id}" method="POST" enctype="multipart/form-data" autocomplete="off"
                     class=" main form">
                     @csrf
