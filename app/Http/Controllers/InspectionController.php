@@ -128,32 +128,30 @@ class InspectionController extends Controller
     public function deleteinspection($id)
     {
         Inspection::find($id)->delete();
+        Visual::where('inspection_id', $id)->delete();
+        Vehiclecheck::where('inspection_id', $id)->delete();
+        Cabin::where('inspection_id', $id)->delete();
         session()->flash('message1', ' Inspection detail is Deleted');
         return redirect('/inspectiondetails');
     }
     public function search(Request $request)
     {
-        if ($request->name == "Select" && $request->data == null) {
+        if ($request->name == "Select" && $request->date == null) {
             $inspections = Inspection::get();
             $assigns = Assign::all();
             return view('/inspectiondetails', compact('inspections', 'assigns'));
-        }
-        if ($request->name == "Select" && $request->data != null) {
+        } elseif ($request->name == "Select" && $request->date != null) {
             $inspections = Inspection::where('created_at', $request->date)->get();
             $assigns = Assign::all();
             return view('/inspectiondetails', compact('inspections', 'assigns'));
-        }
-        if ($request->name == "Select" && $request->data == null) {
+        } elseif ($request->name != "Select" && $request->date == null) {
             $inspections = Inspection::where('name', $request->name)->get();
             $assigns = Assign::all();
             return view('/inspectiondetails', compact('inspections', 'assigns'));
+        } else {
+            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->get();
+            $assigns = Assign::all();
+            return view('/inspectiondetails', compact('inspections', 'assigns'));
         }
-
-        $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->get();
-
-
-
-        $assigns = Assign::all();
-        return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
 }

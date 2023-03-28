@@ -18,7 +18,7 @@
 
 <body>
     <section id="container">
-        <div id="div-1" class="scrollmenu">
+        <div id="div-1">
             <div id="img-container">
                 <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
             </div>
@@ -60,8 +60,8 @@
             </a>
         </div>
         <div id="div-2">
-            <header class="headers" id="headers">
-                <div class="header_toggle" id="toggle-container"><i class="fa-solid fa-chevron-left"></i></div>
+            <div id="headers">
+                <div id="toggle-container"><i class="fa-solid fa-chevron-left"></i></div>
                 {{-- <a href="#" class="open-button" onclick="openForm()"><img id="img-logo1"
                         src="{{ url('images/user-2.png') }}"></a> --}}
                 {{-- <div class="form-popup" id="myForm">
@@ -76,44 +76,39 @@
                         </div>
                     </div>
                 </div> --}}
-            </header>
-            <div class="message" id="message">
-                @if (session()->has('message'))
-                    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
-                        style="width: 300px;height:20px">
-                        <div div class="alert alert-success">
-                            <i class="fa-regular fa-circle-check"></i> {{ session('message') }}
-                        </div>
-                    </div>
-                @endif
             </div>
-            <div class="message1" id="message">
-                @if (session()->has('message1'))
-                    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
-                        style="width: 300px;height:20px;">
-                        <div class="alert alert-danger">
-                            <i class="fa-regular fa-circle-x"></i>{{ session('message1') }}
-                        </div>
+            <div id="mainContainer">
+
+                <div id="tabContainer">
+
+                    <div class="message" id="message">
+                        @if (session()->has('message'))
+                            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                                style="width: 300px;height:20px">
+                                <div div class="alert alert-success">
+                                    <i class="fa-regular fa-circle-check"></i> {{ session('message') }}
+                                </div>
+                            </div>
+                        @endif
                     </div>
-                @endif
+                    <div class="message1" id="message">
+                        @if (session()->has('message1'))
+                            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+                                style="width: 300px;height:20px;">
+                                <div class="alert alert-danger">
+                                    <i class="fa-regular fa-circle-x"></i>{{ session('message1') }}
+                                </div>
+                            </div>
+                        @endif
+
+                    </div>
+                    @yield('content')
+                </div>
+
             </div>
-            {{-- <main class="py-4"> --}}
-            @yield('content')
-            {{-- </main> --}}
+
     </section>
 
 </body>
-<script>
-    var header = document.getElementById("div-1");
-    var btns = header.getElementsByClassName("nav_list");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace("active", "");
-            this.className += "active";
-        });
-    }
-</script>
 
 </html>
