@@ -45,7 +45,7 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-9">
-                            <input type="file" name="image" class="form-control" placeholder="image">
+                            <input type="file" name="image" class="form-control" placeholder="image" multiple>
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                     *{{ $message }}
                                 @enderror

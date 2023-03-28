@@ -8,6 +8,7 @@ use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Carbon;
 
 
 class UserController extends Controller
@@ -42,6 +43,7 @@ class UserController extends Controller
     {
         $role = 'User';
         $users = User::where('role', $role)->get();
+        // $users = User::where('role', $role)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();;
         // $users = User::where('role', $role)->paginate(2);
         return view('/user', ['users' => $users]);
     }

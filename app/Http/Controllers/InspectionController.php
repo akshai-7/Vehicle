@@ -19,7 +19,6 @@ class InspectionController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'view' => 'required',
             'feedback' => 'required',
@@ -45,7 +44,6 @@ class InspectionController extends Controller
         $inspection->email = $assign->email;
         $inspection->mobile = $assign->mobile;
         $inspection->date = date('Y-m-d');
-        // $inspection->next_inspection = Carbon::now()->addDays(7)->format('Y-m-d');
         $inspection->next_inspection = Carbon::parse($request->date)->endOfWeek(Carbon::FRIDAY)->format('Y-m-d');
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
@@ -63,7 +61,6 @@ class InspectionController extends Controller
         foreach ($data['view'] as $row => $value) {
             $img = array();
             for ($i = 0; $i < count($data[$data['view'][$row]]); $i++) {
-                // $imgname = $data["Front"][$i]->getClientOriginalName();
                 $imageName = time() . '.' . $data[$data['view'][$row]][$i]->getClientOriginalName();
                 $data[$data['view'][$row]][$i]->move(public_path('images'), $imageName);
                 array_push($img, $imageName);
@@ -139,8 +136,9 @@ class InspectionController extends Controller
     {
 
         $name = $request['name'];
-        $inspection = Inspection::where('name', $name)->get();
-        $assign = Assign::all();
-        return view('/inspectiondetails', compact('inspection', 'assign'));
+        $inspections = Inspection::where('name', $name)->get();
+        // dd($inspection);
+        $assigns = Assign::all();
+        return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
 }

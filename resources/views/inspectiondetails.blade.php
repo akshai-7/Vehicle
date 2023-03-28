@@ -3,10 +3,19 @@
     {{-- <form action="/search" method="POST" autocomplete="off">
         @csrf
         <div class="input-group">
-            <input type="text" class="form-control" name="name" placeholder="Search..">
+            <input type="text" class="form-control" name="name" placeholder="Search">
             <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> </button>
         </div>
     </form> --}}
+    <form action="/search" method="GET">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" value="{{ request('category') }}">
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value="{{ request('price') }}">
+
+        <button type="submit">Filter</button>
+    </form>
     <div class="button">
         <button class="tablinks " onclick="openCheck(event, 'Visual')" id="defaultOpen">
             <h6>Completed Vehicle Inspection </h6>
