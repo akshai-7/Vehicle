@@ -43,11 +43,10 @@
                 </div>
                 <div class="col-md-5">
                     <label>Filter by Name</label>
-                    {{-- <input type="text" name="name" value="" class="form-control"> --}}
                     <select class="form-select form-control" name="name">
                         <option>Select</option>
-                        @foreach ($assigns as $assign)
-                            <option value="{{ $assign->name }}">{{ $assign->name }}</option>
+                        @foreach ($inspections as $inspection)
+                            <option value="{{ $inspection->name }}">{{ $inspection->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -112,6 +111,16 @@
         </div> --}}
     </div>
     <div id="Vehicle" class="tabcontent">
+        {{-- <form action="/search" method="GET" class="filter" autocomplete="off">
+            <div class="col-md-5">
+                <label>Filter by Date</label>
+                <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
+            </div>
+            <div class="col-md-5">
+                <br />
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+        </form> --}}
         <div class="table-data">
             <div class="order">
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
@@ -148,6 +157,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{-- @if (count($assigns) < 1)
+                    <p>Data not found</p>
+                @endif --}}
             </div>
 
         </div>
