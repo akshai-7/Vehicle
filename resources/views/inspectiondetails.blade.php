@@ -7,15 +7,24 @@
             <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> </button>
         </div>
     </form> --}}
-    <form action="/search" method="GET">
-        <label for="category">Category:</label>
-        <input type="text" id="category" name="category" value="{{ request('category') }}">
-
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" value="{{ request('price') }}">
-
-        <button type="submit">Filter</button>
-    </form>
+    {{-- <form action="/search" method="GET" style="display: flex;">
+        <div class="col-md-3">
+            <label>Filter by Date</label>
+            <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label>Filter by </label>
+            <select name="" class="form-select">
+                <option value="">Select</option>
+                <option value="">Name</option>
+                <option value="">Number_plate</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <br />
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </form> --}}
     <div class="button">
         <button class="tablinks " onclick="openCheck(event, 'Visual')" id="defaultOpen">
             <h6>Completed Vehicle Inspection </h6>
@@ -25,7 +34,28 @@
         </button>
     </div>
     <div id="Visual" class="tabcontent">
+
         <div class="table-data">
+            <form action="/search" method="GET" class="filter" autocomplete="off">
+                {{-- <div class="col-md-5">
+                    <label>Filter by Date</label>
+                    <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
+                </div> --}}
+                <div class="col-md-5">
+                    <label>Filter by Name</label>
+                    {{-- <input type="text" name="name" value="" class="form-control"> --}}
+                    <select class="form-select form-control" name="name">
+                        <option>Select</option>
+                        @foreach ($assigns as $assign)
+                            <option value="{{ $assign->name }}">{{ $assign->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <br />
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </form>
             <div class="order">
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                     <thead class="text-primary">

@@ -132,7 +132,7 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2 col-form-label"> Mobile</label>
+                        <label class="col-sm-2 col-form-label"> Mobile</label>
                         <div class="col-sm-9">
                             <input type="text" name="mobile" class="form-control">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')

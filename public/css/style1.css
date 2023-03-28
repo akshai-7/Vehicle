@@ -362,6 +362,10 @@ form {
 .incident label {
     color: #bf0e3a;
 }
+.filter {
+    display: flex;
+    margin-left: 500px;
+}
 
 .popup1 {
     display: none;
