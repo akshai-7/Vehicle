@@ -19,6 +19,7 @@ class InspectionController extends Controller
     }
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'view' => 'required',
             'feedback' => 'required',
@@ -96,24 +97,22 @@ class InspectionController extends Controller
             Vehiclecheck::create($data3);
         }
         $data4 = $request->all();
-        foreach ($data4['view2'] as $key => $value) {
+        foreach ($data4['view2'] as $list => $value) {
             $img2 = array();
-            for ($i = 0; $i < count($data4[$data4['view2'][$key]]); $i++) {
-                $imageName = time() . '.' . $data4[$data4['view2'][$key]][$i]->getClientOriginalName();
-                $data4[$data4['view2'][$key]][$i]->move(public_path('images'), $imageName);
+            for ($i = 0; $i < count($data4[$data4['view2'][$list]]); $i++) {
+                $imageName = time() . '.' . $data4[$data4['view2'][$list]][$i]->getClientOriginalName();
+                $data4[$data4['view2'][$list]][$i]->move(public_path('images'), $imageName);
                 array_push($img2, $imageName);
             }
-            foreach ($data4['view2'] as $list => $value) {
-                $data5 = array(
-                    'inspection_id' => $assign_id->id,
-                    'view' => $data4['view2'][$list],
-                    'image' => implode(",", $img2),
-                    'feedback' => $data4['feedback2'][$list],
-                    'notes' => $data4['notes2'][$list],
-                    'action' => $data4['action2'][$list],
-                );
-                Cabin::create($data5);
-            }
+            $data5 = array(
+                'inspection_id' => $assign_id->id,
+                'view' => $data4['view2'][$list],
+                'image' => implode(",", $img2),
+                'feedback' => $data4['feedback2'][$list],
+                'notes' => $data4['notes2'][$list],
+                'action' => $data4['action2'][$list],
+            );
+            Cabin::create($data5);
         }
         return redirect('/inspectiondetails');
     }
