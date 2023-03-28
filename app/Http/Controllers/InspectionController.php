@@ -134,11 +134,26 @@ class InspectionController extends Controller
     }
     public function search(Request $request)
     {
-        if ($request->name == "Select") {
-            $inspections = Inspection::where('created_at', $request->date)->get();
-        } else {
-            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->get();
+        if ($request->name == "Select" && $request->data == null) {
+            $inspections = Inspection::get();
+            $assigns = Assign::all();
+            return view('/inspectiondetails', compact('inspections', 'assigns'));
         }
+        if ($request->name == "Select" && $request->data != null) {
+            $inspections = Inspection::where('created_at', $request->date)->get();
+            $assigns = Assign::all();
+            return view('/inspectiondetails', compact('inspections', 'assigns'));
+        }
+        if ($request->name == "Select" && $request->data == null) {
+            $inspections = Inspection::where('name', $request->name)->get();
+            $assigns = Assign::all();
+            return view('/inspectiondetails', compact('inspections', 'assigns'));
+        }
+
+        $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->get();
+
+
+
         $assigns = Assign::all();
         return view('/inspectiondetails', compact('inspections', 'assigns'));
     }

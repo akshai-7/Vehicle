@@ -42,6 +42,9 @@
                         </tr>
                     @endforeach
                 </tbody>
+                @if (count($users) < 1)
+                    <p>Data not found</p>
+                @endif
             </table>
         </div>
     </div>

@@ -36,23 +36,25 @@
     <div id="Visual" class="tabcontent">
 
         <div class="table-data">
-            <form action="/search" method="GET" class="filter" autocomplete="off">
-                <div class="col-md-5">
-                    <label>Filter by Date</label>
-                    <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
-                </div>
-                <div class="col-md-5">
-                    <label>Filter by Name</label>
-                    <select class="form-select form-control" name="name">
-                        <option>Select</option>
-                        @foreach ($inspections as $inspection)
-                            <option value="{{ $inspection->name }}">{{ $inspection->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-5">
-                    <br />
-                    <button type="submit" class="btn btn-primary">Filter</button>
+            <form action="/search" method="GET" autocomplete="off">
+                <div id="filterDiv">
+                    <div class="col-md-2">
+                        <label>Filter by Date</label>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <label>Filter by Name</label>
+                        <select class="form-select form-control" name="name">
+                            <option>Select</option>
+                            @foreach ($assigns as $assign)
+                                <option value="{{ $assign->name }}">{{ $assign->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <br />
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                    </div>
                 </div>
             </form>
             <div class="order">
@@ -98,13 +100,14 @@
                             </tr>
                         @endforeach
                     </tbody>
-
                 </table>
                 @if (count($inspections) < 1)
-                    <p>Data not found</p>
+                    <div id="dataNotFound">
+                        <p>Data not found</p>
+                    </div>
                 @endif
-            </div>
 
+            </div>
         </div>
         {{-- <div class="active">
             {!! $inspections->links() !!}
