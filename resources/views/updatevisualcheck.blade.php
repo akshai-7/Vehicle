@@ -18,7 +18,8 @@
                             <div class="form-group row mt-4">
                                 <label class="col-sm-2 col-form-label">Id</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="id" class="form-control" value="{{ $visual->id }}">
+                                    <input type="text" name="id" class="form-control" value="{{ $visual->id }}"
+                                        readonly>
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
                                             *{{ $message }}
                                         @enderror
@@ -29,7 +30,7 @@
                                 <label class="col-sm-2 col-form-label"> Inspection_id</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="inspection_id" class="form-control"
-                                        value="{{ $visual->inspection_id }}">
+                                        value="{{ $visual->inspection_id }}" readonly>
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('inspection_id')
                                             *{{ $message }}
                                         @enderror
@@ -49,7 +50,7 @@
                             <div class="form-group row mt-4 ">
                                 <label class="col-sm-2 col-form-label">Image</label>
                                 <div class="col-sm-9">
-                                    <input type="file" name="image" class="form-control" placeholder="image" multiple>
+                                    <input type="file" name="image[]" class="form-control" placeholder="image" multiple>
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                             *{{ $message }}
                                         @enderror

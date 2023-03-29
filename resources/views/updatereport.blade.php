@@ -5,8 +5,14 @@
             <div class="updateassignPopup">
                 <form action="#" method="POST" autocomplete="off">
                     @csrf
-                    <a href="/reportlist" style="color:black;"><i class="fa-solid fa-xmark"></i></a>
-                    <h5 class=""> Report an Incident</h5>
+                    <div id="userHeading">
+                        <h4 style="margin-top: 2%">
+                            Report an Incident
+                        </h4>
+                        <a href="/reportlist">
+                            <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                        </a>
+                    </div>
                     @foreach ($report as $report)
                         <div class="incident">
                             <div class="form-group row mt-4">

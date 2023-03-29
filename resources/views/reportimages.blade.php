@@ -4,12 +4,12 @@
         <div id="updatePopup" class="table-data">
             <div class="updateassignPopup">
                 <div id="userHeading">
-                    <a href="/details/{{ $cabin->inspection_id }}">
+                    <a href="/reportlist">
                         <h4 style="color:#bf0e3a;margin-left:560px"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                     </a>
                 </div>
                 <div>
-                    @foreach (explode(',', $cabin->image) as $image)
+                    @foreach (explode(',', $report->image) as $image)
                         <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary" width="150px"
                             height="120px">
                         <span></span>

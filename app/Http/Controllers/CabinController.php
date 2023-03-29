@@ -40,13 +40,17 @@ class CabinController extends Controller
         }
         $cabin = Cabin::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $cabin->view = $request['view'];
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name = $image->getClientOriginalName();
-            $path = public_path('images');
-            $imagepath = $request->image->move($path, $name);
-            $cabin->image = $name;
+        $data = $request->all();
+        $img = array();
+        for ($i = 0; $i < count($data['image']); $i++) {
+            $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
+            $data['image'][$i]->move(public_path('images'), $imageName);
+            array_push($img, $imageName);
         }
+        $data4 = array(
+            'image' =>  implode(",", $img),
+        );
+        $cabin->image = $data4['image'];
         $cabin->feedback = $request['feedback'];
         $cabin->action = $request['action'];
         $cabin->save();

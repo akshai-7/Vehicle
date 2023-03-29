@@ -29,11 +29,7 @@
                             <td style="text-align:center;" class="table_data">{{ $visual->view }}</td>
                             <td style="width:0px;">
                                 <a href="/visualimages/{{ $visual->id }}">
-                                    {{-- @foreach (explode(',', $visual->image) as $image)
-                                            <img src="{{ url('images/' . $image) }}"
-                                                class="rounded-0 border border-secondary" width="80px" height="80px">
-                                            <span></span>
-                                        @endforeach --}}
+
                                     <img src="{{ url('images/' . explode(',', $visual->image)[0]) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px">
                                 </a>
@@ -74,11 +70,6 @@
                             <td style="text-align:center;" class="table_data">{{ $vehicle->view }}</td>
                             <td style="width:0px;" onclick="popUpImage('')">
                                 <a href="/vehicleimages/{{ $vehicle->id }}">
-                                    {{-- @foreach (explode(',', $visual->image) as $image)
-                                            <img src="{{ url('images/' . $image) }}"
-                                                class="rounded-0 border border-secondary" width="80px" height="80px">
-                                            <span></span>
-                                        @endforeach --}}
                                     <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px">
                                 </a>
@@ -120,11 +111,6 @@
                             <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
                             <td style="width:0px;" onclick="popUpImage('')">
                                 <a href="/cabinimages/{{ $cabin->id }}">
-                                    {{-- @foreach (explode(',', $visual->image) as $image)
-                                            <img src="{{ url('images/' . $image) }}"
-                                                class="rounded-0 border border-secondary" width="80px" height="80px">
-                                            <span></span>
-                                        @endforeach --}}
                                     <img src="{{ url('images/' . explode(',', $cabin->image)[0]) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px">
                                 </a>

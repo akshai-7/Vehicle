@@ -32,19 +32,19 @@ class VisualdamageController extends Controller
     }
     public function visualimages($id)
     {
-
         $visual = Visual::where('id', $id)->first();
         return view('/visualimages', ['visual' => $visual]);
     }
     public function visualupdate(Request $request, $id)
     {
-
         $request->validate([
             'view' => 'required',
             'image' => 'required',
             'feedback' => 'required',
             'action' => 'required',
+
         ]);
+
         $id = $request->inspection_id;
         $data1 = Inspection::find($id);
         if ($data1 == null) {
@@ -59,14 +59,17 @@ class VisualdamageController extends Controller
 
         $visual = Visual::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $visual->view = $request['view'];
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name = $image->getClientOriginalName();
-            $path = public_path('images');
-            $imagepath = $request->image->move($path, $name);
-            $visual->image = $name;
+        $data = $request->all();
+        $img = array();
+        for ($i = 0; $i < count($data['image']); $i++) {
+            $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
+            $data['image'][$i]->move(public_path('images'), $imageName);
+            array_push($img, $imageName);
         }
+        $data4 = array(
+            'image' =>  implode(",", $img),
+        );
+        $visual->image = $data4['image'];
         $visual->feedback = $request['feedback'];
         $visual->action = $request['action'];
         $visual->save();

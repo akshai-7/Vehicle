@@ -62,6 +62,8 @@ Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);
 Route::post('/reportonincident/{id}', [ReportController::class, 'reportonincident']);
 Route::get('/reportlist', [ReportController::class, 'reportlist']);
 Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
+Route::get('/reportimages/{id}', [ReportController::class, 'reportimages']);
+
 
 
 Route::get('/details/{inspection_id}', [VisualdamageController::class, 'check']);

@@ -64,6 +64,7 @@ a {
     top: 70px;
     right: 10px;
     animation-duration: 1s;
+    z-index: 1;
 }
 #headers {
     width: 100%;
@@ -196,7 +197,7 @@ a {
     width: 70%;
     height: 70%;
     overflow: scroll;
-    background: white;
+    background: rgb(230, 230, 236);
 }
 .updateassignPopup {
     padding: 4%;
@@ -204,7 +205,7 @@ a {
     border-radius: 10px;
     height: 90%;
     overflow: scroll;
-    background: rgb(240, 232, 232);
+    background: rgb(230, 230, 236);
 }
 .userPopUp {
     border-radius: 10px;
@@ -212,7 +213,7 @@ a {
     width: 80%;
     height: 80%;
     overflow: scroll;
-    background: white;
+    background: rgb(230, 230, 236);
 }
 .vehiclePopUp {
     border-radius: 10px;
@@ -220,7 +221,7 @@ a {
     width: 60%;
     height: 60%;
     overflow: scroll;
-    background: white;
+    background: rgb(230, 230, 236);
 }
 #inspectionFromPopUp {
     border-radius: 10px;
@@ -228,7 +229,7 @@ a {
     width: 100%;
     height: 100%;
     overflow: scroll;
-    background: white;
+    background: rgb(230, 230, 236);
 }
 #incidentFromPopUp {
     border-radius: 10px;
@@ -236,7 +237,7 @@ a {
     width: 60%;
     height: 85%;
     overflow: scroll;
-    background: white;
+    background: rgb(230, 230, 236);
 }
 #userHeading {
     width: 100%;

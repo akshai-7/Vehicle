@@ -14,6 +14,11 @@ class ReportController extends Controller
         $report = Report::where('id', $id)->get();
         return view('/updatereport', compact('report'));
     }
+    public function reportimages($id)
+    {
+        $report = Report::where('id', $id)->first();
+        return view('/reportimages', ['report' => $report]);
+    }
 
     public function reportonincident(Request $request)
     {

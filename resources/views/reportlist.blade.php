@@ -33,14 +33,10 @@
                                 <td style="text-align:center;width:300px;" class="table_data">{{ $report->statement }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-                                    {{-- <img
-                                        src="{{ url('images/' . $report->image) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px"> --}}
-                                    @foreach (explode(',', $report->image) as $image)
-                                        <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary"
-                                            width="80px" height="80px">
-                                        <span></span>
-                                    @endforeach
+                                    <a href="/reportimages/{{ $report->id }}">
+                                        <img src="{{ url('images/' . explode(',', $report->image)[0]) }}"
+                                            class="rounded-0 border border-secondary" width="50px" height="50px">
+                                    </a>
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     <a href="/updatereport/{{ $report->id }}" class="tool"><i
