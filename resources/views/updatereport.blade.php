@@ -10,43 +10,45 @@
                     @foreach ($report as $report)
                         <div class="incident">
                             <div class="form-group row mt-4">
-                                <label class="col-sm-2 col-form-label">Assign_ID</label>
+                                <label class="col-sm-2">Assign_ID</label>
                                 <div class="col-sm-9">
                                     <p>{{ $report->id }}</p>
-
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
-                                <label class="col-sm-2 col-form-label">Date</label>
+                                <label class="col-sm-2 ">Date</label>
                                 <div class="col-sm-9">
                                     <p>{{ $report->date }}</p>
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label">Location</label>
+                                <label class="col-sm-2">Location</label>
                                 <div class="col-sm-9">
                                     <p>{{ $report->location }}</p>
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label"> Witnessed_by</label>
+                                <label class="col-sm-2 "> Witnessed_by</label>
                                 <div class="col-sm-9">
                                     <p>{{ $report->witnessed_by }}</p>
 
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label">Mobile.no</label>
+                                <label class="col-sm-2 ">Mobile.no</label>
                                 <div class="col-sm-9">
                                     <p>{{ $report->mobile }}</p>
 
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label">Image</label>
+                                <label class="col-sm-2 ">Image</label>
                                 <div class="col-sm-9">
-                                    <img src="{{ url('images/' . $report->image) }}"
-                                        class="rounded-0 border border-secondary" width="70px" height="70px">
+                                    @foreach (explode(',', $report->image) as $image)
+                                        <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary"
+                                            width="80px" height="80px">
+                                        <span></span>
+                                    @endforeach
 
                                 </div>
                             </div>

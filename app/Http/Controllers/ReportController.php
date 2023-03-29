@@ -17,29 +17,37 @@ class ReportController extends Controller
 
     public function reportonincident(Request $request)
     {
-
         $request->validate([
             'date' => 'required',
             'location' => 'required',
             'witnessed_by' => 'required',
             'mobile' => 'required',
             'statement' => 'required',
-            'image' => 'required',
+
         ]);
         $name = $request->name;
         $assign = Assign::where('name', $name)->first();
         if ($assign == null) {
             return response()->json(['message' => 'Invalid Id']);
         }
-        $report = new  Report();
-        $report->assign_id = $assign->id;
-        $report->date = $request['date'];
-        $report->location = $request['location'];
-        $report->witnessed_by = $request['witnessed_by'];
-        $report->mobile = $request['mobile'];
-        $report->statement = $request['statement'];
-        $report->image = $request['image'];
-        $report->save();
+        $data = $request->all();
+        $img = array();
+        for ($i = 0; $i < count($data['image']); $i++) {
+            $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
+            $data['image'][$i]->move(public_path('images'), $imageName);
+            array_push($img, $imageName);
+        }
+        $data1 = array(
+            'assign_id' => $assign->id,
+            'image' =>  implode(",", $img),
+            'date' => $request->date,
+            'location' => $request->location,
+            'witnessed_by' => $request->witnessed_by,
+            'mobile' => $request->mobile,
+            'statement' => $request->statement,
+        );
+        Report::create($data1);
+
         return redirect('/reportlist');
     }
     public function reportlist()

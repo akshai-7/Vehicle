@@ -98,7 +98,8 @@
                                             style="text-align:center;" id='view' value="Front" readonly>
                                     </td>
                                     <td><input type="file" name="Front[]" class="form-control "
-                                            style="text-align:center;" id='image' multiple></td>
+                                            style="text-align:center;" id='image' multiple required>
+                                    </td>
                                     <td><input type="text" name="feedback[]" class="form-control feedback border-0"
                                             style="text-align:center;" id='feedback'></td>
                                     <td><input type="text" name="notes[]" class="form-control notes border-0"
@@ -443,7 +444,7 @@
     </div>
     <div id="incidentFrom">
         <section id="incidentFromPopUp">
-            <form action="/reportonincident/{id}" method="POST" autocomplete="off">
+            <form action="/reportonincident/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <h5> Report On Incident</h5>
                 <div class="vehicle">
@@ -489,7 +490,7 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Mobile.no</label>
                         <div class="col-sm-9">
-                            <input type="text" name="mobile" class="form-control">
+                            <input type="text" name="mobile]" class="form-control">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
                                     *{{ $message }}
                                 @enderror
@@ -510,7 +511,7 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-9">
-                            <input type="file" name="image" class="form-control" multiple>
+                            <input type="file" name="image[]" class="form-control" multiple>
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                     *{{ $message }}
                                 @enderror

@@ -24,7 +24,6 @@ class ApiController extends Controller
             $vehicle_id = $user->vehicle_id;
             $vehicle = Vehicle::where('id', $vehicle_id)->first();
             $assign = Assign::where('vehicle_id', $vehicle_id)->first();
-            // dd($assign);
             return response()->json(["status" => "true", $response, "user" => [$user], "vehicle" => [$vehicle], "assign" => [$assign]], 200);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -69,29 +68,31 @@ class ApiController extends Controller
             'witnessed_by' => 'required',
             'mobile' => 'required',
             'statement' => 'required',
-            'image' => 'required',
-        ]);
 
+        ]);
+        $name = $request->id;
         $assign = Assign::where('id', $id)->first();
         if ($assign == null) {
             return response()->json(['message' => 'Invalid Id']);
         }
-        $report = new  Report();
-        $report->assign_id = $assign->id;
-        $report->date = $request['date'];
-        $report->location = $request['location'];
-        $report->witnessed_by = $request['witnessed_by'];
-        $report->mobile = $request['mobile'];
-        $report->statement = $request['statement'];
-        $report->image = $request['image'];
-        if ($request->hasfile('image')) {
-            $image = $request->file('image');
-            $name = $image->getClientOriginalName();
-            $location = public_path($name);
-            $report->image = $name;
+        $data = $request->all();
+        $img = array();
+        for ($i = 0; $i < count($data['image']); $i++) {
+            $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
+            $data['image'][$i]->move(public_path('images'), $imageName);
+            array_push($img, $imageName);
         }
-        $report->save();
-        return response()->json(['message' => 'Data Stored Successfully', "data" => $report], 200);
+        $data1 = array(
+            'assign_id' => $assign->id,
+            'image' =>  implode(",", $img),
+            'date' => $request->date,
+            'location' => $request->location,
+            'witnessed_by' => $request->witnessed_by,
+            'mobile' => $request->mobile,
+            'statement' => $request->statement,
+        );
+        Report::create($data1);
+        return response()->json(['message' => 'Data Stored Successfully', "data" => $data1], 200);
     }
     public function visualcheck(Request $request, $id)
     {
