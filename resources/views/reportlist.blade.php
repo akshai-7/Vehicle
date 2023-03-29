@@ -47,11 +47,7 @@
                     </tbody>
 
                 </table>
-                @if (count($report) < 1)
-                    <div id="dataNotFound">
-                        <p>Data not found</p>
-                    </div>
-                @endif
+
             </div>
         </div>
     </div>

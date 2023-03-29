@@ -1,8 +1,8 @@
 @extends('layouts.user')
 @section('content')
-    <div class="table-data">
-        <div class="order">
-            <div class="head">
+    <div class="userContainer">
+        <div class="table-data">
+            <div class="head mt-5">
                 <h3>Vehicle Assign</h3>
             </div>
             <form action="/vehicleassignlist" method="POST">
