@@ -42,26 +42,6 @@ a {
     justify-content: space-evenly;
     align-content: space-evenly;
 }
-.driver {
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 10px;
-    border-radius: 7px 7px 0 0;
-    padding: 5px;
-    color: black;
-}
-.driver1 {
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 10px;
-    border-radius: 7px 7px 0 0;
-    padding: 5px;
-    color: black;
-}
-.count {
-    margin-top: 30px;
-    padding: 10px;
-}
 
 #container {
     width: 100%;
@@ -166,16 +146,6 @@ a {
 .nav_icon {
     font-size: 14px;
 }
-main {
-    position: relative;
-    width: 95%;
-    height: 100vh;
-    left: 40px;
-    overflow-y: scroll;
-}
-main::-webkit-scrollbar {
-    display: none;
-}
 .userContainer {
     width: 100%;
     height: 100%;
@@ -189,12 +159,17 @@ main::-webkit-scrollbar {
     padding: 24px;
     overflow: scroll;
 }
+#table-data {
+    margin-top: 3%;
+}
+
 #sam,
 #inspectionFrom,
 #incidentFrom {
     width: 100%;
     height: 100%;
-    background: rgba(240, 221, 225, 0.309);
+    /* background: rgba(240, 221, 225, 0.309); */
+    background: rgba(107, 107, 107, 0.5);
     position: absolute;
     align-items: center;
     display: none;
@@ -207,6 +182,13 @@ main::-webkit-scrollbar {
     padding: 4%;
     width: 80%;
     height: 80%;
+    overflow: scroll;
+    background: white;
+}
+.vehiclePopUp {
+    padding: 4%;
+    width: 60%;
+    height: 60%;
     overflow: scroll;
     background: white;
 }
@@ -280,12 +262,12 @@ h5 {
     width: 90px;
 }
 
-.main {
+/* .main {
     height: 80%;
     overflow: scroll;
-}
+} */
 
-.main::-webkit-scrollbar {
+/* .main::-webkit-scrollbar {
     display: none;
 }
 .main2 {
@@ -297,15 +279,15 @@ h5 {
 }
 .main2::-webkit-scrollbar {
     display: none;
-}
+} */
 
-form {
+/* form {
     margin-left: 50px;
 }
 .form .form-control {
     background: #f9f9f9;
-}
-.table-data1 {
+} */
+/* .table-data1 {
     position: relative;
     color: #bf0e3a;
     margin-top: 50px;
@@ -320,7 +302,7 @@ form {
     padding: 15px;
     background: #f9f9f9;
     overflow-x: auto;
-}
+} */
 .usercount {
     margin-left: 15px;
     padding: 10px;
@@ -371,20 +353,14 @@ form {
 }
 
 .button {
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
 }
-#Visual {
-    margin-top: -95px;
+.divClose {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
-#Vehicle {
-    margin-top: -95px;
-}
-
-#Cabin {
-    margin-top: -95px;
-}
-
 .vehicle {
     margin-left: 10px;
     height: 400px;
@@ -426,13 +402,11 @@ form {
     justify-content: space-between;
     margin-left: 20px;
 }
-
 .print {
     float: right;
     margin-top: 20px;
     padding: 30px;
 }
-
 .incident label {
     color: #bf0e3a;
 }
@@ -443,12 +417,12 @@ form {
     align-content: center;
     justify-content: start;
 }
-.filter {
+/* .filter {
     display: flex;
     margin-left: 500px;
-}
+} */
 
-.popup1 {
+/* .popup1 {
     display: none;
     position: fixed;
     padding: 20px;
@@ -471,7 +445,7 @@ form {
     right: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: -2;
-}
+} */
 #dataNotFound {
     width: 100%;
     height: 30px;
@@ -493,42 +467,7 @@ form {
     border-radius: 7px;
 }
 
-.popup2 {
-    display: none;
-    position: fixed;
-    padding: 20px;
-    width: 700px;
-    height: 450px;
-    margin-left: 130px;
-    top: 25%;
-    background: #fff;
-    z-index: 20;
-    align-items: center;
-    justify-content: center;
-}
-#popup2:after {
-    position: fixed;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
-
-    z-index: -2;
-}
-
-#popup2:before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #f9f9f9;
-    z-index: -1;
-    border-radius: 7px;
-}
+/*  */
 .popup3 {
     position: fixed;
     padding: 20px;

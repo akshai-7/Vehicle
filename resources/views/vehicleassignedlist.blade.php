@@ -4,14 +4,12 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-
                     <div style="display:flex;">
                         <h3>Vehicle Assigned List</h3>
                         <a style="margin-left:30px;margin-top:10px;" onclick="show('inspectionFrom')"><input type="submit"
                                 value="Inspection" id="add"></a>
                         <a style="margin-left:20px;margin-top:10px;" onclick="show('incidentFrom')"><input type="submit"
                                 value="Incident" id="add"></a>
-
                     </div>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
@@ -50,8 +48,7 @@
             <section id="inspectionFromPopUp">
 
                 <h5 style="margin-top: 50px">
-                    <a href="#" onclick="hide('popup8')" style="color:black;margin-left:1200px;" class="clos"><i
-                            class="fa-solid fa-xmark"></i></a> Inspection Details
+                    Inspection Details
                 </h5>
                 <form action="/store/{id}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @csrf
@@ -95,8 +92,8 @@
                             <tbody id='row'>
                                 <tr class="list">
                                     <td class="col-md-1"><input type="" name="sno[]"
-                                            class="form-control col-md-1 border-0" style="text-align:center;"
-                                            value="1" id="sno" readonly></td>
+                                            class="form-control col-md-1 border-0" style="text-align:center;" value="1"
+                                            id="sno" readonly></td>
                                     <td><input type="" name="view[]" class="form-control view border-0"
                                             style="text-align:center;" id='view' value="Front" readonly>
                                     </td>
@@ -433,13 +430,13 @@
                                 </table>
                             </div>
                         </div>
-                        <span> <a href="#"><input value="Close"
+                        <div class="divClose">
+                            <a href="#"><input value="Close" type="button"
                                     onclick="hide('inspectionFrom')"class="text-white mt-4" id="add"
-                                    style="margin-left:900px;"></a></span>
-                        <a href="#"><input type="submit" value="Submit" class="text-white mt-4" id="add"
-                                style="margin-left:900px;"></a>
-                        </main>
-
+                                    style="margin-left:850px;"></a>
+                            <a href="#"><input type="submit" value="Submit" class="text-white mt-4"
+                                    id="add"></a>
+                        </div>
                 </form>
         </div>
         </section>
@@ -448,13 +445,8 @@
         <section id="incidentFromPopUp">
             <form action="/reportonincident/{id}" method="POST" autocomplete="off">
                 @csrf
-                <a href="#" onclick="hide('incidentFrom')" style="color:black;" class="close"><i
-                        class="fa-solid fa-xmark"></i></a>
-
-                <h5 class=""> Report On Incident</h5>
-
+                <h5> Report On Incident</h5>
                 <div class="vehicle">
-
                     <div class="form-group mt-5">
                         <label class="col-sm-2 col-form-label">User</label>
                         <select class="form-select " style="width: 370px;" name="name">
@@ -523,8 +515,13 @@
                                     *{{ $message }}
                                 @enderror
                             </div>
-                            <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                                id="add" style="float:right;">
+                        </div>
+                        <div class="divClose">
+                            <a href="#"><input value="Close" type="button"
+                                    onclick="hide('incidentFrom')"class="text-white mt-4" id="add"
+                                    style="margin-left:300px;"></a>
+                            <a href="#"><input type="submit" value="Submit" class="text-white mt-4"
+                                    id="add"></a>
                         </div>
                     </div>
                 </div>

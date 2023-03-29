@@ -1,8 +1,7 @@
 @extends('layouts.login')
 @section('content')
     <div class="main">
-        <div class="">
-
+        <div>
             <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
             <h5>Login to your account</h5>
             <form class="login" action="/user" method="POST" autocomplete="off">
@@ -24,6 +23,5 @@
                 </button>
             </form>
         </div>
-
     </div>
 @endsection

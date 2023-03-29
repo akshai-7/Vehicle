@@ -1,52 +1,50 @@
 @extends('layouts.user')
 @section('content')
-    <main class="main">
-        <div class="table-data">
-            <div class="order">
-                <div class="head">
-                    <h3>Driver Details</h3>
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Driver Details</h3>
 
-                </div>
-                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
-                    <thead>
-                        <th style="text-align:center;">S.No</th>
-                        <th style="text-align:center;">Name</th>
-                        <th style="text-align:center;">Gender</th>
-                        <th style="text-align:center;">D.O.B</th>
-                        <th style="text-align:center;">Email</th>
-                        <th style="text-align:center;">Mobile.no</th>
-                        <th style="text-align:center;">Address</th>
-                        <th style="text-align:center;">Role</th>
-                        <th style="text-align:center;">Creation Date</th>
-                        <th style="text-align:center;">Action</th>
-                    </thead>
-                    <tbody>
-                        @foreach ($user1 as $user1)
-                            <tr class="table_row">
-                                <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user1->name }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user1->gender }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user1->date_of_birth }}
-                                </td>
-                                <td style="text-align:center;" class="table_data">{{ $user1->email }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user1->mobile }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user1->address }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $user1->role }}</td>
-                                <td style="text-align:center;" class="table_data">
-                                    {{ $user1->created_at->format('d.m.Y') }}</td>
-                                <td style="text-align:center;" class="table_data">
-                                    <a href="/updateuser/{{ $user1->id }}"><i
-                                            class="fa-solid fa-edit btn btn-success"></i></a>
-                                    <a href="/delete/{{ $user1->id }}"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
+            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+                <thead>
+                    <th style="text-align:center;">S.No</th>
+                    <th style="text-align:center;">Name</th>
+                    <th style="text-align:center;">Gender</th>
+                    <th style="text-align:center;">D.O.B</th>
+                    <th style="text-align:center;">Email</th>
+                    <th style="text-align:center;">Mobile.no</th>
+                    <th style="text-align:center;">Address</th>
+                    <th style="text-align:center;">Role</th>
+                    <th style="text-align:center;">Creation Date</th>
+                    <th style="text-align:center;">Action</th>
+                </thead>
+                <tbody>
+                    @foreach ($user1 as $user1)
+                        <tr class="table_row">
+                            <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user1->name }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user1->gender }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user1->date_of_birth }}
+                            </td>
+                            <td style="text-align:center;" class="table_data">{{ $user1->email }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user1->mobile }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user1->address }}</td>
+                            <td style="text-align:center;" class="table_data">{{ $user1->role }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                {{ $user1->created_at->format('d.m.Y') }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                <a href="/updateuser/{{ $user1->id }}"><i
+                                        class="fa-solid fa-edit btn btn-success"></i></a>
+                                <a href="/delete/{{ $user1->id }}"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-    </main>
+    </div>
+
     <div class="popup3" id="popup3">
         <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
             @csrf

@@ -19,27 +19,27 @@
 </head>
 
 <body>
-    <div class="message" id="message">
-        @if (session()->has('message'))
-            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" style="width: 400px;height:20px">
-                <div div class="alert alert-success">
-                    <i class="fa-regular fa-circle-check"></i> {{ session('message') }}
+    <div>
+        <div class="message" id="message">
+            @if (session()->has('message'))
+                <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" style="width: 400px;height:20px">
+                    <div div class="alert alert-success">
+                        <i class="fa-regular fa-circle-check"></i> {{ session('message') }}
+                    </div>
                 </div>
-            </div>
-        @endif
-    </div>
-    <div class="message1" id="message">
-        @if (session()->has('message1'))
-            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" style="width: 400px;height:20px;">
-                <div class="alert alert-danger">
-                    <i class="fa-regular fa-circle-x"></i>{{ session('message1') }}
+            @endif
+        </div>
+        <div class="message1" id="message">
+            @if (session()->has('message1'))
+                <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" style="width: 400px;height:20px;">
+                    <div class="alert alert-danger">
+                        <i class="fa-regular fa-circle-x"></i>{{ session('message1') }}
+                    </div>
                 </div>
-            </div>
-        @endif
-    </div>
-    <main class="py-4">
+            @endif
+        </div>
         @yield('content')
-    </main>
+    </div>
 </body>
 
 </html>

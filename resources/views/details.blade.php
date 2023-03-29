@@ -1,6 +1,5 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <main class="main"> --}}
     <div class="button">
         <button class="tablinks " onclick="openCheck(event, 'Visual')" id="defaultOpen">
             <h6>Visual Damage</h6>
@@ -13,7 +12,7 @@
         </button>
     </div>
     <div id="Visual" class="tabcontent">
-        <div class="table-data">
+        <div class="table-data" id="table-data">
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width1000px;">
                 <thead>
                     <th style="text-align:center;">S.No</th>
@@ -53,12 +52,12 @@
             </table>
             <div>
                 <a href="/summary/{{ $visual->inspection_id }}"><input type="submit" id="add" value="Summary"
-                        class="text-white" style="margin-left:1000px;margin-top:-20px;"></a>
+                        class="text-white mt-4" style="margin-left:1000px;"></a>
             </div>
         </div>
     </div>
     <div id="Vehicle" class="tabcontent">
-        <div class="table-data">
+        <div class="table-data" id="table-data">
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width1000px;">
                 <thead>
                     <th style="text-align:center;">S.No</th>
@@ -83,29 +82,28 @@
                                     <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px">
                                 </a>
+                            </td>
+                            <td style="text-align:center;" class="table_data">{{ $vehicle->feedback }}
+                            </td>
+                            <td style="text-align:center;" class="table_data">{{ $vehicle->action }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                <a href="/updatevehiclecheck/{{ $vehicle->id }}" data-toggle="tooltip"
+                                    data-placement="top" title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                <a href="/deletevehicle/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
+                                    title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div>
+                <a href="/summary/{{ $vehicle->inspection_id }}"><input type="submit" id="add" value="Summary"
+                        class="text-white mt-4" style="margin-left:1000px;"></a>
+            </div>
         </div>
-        </td>
-        <td style="text-align:center;" class="table_data">{{ $vehicle->feedback }}
-        </td>
-        <td style="text-align:center;" class="table_data">{{ $vehicle->action }}</td>
-        <td style="text-align:center;" class="table_data">
-            <a href="/updatevehiclecheck/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top" title="Edit"><i
-                    class="fa-solid fa-edit btn btn-success"></i></a>
-            <a href="/deletevehicle/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i
-                    class="fa-solid fa-trash btn btn-danger"></i></a>
-        </td>
-        </tr>
-        @endforeach
-        </tbody>
-        </table>
-        <div>
-            <a href="/summary/{{ $vehicle->inspection_id }}"><input type="submit" id="add" value="Summary"
-                    class="text-white" style="margin-left:1000px;margin-top:-20px;"></a>
-        </div>
-    </div>
     </div>
     <div id="Cabin" class="tabcontent">
-        <div class="table-data">
+        <div class="table-data" id="table-data">
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                 <thead>
                     <th style="text-align:center;">S.No</th>
@@ -146,14 +144,9 @@
             </table>
             <div>
                 <a href="/summary/{{ $cabin->inspection_id }}"><input type="submit" id="add" value="Summary"
-                        class="text-white" style="margin-left:1000px;margin-top:-20px;"></a>
+                        class="text-white mt-4" style="margin-left:1000px;"></a>
             </div>
         </div>
 
     </div>
-    {{-- <div id="imagePopup" onclick="closePopUpImage())">
-            <div id="imagePopupContent">
-            </div>
-        </div> --}}
-    {{-- </main> --}}
 @endsection
