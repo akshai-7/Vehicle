@@ -6,10 +6,14 @@
                 <form action="/visualupdate/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     @foreach ($visual as $visual)
-                        <a href="/details/{{ $visual->inspection_id }}" style="color:black;"><i
-                                class="fa-solid fa-xmark"></i></a>
-                        <h5 class=""> Update Visual Damage
-                        </h5>
+                        <div id="userHeading">
+                            <h4 style="margin-top: 2%">
+                                Update Visual Damage
+                            </h4>
+                            <a href="/details/{{ $visual->inspection_id }}">
+                                <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                            </a>
+                        </div>
                         <div class="vehicle">
                             <div class="form-group row mt-4">
                                 <label class="col-sm-2 col-form-label">Id</label>

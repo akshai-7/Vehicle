@@ -58,9 +58,9 @@
                     @csrf
                     <div id="userHeading">
                         <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Create Driver</h5>
-                        <button id="add" onclick="hide('sam')">
-                            Close
-                        </button>
+                        <a onclick="hide('sam')">
+                            <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                        </a>
                     </div>
 
                     <div class="report1">

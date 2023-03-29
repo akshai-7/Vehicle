@@ -5,8 +5,12 @@
             <div class="updatePopup">
                 <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
                     @csrf
-                    <a href="/user" style="color:black;" class="close"><i class="fa-solid fa-xmark"></i></a>
-                    <h5 class=""><i class="fa-solid fa-user"></i> Update Driver</h5>
+                    <div id="userHeading">
+                        <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Update Driver</h5>
+                        <a href="/user">
+                            <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                        </a>
+                    </div>
                     @foreach ($user as $user)
                         <div class="report1">
                             <div class="report">

@@ -47,9 +47,15 @@
         <div id="inspectionFrom">
             <section id="inspectionFromPopUp">
 
-                <h5 style="margin-top: 50px">
-                    Inspection Details
-                </h5>
+
+                <div id="userHeading">
+                    <h4 style="margin-top: 2%">
+                        Inspection Details
+                    </h4>
+                    <a href="#" onclick="hide('inspectionFrom')">
+                        <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                    </a>
+                </div>
                 <form action="/store/{id}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <div class="report1">
@@ -92,8 +98,8 @@
                             <tbody id='row'>
                                 <tr class="list">
                                     <td class="col-md-1"><input type="" name="sno[]"
-                                            class="form-control col-md-1 border-0" style="text-align:center;" value="1"
-                                            id="sno" readonly></td>
+                                            class="form-control col-md-1 border-0" style="text-align:center;"
+                                            value="1" id="sno" readonly></td>
                                     <td><input type="" name="view[]" class="form-control view border-0"
                                             style="text-align:center;" id='view' value="Front" readonly>
                                     </td>
@@ -446,7 +452,14 @@
         <section id="incidentFromPopUp">
             <form action="/reportonincident/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
-                <h5> Report On Incident</h5>
+                <div id="userHeading">
+                    <h4 style="margin-top: 2%">
+                        Report On Incident
+                    </h4>
+                    <a href="#" onclick="hide('incidentFrom')">
+                        <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                    </a>
+                </div>
                 <div class="vehicle">
                     <div class="form-group mt-5">
                         <label class="col-sm-2 col-form-label">User</label>

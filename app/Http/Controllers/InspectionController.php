@@ -52,6 +52,7 @@ class InspectionController extends Controller
 
         $id = $assign->id;
         $assign = Assign::where('id', $id)->first();
+        $assign->mileage = $inspection->mileage;
         $assign->last_inspection = $inspection->date;
         $assign->next_inspection = $inspection->next_inspection;
         $assign->save();
