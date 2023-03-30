@@ -29,7 +29,6 @@
                             <td style="text-align:center;" class="table_data">{{ $visual->view }}</td>
                             <td style="width:0px;">
                                 <a href="/visualimages/{{ $visual->id }}">
-
                                     <img src="{{ url('images/' . explode(',', $visual->image)[0]) }}"
                                         class="rounded-0 border border-secondary" width="50px" height="50px">
                                 </a>

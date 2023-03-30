@@ -17,6 +17,7 @@ class CreateVehiclesTable extends Migration
             $table->id();
             $table->string('number_plate');
             $table->string('vehicle_type');
+            $table->string('vehicle_model');
             $table->string('mileage');
             $table->string('user_id')->nullable();;
             $table->string('name')->nullable();;
