@@ -226,10 +226,10 @@ a {
 #inspectionFromPopUp {
     border-radius: 10px;
     padding: 2%;
-    width: 100%;
+    width: 90%;
     height: 100%;
     overflow: scroll;
-    background: rgb(230, 230, 236);
+    background: rgb(254, 254, 255);
 }
 #incidentFromPopUp {
     border-radius: 10px;
@@ -387,6 +387,10 @@ form {
     display: flex;
     align-content: center;
     justify-content: start;
+    margin-left: 60%;
+}
+#filter {
+    margin-right: 1%;
 }
 
 #dataNotFound {

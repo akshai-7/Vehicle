@@ -88,6 +88,8 @@
                         @endif
 
                     </div>
+                    {{-- <a href="{{ URL::previous() }}" class="btn btn-default"> <i class="fas fa-arrow-left"></i> Go
+                        Back</a> --}}
                     @yield('content')
                 </div>
 

@@ -6,9 +6,14 @@
 
                 <form action="#" method="POST" autocomplete="off">
                     @csrf
-                    <a href="/vehicleassignedlist" style="color:black;"><i class="fa-solid fa-xmark"></i></a>
-
-                    <h5 class="">Vehicle Assigned Details</h5>
+                    <div id="userHeading">
+                        <h4 style="margin-top: 2%">
+                            Vehicle Assigned Details
+                        </h4>
+                        <a href="/vehicleassignedlist">
+                            <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                        </a>
+                    </div>
 
                     <div class="vehicle">
                         @foreach ($assign as $assign)

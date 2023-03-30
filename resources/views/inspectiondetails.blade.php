@@ -13,11 +13,11 @@
             <div class="table-data" id="table-data">
                 <form action="/search" method="GET" autocomplete="off">
                     <div id="filterDiv">
-                        <div class="col-md-2">
+                        <div class="col-md-2" id="filter">
                             <label>Filter by Date</label>
                             <input type="date" name="date" class="form-control">
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2" id="">
                             <label>Filter by Name</label>
                             <select class="form-select form-control" name="name">
                                 <option>Select</option>
