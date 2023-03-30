@@ -18,11 +18,13 @@ class VehicleController extends Controller
         $request->validate([
             'number_plate' => 'required',
             'vehicle_type' => 'required',
+            'vehicle_model' => 'required',
             'mileage' => 'required',
         ]);
         $vehicle = new Vehicle();
         $vehicle->number_plate = $request['number_plate'];
         $vehicle->vehicle_type = $request['vehicle_type'];
+        $vehicle->vehicle_model = $request['vehicle_model'];
         $vehicle->mileage = $request['mileage'];
         $vehicle->save();
         session()->flash('message', 'Vehicle is Created');
@@ -45,6 +47,7 @@ class VehicleController extends Controller
         $request->validate([
             'number_plate' => 'required',
             'vehicle_type' => 'required',
+            'vehicle_model' => 'required',
             'mileage' => 'required',
         ]);
         $id = $request->id;
@@ -55,6 +58,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::where('id', $id)->first();
         $vehicle->number_plate = $request['number_plate'];
         $vehicle->vehicle_type = $request['vehicle_type'];
+        $vehicle->vehicle_model = $request['vehicle_model'];
         $vehicle->mileage = $request['mileage'];
         $vehicle->save();
         session()->flash('message', 'Updated Successfully');

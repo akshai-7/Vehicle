@@ -387,10 +387,10 @@ form {
     display: flex;
     align-content: center;
     justify-content: start;
-    margin-left: 60%;
 }
 #filter {
     margin-right: 1%;
+    margin-left: -5%;
 }
 
 #dataNotFound {

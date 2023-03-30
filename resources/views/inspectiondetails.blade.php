@@ -13,11 +13,11 @@
             <div class="table-data" id="table-data">
                 <form action="/search" method="GET" autocomplete="off">
                     <div id="filterDiv">
-                        <div class="col-md-2" id="filter">
+                        <div class="col-md-3" id="filter">
                             <label>Filter by Date</label>
                             <input type="date" name="date" class="form-control">
                         </div>
-                        <div class="col-md-2" id="">
+                        <div class="col-md-3" id="">
                             <label>Filter by Name</label>
                             <select class="form-select form-control" name="name">
                                 <option>Select</option>
@@ -51,7 +51,8 @@
                                     <td style="text-align:center;" class="table_data">{{ $inspection->id }}</td>
                                     <td style="text-align:center;" class="table_data">{{ $inspection->report_no }}
                                     </td>
-                                    <td style="text-align:center;" class="table_data">{{ $inspection->inspected_by }}
+                                    <td style="text-align:center;" class="table_data">
+                                        {{ ucfirst(strtolower($inspection->inspected_by)) }}
                                     </td>
                                     <td style="text-align:center;" class="table_data">{{ $inspection->name }}</td>
                                     <td style="text-align:center;" class="table_data">

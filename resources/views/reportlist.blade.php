@@ -4,7 +4,7 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Report an Incident</h3>
+                    <h3>Reported Incidents</h3>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
 

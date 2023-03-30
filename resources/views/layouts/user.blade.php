@@ -51,7 +51,7 @@
             </a>
             <a class="nav_list gradient-hover-effect" href="/reportlist">
                 <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
-                    Report an Incident
+                    Reported Incidents
                 </span>
             </a>
             <a class="nav_list gradient-hover-effect"href="/">
@@ -61,12 +61,11 @@
         </div>
         <div id="div-2">
             <div id="headers">
-                <div id="toggle-container"><i class="fa-solid fa-chevron-left"></i></div>
+                <div id="toggle-container"><i class="fa-solid fa-chevron-left"></i>
+                </div>
             </div>
             <div id="mainContainer">
-
                 <div id="tabContainer">
-
                     <div class="message" id="message">
                         @if (session()->has('message'))
                             <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"

@@ -45,6 +45,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group row mt-4 ">
+                                <label class="col-sm-2 col-form-label">Vehicle_Model</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="vehicle_model" class="form-control"
+                                        value="{{ $vehicle->vehicle_model }}">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_model')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-2 col-form-label"> Mileage</label>
                                 <div class="col-sm-9">
