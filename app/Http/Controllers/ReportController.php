@@ -16,8 +16,8 @@ class ReportController extends Controller
     }
     public function reportimages($id)
     {
-        $report = Report::where('id', $id)->first();
-        return view('/reportimages', ['report' => $report]);
+        $reports = Report::where('id', $id)->first();
+        return view('/reportimages', compact('reports'));
     }
 
     public function reportonincident(Request $request)
