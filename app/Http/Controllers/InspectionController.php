@@ -19,7 +19,7 @@ class InspectionController extends Controller
     }
     public function store(Request $request)
     {
-
+        // dd($request);
         $request->validate([
             'view' => 'required',
             'feedback' => 'required',
@@ -59,34 +59,36 @@ class InspectionController extends Controller
 
         $assign_id = $assign->id;
         $assign_id = Inspection::where('assign_id', $assign_id)->latest('id')->first();
-        $data = $request->all();
-        foreach ($data['view'] as $row => $value) {
-            $img = array();
-            for ($i = 0; $i < count($data[$data['view'][$row]]); $i++) {
-                $imageName = time() . '.' . $data[$data['view'][$row]][$i]->getClientOriginalName();
-                $data[$data['view'][$row]][$i]->move(public_path('images'), $imageName);
-                array_push($img, $imageName);
-            }
-            $data1 = array(
-                'inspection_id' => $assign_id->id,
-                'view' => $data['view'][$row],
-                'image' =>  implode(",", $img),
-                'feedback' => $data['feedback'][$row],
-                'notes' => $data['notes'][$row],
-                'action' => $data['action'][$row],
-            );
+        // $data = $request->all();
+        // foreach ($data['view'] as $row => $value) {
+        //     $img = array();
+        //     for ($i = 0; $i < count($data[$data['view'][$row]]); $i++) {
+        //         $imageName = time() . '.' . $data[$data['view'][$row]][$i]->getClientOriginalName();
+        //         $data[$data['view'][$row]][$i]->move(public_path('images'), $imageName);
+        //         array_push($img, $imageName);
+        //     }
+        //     $data1 = array(
+        //         'inspection_id' => $assign_id->id,
+        //         'view' => $data['view'][$row],
+        //         'image' =>  implode(",", $img),
+        //         'feedback' => $data['feedback'][$row],
+        //         'notes' => $data['notes'][$row],
+        //         'action' => $data['action'][$row],
+        //     );
 
-            Visual::create($data1);
-        }
+        //     Visual::create($data1);
+        // }
 
         $data2 = $request->all();
         foreach ($data2['view1'] as $key => $value) {
             $img1 = array();
+            // dd($data2);
             for ($i = 0; $i < count($data2[$data2['view1'][$key]]); $i++) {
                 $imageName = time() . '.' . $data2[$data2['view1'][$key]][$i]->getClientOriginalName();
                 $data2[$data2['view1'][$key]][$i]->move(public_path('images'), $imageName);
                 array_push($img1, $imageName);
             }
+
             $data3 = array(
                 'inspection_id' => $assign_id->id,
                 'view' => $data2['view1'][$key],
@@ -97,24 +99,24 @@ class InspectionController extends Controller
             );
             Vehiclecheck::create($data3);
         }
-        $data4 = $request->all();
-        foreach ($data4['view2'] as $list => $value) {
-            $img2 = array();
-            for ($i = 0; $i < count($data4[$data4['view2'][$list]]); $i++) {
-                $imageName = time() . '.' . $data4[$data4['view2'][$list]][$i]->getClientOriginalName();
-                $data4[$data4['view2'][$list]][$i]->move(public_path('images'), $imageName);
-                array_push($img2, $imageName);
-            }
-            $data5 = array(
-                'inspection_id' => $assign_id->id,
-                'view' => $data4['view2'][$list],
-                'image' => implode(",", $img2),
-                'feedback' => $data4['feedback2'][$list],
-                'notes' => $data4['notes2'][$list],
-                'action' => $data4['action2'][$list],
-            );
-            Cabin::create($data5);
-        }
+        // $data4 = $request->all();
+        // foreach ($data4['view2'] as $list => $value) {
+        //     $img2 = array();
+        //     for ($i = 0; $i < count($data4[$data4['view2'][$list]]); $i++) {
+        //         $imageName = time() . '.' . $data4[$data4['view2'][$list]][$i]->getClientOriginalName();
+        //         $data4[$data4['view2'][$list]][$i]->move(public_path('images'), $imageName);
+        //         array_push($img2, $imageName);
+        //     }
+        //     $data5 = array(
+        //         'inspection_id' => $assign_id->id,
+        //         'view' => $data4['view2'][$list],
+        //         'image' => implode(",", $img2),
+        //         'feedback' => $data4['feedback2'][$list],
+        //         'notes' => $data4['notes2'][$list],
+        //         'action' => $data4['action2'][$list],
+        //     );
+        //     Cabin::create($data5);
+        // }
         return redirect('/inspectiondetails');
     }
 

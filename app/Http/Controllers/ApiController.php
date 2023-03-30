@@ -61,9 +61,6 @@ class ApiController extends Controller
 
     public function report(Request $request, $id)
     {
-
-
-
         $request->validate([
             'date' => 'required',
             'location' => 'required',

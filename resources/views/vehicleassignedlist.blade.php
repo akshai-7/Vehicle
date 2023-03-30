@@ -104,7 +104,7 @@
                                             style="text-align:center;" id='view' value="Front" readonly>
                                     </td>
                                     <td><input type="file" name="Front[]" class="form-control "
-                                            style="text-align:center;" id='image' multiple required>
+                                            style="text-align:center;" id='image' multiple>
                                     </td>
                                     <td><input type="text" name="feedback[]" class="form-control feedback border-0"
                                             style="text-align:center;" id='feedback'></td>
