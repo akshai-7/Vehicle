@@ -69,8 +69,13 @@
                             <td style="text-align:center;" class="table_data">{{ $vehicle->view }}</td>
                             <td style="width:0px;" onclick="popUpImage('')">
                                 <a href="/vehicleimages/{{ $vehicle->id }}">
-                                    <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px">
+                                    @if ($vehicle->image != null)
+                                        <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}"
+                                            class="rounded-0 border border-secondary" width="50px" height="50px">
+                                    @endif
+                                    @if ($vehicle->image == null)
+                                        <p>--</p>
+                                    @endif
                                 </a>
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $vehicle->feedback }}
@@ -110,8 +115,13 @@
                             <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
                             <td style="width:0px;" onclick="popUpImage('')">
                                 <a href="/cabinimages/{{ $cabin->id }}">
-                                    <img src="{{ url('images/' . explode(',', $cabin->image)[0]) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px">
+                                    @if ($cabin->image != null)
+                                        <img src="{{ url('images/' . explode(',', $cabin->image)[0]) }}"
+                                            class="rounded-0 border border-secondary" width="50px" height="50px">
+                                    @endif
+                                    @if ($cabin->image == null)
+                                        <p>--</p>
+                                    @endif
                                 </a>
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $cabin->feedback }}</td>

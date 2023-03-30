@@ -62,6 +62,8 @@ class ApiController extends Controller
     public function report(Request $request, $id)
     {
 
+
+
         $request->validate([
             'date' => 'required',
             'location' => 'required',
@@ -96,10 +98,12 @@ class ApiController extends Controller
     }
     public function visualcheck(Request $request, $id)
     {
+        // if ($request->image == []) {
+        //     dd('ok');
+        // }
 
         $request->validate([
             'type' => 'required',
-            'image' => 'required',
             'name' => 'required',
             'notes' => 'required',
             'status' => 'required',
@@ -116,28 +120,27 @@ class ApiController extends Controller
         foreach (array_keys($name) as $row) {
             $img = array();
 
-            if ($image == null) {
-                return response()->json(['message' => 'Image field Required'], 200);
-            }
+            if ($image != null) {
+                for ($i = 0; $i < count($image); $i++) {
 
-            for ($i = 0; $i < count($image); $i++) {
+                    if (count($name) > count($image) && strtolower($request->type) === "visual") {
+                        return response()->json(['message' => 'Image field Required'], 200);
+                    }
 
-                if (count($name) > count($image)) {
-                    return response()->json(['message' => 'Image field Required'], 200);
-                }
-
-                if (array_keys($image[$i])[0] == $row) {
-                    $imgname = $image[$i][$row]->getClientOriginalName();
-                    $imageName = time() . '.' . $image[$i][$row]->extension();
-                    $image[$i][$row]->move(public_path('images'), $imageName);
-                    array_push($img, $imageName);
+                    if (array_keys($image[$i])[0] == $row) {
+                        $imgname = $image[$i][$row]->getClientOriginalName();
+                        $imageName = time() . '.' . $image[$i][$row]->extension();
+                        $image[$i][$row]->move(public_path('images'), $imageName);
+                        array_push($img, $imageName);
+                    }
                 }
             }
+
 
             $data1 = array(
                 'type' => $request->type,
                 'name' => $name[$row],
-                'image' => $img,
+                'image' => count($img) > 0 ? $img : null,
                 'status' => $status[$row],
                 'notes' => $notes[$row],
                 'feedback' => $feedback[$row],
