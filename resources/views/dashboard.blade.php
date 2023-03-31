@@ -70,7 +70,7 @@
                 <a href="/reportlist" class="boxContainer">
                     <div class="boxContainerValue">
                         <h5><i class="fa-solid fa-file mt-4 "></i></h5>
-                        <h5>Report an Incident</h5>
+                        <h5>Reported Incidents</h5>
                     </div>
                     <div class="boxContainerValue">
                         <h2>{{ $report }}</h2>
