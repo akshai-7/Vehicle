@@ -10,7 +10,6 @@ class ReportController extends Controller
 {
     public function updatereport($id)
     {
-
         $report = Report::where('id', $id)->get();
         return view('/updatereport', compact('report'));
     }
@@ -30,12 +29,14 @@ class ReportController extends Controller
             'statement' => 'required',
 
         ]);
-        $name = $request->name;
-        $assign = Assign::where('name', $name)->first();
+        // dd($request);
+        $assign = Assign::where('name', $request->name)->first();
         if ($assign == null) {
             return response()->json(['message' => 'Invalid Id']);
         }
+
         $data = $request->all();
+        // dd($data);
         $img = array();
         for ($i = 0; $i < count($data['image']); $i++) {
             $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
