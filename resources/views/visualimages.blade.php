@@ -1,4 +1,7 @@
 @extends('layouts.user')
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 @section('content')
     <div class="userContainer">
         <div id="updatePopup" class="table-data">
@@ -12,10 +15,8 @@
                     @foreach (explode(',', $visual->image) as $image)
                         <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary" width="190px"
                             height="120px">
-                        <span></span>
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>

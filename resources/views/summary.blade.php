@@ -67,9 +67,16 @@
                                 <td style="text-align:center;" class="col-md-2 table_data">
                                     {{ $vehicle->view }}
                                 </td>
-                                <td style="text-align:center;" class=" col-md-2 table_data"><img
-                                        src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}" width="50px"
-                                        height="50px" alt="" class="rounded-0 border border-secondary "></td>
+                                <td style="text-align:center;" class=" col-md-2 table_data">
+                                    @if ($vehicle->image != null)
+                                        <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}" width="50px"
+                                            height="50px" alt="" class="rounded-0 border border-secondary ">">
+                                    @endif
+                                    @if ($vehicle->image == null)
+                                        <p style="text-align:center;">--</p>
+                                    @endif
+
+                                </td>
                                 <td style="text-align:center;" class="col-md-2 table_data">
                                     {{ $vehicle->feedback }}
                                 </td>
@@ -92,9 +99,15 @@
                                 <td style="text-align:center;" class="col-md-2 table_data">
                                     {{ $cabin->view }}
                                 </td>
-                                <td style="text-align:center;" class="col-md-2 table_data"><img
-                                        src="{{ url('images/' . explode(',', $cabin->image)[0]) }}" width="50px"
-                                        height="50px" alt="" class="rounded-0 border border-secondary "></td>
+                                <td style="text-align:center;" class="col-md-2 table_data">
+                                    @if ($cabin->image != null)
+                                        <img src="{{ url('images/' . explode(',', $cabin->image)[0]) }}" width="50px"
+                                            height="50px" alt="" class="rounded-0 border border-secondary ">
+                                    @endif
+                                    @if ($cabin->image == null)
+                                        <p style="text-align:center;">--</p>
+                                    @endif
+                                </td>
                                 <td style="text-align:center;" class="col-md-2 table_data">
                                     {{ $cabin->feedback }}
                                 </td>

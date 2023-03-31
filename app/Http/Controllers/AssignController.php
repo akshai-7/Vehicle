@@ -6,6 +6,8 @@ use App\Models\Assign;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use App\Mail\taskmail;
+use Illuminate\Support\Facades\Mail;
 
 class AssignController extends Controller
 {
@@ -43,6 +45,8 @@ class AssignController extends Controller
         $vehicle->user_id = $user->id;
         $vehicle->name = $user->name;
         $vehicle->save();
+
+        Mail::To($user->email)->send(new taskmail);
         session()->flash('message', 'Vehicle Assigned is Successfully');
         return redirect('/vehicleassignedlist');
     }
