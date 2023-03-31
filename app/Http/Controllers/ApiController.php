@@ -95,10 +95,6 @@ class ApiController extends Controller
     }
     public function visualcheck(Request $request, $id)
     {
-        // if ($request->image == []) {
-        //     dd('ok');
-        // }
-
         $request->validate([
             'type' => 'required',
             'name' => 'required',
