@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('weekly:mail')->everyMinute()->timezone('UCT');
-        // $schedule->command('weekly:mail')->weekly()->fridays()->at('8:00')->timezone('Asia/Kolkata');
+        // $schedule->command('weekly:mail')->everyMinute()->timezone('UCT');
+        $schedule->command('weekly:mail')->weekly()->fridays()->at('10:21')->timezone('Asia/Kolkata');
     }
 
     /**

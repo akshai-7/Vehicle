@@ -95,6 +95,7 @@ class ApiController extends Controller
     }
     public function visualcheck(Request $request, $id)
     {
+
         $request->validate([
             'type' => 'required',
             'name' => 'required',
@@ -128,8 +129,6 @@ class ApiController extends Controller
                     }
                 }
             }
-
-
             $data1 = array(
                 'type' => $request->type,
                 'name' => $name[$row],

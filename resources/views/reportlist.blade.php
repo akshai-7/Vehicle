@@ -21,7 +21,7 @@
                             <th style="text-align:center;">Image</th>
                             <th style="text-align:center;">Action</th>
                         </thead>
-                        @foreach ($report as $report)
+                        @foreach ($reports as $report)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $report->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $report->assign->name }}</td>
@@ -50,7 +50,13 @@
                     </tbody>
 
                 </table>
-
+                @if (isset($reports))
+                    @if (count($reports) < 1)
+                        <div id="dataNotFound">
+                            <p>Data not found</p>
+                        </div>
+                    @endif
+                @endif
             </div>
         </div>
     </div>

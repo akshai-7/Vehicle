@@ -24,7 +24,6 @@ class CabinController extends Controller
     {
         $request->validate([
             'view' => 'required',
-            'image' => 'required',
             'feedback' => 'required',
             'action' => 'required',
         ]);
@@ -42,14 +41,20 @@ class CabinController extends Controller
         $cabin->view = $request['view'];
         $data = $request->all();
         $img = array();
-        for ($i = 0; $i < count($data['image']); $i++) {
-            $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
-            $data['image'][$i]->move(public_path('images'), $imageName);
-            array_push($img, $imageName);
+        if (isset($data['image'])) {
+            for ($i = 0; $i < count($data['image']); $i++) {
+                $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
+                $data['image'][$i]->move(public_path('images'), $imageName);
+                array_push($img, $imageName);
+            }
+            $data4 = array(
+                'image' =>  implode(",", $img),
+            );
+        } else {
+            $data4 = array(
+                'image' =>  null,
+            );
         }
-        $data4 = array(
-            'image' =>  implode(",", $img),
-        );
         $cabin->image = $data4['image'];
         $cabin->feedback = $request['feedback'];
         $cabin->action = $request['action'];

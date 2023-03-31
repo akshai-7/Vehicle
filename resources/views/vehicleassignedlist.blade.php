@@ -440,7 +440,7 @@
                         <div class="divClose">
                             <a href="#"><input value="Close" type="button"
                                     onclick="hide('inspectionFrom')"class="text-white mt-4" id="add"
-                                    style="margin-left:850px;"></a>
+                                    style="margin-left:650px;"></a>
                             <a href="#"><input type="submit" value="Submit" class="text-white mt-4"
                                     id="add"></a>
                         </div>

@@ -74,7 +74,7 @@
                                             class="rounded-0 border border-secondary" width="50px" height="50px">
                                     @endif
                                     @if ($vehicle->image == null)
-                                        <p>--</p>
+                                        <p style="text-align:center;">--</p>
                                     @endif
                                 </a>
                             </td>
@@ -111,7 +111,7 @@
                 <tbody>
                     @foreach ($cabin as $cabin)
                         <tr class="table_row">
-                            <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
+                            <td class="table_data">{{ $loop->iteration }}</td>
                             <td style="text-align:center;" class="table_data">{{ $cabin->view }}</td>
                             <td style="width:0px;" onclick="popUpImage('')">
                                 <a href="/cabinimages/{{ $cabin->id }}">
@@ -120,7 +120,7 @@
                                             class="rounded-0 border border-secondary" width="50px" height="50px">
                                     @endif
                                     @if ($cabin->image == null)
-                                        <p>--</p>
+                                        <p style="text-align:center;">--</p>
                                     @endif
                                 </a>
                             </td>
