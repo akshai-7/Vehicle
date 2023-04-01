@@ -32,7 +32,7 @@ Route::post('/user', [LoginController::class, 'admin']);
 //driver
 Route::post('/createuser', [UserController::class, 'createuser']);
 Route::get('/user', [UserController::class, 'userlist']);
-Route::get('/updateuser/{id}', [UserController::class, 'updateuser']);
+Route::get('/updateuser/{id}', [UserController::class, 'updateuser'])->name('update');
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
 
