@@ -98,6 +98,7 @@ function popUpImage(val) {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
+//user update
 function check(val) {
     document.getElementById('sam1').style.display="flex"
     document.getElementById('tag').value = val['id']
@@ -110,3 +111,12 @@ function check(val) {
     document.getElementById('tag7').value = val['mobile']
 }
 
+//update vehicle
+function check(val) {
+    document.getElementById('sam1').style.display="flex"
+    document.getElementById('id').value = val['id']
+    document.getElementById('number_plate').value = val['number_plate']
+    document.getElementById('vehicle_type').value = val['vehicle_type']
+    document.getElementById('vehicle_model').value = val['vehicle_model']
+    document.getElementById('mileage').value = val['mileage']
+}

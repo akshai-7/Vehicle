@@ -29,8 +29,8 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/updatevehicles/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                    <a onclick=" check({{ $vehicle }})"><i
+                                            class="fa-solid fa-edit btn btn-success"></i></a>
                                     <a href="/remove/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
                                         title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
@@ -40,8 +40,8 @@
                 </table>
             </div>
             {{-- <div class="active">
-        {!! $vehicles->links() !!}
-    </div> --}}
+            {!! $vehicles->links() !!}
+            </div> --}}
             <div id="sam">
                 <div class="vehiclePopUp">
                     <form action="/createvehicle" method="POST" autocomplete="off">
@@ -100,5 +100,80 @@
                     </form>
                 </div>
             </div>
+            <div id="sam1">
+                <div class="vehiclePopUp1">
+                    <div class=>
+                        <form action="/updatevehicle/{id}" method="POST" autocomplete="off">
+                            @csrf
+                            <div id="userHeading">
+                                <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-car"></i> Update Vehicle
+                                </h5>
+                                <a href="/vehiclelist">
+                                    <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                                </a>
+                            </div>
+                            <div class="vehicle">
+                                <div class="form-group row mt-4">
+                                    <label class="col-sm-2 col-form-label">Id</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="id" class="form-control" id="id">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <label class="col-sm-2 col-form-label">Number_Plate</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="number_plate" class="form-control"
+                                            id="number_plate">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4 ">
+                                    <label class="col-sm-2 col-form-label">Vehicle_Type</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="vehicle_type" class="form-control"
+                                            id="vehicle_type">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_type')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4 ">
+                                    <label class="col-sm-2 col-form-label">Vehicle_Model</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="vehicle_model" class="form-control"
+                                            id="vehicle_model">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_model')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <label class="col-sm-2 col-form-label"> Mileage</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="mileage" class="form-control" id="mileage">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                        <input type="submit" name="" id="add" value="Submit"
+                                            class="btn text-white mt-4" style="float:right;">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    @endsection
+    </div>
+@endsection

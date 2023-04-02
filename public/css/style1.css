@@ -225,7 +225,8 @@ a {
     overflow: scroll;
     background: rgb(230, 230, 236);
 }
-.vehiclePopUp {
+.vehiclePopUp,
+.vehiclePopUp1 {
     border-radius: 10px;
     padding: 4%;
     width: 60%;
