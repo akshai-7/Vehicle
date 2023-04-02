@@ -34,9 +34,10 @@
                                 <td style="text-align:center;" class="table_data">
                                     {{ $user->created_at->format('Y-m-d') }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    {{-- <button name="update[{{ $user->id }}]">Update</button> --}}
-                                    <a href="{{ route('update', $user->id) }}" data-toggle="tooltip" data-placement="top"
-                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                    <a onclick=" check({{ $user }})"><i
+                                            class="fa-solid fa-edit btn btn-success"></i></a>
+                                    {{-- <a href="{{ route('update', $user->id) }}" data-toggle="tooltip" data-placement="top"
+                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a> --}}
                                     <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
                                         title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
@@ -156,7 +157,110 @@
                     </div>
                 </form>
             </div>
+        </div>
+        <div id="sam1">
+            <div class="userPopUp1">
+                <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
+                    @csrf
+                    <div id="userHeading">
+                        <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Update Driver</h5>
+                        <a href="/user">
+                            <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                        </a>
+                    </div>
 
+                    <div class="report1">
+                        <div class="report">
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> Id</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="id" class="form-control" id="tag">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="name" class="form-control" id="tag1">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> Gender</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="gender" class="form-control" id="tag2">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
+                                <div class="col-sm-9">
+                                    <input type="date" name="date_of_birth" class="form-control" id="tag3">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subreport">
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2 col-form-label"> Company</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="company" class="form-control" id="tag4">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2 col-form-label"> Address</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="address" class="form-control" id="tag5">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label for="" class="col-sm-2  col-form-label"> Email</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="email" class="form-control" id="tag6">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4 ">
+                                <label for="" class="col-sm-2 col-form-label"> Mobile</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="mobile" class="form-control" id="tag7">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                    <input type="submit" name="" value="Submit" class="btn text-white mt-4"
+                                        id="add" style="float:right;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 @endsection

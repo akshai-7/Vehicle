@@ -168,7 +168,9 @@ a {
 
 #sam,
 #inspectionFrom,
-#incidentFrom {
+#incidentFrom,
+#sam1 {
+    cursor: pointer;
     width: 100%;
     height: 100%;
     background: rgba(107, 107, 107, 0.5);
@@ -208,6 +210,14 @@ a {
     background: rgb(230, 230, 236);
 }
 .userPopUp {
+    border-radius: 10px;
+    padding: 4%;
+    width: 80%;
+    height: 80%;
+    overflow: scroll;
+    background: rgb(230, 230, 236);
+}
+.userPopUp1 {
     border-radius: 10px;
     padding: 4%;
     width: 80%;

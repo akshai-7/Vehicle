@@ -97,3 +97,16 @@ function popUpImage(val) {
   $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+function check(val) {
+    document.getElementById('sam1').style.display="flex"
+    document.getElementById('tag').value = val['id']
+    document.getElementById('tag1').value = val['name']
+    document.getElementById('tag2').value = val['gender']
+    document.getElementById('tag3').value = val['date_of_birth']
+    document.getElementById('tag4').value = val['company']
+    document.getElementById('tag5').value = val['address']
+    document.getElementById('tag6').value = val['email']
+    document.getElementById('tag7').value = val['mobile']
+}
+
