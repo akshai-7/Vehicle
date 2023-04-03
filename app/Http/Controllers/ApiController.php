@@ -183,7 +183,7 @@ class ApiController extends Controller
         $visual = Visual::where('inspection_id', $inspection_id)->get();
         $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
         $cabin = Cabin::where('inspection_id', $inspection_id)->get();
-        $pdf = Pdf::loadView('userpdf', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
-        return response()->$pdf->download('userpdf.pdf');
+        $pdf = Pdf::loadView('M&d-foundations', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
+        return $pdf->download('M&d-foundations.pdf');
     }
 }
