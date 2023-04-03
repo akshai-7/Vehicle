@@ -100,7 +100,7 @@
                     </form>
                 </div>
             </div>
-            <div id="sam1">
+            <div id="sam2">
                 <div class="vehiclePopUp1">
                     <div class=>
                         <form action="/updatevehicle/{id}" method="POST" autocomplete="off">

@@ -101,22 +101,22 @@ function popUpImage(val) {
 //user update
 function check(val) {
     document.getElementById('sam1').style.display="flex"
-    document.getElementById('tag').value = val['id']
-    document.getElementById('tag1').value = val['name']
-    document.getElementById('tag2').value = val['gender']
-    document.getElementById('tag3').value = val['date_of_birth']
-    document.getElementById('tag4').value = val['company']
-    document.getElementById('tag5').value = val['address']
-    document.getElementById('tag6').value = val['email']
-    document.getElementById('tag7').value = val['mobile']
+    document.getElementById('id').value = val['id']
+    document.getElementById('name').value = val['name']
+    document.getElementById('gender').value = val['gender']
+    document.getElementById('date_of_birth').value = val['date_of_birth']
+    document.getElementById('company').value = val['company']
+    document.getElementById('address').value = val['address']
+    document.getElementById('email').value = val['email']
+    document.getElementById('mobile').value = val['mobile']
 }
 
 //update vehicle
-function check(val) {
-    document.getElementById('sam1').style.display="flex"
-    document.getElementById('id').value = val['id']
-    document.getElementById('number_plate').value = val['number_plate']
-    document.getElementById('vehicle_type').value = val['vehicle_type']
-    document.getElementById('vehicle_model').value = val['vehicle_model']
-    document.getElementById('mileage').value = val['mileage']
+function check(val1) {
+    document.getElementById('sam2').style.display="flex"
+    document.getElementById('id').value = val1['id']
+    document.getElementById('number_plate').value = val1['number_plate']
+    document.getElementById('vehicle_type').value = val1['vehicle_type']
+    document.getElementById('vehicle_model').value = val1['vehicle_model']
+    document.getElementById('mileage').value = val1['mileage']
 }

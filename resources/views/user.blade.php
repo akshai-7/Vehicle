@@ -172,7 +172,7 @@
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2  col-form-label"> Id</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="id" class="form-control" id="tag">
+                                    <input type="text" name="id" class="form-control" id="id">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
                                             *{{ $message }}
                                         @enderror
@@ -182,7 +182,7 @@
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2  col-form-label"> Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="name" class="form-control" id="tag1">
+                                    <input type="text" name="name" class="form-control" id="name">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                             *{{ $message }}
                                         @enderror
@@ -192,7 +192,7 @@
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2  col-form-label"> Gender</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="gender" class="form-control" id="tag2">
+                                    <input type="text" name="gender" class="form-control" id="gender">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
                                             *{{ $message }}
                                         @enderror
@@ -203,7 +203,7 @@
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                                 <div class="col-sm-9">
-                                    <input type="date" name="date_of_birth" class="form-control" id="tag3">
+                                    <input type="date" name="date_of_birth" class="form-control" id="date_of_birth">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                             *{{ $message }}
                                         @enderror
@@ -215,7 +215,7 @@
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2 col-form-label"> Company</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="company" class="form-control" id="tag4">
+                                    <input type="text" name="company" class="form-control" id="company">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')
                                             *{{ $message }}
                                         @enderror
@@ -225,7 +225,7 @@
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2 col-form-label"> Address</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="address" class="form-control" id="tag5">
+                                    <input type="text" name="address" class="form-control" id="address">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
                                             *{{ $message }}
                                         @enderror
@@ -235,7 +235,7 @@
                             <div class="form-group row mt-4">
                                 <label for="" class="col-sm-2  col-form-label"> Email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="email" class="form-control" id="tag6">
+                                    <input type="text" name="email" class="form-control" id="email">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
                                             *{{ $message }}
                                         @enderror
@@ -245,7 +245,7 @@
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2 col-form-label"> Mobile</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="mobile" class="form-control" id="tag7">
+                                    <input type="text" name="mobile" class="form-control" id="mobile">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
                                             *{{ $message }}
                                         @enderror
