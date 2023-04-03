@@ -463,7 +463,7 @@
                 </div>
                 <div class="vehicle">
                     <div class="form-group mt-5">
-                        <label class="col-sm-2 col-form-label">User</label>
+                        <label class="col-sm-2 col-form-label">Driver_Name</label>
                         <select class="form-select " style="width: 370px;" name="name">
                             <option>Please Select Driver</option>
                             @foreach ($assigns as $assign)

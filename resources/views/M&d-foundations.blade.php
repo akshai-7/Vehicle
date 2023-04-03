@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user.pdf</title>
+    <title>PDF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -48,13 +48,16 @@
     <header class="headers" id="headers">
         <div class="header_img"> <img src="{{ 'images/m-d-foundation.png' }}" class="img"> </div>
     </header>
-    <h2> Report Summary</h2>
+    <h2 class="mt-3"> Report Summary</h2>
     <div class="date">
         <strong> Date : {{ date('d.m.Y') }} </strong>
     </div>
-    <h5 class="text-secondary" class="check first">Visual Damage</h5>
-    <table style="width:80%" class="">
-
+    <h5 class="text-secondary check" class="check first" style="margin-top:10%;">Visual Damage</h5>
+    <table style="width:80%;" class="">
+        <th style="text-align:center;" class=" col-md-2">View</th>
+        <th style="text-align:center;" class=" col-md-2">Image</th>
+        <th style="text-align:center;" class=" col-md-2">Feed Back</th>
+        <th style="text-align:center;" class="col-md-2">Action</th>
         @foreach ($visual as $visual)
             <tr style="tect-align:center;">
                 <td>{{ $visual->view }}</td>
@@ -75,12 +78,15 @@
             </tr>
         @endforeach
     </table>
-    <h5 class="text-secondary" class="check">Vehicle Check</h5>
+    <h5 class="text-secondary check" style="margin-top:10%;">Vehicle Check</h5>
     <table style="width:80%" class="vehicle">
+        <th style="text-align:center;" class=" col-md-2">View</th>
+        <th style="text-align:center;" class=" col-md-2">Image</th>
+        <th style="text-align:center;" class=" col-md-2">Feed Back</th>
+        <th style="text-align:center;" class="col-md-2">Action</th>
         @foreach ($vehicle as $vehicle)
             <tr>
                 <td>{{ $vehicle->view }}</td>
-
                 <td style="text-align:center;" class=" col-md-2 table_data">
                     @if ($vehicle->image != null)
                         @foreach (explode(',', $vehicle->image) as $image)
@@ -103,8 +109,12 @@
             </tr>
         @endforeach
     </table>
-    <h5 class="text-secondary" class="check">Cabin Checks</h5>
+    <h5 class="text-secondary check" style="margin-top:10%;">Cabin Checks</h5>
     <table style="width:80%">
+        <th style="text-align:center;" class=" col-md-2">View</th>
+        <th style="text-align:center;" class=" col-md-2">Image</th>
+        <th style="text-align:center;" class=" col-md-2">Feed Back</th>
+        <th style="text-align:center;" class="col-md-2">Action</th>
         @foreach ($cabin as $cabin)
             <tr>
                 <td>{{ $cabin->view }}</td>
