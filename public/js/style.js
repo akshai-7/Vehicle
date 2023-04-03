@@ -113,7 +113,7 @@ function check(val) {
 
 //update vehicle
 function check1(val) {
-    document.getElementById('sam2').style.display="flex"
+    document.getElementById('sam1').style.display="flex"
     document.getElementById('id').value = val['id']
     document.getElementById('number_plate').value = val['number_plate']
     document.getElementById('vehicle_type').value = val['vehicle_type']

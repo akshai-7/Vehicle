@@ -39,9 +39,9 @@
                     </tbody>
                 </table>
             </div>
-            {{-- <div class="active">
-            {!! $vehicles->links() !!}
-            </div> --}}
+            <div class="active">
+                {!! $vehicles->links() !!}
+            </div>
             <div id="sam">
                 <div class="vehiclePopUp">
                     <form action="/createvehicle" method="POST" autocomplete="off">
@@ -100,7 +100,7 @@
                     </form>
                 </div>
             </div>
-            <div id="sam2">
+            <div id="sam1">
                 <div class="vehiclePopUp1">
                     <div class=>
                         <form action="/updatevehicle/{id}" method="POST" autocomplete="off">

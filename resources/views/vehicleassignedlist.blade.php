@@ -22,7 +22,7 @@
                         <th style="text-align:center;">Action</th>
                     </thead>
                     <tbody>
-                        @foreach ($assign as $assign)
+                        @foreach ($assigns as $assign)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
@@ -42,12 +42,13 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="active">
+                    {!! $assigns->links() !!}
+                </div>
             </div>
         </div>
         <div id="inspectionFrom">
             <section id="inspectionFromPopUp">
-
-
                 <div id="userHeading">
                     <h4 style="margin-top: 2%">
                         Inspection Details
@@ -60,17 +61,20 @@
                     @csrf
                     <div class="report1">
                         <div class="form-group row mt-5 select ">
-                            <select class="form-select form-control" style="width: 400px;" name="name">
+                            <select class="form-select form-control" style="width: 400px;background:rgb(230, 230, 236)"
+                                name="name">
                                 <option>Please Select Driver</option>
                                 @foreach ($assigns as $assign)
-                                    <option value="{{ $assign->name }}">{{ $assign->name }}</option>
+                                    <option value="{{ $assign->name }}">{{ $assign->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="subreport">
                             <div class="form-group row mt-5 ">
                                 <div class="col-sm-9">
-                                    <input type="text" name="mileage" placeholder="Current Mileage" class="form-control">
+                                    <input type="text" name="mileage" placeholder="Current Mileage" class="form-control"
+                                        style="background:rgb(230, 230, 236)">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
                                             *{{ $message }}
                                         @enderror

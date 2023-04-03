@@ -46,11 +46,12 @@
                         <p>Data not found</p>
                     @endif
                 </table>
+                <div class="active">
+                    {!! $users->links() !!}
+                </div>
             </div>
         </div>
-        {{-- <div class="active">
-        {!! $users->links() !!}
-    </div> --}}
+
         <div id="sam">
             <div class="userPopUp">
                 <form action="/createuser" method="POST" autocomplete="off">

@@ -22,7 +22,7 @@
                             <select class="form-select form-control" name="name">
                                 <option>Select</option>
                                 @foreach ($assigns as $assign)
-                                    <option value="{{ $assign->name }}">{{ $assign->name }}</option>
+                                    <option>{{ $assign->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -84,9 +84,9 @@
 
                 </div>
             </div>
-            {{-- <div class="active">
-            {!! $inspections->links() !!}
-        </div> --}}
+            <div class="active">
+                {!! $inspections->links() !!}
+            </div>
         </div>
         <div id="Vehicle" class="tabcontent">
 
@@ -142,9 +142,9 @@
                 </div>
 
             </div>
-            {{-- <div class="active">
-            {!! $assigns->links() !!}
-        </div> --}}
+            <div class="active">
+                {!! $assigns->links() !!}
+            </div>
         </div>
     </div>
 @endsection

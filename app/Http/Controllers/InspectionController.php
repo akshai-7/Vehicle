@@ -12,11 +12,6 @@ use Illuminate\Support\Carbon;
 
 class InspectionController extends Controller
 {
-    public function weeklyinspection($id)
-    {
-        $assign = Assign::where('id', $id)->first();
-        return view('/inspection', compact('assign'));
-    }
     public function store(Request $request)
     {
         $request->validate([
@@ -140,10 +135,8 @@ class InspectionController extends Controller
 
     public function inspection()
     {
-        $inspections = Inspection::all();
-        $assigns = Assign::all();
-        // $inspections = Inspection::paginate(1);
-        // $assigns = Assign::paginate(1);
+        $inspections = Inspection::paginate(5);
+        $assigns = Assign::paginate(5);
         return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
     public function deleteinspection($id)
@@ -158,20 +151,20 @@ class InspectionController extends Controller
     public function search(Request $request)
     {
         if ($request->name == "Select" && $request->date == null) {
-            $inspections = Inspection::get();
-            $assigns = Assign::all();
+            $inspections = Inspection::paginate(5);
+            $assigns = Assign::paginate(5);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name == "Select" && $request->date != null) {
-            $inspections = Inspection::where('created_at', $request->date)->get();
-            $assigns = Assign::all();
+            $inspections = Inspection::where('created_at', $request->date)->paginate(5);
+            $assigns = Assign::paginate(5);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name != "Select" && $request->date == null) {
-            $inspections = Inspection::where('name', $request->name)->get();
-            $assigns = Assign::all();
+            $inspections = Inspection::where('name', $request->name)->paginate(5);
+            $assigns = Assign::paginate(5);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } else {
-            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->get();
-            $assigns = Assign::all();
+            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->paginate(5);
+            $assigns = Assign::paginate(5);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         }
     }

@@ -52,9 +52,8 @@ class AssignController extends Controller
     }
     public function vehicleassignedlist()
     {
-        $assign = Assign::all();
-        $assigns = Assign::get();
-        return view('/vehicleassignedlist', compact('assign', 'assigns'));
+        $assigns = Assign::paginate(5);
+        return view('/vehicleassignedlist', compact('assigns'));
     }
     public function updateassignlist($id)
     {

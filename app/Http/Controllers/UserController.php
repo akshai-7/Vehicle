@@ -42,9 +42,9 @@ class UserController extends Controller
     public function userlist()
     {
         $role = 'User';
-        $users = User::where('role', $role)->get();
+        // $users = User::where('role', $role)->get();
         // $users = User::where('role', $role)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();;
-        // $users = User::where('role', $role)->paginate(2);
+        $users = User::where('role', $role)->paginate(5);
         return view('/user', ['users' => $users]);
     }
     public function updateuser($id)
