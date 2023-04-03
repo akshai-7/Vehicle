@@ -42,9 +42,13 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="col-md-2 table_data">{{ $visual->view }}
                                 </td>
-                                <td style="text-align:center;" class=" col-md-2 table_data"><img
-                                        src="{{ url('images/' . explode(',', $visual->image)[0]) }}" width="50px"
-                                        height="50px" alt="" class="rounded-0 border border-secondary "></td>
+                                <td style="text-align:center;" class=" col-md-2 table_data">
+                                    @foreach (explode(',', $visual->image) as $image)
+                                        <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary"
+                                            width="70px" height="80px">
+                                        <span></span>
+                                    @endforeach
+                                </td>
                                 <td style="text-align:center;" class="col-md-2 table_data">
                                     {{ $visual->feedback }}
                                 </td>
@@ -69,8 +73,11 @@
                                 </td>
                                 <td style="text-align:center;" class=" col-md-2 table_data">
                                     @if ($vehicle->image != null)
-                                        <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}" width="50px"
-                                            height="50px" alt="" class="rounded-0 border border-secondary ">
+                                        @foreach (explode(',', $vehicle->image) as $image)
+                                            <img src="{{ url('images/' . $image) }}"
+                                                class="rounded-0 border border-secondary" width="70px" height="80px">
+                                            <span></span>
+                                        @endforeach
                                     @endif
                                     @if ($vehicle->image == null)
                                         <p style="text-align:center;">--</p>
@@ -101,8 +108,11 @@
                                 </td>
                                 <td style="text-align:center;" class="col-md-2 table_data">
                                     @if ($cabin->image != null)
-                                        <img src="{{ url('images/' . explode(',', $cabin->image)[0]) }}" width="50px"
-                                            height="50px" alt="" class="rounded-0 border border-secondary ">
+                                        @foreach (explode(',', $cabin->image) as $image)
+                                            <img src="{{ url('images/' . $image) }}"
+                                                class="rounded-0 border border-secondary" width="70px" height="80px">
+                                            <span></span>
+                                        @endforeach
                                     @endif
                                     @if ($cabin->image == null)
                                         <p style="text-align:center;">--</p>

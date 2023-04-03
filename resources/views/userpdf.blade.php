@@ -58,16 +58,17 @@
         @foreach ($visual as $visual)
             <tr style="tect-align:center;">
                 <td>{{ $visual->view }}</td>
-
                 <td style="text-align:center;" class=" col-md-2 table_data">
-                    @php
-                        $path = public_path('images/' . explode(',', $visual->image)[0]);
-                        $type = pathinfo($path, PATHINFO_EXTENSION);
-                        $data = file_get_contents($path);
-                        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                    @endphp
-                    <img src="{{ $base64 }}" width="50px" height="50px" alt=""
-                        class="rounded-0 border border-secondary ">
+                    @foreach (explode(',', $visual->image) as $image)
+                        @php
+                            $path = public_path('images/' . explode(',', $visual->image)[0]);
+                            $type = pathinfo($path, PATHINFO_EXTENSION);
+                            $data = file_get_contents($path);
+                            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                        @endphp
+                        <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                            class="rounded-0 border border-secondary ">
+                    @endforeach
                 </td>
                 <td style="text-align:center; ">{{ $visual->feedback }}</td>
                 <td style="text-align:center; ">{{ $visual->action }}</td>
@@ -81,17 +82,17 @@
                 <td>{{ $vehicle->view }}</td>
 
                 <td style="text-align:center;" class=" col-md-2 table_data">
-
-
                     @if ($vehicle->image != null)
-                        @php
-                            $path = public_path('images/' . explode(',', $vehicle->image)[0]);
-                            $type = pathinfo($path, PATHINFO_EXTENSION);
-                            $data = file_get_contents($path);
-                            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                        @endphp
-                        <img src="{{ $base64 }}" width="50px" height="50px" alt=""
-                            class="rounded-0 border border-secondary ">
+                        @foreach (explode(',', $vehicle->image) as $image)
+                            @php
+                                $path = public_path('images/' . explode(',', $vehicle->image)[0]);
+                                $type = pathinfo($path, PATHINFO_EXTENSION);
+                                $data = file_get_contents($path);
+                                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                            @endphp
+                            <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                                class="rounded-0 border border-secondary ">
+                        @endforeach
                     @endif
                     @if ($vehicle->image == null)
                         <p style="text-align:center;">--</p>
@@ -109,16 +110,17 @@
                 <td>{{ $cabin->view }}</td>
 
                 <td style="text-align:center;" class=" col-md-2 table_data">
-
                     @if ($cabin->image != null)
-                        @php
-                            $path = public_path('images/' . explode(',', $cabin->image)[0]);
-                            $type = pathinfo($path, PATHINFO_EXTENSION);
-                            $data = file_get_contents($path);
-                            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                        @endphp
-                        <img src="{{ $base64 }}" width="50px" height="50px" alt=""
-                            class="rounded-0 border border-secondary ">
+                        @foreach (explode(',', $cabin->image) as $image)
+                            @php
+                                $path = public_path('images/' . explode(',', $cabin->image)[0]);
+                                $type = pathinfo($path, PATHINFO_EXTENSION);
+                                $data = file_get_contents($path);
+                                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                            @endphp
+                            <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                                class="rounded-0 border border-secondary ">
+                        @endforeach
                     @endif
                     @if ($cabin->image == null)
                         <p style="text-align:center;">--</p>

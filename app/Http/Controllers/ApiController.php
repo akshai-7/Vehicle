@@ -13,6 +13,7 @@ use App\Models\Visual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ApiController extends Controller
 {
@@ -175,7 +176,14 @@ class ApiController extends Controller
                 Vehiclecheck::create($data2);
             }
         };
-
         return response()->json(['message' => 'Data Stored Successfully', "data" => $data], 200);
+    }
+    public function pdf($inspection_id)
+    {
+        $visual = Visual::where('inspection_id', $inspection_id)->get();
+        $vehicle = Vehiclecheck::where('inspection_id', $inspection_id)->get();
+        $cabin = Cabin::where('inspection_id', $inspection_id)->get();
+        $pdf = Pdf::loadView('userpdf', ['cabin' => $cabin, 'visual' => $visual, 'vehicle' => $vehicle]);
+        return response()->$pdf->download('userpdf.pdf');
     }
 }

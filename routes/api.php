@@ -23,3 +23,4 @@ Route::post('/login', [ApiController::class, 'login']);
 Route::post('/inspection/{assign_id}', [ApiController::class, 'inspection'])->middleware('auth:sanctum');
 Route::post('/report/{assign_id}', [ApiController::class, 'report'])->middleware('auth:sanctum');
 Route::post('/visualcheck/{inspection_id}', [ApiController::class, 'visualcheck'])->middleware('auth:sanctum');
+Route::get('/pdf/{inspection_id}', [ApiController::class, 'pdf'])->middleware('auth:sanctum');
