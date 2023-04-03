@@ -112,11 +112,11 @@ function check(val) {
 }
 
 //update vehicle
-function check(val1) {
+function check1(val) {
     document.getElementById('sam2').style.display="flex"
-    document.getElementById('id').value = val1['id']
-    document.getElementById('number_plate').value = val1['number_plate']
-    document.getElementById('vehicle_type').value = val1['vehicle_type']
-    document.getElementById('vehicle_model').value = val1['vehicle_model']
-    document.getElementById('mileage').value = val1['mileage']
+    document.getElementById('id').value = val['id']
+    document.getElementById('number_plate').value = val['number_plate']
+    document.getElementById('vehicle_type').value = val['vehicle_type']
+    document.getElementById('vehicle_model').value = val['vehicle_model']
+    document.getElementById('mileage').value = val['mileage']
 }

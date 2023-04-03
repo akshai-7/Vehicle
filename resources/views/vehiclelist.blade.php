@@ -29,7 +29,7 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a onclick=" check({{ $vehicle }})"><i
+                                    <a onclick=" check1({{ $vehicle }})"><i
                                             class="fa-solid fa-edit btn btn-success"></i></a>
                                     <a href="/remove/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
                                         title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
