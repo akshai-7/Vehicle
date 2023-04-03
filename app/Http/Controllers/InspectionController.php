@@ -10,6 +10,9 @@ use App\Models\Cabin;
 use App\Models\Assign;
 use Illuminate\Support\Carbon;
 
+$name1 = "Select";
+$date2 = null;
+
 class InspectionController extends Controller
 {
     public function store(Request $request)
@@ -150,6 +153,7 @@ class InspectionController extends Controller
     }
     public function search(Request $request)
     {
+
         if ($request->name == "Select" && $request->date == null) {
             $inspections = Inspection::paginate(5);
             $assigns = Assign::paginate(5);
@@ -157,6 +161,7 @@ class InspectionController extends Controller
         } elseif ($request->name == "Select" && $request->date != null) {
             $inspections = Inspection::where('date', $request->date)->paginate(5);
             $assigns = Assign::paginate(5);
+
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name != "Select" && $request->date == null) {
             $inspections = Inspection::where('name', $request->name)->paginate(5);
