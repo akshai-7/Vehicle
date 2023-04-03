@@ -58,13 +58,14 @@
         @foreach ($visual as $visual)
             <tr style="tect-align:center;">
                 <td>{{ $visual->view }}</td>
-                @php
-                    $path = public_path('images/' . explode(',', $visual->image)[0]);
-                    $type = pathinfo($path, PATHINFO_EXTENSION);
-                    $data = file_get_contents($path);
-                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                @endphp
+
                 <td style="text-align:center;" class=" col-md-2 table_data">
+                    @php
+                        $path = public_path('images/' . explode(',', $visual->image)[0]);
+                        $type = pathinfo($path, PATHINFO_EXTENSION);
+                        $data = file_get_contents($path);
+                        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                    @endphp
                     <img src="{{ $base64 }}" width="50px" height="50px" alt=""
                         class="rounded-0 border border-secondary ">
                 </td>
@@ -78,15 +79,23 @@
         @foreach ($vehicle as $vehicle)
             <tr>
                 <td>{{ $vehicle->view }}</td>
-                @php
-                    $path = public_path('images/' . explode(',', $vehicle->image)[0]);
-                    $type = pathinfo($path, PATHINFO_EXTENSION);
-                    $data = file_get_contents($path);
-                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                @endphp
+
                 <td style="text-align:center;" class=" col-md-2 table_data">
-                    <img src="{{ $base64 }}" width="50px" height="50px" alt=""
-                        class="rounded-0 border border-secondary ">
+
+
+                    @if ($vehicle->image != null)
+                        @php
+                            $path = public_path('images/' . explode(',', $vehicle->image)[0]);
+                            $type = pathinfo($path, PATHINFO_EXTENSION);
+                            $data = file_get_contents($path);
+                            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                        @endphp
+                        <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                            class="rounded-0 border border-secondary ">
+                    @endif
+                    @if ($vehicle->image == null)
+                        <p style="text-align:center;">--</p>
+                    @endif
                 </td>
                 <td style="text-align:center; ">{{ $vehicle->feedback }}</td>
                 <td style="text-align:center; ">{{ $vehicle->action }}</td>
@@ -98,15 +107,22 @@
         @foreach ($cabin as $cabin)
             <tr>
                 <td>{{ $cabin->view }}</td>
-                @php
-                    $path = public_path('images/' . explode(',', $cabin->image)[0]);
-                    $type = pathinfo($path, PATHINFO_EXTENSION);
-                    $data = file_get_contents($path);
-                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                @endphp
+
                 <td style="text-align:center;" class=" col-md-2 table_data">
-                    <img src="{{ $base64 }}" width="50px" height="50px" alt=""
-                        class="rounded-0 border border-secondary ">
+
+                    @if ($cabin->image != null)
+                        @php
+                            $path = public_path('images/' . explode(',', $cabin->image)[0]);
+                            $type = pathinfo($path, PATHINFO_EXTENSION);
+                            $data = file_get_contents($path);
+                            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                        @endphp
+                        <img src="{{ $base64 }}" width="50px" height="50px" alt=""
+                            class="rounded-0 border border-secondary ">
+                    @endif
+                    @if ($cabin->image == null)
+                        <p style="text-align:center;">--</p>
+                    @endif
                 </td>
                 <td style="text-align:center; ">{{ $cabin->feedback }}</td>
                 <td style="text-align:center; ">{{ $cabin->action }}</td>

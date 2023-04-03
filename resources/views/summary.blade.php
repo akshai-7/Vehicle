@@ -70,7 +70,7 @@
                                 <td style="text-align:center;" class=" col-md-2 table_data">
                                     @if ($vehicle->image != null)
                                         <img src="{{ url('images/' . explode(',', $vehicle->image)[0]) }}" width="50px"
-                                            height="50px" alt="" class="rounded-0 border border-secondary ">">
+                                            height="50px" alt="" class="rounded-0 border border-secondary ">
                                     @endif
                                     @if ($vehicle->image == null)
                                         <p style="text-align:center;">--</p>
