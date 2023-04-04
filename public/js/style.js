@@ -117,6 +117,7 @@ function check1(val) {
     document.getElementById('id').value = val['id']
     document.getElementById('number_plate').value = val['number_plate']
     document.getElementById('vehicle_type').value = val['vehicle_type']
+    document.getElementById('make').value = val['make']
     document.getElementById('vehicle_model').value = val['vehicle_model']
     document.getElementById('mileage').value = val['mileage']
 }

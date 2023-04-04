@@ -24,6 +24,7 @@ class VehicleController extends Controller
         $vehicle = new Vehicle();
         $vehicle->number_plate = $request['number_plate'];
         $vehicle->vehicle_type = $request['vehicle_type'];
+        $vehicle->make = $request['make'];
         $vehicle->vehicle_model = $request['vehicle_model'];
         $vehicle->mileage = $request['mileage'];
         $vehicle->save();
@@ -32,7 +33,7 @@ class VehicleController extends Controller
     }
     public function vehiclelist()
     {
-        // $vehicles = Vehicle::all();
+
         $vehicles = Vehicle::paginate(5);
         return view('vehiclelist', compact('vehicles'));
     }
@@ -58,6 +59,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::where('id', $id)->first();
         $vehicle->number_plate = $request['number_plate'];
         $vehicle->vehicle_type = $request['vehicle_type'];
+        $vehicle->make = $request['make'];
         $vehicle->vehicle_model = $request['vehicle_model'];
         $vehicle->mileage = $request['mileage'];
         $vehicle->save();

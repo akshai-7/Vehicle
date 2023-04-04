@@ -13,6 +13,7 @@
                         <th style="text-align:center;">Id</th>
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Vehicle Type</th>
+                        <th style="text-align:center;">Make</th>
                         <th style="text-align:center;">Vehicle Model</th>
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Action</th>
@@ -24,6 +25,8 @@
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->number_plate }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_type }}
+                                </td>
+                                <td style="text-align:center;" class="table_data">{{ $vehicle->make }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_model }}
                                 </td>
@@ -72,6 +75,16 @@
                                         <option value="Truck">Truck</option>
                                         <option value="Car">Car</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4 ">
+                                <label class="col-sm-2 col-form-label">Make</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="make" class="form-control">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('make')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
@@ -140,6 +153,16 @@
                                         <input type="text" name="vehicle_type" class="form-control"
                                             id="vehicle_type">
                                         <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_type')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4 ">
+                                    <label class="col-sm-2 col-form-label">Make</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="make" class="form-control" id="make">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('make')
                                                 *{{ $message }}
                                             @enderror
                                         </div>
