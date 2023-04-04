@@ -14,7 +14,7 @@
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Vehicle Type</th>
                         <th style="text-align:center;">Make</th>
-                        <th style="text-align:center;">Vehicle Model</th>
+                        <th style="text-align:center;">Model</th>
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label">Vehicle_Model</label>
+                                <label class="col-sm-2 col-form-label">Model</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="vehicle_model" class="form-control">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('vehicle_model')
@@ -169,7 +169,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mt-4 ">
-                                    <label class="col-sm-2 col-form-label">Vehicle_Model</label>
+                                    <label class="col-sm-2 col-form-label">Model</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="vehicle_model" class="form-control"
                                             id="vehicle_model">
