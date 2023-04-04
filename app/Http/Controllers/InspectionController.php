@@ -153,7 +153,6 @@ class InspectionController extends Controller
     }
     public function search(Request $request)
     {
-
         if ($request->name == "Select" && $request->date == null) {
             $inspections = Inspection::paginate(5);
             $assigns = Assign::paginate(5);

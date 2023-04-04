@@ -120,3 +120,4 @@ function check1(val) {
     document.getElementById('vehicle_model').value = val['vehicle_model']
     document.getElementById('mileage').value = val['mileage']
 }
+

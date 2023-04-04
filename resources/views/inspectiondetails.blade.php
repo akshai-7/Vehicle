@@ -22,7 +22,7 @@
                             <select class="form-select form-control" name="name">
                                 <option>Select</option>
                                 @foreach ($assigns as $assign)
-                                    <option>{{ $assign->name }}</option>
+                                    <option value="{!! $assign->name !!}">{{ $assign->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -89,18 +89,7 @@
             </div>
         </div>
         <div id="Vehicle" class="tabcontent">
-
             <div class="table-data" id="table-data">
-                {{-- <form action="/search" method="GET" class="filter" autocomplete="off">
-            <div class="col-md-5">
-                <label>Filter by Date</label>
-                <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
-            </div>
-            <div class="col-md-5">
-                <br />
-                <button type="submit" class="btn btn-primary">Filter</button>
-            </div>
-        </form> --}}
                 <div class="order">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                         <thead class="text-primary">
