@@ -15,20 +15,35 @@
                     <div id="filterDiv">
                         <div class="col-md-3" id="filter">
                             <label>Filter by Date</label>
-                            <input type="date" name="date" class="form-control">
+                            @if (isset($_GET['date']))
+                                <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
+                            @else
+                                <input type="date" name="date" class="form-control">
+                            @endif
                         </div>
                         <div class="col-md-3" id="">
                             <label>Filter by Name</label>
                             <select class="form-select form-control" name="name">
-                                <option>Select</option>
-                                @foreach ($assigns as $assign)
-                                    <option value="{!! $assign->name !!}">{{ $assign->name }}</option>
-                                @endforeach
+                                @if (isset($_GET['name']))
+                                    <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
+                                    @foreach ($assigns as $assign)
+                                        <option value="{{ $assign->name }}">
+                                            {{ $assign->name }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Select</option>
+                                    @foreach ($assigns as $assign)
+                                        <option value="{{ $assign->name }}">
+                                            {{ $assign->name }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5" style="margin-left: 6px">
                             <br />
-                            <button type="submit" class="btn btn-primary">Filter</button>
+                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
+                            <a href="/inspectiondetails" class="btn btn-success btn-sm mt-1"><i
+                                    class="fa-solid fa-arrow-rotate-right"></i></a>
                         </div>
                     </div>
                 </form>
@@ -89,6 +104,7 @@
             </div>
         </div>
         <div id="Vehicle" class="tabcontent">
+
             <div class="table-data" id="table-data">
                 <div class="order">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">

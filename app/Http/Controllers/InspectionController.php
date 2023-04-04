@@ -160,9 +160,9 @@ class InspectionController extends Controller
         } elseif ($request->name == "Select" && $request->date != null) {
             $inspections = Inspection::where('date', $request->date)->paginate(5);
             $assigns = Assign::paginate(5);
-
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name != "Select" && $request->date == null) {
+
             $inspections = Inspection::where('name', $request->name)->paginate(5);
             $assigns = Assign::paginate(5);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
