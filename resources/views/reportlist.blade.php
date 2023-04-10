@@ -39,7 +39,7 @@
                                     </a>
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/updatereport/{{ $report->id }}" class="tool"><i
+                                    <a onclick="report({{ $report }})" class="tool"><i
                                             class="fa-solid fa-eye btn  text-white" style="background:#06064b "
                                             data-toggle="tooltip" data-placement="top" title="View"></i></a>
                                     <a href="/deletereport/{{ $report->id }}" data-toggle="tooltip" data-placement="top"
@@ -48,7 +48,6 @@
                             </tr>
                         @endforeach
                     </tbody>
-
                 </table>
                 @if (isset($reports))
                     @if (count($reports) < 1)
@@ -58,6 +57,53 @@
                     @endif
                 @endif
             </div>
+        </div>
+    </div>
+    <div id="updatePopup5">
+        <div class="updateassignPopup">
+            <form action="#" method="POST" autocomplete="off">
+                @csrf
+                <div id="userHeading">
+                    <h4 style="margin-top: 2%">
+                        Report an Incident
+                    </h4>
+                    <a href="/reportlist">
+                        <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                    </a>
+                </div>
+                <div class="incident">
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2">Assign_ID</label>
+                        <div class="col-sm-9">
+                            <input class="form-control-plaintext" id="id">
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2 ">Date</label>
+                        <div class="col-sm-9">
+                            <input class="form-control-plaintext" id="date">
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2">Location</label>
+                        <div class="col-sm-9">
+                            <input class="form-control-plaintext" id="location">
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 "> Witnessed_by</label>
+                        <div class="col-sm-9">
+                            <input class="form-control-plaintext" id="witnessed_by">
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 ">Mobile.no</label>
+                        <div class="col-sm-9">
+                            <input class="form-control-plaintext" id="mobile">
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

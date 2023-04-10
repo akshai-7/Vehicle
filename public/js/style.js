@@ -155,3 +155,27 @@ function cabin(val) {
     document.getElementById('image2').value = val['image']
 }
 
+//assign
+function assign(val) {
+        document.getElementById('updatePopup4').style.display="flex"
+        document.getElementById('user_id').value = val['id']
+        document.getElementById('name').value = val['name']
+        document.getElementById('email').value = val['email']
+        document.getElementById('mobile').value = val['mobile']
+        document.getElementById('vehicle_id').value = val['vehicle_id']
+        document.getElementById('number_plate').value = val['number_plate']
+        document.getElementById('mileage').value = val['mileage']
+        document.getElementById('date').value = val['created_at']
+}
+
+function report(val) {
+    document.getElementById('updatePopup5').style.display="flex"
+    document.getElementById('id').value = val['id']
+    document.getElementById('date').value = val['date']
+    document.getElementById('location').value = val['location']
+    document.getElementById('mobile').value = val['mobile']
+    document.getElementById('witnessed_by').value = val['witnessed_by']
+    document.getElementById('mobile').value = val['mobile']
+    document.getElementById('image').value = val['image']
+
+}

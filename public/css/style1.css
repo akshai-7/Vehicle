@@ -172,7 +172,9 @@ a {
 #sam1,
 #updatePopup1,
 #updatePopup2,
-#updatePopup3 {
+#updatePopup3,
+#updatePopup4,
+#updatePopup5 {
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -344,8 +346,8 @@ h5 {
 }
 .divClose {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: end;
+    justify-content: end;
 }
 .vehicle {
     margin-left: 10px;

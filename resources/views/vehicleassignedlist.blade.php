@@ -32,9 +32,7 @@
                                 <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a href="/updateassignlist/{{ $assign->id }}" onclick="show('popup9')"
-                                        data-toggle="tooltip" data-placement="top" title="Edit"><i
-                                            class="fa-solid fa-eye btn btn-success"></i></a>
+                                    <a onclick="assign({{ $assign }})" class="fa-solid fa-eye btn btn-success"></a>
                                     <a href="/deleteId/{{ $assign->id }}" data-toggle="tooltip" data-placement="top"
                                         title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
                                 </td>
@@ -102,8 +100,8 @@
                             <tbody id='row'>
                                 <tr class="list">
                                     <td class="col-md-1"><input type="" name="sno[]"
-                                            class="form-control col-md-1 border-0" style="text-align:center;"
-                                            value="1" id="sno" readonly></td>
+                                            class="form-control col-md-1 border-0" style="text-align:center;" value="1"
+                                            id="sno" readonly></td>
                                     <td><input type="" name="view[]" class="form-control view border-0"
                                             style="text-align:center;" id='view' value="Front" readonly>
                                     </td>
@@ -532,9 +530,6 @@
                             </div>
                         </div>
                         <div class="divClose">
-                            <a href="#"><input value="Close" type="button"
-                                    onclick="hide('incidentFrom')"class="text-white mt-4" id="add"
-                                    style="margin-left:300px;"></a>
                             <a href="#"><input type="submit" value="Submit" class="text-white mt-4"
                                     id="add"></a>
                         </div>
@@ -543,5 +538,71 @@
             </form>
         </section>
     </div>
+
+    <div id="updatePopup4">
+        <div class="updateassignPopup">
+            <form action="#" method="POST" autocomplete="off">
+                @csrf
+                <div id="userHeading">
+                    <h4 style="margin-top: 2%">
+                        Vehicle Assigned Details
+                    </h4>
+                    <a href="/vehicleassignedlist">
+                        <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                    </a>
+                </div>
+                <div class="vehicle">
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2">User_Id</label>
+                        <div class="col-sm-8">
+                            <input id="user_id" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2">DriverName</label>
+                        <div class="col-sm-8">
+                            <input id="name" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2 ">Email</label>
+                        <div class="col-sm-8">
+                            <input id="email" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 ">Mobile.no</label>
+                        <div class="col-sm-8">
+                            <input id="mobile" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2 ">Vehicle_Id</label>
+                        <div class="col-sm-8">
+                            <input id="vehicle_id" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 ">Number_plate</label>
+                        <div class="col-sm-8">
+                            <input id="number_plate" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2 "> Mileage</label>
+                        <div class="col-sm-8">
+                            <input id="mileage" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2"> Assigned_Date</label>
+                        <div class="col-sm-8">
+                            <input id="date" class="form-control-plaintext" readonly />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 @endsection
