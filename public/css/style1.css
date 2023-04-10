@@ -420,49 +420,6 @@ form {
     background-color: #dedbdbab;
 }
 
-#imagePopup {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: #ffffff50;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-}
-#imagePopupContent {
-    width: 60%;
-    height: 60%;
-    background: rgb(242, 241, 255);
-    border-radius: 4px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.195);
-    overflow-y: scroll;
-}
-.grid-container {
-    display: grid;
-    grid-template-rows: auto;
-
-    grid-template-columns: auto auto;
-}
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    flex: 1;
-    text-align: center;
-}
-#imageContainer {
-    overflow-x: scroll;
-    width: 100px;
-    height: 80px;
-    display: flex;
-}
-
-#imageContainer::-webkit-scrollbar {
-    display: none;
-}
 span {
     margin: 5px;
 }

@@ -63,23 +63,23 @@
                             </thead>
                             @foreach ($inspections as $inspection)
                                 <tr class="table_row">
-                                    <td style="text-align:center;" class="table_data">{{ $inspection->id }}</td>
-                                    <td style="text-align:center;" class="table_data">{{ $inspection->report_no }}
+                                    <td style="text-align:center;">{{ $inspection->id }}</td>
+                                    <td style="text-align:center;">{{ $inspection->report_no }}
                                     </td>
-                                    <td style="text-align:center;" class="table_data">
+                                    <td style="text-align:center;">
                                         {{ ucfirst(strtolower($inspection->inspected_by)) }}
                                     </td>
-                                    <td style="text-align:center;" class="table_data">{{ $inspection->name }}</td>
-                                    <td style="text-align:center;" class="table_data">
+                                    <td style="text-align:center;">{{ $inspection->name }}</td>
+                                    <td style="text-align:center;">
                                         {{ $inspection->number_plate }}</td>
-                                    <td style="text-align:center;" class="table_data">{{ $inspection->mileage }}
+                                    <td style="text-align:center;">{{ $inspection->mileage }}
                                     </td>
-                                    <td style="text-align:center;" class="table_data">{{ $inspection->date }}
+                                    <td style="text-align:center;">{{ $inspection->date }}
                                     </td>
-                                    <td style="text-align:center;" class="table_data"><button type="button"
+                                    <td style="text-align:center;"><button type="button"
                                             class="btn btn-success btn-sm">Completed</button>
                                     </td>
-                                    <td style="text-align:center;" class="table_data">
+                                    <td style="text-align:center;">
                                         <a href="/details/{{ $inspection->id }}"><i class="fa-solid fa-eye btn  text-white"
                                                 style="background:#06064b " data-toggle="tooltip" data-placement="top"
                                                 title="View"></i></a>
@@ -104,45 +104,7 @@
             </div>
         </div>
         <div id="Vehicle" class="tabcontent">
-
             <div class="table-data" id="table-data">
-                {{-- <form action="/search" method="GET" autocomplete="off">
-                    <div id="filterDiv">
-                        <div class="col-md-3" id="filter">
-                            <label>Filter by Date</label>
-                            @if (isset($_GET['date']))
-                                <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
-                            @else
-                                <input type="date" name="date" class="form-control">
-                            @endif
-                        </div>
-                        <div class="col-md-3" id="">
-                            <label>Filter by Name</label>
-                            <select class="form-select form-control" name="name">
-                                @if (isset($_GET['name']))
-                                    <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
-                                    @foreach ($assigns as $assign)
-                                        <option value="{{ $assign->name }}">
-                                            {{ $assign->name }}</option>
-                                    @endforeach
-                                @else
-                                    <option>Select</option>
-                                    @foreach ($assigns as $assign)
-                                        <option value="{{ $assign->name }}">
-                                            {{ $assign->name }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
-                        </div>
-                        <div class="col-md-5" style="margin-left: 6px">
-                            <br />
-                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i
-                                    class="fa fa-filter"></i></button>
-                            <a href="/inspectiondetails" class="btn btn-success btn-sm mt-1"><i
-                                    class="fa-solid fa-arrow-rotate-right"></i></a>
-                        </div>
-                    </div>
-                </form> --}}
                 <div class="order">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                         <thead class="text-primary">
@@ -157,17 +119,17 @@
                         <tbody>
                             @foreach ($assigns as $assign)
                                 <tr class="table_row">
-                                    <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
-                                    <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
-                                    <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>
-                                    <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}
+                                    <td style="text-align:center;">{{ $assign->id }}</td>
+                                    <td style="text-align:center;">{{ $assign->name }}</td>
+                                    <td style="text-align:center;">{{ $assign->email }}</td>
+                                    <td style="text-align:center;">{{ $assign->number_plate }}
                                     </td>
-                                    <td style="text-align:center;" class="table_data">{{ $assign->next_inspection }}
+                                    <td style="text-align:center;">{{ $assign->next_inspection }}
                                     </td>
-                                    <td style="text-align:center;" class="table_data"><button type="button"
+                                    <td style="text-align:center;"><button type="button"
                                             class="btn btn-danger btn-sm">Pending</button>
                                     </td>
-                                    <td style="text-align:center;" class="table_data">
+                                    <td style="text-align:center;">
                                         @if ($assign->next_inspection >= Carbon\Carbon::today())
                                             <button type="button" class="btn btn-success btn-sm">No</button>
                                         @else
@@ -182,7 +144,6 @@
                         <p>Data not found</p>
                     @endif
                 </div>
-
             </div>
             <div class="active">
                 {!! $assigns->links() !!}

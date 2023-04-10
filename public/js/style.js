@@ -1,5 +1,5 @@
 
-
+//sidebar
     var toggleBtn = document.getElementById("toggle-container");
     var isOpen = true;
     toggleBtn.addEventListener("click", () => {
@@ -83,20 +83,9 @@
         }
 
 
-    var imagePopup = document.getElementById('imagePopup')
-function popUpImage(val) {
-
-    imagePopup.style.display="flex"
-}
-    imagePopup.addEventListener('click',()=>{imagePopup.style.display="none"})
-
-
-
-
-
   $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
 //user update
 function check(val) {
@@ -157,15 +146,15 @@ function cabin(val) {
 
 //assign
 function assign(val) {
-        document.getElementById('updatePopup4').style.display="flex"
-        document.getElementById('user_id').value = val['id']
-        document.getElementById('name').value = val['name']
-        document.getElementById('email').value = val['email']
-        document.getElementById('mobile').value = val['mobile']
-        document.getElementById('vehicle_id').value = val['vehicle_id']
-        document.getElementById('number_plate').value = val['number_plate']
-        document.getElementById('mileage').value = val['mileage']
-        document.getElementById('date').value = val['created_at']
+    document.getElementById('updatePopup4').style.display="flex"
+    document.getElementById('user_id').value = val['id']
+    document.getElementById('name').value = val['name']
+    document.getElementById('email').value = val['email']
+    document.getElementById('mobile').value = val['mobile']
+    document.getElementById('vehicle_id').value = val['vehicle_id']
+    document.getElementById('number_plate').value = val['number_plate']
+    document.getElementById('mileage').value = val['mileage']
+    document.getElementById('date').value = val['created_at']
 }
 
 //report
