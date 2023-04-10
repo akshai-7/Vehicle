@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class taskmail extends Mailable
+class remainderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,6 +27,6 @@ class taskmail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.taskassign');
+        return $this->markdown('mail.remaindermail');
     }
 }

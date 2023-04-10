@@ -169,7 +169,10 @@ a {
 #sam,
 #inspectionFrom,
 #incidentFrom,
-#sam1 {
+#sam1,
+#updatePopup1,
+#updatePopup2,
+#updatePopup3 {
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -230,8 +233,8 @@ a {
     border-radius: 10px;
     padding: 4%;
     width: 60%;
-    height: 60%;
-    overflow: scroll;
+    height: 80%;
+    /* overflow: scroll; */
     background: rgb(230, 230, 236);
 }
 #inspectionFromPopUp {

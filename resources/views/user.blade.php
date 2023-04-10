@@ -62,7 +62,6 @@
                             <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                         </a>
                     </div>
-
                     <div class="report1">
                         <div class="report">
                             <div class="form-group row mt-4 ">
@@ -85,7 +84,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                                 <div class="col-sm-9">
@@ -106,9 +104,7 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="subreport">
                             <div class="form-group row mt-4 ">
                                 <label for="" class="col-sm-2 col-form-label"> Company</label>

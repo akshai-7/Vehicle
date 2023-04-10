@@ -13,8 +13,10 @@
                 </div>
                 <div id="popUpimgae">
                     @foreach (explode(',', $visual->image) as $image)
-                        <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary" width="190px"
-                            height="120px">
+                        <div>
+                            <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary"
+                                width="500px" height="500px">
+                        </div>
                     @endforeach
                 </div>
             </div>

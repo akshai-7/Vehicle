@@ -122,4 +122,36 @@ function check1(val) {
     document.getElementById('mileage').value = val['mileage']
 }
 
+//update visual check
+function check2(val) {
+    document.getElementById('updatePopup1').style.display="flex"
+    document.getElementById('id').value = val['id']
+    document.getElementById('inspection_id').value = val['inspection_id']
+    document.getElementById('view').value = val['view']
+    document.getElementById('feedback').value = val['feedback']
+    document.getElementById('action').value = val['action']
+    document.getElementById('image').value = val['image']
+}
+
+//update vehicle check
+function check3(val) {
+    document.getElementById('updatePopup2').style.display="flex"
+    document.getElementById('id1').value = val['id']
+    document.getElementById('inspection_id1').value = val['inspection_id']
+    document.getElementById('view1').value = val['view']
+    document.getElementById('feedback1').value = val['feedback']
+    document.getElementById('action1').value = val['action']
+    document.getElementById('image1').value = val['image']
+}
+
+//update cabin check
+function check4(val) {
+    document.getElementById('updatePopup3').style.display="flex"
+    document.getElementById('id2').value = val['id']
+    document.getElementById('inspection_id2').value = val['inspection_id']
+    document.getElementById('view2').value = val['view']
+    document.getElementById('feedback2').value = val['feedback']
+    document.getElementById('action2').value = val['action']
+    document.getElementById('image2').value = val['image']
+}
 

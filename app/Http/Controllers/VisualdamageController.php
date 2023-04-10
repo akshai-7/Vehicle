@@ -37,6 +37,7 @@ class VisualdamageController extends Controller
     }
     public function visualupdate(Request $request, $id)
     {
+        // dd($request);
         $request->validate([
             'view' => 'required',
             'image' => 'required',

@@ -17,6 +17,7 @@ class VehicleController extends Controller
     {
         $request->validate([
             'number_plate' => 'required',
+            'make' => 'required',
             'vehicle_type' => 'required',
             'vehicle_model' => 'required',
             'mileage' => 'required',
