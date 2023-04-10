@@ -139,7 +139,6 @@ a {
 
 .nav_list:hover {
     width: 96%;
-    color: #2d0404;
     border-radius: 10px;
     box-shadow: 2px 5px 3px 0px #9d9a9a;
     background: #bf0e3a;
@@ -372,7 +371,17 @@ button.active {
     background: #bf0e3a;
     color: white;
 }
-
+.active .nav_list {
+    width: 96%;
+    color: white;
+    border-radius: 10px;
+    background: #bf0e3a;
+    z-index: 10;
+}
+li {
+    text-decoration: none;
+    list-style: none;
+}
 .pagination {
     float: right;
     margin-top: 10px;

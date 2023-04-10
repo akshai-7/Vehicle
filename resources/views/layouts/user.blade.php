@@ -22,38 +22,53 @@
             <div id="img-container">
                 <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
             </div>
-            <a class="nav_list active" href="/dashboard" id="myButton">
-                <div class="icon-name"><i class='bx bxs-dashboard'></i></div>
-                <div class="nav_name">Dashboard </div>
-            </a>
-            <a class="nav_list active" href="/user" id="myButton">
-                <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
-                <div class="nav_name">Drivers </div>
-            </a>
-            <a class="nav_list " href="/vehiclelist">
-                <div class="icon-name"> <i class="fa-solid fa-car nav_icon"></i> </div><span
-                    class="nav_name">Vehicles</span>
-            </a>
-            <a class="nav_list gradient-hover-effect" href="/vehicleassign">
-                <div class="icon-name"><i class="fa-solid fa-link nav_icon"></i></div><span class="nav_name">
-                    Vehicle
-                    Assign</span>
-            </a>
-            <a class="nav_list gradient-hover-effect" href="/vehicleassignedlist">
-                <div class="icon-name"> <i class="fa-solid fa-list nav_icon"></i> </div><span class="nav_name">
-                    Assigned
-                    List</span>
-            </a>
-            <a class="nav_list gradient-hover-effect" href="/inspectiondetails">
-                <div class="icon-name"> <i class="fa-solid fa-list-check nav_icon"></i> </div><span class="nav_name">
-                    Inspection
-                    List</span>
-            </a>
-            <a class="nav_list gradient-hover-effect" href="/reportlist">
-                <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
-                    Reported Incidents
-                </span>
-            </a>
+            <li {{ Request::is('dashboard') ? 'class=active' : '' }}>
+                <a class="nav_list" href="/dashboard" id="myButton">
+                    <div class="icon-name"><i class='bx bxs-dashboard'></i></div>
+                    <div class="nav_name">Dashboard </div>
+                </a>
+            </li>
+            <li {{ Request::is('user') ? 'class=active' : '' }}>
+                <a class="nav_list" href="/user" id="myButton">
+                    <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
+                    <div class="nav_name">Drivers </div>
+                </a>
+            </li>
+            <li {{ Request::is('vehiclelist') ? 'class=active' : '' }}>
+                <a class="nav_list " href="/vehiclelist">
+                    <div class="icon-name"> <i class="fa-solid fa-car nav_icon"></i> </div><span
+                        class="nav_name">Vehicles</span>
+                </a>
+            </li>
+            <li {{ Request::is('vehicleassign') ? 'class=active' : '' }}>
+                <a class="nav_list gradient-hover-effect" href="/vehicleassign">
+                    <div class="icon-name"><i class="fa-solid fa-link nav_icon"></i></div><span class="nav_name">
+                        Vehicle
+                        Assign</span>
+                </a>
+            </li>
+            <li {{ Request::is('vehicleassignedlist') ? 'class=active' : '' }}>
+                <a class="nav_list gradient-hover-effect" href="/vehicleassignedlist">
+                    <div class="icon-name"> <i class="fa-solid fa-list nav_icon"></i> </div><span class="nav_name">
+                        Assigned
+                        List</span>
+                </a>
+            </li>
+            <li {{ Request::is('inspectiondetails') ? 'class=active' : '' }}>
+                <a class="nav_list gradient-hover-effect" href="/inspectiondetails">
+                    <div class="icon-name"> <i class="fa-solid fa-list-check nav_icon"></i> </div><span
+                        class="nav_name">
+                        Inspection
+                        List</span>
+                </a>
+            </li>
+            <li {{ Request::is('reportlist') ? 'class=active' : '' }}>
+                <a class="nav_list gradient-hover-effect" href="/reportlist">
+                    <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
+                        Reported Incidents
+                    </span>
+                </a>
+            </li>
             <a class="nav_list gradient-hover-effect"href="/">
                 <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span
                     class="nav_name">SignOut</span>
