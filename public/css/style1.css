@@ -3,6 +3,7 @@
 html {
     overflow-y: hidden;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 body {
     font-family: "Mulish", sans-serif;
@@ -110,9 +111,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
 }
 #img-logo {
-    width: 80%;
+    width: 60%;
     border: 2px solid rgba(187, 17, 56, 255);
     border-radius: 4px;
     padding: 10px;
@@ -376,7 +378,6 @@ button.active {
     color: white;
     border-radius: 10px;
     background: #bf0e3a;
-    z-index: 10;
 }
 li {
     text-decoration: none;
