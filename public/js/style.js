@@ -123,7 +123,7 @@ function check1(val) {
 }
 
 //update visual check
-function check2(val) {
+function visual(val) {
     document.getElementById('updatePopup1').style.display="flex"
     document.getElementById('id').value = val['id']
     document.getElementById('inspection_id').value = val['inspection_id']
@@ -134,7 +134,7 @@ function check2(val) {
 }
 
 //update vehicle check
-function check3(val) {
+function vehicle(val) {
     document.getElementById('updatePopup2').style.display="flex"
     document.getElementById('id1').value = val['id']
     document.getElementById('inspection_id1').value = val['inspection_id']
@@ -145,7 +145,7 @@ function check3(val) {
 }
 
 //update cabin check
-function check4(val) {
+function cabin(val) {
     document.getElementById('updatePopup3').style.display="flex"
     document.getElementById('id2').value = val['id']
     document.getElementById('inspection_id2').value = val['inspection_id']

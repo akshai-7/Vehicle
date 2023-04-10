@@ -14,7 +14,6 @@
                             <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                         </a>
                     </div>
-
                     <div class="vehicle">
                         @foreach ($assign as $assign)
                             <div class="form-group row mt-4">
