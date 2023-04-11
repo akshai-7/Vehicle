@@ -21,7 +21,13 @@ class AssignController extends Controller
         return view('/vehicleassign', compact('vehicle'), compact('user'));
     }
     public function vehicleassignlist(Request $request)
+
     {
+        $emails = Assign::pluck('email');
+        // $name = Assign::select('name');
+        $data = Assign::where('email', $emails)->pluck('name')->first();
+        dd($data);
+
         $number_plate = $request['number_plate'];
         $name = $request['name'];
         $user = User::where('name', $name)->first();
@@ -46,7 +52,11 @@ class AssignController extends Controller
         $vehicle->name = $user->name;
         $vehicle->save();
 
-        Mail::To($user->email)->send(new taskmail);
+        $mailData = [
+            'name' => $user->name,
+            'number_plate' => $vehicle->number_plate,
+        ];
+        Mail::To($user->email)->send(new taskmail($mailData));
         session()->flash('message', 'Vehicle Assigned is Successfully');
         return redirect('/vehicleassignedlist');
     }

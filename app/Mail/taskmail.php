@@ -15,18 +15,17 @@ class taskmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $mailData;
+
+    public function __construct($mailData)
     {
-        //
+        $this->mailData = $mailData;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->markdown('mail.taskassign');
+        return $this->view('mail.taskassign')
+            ->with('mailData', $this->mailData);
     }
 }
