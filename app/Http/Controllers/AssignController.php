@@ -23,10 +23,17 @@ class AssignController extends Controller
     public function vehicleassignlist(Request $request)
 
     {
-        $emails = Assign::pluck('email');
-        // $name = Assign::select('name');
-        $data = Assign::where('email', $emails)->pluck('name')->first();
-        dd($data);
+        $emails = Assign::all(['email', 'name']);
+        dd($emails);
+        $emails = Assign::get()->map(function ($user) {
+            return [
+                'name' => $user->name,
+                'email' => $user->name,
+            ];
+        });
+
+        // Mail::To($emails['name'])->send(new sendMail($data1));
+
 
         $number_plate = $request['number_plate'];
         $name = $request['name'];
