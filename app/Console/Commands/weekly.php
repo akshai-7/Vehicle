@@ -40,9 +40,12 @@ class weekly extends Command
      */
     public function handle()
     {
-        $data = Assign::pluck('email', 'name');
-        foreach ($data as $key => $email) {
-            mail::To($email)->send(new sendMail($key));
-        }
+        // $data = Assign::pluck('email', 'name');
+        // foreach ($data as $key => $email) {
+        //     mail::To($email)->send(new sendMail($key));
+        // }
+
+        $email = 'akshai2537@gmail.com';
+        mail::To($email)->send(new sendMail);
     }
 }
