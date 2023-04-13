@@ -4,7 +4,6 @@
         ensure its
         proper usage.</p>
     <p>Vehicle Number: {{ $mailData['number_plate'] }}</p>
-
     <p>Best regards,</p>
     <p>M&D Foundations</p>
 </body>
