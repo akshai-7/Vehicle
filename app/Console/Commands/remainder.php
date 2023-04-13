@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Assign;
 use Illuminate\Console\Command;
 use App\Mail\remainderMail;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class remainder extends Command
@@ -40,10 +41,10 @@ class remainder extends Command
      */
     public function handle()
     {
-        $data = Assign::pluck('email', 'name');
+        $date = Carbon::today();
+        $data = Assign::where('next_inspection', '!=', $date)->pluck('email', 'name');
         foreach ($data as $key => $email) {
             mail::To($email)->send(new remainderMail($key));
         }
-        // Mail::To('akshai2537@gmail.com')->send(new remainderMail);
     }
 }

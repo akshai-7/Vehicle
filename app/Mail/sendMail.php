@@ -15,20 +15,7 @@ class sendMail extends Mailable
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     //
-    // }
 
-    // /**
-    //  * Build the message.
-    //  *
-    //  * @return $this
-    //  */
-    // public function build()
-    // {
-    //     return $this->markdown('mail.sendmail');
-    // }
     public $key;
 
     public function __construct($key)

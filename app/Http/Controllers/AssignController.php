@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use App\Mail\taskmail;
+use Carbon\Carbon;
+use App\Mail\remainderMail;
 use Illuminate\Support\Facades\Mail;
 
 class AssignController extends Controller
@@ -22,12 +24,6 @@ class AssignController extends Controller
     }
     public function vehicleassignlist(Request $request)
     {
-        $date =
-            $data = Assign::pluck('email', 'name');
-        foreach ($data as $key => $email) {
-            // mail::To($email)->send(new remainderMail($key));
-        }
-
         $number_plate = $request['number_plate'];
         $name = $request['name'];
         $user = User::where('name', $name)->first();

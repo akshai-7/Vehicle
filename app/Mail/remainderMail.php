@@ -11,13 +11,14 @@ class remainderMail extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * Create a new message instance.
+     * Create a new message instance.s
      *
      * @return void
      */
-    public function __construct()
+    public $key;
+    public function __construct($key)
     {
-        //
+        $this->key = $key;
     }
 
     /**
@@ -28,5 +29,8 @@ class remainderMail extends Mailable
     public function build()
     {
         return $this->markdown('mail.remaindermail');
+
+        return $this->view('mail.remaindermail')
+            ->with('key', $this->key);
     }
 }
