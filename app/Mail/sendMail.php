@@ -29,16 +29,16 @@ class sendMail extends Mailable
     // {
     //     return $this->markdown('mail.sendmail');
     // }
-    public $data1;
+    public $key;
 
-    public function __construct($data1)
+    public function __construct($key)
     {
-        $this->data1 = $data1;
+        $this->key = $key;
     }
 
     public function build()
     {
         return $this->view('mail.sendmail')
-            ->with('data1', $this->data1);
+            ->with('key', $this->key);
     }
 }

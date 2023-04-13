@@ -21,19 +21,12 @@ class AssignController extends Controller
         return view('/vehicleassign', compact('vehicle'), compact('user'));
     }
     public function vehicleassignlist(Request $request)
-
     {
-        $emails = Assign::all(['email', 'name']);
-        dd($emails);
-        $emails = Assign::get()->map(function ($user) {
-            return [
-                'name' => $user->name,
-                'email' => $user->name,
-            ];
-        });
-
-        // Mail::To($emails['name'])->send(new sendMail($data1));
-
+        $date =
+            $data = Assign::pluck('email', 'name');
+        foreach ($data as $key => $email) {
+            // mail::To($email)->send(new remainderMail($key));
+        }
 
         $number_plate = $request['number_plate'];
         $name = $request['name'];

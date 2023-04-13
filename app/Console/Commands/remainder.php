@@ -40,7 +40,10 @@ class remainder extends Command
      */
     public function handle()
     {
-
-        Mail::To('akshai2537@gmail.com')->send(new remainderMail);
+        $data = Assign::pluck('email', 'name');
+        foreach ($data as $key => $email) {
+            mail::To($email)->send(new remainderMail($key));
+        }
+        // Mail::To('akshai2537@gmail.com')->send(new remainderMail);
     }
 }
