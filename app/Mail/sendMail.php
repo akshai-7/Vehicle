@@ -16,16 +16,16 @@ class sendMail extends Mailable
      * @return void
      */
 
-    // public $key;
+    public $key;
 
-    // public function __construct($key)
-    // {
-    //     $this->key = $key;
-    // }
+    public function __construct($key)
+    {
+        $this->key = $key;
+    }
 
     public function build()
     {
-        return $this->view('mail.sendmail');
-        // ->with('key', $this->key);
+        return $this->view('mail.sendmail')
+            ->with('key', $this->key);
     }
 }

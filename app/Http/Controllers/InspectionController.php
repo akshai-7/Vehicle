@@ -133,6 +133,7 @@ class InspectionController extends Controller
             }
             Cabin::create($data5);
         }
+
         return redirect('/inspectiondetails');
     }
 

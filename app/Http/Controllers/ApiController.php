@@ -176,6 +176,8 @@ class ApiController extends Controller
                 Vehiclecheck::create($data2);
             }
         };
+
+
         return response()->json(['message' => 'Data Stored Successfully', "data" => $data], 200);
     }
     public function pdf($inspection_id)
