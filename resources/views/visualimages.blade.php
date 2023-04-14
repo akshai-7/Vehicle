@@ -1,6 +1,5 @@
 @extends('layouts.user')
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
 @section('content')
     <div class="userContainer">
@@ -11,7 +10,7 @@
                         <h4 style="color:#bf0e3a;margin-left:560px"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                     </a>
                 </div>
-                <div id="popUpimgae">
+                <div id="popUpimgae" class="">
                     @foreach (explode(',', $visual->image) as $image)
                         <div>
                             <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary"

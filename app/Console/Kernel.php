@@ -26,8 +26,8 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('weekly:mail')->dailyAt('16:32')->timezone('Asia/Kolkata')->withoutOverlapping();
         $schedule->command('remainder:mail')->dailyAt('16:34')->timezone('Asia/Kolkata')->withoutOverlapping();
-        // $schedule->command('weekly:mail')->weekly()->fridays()->at('8:00')->timezone('Europe/London');
-        // $schedule->command('remainder:mail')->weekly()->fridays()->at('14:00')->timezone('Europe/London');
+        // $schedule->command('weekly:mail')->weekly()->fridays()->at('8:00')->timezone('Europe/London')->withoutOverlapping();
+        // $schedule->command('remainder:mail')->weekly()->fridays()->at('14:00')->timezone('Europe/London')->withoutOverlapping();
 
     }
 
