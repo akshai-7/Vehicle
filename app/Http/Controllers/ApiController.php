@@ -142,13 +142,13 @@ class ApiController extends Controller
             );
             array_push($data, $data1);
 
-            $visual = Inspection::where('id', $id)->first();
-            if ($visual == null) {
+            $user = Inspection::where('id', $id)->first();
+            if ($user == null) {
                 return response()->json(['message' => 'Invalid Id'], 401);
             }
 
             $data2 = array(
-                'inspection_id' => $visual->id,
+                'inspection_id' => $user->id,
                 'view' => $name[$row],
                 'image' => implode(",", $img),
                 'notes' => $notes[$row],
@@ -163,23 +163,29 @@ class ApiController extends Controller
                 };
                 Visual::create($data2);
             }
-            if (strtolower($request->type) === "cabin") {
-                $visual = Cabin::where('inspection_id', $id)->where('view', $name[$row])->first();
-                if ($visual != null) {
-                    return response()->json(['message' => 'Duplicated Entry'], 401);
-                };
-                Cabin::create($data2);
-            }
             if (strtolower($request->type) === "vehicle") {
-                $visual = Vehiclecheck::where('inspection_id', $id)->where('view', $name[$row])->first();
-                if ($visual != null) {
+                $vehicle = Vehiclecheck::where('inspection_id', $id)->where('view', $name[$row])->first();
+                if ($vehicle != null) {
                     return response()->json(['message' => 'Duplicated Entry'], 401);
                 };
                 Vehiclecheck::create($data2);
             }
+            if (strtolower($request->type) === "cabin") {
+                $cabin = Cabin::where('inspection_id', $id)->where('view', $name[$row])->first();
+                if ($cabin != null) {
+                    return response()->json(['message' => 'Duplicated Entry'], 401);
+                };
+                Cabin::create($data2);
+            }
         };
-        $name = $visual->name;
-        Mail::To($visual->email)->send(new inspectionMail($name));
+        $visual = Visual::where('inspection_id', $id)->first();
+        $vehicle = Vehiclecheck::where('inspection_id', $id)->first();
+        $cabin = Cabin::where('inspection_id', $id)->first();
+        if ($visual != null &&  $cabin != null && $vehicle != null) {
+            $name = $user->name;
+            Mail::To($user->email)->send(new inspectionMail($name));
+        }
+
         return response()->json(['message' => 'Data Stored Successfully', "data" => $data], 200);
     }
     public function pdf($inspection_id)
