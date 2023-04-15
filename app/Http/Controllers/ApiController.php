@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\inspectionMail;
 
 class ApiController extends Controller
 {
@@ -176,8 +178,8 @@ class ApiController extends Controller
                 Vehiclecheck::create($data2);
             }
         };
-
-
+        $name = $visual->name;
+        Mail::To($visual->email)->send(new inspectionMail($name));
         return response()->json(['message' => 'Data Stored Successfully', "data" => $data], 200);
     }
     public function pdf($inspection_id)

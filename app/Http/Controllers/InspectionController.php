@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\Inspection;
 use App\Models\Visual;
@@ -9,9 +10,10 @@ use App\Models\Vehiclecheck;
 use App\Models\Cabin;
 use App\Models\Assign;
 use Illuminate\Support\Carbon;
+use App\Mail\inspectionMail;
 
-$name1 = "Select";
-$date2 = null;
+// $name1 = "Select";
+// $date2 = null;
 
 class InspectionController extends Controller
 {
@@ -133,14 +135,18 @@ class InspectionController extends Controller
             }
             Cabin::create($data5);
         }
-
+        $name = [
+            'name' => $assign->name,
+        ];
+        Mail::To($assign->email)->send(new inspectionMail($name));
+        session()->flash('message', 'Vehicle Inspection  Successfully');
         return redirect('/inspectiondetails');
     }
 
     public function inspection()
     {
-        $inspections = Inspection::paginate(5);
-        $assigns = Assign::paginate(5);
+        $inspections = Inspection::paginate(10);
+        $assigns = Assign::paginate(10);
         return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
     public function deleteinspection($id)
@@ -155,21 +161,21 @@ class InspectionController extends Controller
     public function search(Request $request)
     {
         if ($request->name == "Select" && $request->date == null) {
-            $inspections = Inspection::paginate(5);
-            $assigns = Assign::paginate(5);
+            $inspections = Inspection::paginate(10);
+            $assigns = Assign::paginate(10);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name == "Select" && $request->date != null) {
-            $inspections = Inspection::where('date', $request->date)->paginate(5);
-            $assigns = Assign::paginate(5);
+            $inspections = Inspection::where('date', $request->date)->paginate(10);
+            $assigns = Assign::paginate(10);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name != "Select" && $request->date == null) {
 
-            $inspections = Inspection::where('name', $request->name)->paginate(5);
-            $assigns = Assign::paginate(5);
+            $inspections = Inspection::where('name', $request->name)->paginate(10);
+            $assigns = Assign::paginate(10);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         } else {
-            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->paginate(5);
-            $assigns = Assign::paginate(5);
+            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->paginate(10);
+            $assigns = Assign::paginate(10);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
         }
     }

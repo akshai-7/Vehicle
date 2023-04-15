@@ -35,7 +35,7 @@ class VehicleController extends Controller
     public function vehiclelist()
     {
 
-        $vehicles = Vehicle::paginate(5);
+        $vehicles = Vehicle::paginate(10);
         return view('vehiclelist', compact('vehicles'));
     }
 
