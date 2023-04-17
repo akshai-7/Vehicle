@@ -14,6 +14,8 @@
     <title>M&D Foundations</title>
     <script src="{{ asset('js/style.js') }}" defer></script>
     <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
+
+
 </head>
 
 <body>
