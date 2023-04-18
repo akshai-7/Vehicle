@@ -36,6 +36,8 @@ class UserController extends Controller
         session()->flash('message', 'Driver is Created');
         return redirect('/user');
     }
+
+
     public function userlist()
     {
         $role = 'User';
@@ -86,10 +88,9 @@ class UserController extends Controller
         session()->flash('message1', ' User is Deleted');
         return redirect('/user');
     }
-    public function search(Request $request)
 
+    public function users(Request $request)
     {
-        dd($request);
 
         if ($request->name == "Select" && $request->date == null) {
             $role = 'User';
@@ -97,7 +98,7 @@ class UserController extends Controller
             return view('/user', ['users' => $users]);
         } elseif ($request->name == "Select" && $request->date != null) {
             $role = 'User';
-            $users = User::where('role', $role)->where('date', $request->date)->paginate(10);
+            $users = User::where('role', $role)->where('created_at', $request->date)->paginate(10);
             return view('/user', ['users' => $users]);
         } elseif ($request->name != "Select" && $request->date == null) {
             $role = 'User';

@@ -31,14 +31,15 @@ Route::post('/user', [LoginController::class, 'admin']);
 
 //driver
 Route::post('/createuser', [UserController::class, 'createuser']);
+Route::get('/users', [UserController::class, 'users']);
 Route::get('/user', [UserController::class, 'userlist']);
 Route::get('/updateuser/{id}', [UserController::class, 'updateuser'])->name('update');
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
 
-
 //vehicle
 Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
+Route::post('/vehicle', [VehicleController::class, 'vehicle']);
 Route::get('/vehiclelist', [VehicleController::class, 'vehiclelist']);
 Route::get('/updatevehicles/{id}', [VehicleController::class, 'updatevehicles']);
 Route::post('/updatevehicle/{id}', [VehicleController::class, 'updatevehicle']);
@@ -55,6 +56,7 @@ Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
+Route::get('/search', [InspectionController::class, 'search']);
 
 //report
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);

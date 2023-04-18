@@ -16,7 +16,6 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
-        "bootstrap": "^5.2.3",
         "bootstrap-datepicker": "^1.9.0",
         "flatpickr": "^4.6.13",
         "jquery": "^3.6.4",
