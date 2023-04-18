@@ -36,6 +36,7 @@ Route::get('/updateuser/{id}', [UserController::class, 'updateuser'])->name('upd
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
 
+
 //vehicle
 Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
 Route::get('/vehiclelist', [VehicleController::class, 'vehiclelist']);
@@ -54,7 +55,6 @@ Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
-Route::get('/search', [InspectionController::class, 'search']);
 
 //report
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);
@@ -62,7 +62,6 @@ Route::post('/reportonincident/{id}', [ReportController::class, 'reportoninciden
 Route::get('/reportlist', [ReportController::class, 'reportlist']);
 Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
 Route::get('/reportimages/{id}', [ReportController::class, 'reportimages']);
-
 
 
 Route::get('/details/{inspection_id}', [VisualdamageController::class, 'check']);

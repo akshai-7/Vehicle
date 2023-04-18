@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Auth\Events\Failed;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Carbon;
 
 
@@ -88,5 +85,28 @@ class UserController extends Controller
         User::find($id)->delete();
         session()->flash('message1', ' User is Deleted');
         return redirect('/user');
+    }
+    public function search(Request $request)
+
+    {
+        dd($request);
+
+        if ($request->name == "Select" && $request->date == null) {
+            $role = 'User';
+            $users = User::where('role', $role)->paginate(10);
+            return view('/user', ['users' => $users]);
+        } elseif ($request->name == "Select" && $request->date != null) {
+            $role = 'User';
+            $users = User::where('role', $role)->where('date', $request->date)->paginate(10);
+            return view('/user', ['users' => $users]);
+        } elseif ($request->name != "Select" && $request->date == null) {
+            $role = 'User';
+            $users = User::where('role', $role)->where('name', $request->name)->paginate(10);
+            return view('/user', ['users' => $users]);
+        } else {
+            $role = 'User';
+            $users = User::where('role', $role)->where('created_at', $request->date)->where('name', $request->name)->paginate(10);
+            return view('/user', ['users' => $users]);
+        }
     }
 }

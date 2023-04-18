@@ -5,7 +5,9 @@
             <div class="order">
                 <div class="head">
                     <h3>Reported Incidents</h3>
+                    <a onclick="show('incidentFrom')"><input type="submit" value="Incident" id="add"></a>
                 </div>
+
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
 
                     <tbody>
@@ -105,5 +107,97 @@
                 </div>
             </form>
         </div>
+
+    </div>
+    <div id="incidentFrom">
+        <section id="incidentFromPopUp">
+            <form action="/reportonincident/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
+                @csrf
+                <div id="userHeading">
+                    <h4 style="margin-top: 2%">
+                        Report On Incident
+                    </h4>
+                    <a href="#" onclick="hide('incidentFrom')">
+                        <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                    </a>
+                </div>
+                <div class="vehicle">
+                    <div class="form-group mt-5">
+                        <label class="col-sm-2 col-form-label">Driver_Name</label>
+                        <select class="form-select " style="width: 370px;" name="name">
+                            <option>Please Select Driver</option>
+                            @foreach ($assigns as $assign)
+                                <option value="{{ $assign->name }}">{{ $assign->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-2 col-form-label">Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" name="date" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 col-form-label">Location</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="location" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('location')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 col-form-label"> Witnessed_by</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="witnessed_by" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('witnessed_by')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 col-form-label">Mobile.no</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="mobile" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 col-form-label">Statement</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="statement" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('statement')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 col-form-label">Image</label>
+                        <div class="col-sm-9">
+                            <input type="file" name="image[]" class="form-control" multiple>
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="divClose">
+                            <a href="#"><input type="submit" value="Submit" class="text-white mt-4"
+                                    id="add"></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
     </div>
 @endsection
