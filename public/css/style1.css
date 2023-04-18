@@ -145,7 +145,7 @@ a {
     width: 96%;
     border-radius: 10px;
     box-shadow: 2px 5px 3px 0px #9d9a9a;
-    background: #bf0e3a;
+    background: #bb2f52;
     color: white;
 }
 
@@ -412,6 +412,7 @@ form {
 }
 #filterDiv {
     width: 100%;
+    margin-top: -50px;
     padding: 10px 5px;
     display: flex;
     align-content: center;

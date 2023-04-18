@@ -1,4 +1,4 @@
-@extends('layouts.user')
+{{-- @extends('layouts.user')
 @section('content')
     <div class="userContainer">
         <div class="table-data">
@@ -26,5 +26,6 @@
                     style="float:right;">
             </form>
         </div>
+
     </div>
-@endsection
+@endsection --}}

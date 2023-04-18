@@ -44,7 +44,7 @@ Route::post('/updatevehicle/{id}', [VehicleController::class, 'updatevehicle']);
 Route::get('/remove/{id}', [VehicleController::class, 'remove']);
 
 //assign
-Route::get('/vehicleassign', [AssignController::class, 'vehicleassign']);
+// Route::get('/vehicleassign', [AssignController::class, 'vehicleassign']);
 Route::post('/vehicleassignlist', [AssignController::class, 'vehicleassignlist']);
 Route::get('/vehicleassignedlist', [AssignController::class, 'vehicleassignedlist']);
 Route::get('/updateassignlist/{id}', [AssignController::class, 'updateassignlist']);

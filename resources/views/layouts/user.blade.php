@@ -42,18 +42,18 @@
                         class="nav_name">Vehicles</span>
                 </a>
             </li>
-            <li {{ Request::is('vehicleassign') ? 'class=active' : '' }}>
+            {{-- <li {{ Request::is('vehicleassign') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/vehicleassign">
                     <div class="icon-name"><i class="fa-solid fa-link nav_icon"></i></div><span class="nav_name">
                         Vehicle
                         Assign</span>
                 </a>
-            </li>
+            </li> --}}
             <li {{ Request::is('vehicleassignedlist') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/vehicleassignedlist">
                     <div class="icon-name"> <i class="fa-solid fa-list nav_icon"></i> </div><span class="nav_name">
-                        Assigned
-                        List</span>
+                        Vehicle
+                        Assign</span>
                 </a>
             </li>
             <li {{ Request::is('inspectiondetails') ? 'class=active' : '' }}>
