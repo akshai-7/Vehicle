@@ -97,4 +97,22 @@ class VehicleController extends Controller
     {
         return redirect('/details/' . $inspection_id);
     }
+
+    public function vehicles(Request $request)
+    {
+
+        if ($request->number_plate == "Select" && $request->date == null) {
+            $vehicles = Vehicle::paginate(10);
+            return view('vehiclelist', compact('vehicles'));
+        } elseif ($request->number_plate == "Select" && $request->date != null) {
+            $vehicles = Vehicle::where('created_at', $request->date)->paginate(10);
+            return view('vehiclelist', compact('vehicles'));
+        } elseif ($request->number_plate != "Select" && $request->date == null) {
+            $vehicles = Vehicle::where('number_plate', $request->number_plate)->paginate(10);
+            return view('vehiclelist', compact('vehicles'));
+        } else {
+            $vehicles = Vehicle::where('created_at', $request->date)->where('number_plate', $request->nanumber_plateme)->paginate(10);
+            return view('vehiclelist', compact('vehicles'));
+        }
+    }
 }

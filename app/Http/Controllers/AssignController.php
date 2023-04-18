@@ -86,4 +86,40 @@ class AssignController extends Controller
         session()->flash('message1', 'Deleted');
         return redirect('/vehicleassignedlist');
     }
+    public function assignsearch(Request $request)
+    {
+        if ($request->number_plate == "Select" && $request->date == null) {
+            $role = 'user';
+            $vehicle_id = null;
+            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
+            $user_id = null;
+            $vehicle = Vehicle::where('user_id', $user_id)->get();
+            $assigns = Assign::paginate(10);
+            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
+        } elseif ($request->number_plate == "Select" && $request->date != null) {
+            $role = 'user';
+            $vehicle_id = null;
+            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
+            $user_id = null;
+            $vehicle = Vehicle::where('user_id', $user_id)->get();
+            $assigns = Assign::where('created_at', $request->date)->paginate(10);
+            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
+        } elseif ($request->number_plate != "Select" && $request->date == null) {
+            $role = 'user';
+            $vehicle_id = null;
+            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
+            $user_id = null;
+            $vehicle = Vehicle::where('user_id', $user_id)->get();
+            $assigns = Assign::where('number_plate', $request->number_plate)->paginate(10);
+            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
+        } else {
+            $role = 'user';
+            $vehicle_id = null;
+            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
+            $user_id = null;
+            $vehicle = Vehicle::where('user_id', $user_id)->get();
+            $assigns = Assign::where('created_at', $request->date)->where('number_plate', $request->number_plate)->paginate(10);
+            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
+        }
+    }
 }

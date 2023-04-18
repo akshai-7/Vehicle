@@ -39,6 +39,7 @@ Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 //vehicle
 Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
+Route::get('/vehicles', [VehicleController::class, 'vehicles']);
 Route::post('/vehicle', [VehicleController::class, 'vehicle']);
 Route::get('/vehiclelist', [VehicleController::class, 'vehiclelist']);
 Route::get('/updatevehicles/{id}', [VehicleController::class, 'updatevehicles']);
@@ -48,6 +49,7 @@ Route::get('/remove/{id}', [VehicleController::class, 'remove']);
 //assign
 // Route::get('/vehicleassign', [AssignController::class, 'vehicleassign']);
 Route::post('/vehicleassignlist', [AssignController::class, 'vehicleassignlist']);
+Route::get('/assignsearch', [AssignController::class, 'assignsearch']);
 Route::get('/vehicleassignedlist', [AssignController::class, 'vehicleassignedlist']);
 Route::get('/updateassignlist/{id}', [AssignController::class, 'updateassignlist']);
 Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);

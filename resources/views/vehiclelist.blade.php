@@ -8,6 +8,42 @@
                     <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add"
                             onclick="show('sam')"></a>
                 </div>
+                <form action="/vehicles" method="GET" autocomplete="off">
+                    <div id="filterDiv1">
+                        <div class="col-md-3" id="filter">
+                            <label>Filter by Date</label>
+                            @if (isset($_GET['date']))
+                                <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
+                            @else
+                                <input type="date" name="date" class="form-control">
+                            @endif
+                        </div>
+                        <div class="col-md-3" id="">
+                            <label>Filter by Name</label>
+                            <select class="form-select form-control" name="number_plate">
+                                @if (isset($_GET['number_plate']))
+                                    <option value="{{ $_GET['number_plate'] }}">{{ $_GET['number_plate'] }}</option>
+                                    @foreach ($vehicles as $vehicle)
+                                        <option value="{{ $vehicle->number_plate }}">
+                                            {{ $vehicle->number_plate }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Select</option>
+                                    @foreach ($vehicles as $vehicle)
+                                        <option value="{{ $vehicle->number_plate }}">
+                                            {{ $vehicle->number_plate }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                        <div class="col-md-5" style="margin-left: 6px">
+                            <br />
+                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
+                            <a href="/vehiclelist" class="btn btn-success btn-sm mt-1"><i
+                                    class="fa-solid fa-arrow-rotate-right"></i></a>
+                        </div>
+                    </div>
+                </form>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead>
                         <th style="text-align:center;">Id</th>
@@ -41,6 +77,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                @if (count($vehicles) < 1)
+                    <div id="dataNotFound">
+                        <p>Data not found</p>
+                    </div>
+                @endif
             </div>
             <div class="active">
                 {!! $vehicles->links() !!}
