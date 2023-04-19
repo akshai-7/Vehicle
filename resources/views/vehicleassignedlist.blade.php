@@ -64,7 +64,7 @@
                         <div class="col-md-5" style="margin-left: 6px">
                             <br />
                             <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
-                            <a href="/vehiclelist" class="btn btn-success btn-sm mt-1"><i
+                            <a href="/vehicleassignedlist" class="btn btn-success btn-sm mt-1"><i
                                     class="fa-solid fa-arrow-rotate-right"></i></a>
                         </div>
 

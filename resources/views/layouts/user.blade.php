@@ -44,26 +44,26 @@
                     <div class="nav_name">Dashboard </div>
                 </a>
             </li>
-            <li {{ Request::is('user') ? 'class=active' : '' }}>
+            <li {{ Request::is('user', 'users') ? 'class=active' : '' }}>
                 <a class="nav_list" href="/user" id="myButton">
                     <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
                     <div class="nav_name">Drivers </div>
                 </a>
             </li>
-            <li {{ Request::is('vehiclelist') ? 'class=active' : '' }}>
+            <li {{ Request::is('vehiclelist', 'vehiclelists') ? 'class=active' : '' }}>
                 <a class="nav_list " href="/vehiclelist">
                     <div class="icon-name"> <i class="fa-solid fa-car nav_icon"></i> </div><span
                         class="nav_name">Vehicles</span>
                 </a>
             </li>
-            <li {{ Request::is('vehicleassignedlist') ? 'class=active' : '' }}>
+            <li {{ Request::is('vehicleassignedlist', 'assignsearch') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/vehicleassignedlist">
                     <div class="icon-name"> <i class="fa-solid fa-link nav_icon"></i> </div><span class="nav_name">
                         Vehicle
                         Assign</span>
                 </a>
             </li>
-            <li {{ Request::is('inspectiondetails') ? 'class=active' : '' }}>
+            <li {{ Request::is('inspectiondetails', 'search') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/inspectiondetails">
                     <div class="icon-name"> <i class="fa-solid fa-list-check nav_icon"></i> </div><span
                         class="nav_name">

@@ -8,7 +8,7 @@
                     <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add"
                             onclick="show('sam')"></a>
                 </div>
-                <form action="/vehicles" method="GET" autocomplete="off">
+                <form action="/vehiclelists" method="GET" autocomplete="off">
                     <div id="filterDiv1">
                         <div class="col-md-3" id="filter">
                             <label>Filter by Date</label>

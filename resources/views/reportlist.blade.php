@@ -23,6 +23,7 @@
                             <th style="text-align:center;">Image</th>
                             <th style="text-align:center;">Action</th>
                         </thead>
+
                         @foreach ($reports as $report)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $report->id }}</td>

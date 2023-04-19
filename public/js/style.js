@@ -98,6 +98,7 @@ function check(val) {
     document.getElementById('address').value = val['address']
     document.getElementById('email').value = val['email']
     document.getElementById('mobile').value = val['mobile']
+     document.getElementById('license').value = val['license']
 }
 
 //update vehicle

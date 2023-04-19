@@ -20,7 +20,9 @@ class ReportController extends Controller
     }
 
     public function reportonincident(Request $request)
+
     {
+        dd($request);
         $request->validate([
             'date' => 'required',
             'location' => 'required',

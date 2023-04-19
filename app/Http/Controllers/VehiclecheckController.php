@@ -59,7 +59,6 @@ class VehiclecheckController extends Controller
                 'image' =>  null,
             );
         }
-
         $vehicle->image = $data4['image'];
         $vehicle->feedback = $request['feedback'];
         $vehicle->action = $request['action'];

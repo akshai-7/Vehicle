@@ -34,7 +34,6 @@ class VehicleController extends Controller
     }
     public function vehiclelist()
     {
-
         $vehicles = Vehicle::paginate(10);
         return view('vehiclelist', compact('vehicles'));
     }
@@ -98,7 +97,7 @@ class VehicleController extends Controller
         return redirect('/details/' . $inspection_id);
     }
 
-    public function vehicles(Request $request)
+    public function vehiclelists(Request $request)
     {
 
         if ($request->number_plate == "Select" && $request->date == null) {

@@ -12,6 +12,7 @@ class UserController extends Controller
 {
     public function createuser(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
@@ -21,6 +22,7 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'mobile' => 'required',
+
         ]);
 
         $user = new User();
@@ -29,6 +31,17 @@ class UserController extends Controller
         $user->date_of_birth = $request['date_of_birth'];
         $user->address = $request['address'];
         $user->company = $request['company'];
+        $data = $request->all();
+        $img = array();
+        for ($i = 0; $i < count($data['license']); $i++) {
+            $imageName = time() . '.' . $data['license'][$i]->getClientOriginalName();
+            $data['license'][$i]->move(public_path('images'), $imageName);
+            array_push($img, $imageName);
+        }
+        $data4 = array(
+            'license' =>  implode(",", $img),
+        );
+        $user->license = $data4['license'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
         $user->mobile = $request['mobile'];
@@ -54,6 +67,7 @@ class UserController extends Controller
     public function updateuserdetails(Request $request, $id)
     {
 
+
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
@@ -62,7 +76,6 @@ class UserController extends Controller
             'address' => 'required',
             'email' => 'required|email',
             'mobile' => 'required',
-
         ]);
         $id = $request->id;
         $data1 = User::find($id);
@@ -74,6 +87,23 @@ class UserController extends Controller
         $user->gender = $request['gender'];
         $user->date_of_birth = $request['date_of_birth'];
         $user->company = $request['company'];
+        $data = $request->all();
+        $img = array();
+        if (isset($data['license'])) {
+            for ($i = 0; $i < count($data['license']); $i++) {
+                $imageName = time() . '.' . $data['license'][$i]->getClientOriginalName();
+                $data['license'][$i]->move(public_path('images'), $imageName);
+                array_push($img, $imageName);
+            }
+            $data4 = array(
+                'license' =>  implode(",", $img),
+            );
+        } else {
+            $data4 = array(
+                'license' =>  null,
+            );
+        }
+        $user->license = $data4['license'];
         $user->address = $request['address'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
@@ -81,6 +111,11 @@ class UserController extends Controller
         $user->save();
         session()->flash('message', ' Updated Successfully');
         return redirect('/user');
+    }
+    public function licenseimage($id)
+    {
+        $user = User::where('id', $id)->first();
+        return view('/licenseimage', ['user' => $user]);
     }
     public function delete($id)
     {

@@ -35,13 +35,13 @@ Route::get('/users', [UserController::class, 'users']);
 Route::get('/user', [UserController::class, 'userlist']);
 Route::get('/updateuser/{id}', [UserController::class, 'updateuser'])->name('update');
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
+Route::get('/licenseimage/{id}', [UserController::class, 'licenseimage']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 //vehicle
 Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
-Route::get('/vehicles', [VehicleController::class, 'vehicles']);
-Route::post('/vehicle', [VehicleController::class, 'vehicle']);
 Route::get('/vehiclelist', [VehicleController::class, 'vehiclelist']);
+Route::get('/vehiclelists', [VehicleController::class, 'vehiclelists']);
 Route::get('/updatevehicles/{id}', [VehicleController::class, 'updatevehicles']);
 Route::post('/updatevehicle/{id}', [VehicleController::class, 'updatevehicle']);
 Route::get('/remove/{id}', [VehicleController::class, 'remove']);

@@ -28,7 +28,7 @@
                                             {{ $user->name }}</option>
                                     @endforeach
                                 @else
-                                    <option>Select Name</option>
+                                    <option>Select</option>
                                     @foreach ($users as $user)
                                         <option value="{{ $user->name }}">
                                             {{ $user->name }}</option>
@@ -54,11 +54,13 @@
                     <th style="text-align:center;">Mobile.no</th>
                     <th style="text-align:center;">Address</th>
                     <th style="text-align:center;">Company</th>
+                    <th style="text-align:center;">License</th>
                     <th style="text-align:center;">Role</th>
                     <th style="text-align:center;">Creation Date</th>
                     <th style="text-align:center;">Action</th>
                 </thead>
                 <tbody>
+
                     @foreach ($users as $user)
                         <tr class="table_row">
                             <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
@@ -68,6 +70,17 @@
                             <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
                             <td style="text-align:center;" class="table_data">{{ $user->address }}</td>
                             <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                @if ($user->license != null)
+                                    <a href="/licenseimage/{{ $user->id }}">
+                                        <img src="{{ url('images/' . explode(',', $user->license)[0]) }}"
+                                            class="rounded-0 border border-secondary" width="50px" height="50px">
+                                    </a>
+                                @endif
+                                @if ($user->license == null)
+                                    <p style="text-align:center;">--</p>
+                                @endif
+                            </td>
                             <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
                             <td style="text-align:center;" class="table_data">
                                 {{ $user->created_at->format('Y-m-d') }}</td>
@@ -94,7 +107,7 @@
     </div>
     <div id="sam">
         <div class="userPopUp">
-            <form action="/createuser" method="POST" autocomplete="off">
+            <form action="/createuser" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <div id="userHeading">
                     <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Create Driver</h5>
@@ -145,9 +158,9 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2 col-form-label"> License</label>
+                            <label class="col-sm-2 col-form-label">License</label>
                             <div class="col-sm-9">
-                                <input type="file" name="license" class="form-control">
+                                <input type="file" name="license[]" class="form-control" multiple id="license">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('license')
                                         *{{ $message }}
                                     @enderror
@@ -160,7 +173,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label"> Address</label>
                             <div class="col-sm-9">
-                                <select class="select" id="select" name="address">
+                                <select class="select" id="select" name="address" id="address">
                                     <option>Select City</option>
                                     <!--- United Kingdom states -->
                                     <option value="London">London</option>
@@ -423,7 +436,7 @@
     </div>
     <div id="sam1">
         <div class="userPopUp1">
-            <form action="/updateuserdetails/{id}" method="POST" autocomplete="off">
+            <form action="/updateuserdetails/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <div id="userHeading">
                     <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Update Driver</h5>
@@ -475,13 +488,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="subreport">
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label"> Company</label>
                             <div class="col-sm-9">
                                 <input type="text" name="company" class="form-control" id="company">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subreport">
+
+                        <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label">License</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="license[]" class="form-control" multiple>
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('license')
                                         *{{ $message }}
                                     @enderror
                                 </div>
