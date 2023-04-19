@@ -11,15 +11,6 @@ use Illuminate\Support\Facades\Mail;
 
 class AssignController extends Controller
 {
-    // public function vehicleassign()
-    // {
-    //     $role = 'user';
-    //     $vehicle_id = null;
-    //     $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
-    //     $user_id = null;
-    //     $vehicle = Vehicle::where('user_id', $user_id)->get();
-    //     return view('/vehicleassign', compact('vehicle'), ['user' => $user]);
-    // }
     public function vehicleassignlist(Request $request)
     {
         $number_plate = $request['number_plate'];

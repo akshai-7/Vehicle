@@ -174,7 +174,16 @@ function report(val) {
 
 
 
-
+$('#datepicker').datepicker({
+  changeMonth: true,
+  changeYear: true,
+  dateFormat: "dd-mm-yy",
+  constrainInput: true,
+  yearRange: "1970:2025",
+  onSelect: function() {
+    alert($('#datepicker').val());
+  }
+});
 
 
 

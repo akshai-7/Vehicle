@@ -30,6 +30,31 @@
             var multipleCancelButton = new Choices('#select')
         });
     </script>
+
+
+
+    <link rel="stylesheet"
+        href="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css"
+        type="text/css" />
+
+    <script type="text/javascript"
+        src="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.core.min.js"></script>
+    <script type="text/javascript"
+        src="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.widget.min.js">
+        < /scrip> <
+        script type = "text/javascript"
+        src = "https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.tabs.min.js" >
+    </script>
+    <script type="text/javascript"
+        src="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.position.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js"></script>
+
+
+
 </head>
 
 <body>
