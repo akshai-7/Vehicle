@@ -41,7 +41,7 @@ class UserController extends Controller
     public function userlist()
     {
         $role = 'User';
-        $users = User::where('role', $role)->paginate(10);
+        $users = User::where('role', $role)->get();
         return view('/user', ['users' => $users]);
     }
     public function updateuser($id)

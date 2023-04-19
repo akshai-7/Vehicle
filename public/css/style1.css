@@ -441,40 +441,12 @@ form {
     color: #583740;
     background-color: #dedbdbab;
 }
-
 span {
     margin: 5px;
 }
-/* #dropdown {
-    background-color: #00000033;
-    width: 200px;
-    font-size: 16px;
-    padding: 5px;
+.select {
+    background: #000;
 }
-
-.dropdown-item {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 2px;
-}
-.dropdown-item:hover {
-    background-color: rgba(0, 204, 255, 0.459);
-}
-
-#input {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-#toggle {
-    width: 200px;
-    font-size: 16px;
-} */
-
 /* media query */
 
 @media only screen and (max-width: 800px) {
