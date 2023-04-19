@@ -1,5 +1,15 @@
 @extends('layouts.user')
 @section('content')
+    <style>
+        .select2-container .select2-selection--single {
+            height: 34px !important;
+        }
+
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #ccc !important;
+            border-radius: 0px !important;
+        }
+    </style>
     <div class="userContainer">
         <div class="table-data">
             <div class="order">
@@ -114,7 +124,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Name</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                         *{{ $message }}
                                     @enderror
@@ -144,26 +154,21 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label"> Address</label>
                             <div class="col-sm-9">
-                                {{-- <input type="text" name="address" class="form-control">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
-                                        *{{ $message }}
-                                    @enderror
-                                </div> --}}
-                                <div class="dropdown">
-                                    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                                    <div id="myDropdown" class="dropdown-content">
-                                        <input type="text" placeholder="Search.." id="myInput"
-                                            onkeyup="filterFunction()">
-                                        <a href="#about">About</a>
-                                        <a href="#base">Base</a>
-                                        <a href="#blog">Blog</a>
-                                        <a href="#contact">Contact</a>
-                                        <a href="#custom">Custom</a>
-                                        <a href="#support">Support</a>
-                                        <a href="#tools">Tools</a>
+                                <div class="container">
+                                    <div class="row">
+                                        <form class="col-md-4">
+                                            <label>Select</label>
+                                            <select class="form-control select2">
+                                                <option>Select</option>
+                                                <option>Car</option>
+                                                <option>Bike</option>
+                                                <option>Scooter</option>
+                                                <option>Cycle</option>
+                                                <option>Horse</option>
+                                            </select>
+                                        </form>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -319,5 +324,8 @@
             </form>
         </div>
     </div>
+    <script>
+        $('.select2').select2();
+    </script>
 
 @endsection
