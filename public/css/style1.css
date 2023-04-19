@@ -421,7 +421,7 @@ form {
 }
 #filterDiv1 {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 5px;
     padding: 10px 5px;
     display: flex;
     align-content: center;
@@ -444,9 +444,7 @@ form {
 span {
     margin: 5px;
 }
-.select {
-    background: #000;
-}
+
 /* media query */
 
 @media only screen and (max-width: 800px) {

@@ -25,6 +25,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            var multipleCancelButton = new Choices('#select')
+        });
+    </script>
 </head>
 
 <body>
