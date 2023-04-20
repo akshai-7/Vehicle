@@ -12,8 +12,8 @@
         <div id="Visual" class="tabcontent">
             <div class="table-data" id="table-data">
                 <div class="head">
-                    <a style="margin-left:1000px;" onclick="show('inspectionFrom')"><input type="submit" value="Inspection"
-                            id="add"></a>
+                    <a style="margin-left:1000px;" onclick="show('inspectionFrom')"><input type="submit"
+                            value="Add-Inspection" id="add1"></a>
                 </div>
                 <form action="/search" method="GET" autocomplete="off">
                     <div id="filterDiv">
@@ -107,7 +107,6 @@
             <div class="active">
                 {!! $inspections->links() !!}
             </div>
-
         </div>
         <div id="Vehicle" class="tabcontent">
             <div class="table-data" id="table-data">

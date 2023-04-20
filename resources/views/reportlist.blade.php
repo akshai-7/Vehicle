@@ -5,7 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Reported Incidents</h3>
-                    <a onclick="show('incidentFrom')"><input type="submit" value="Incident" id="add"></a>
+                    <a onclick="show('incidentFrom')"><input type="submit" value="Add-Incident" id="add1"></a>
                 </div>
 
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">

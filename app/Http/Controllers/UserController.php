@@ -14,7 +14,6 @@ class UserController extends Controller
 
     public function createuser(Request $request)
     {
-        // dd($request);
         $request->validate([
             'name' => 'required',
             'gender' => 'required',

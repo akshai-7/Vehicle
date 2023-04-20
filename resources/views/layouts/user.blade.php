@@ -131,6 +131,7 @@
 <script>
     $(document).ready(function() {
         var multipleCancelButton = new Choices('#select')
+
     });
 </script>
 
