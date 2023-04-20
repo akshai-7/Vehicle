@@ -100,13 +100,13 @@ class VehicleController extends Controller
     public function vehiclelists(Request $request)
     {
 
-        if ($request->number_plate == "Select" && $request->date == null) {
+        if ($request->number_plate == "Select Number plate" && $request->date == null) {
             $vehicles = Vehicle::paginate(10);
             return view('vehiclelist', compact('vehicles'));
-        } elseif ($request->number_plate == "Select" && $request->date != null) {
+        } elseif ($request->number_plate == "Select Number plate" && $request->date != null) {
             $vehicles = Vehicle::where('created_at', $request->date)->paginate(10);
             return view('vehiclelist', compact('vehicles'));
-        } elseif ($request->number_plate != "Select" && $request->date == null) {
+        } elseif ($request->number_plate != "Select Number plate" && $request->date == null) {
             $vehicles = Vehicle::where('number_plate', $request->number_plate)->paginate(10);
             return view('vehiclelist', compact('vehicles'));
         } else {

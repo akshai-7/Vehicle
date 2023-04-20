@@ -11,7 +11,7 @@
                 <form action="/vehiclelists" method="GET" autocomplete="off">
                     <div id="filterDiv1">
                         <div class="col-md-3" id="filter">
-                            <label>Filter by Date</label>
+                            <label></label>
                             @if (isset($_GET['date']))
                                 <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
                             @else
@@ -19,7 +19,7 @@
                             @endif
                         </div>
                         <div class="col-md-3" id="">
-                            <label>Filter by Name</label>
+                            <label></label>
                             <select class="form-select form-control" name="number_plate">
                                 @if (isset($_GET['number_plate']))
                                     <option value="{{ $_GET['number_plate'] }}">{{ $_GET['number_plate'] }}</option>
@@ -28,7 +28,7 @@
                                             {{ $vehicle->number_plate }}</option>
                                     @endforeach
                                 @else
-                                    <option>Select</option>
+                                    <option>Select Number plate</option>
                                     @foreach ($vehicles as $vehicle)
                                         <option value="{{ $vehicle->number_plate }}">
                                             {{ $vehicle->number_plate }}</option>

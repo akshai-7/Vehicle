@@ -18,7 +18,7 @@
                                 <input type="date" name="date" class="form-control">
                             @endif
                         </div>
-                        <div class="col-md-3" id="">
+                        <div class="col-md-3">
                             <label></label>
                             <select class="form-select form-control" name="name">
                                 @if (isset($_GET['name']))
@@ -28,7 +28,7 @@
                                             {{ $user->name }}</option>
                                     @endforeach
                                 @else
-                                    <option>Select</option>
+                                    <option>Select Name</option>
                                     @foreach ($users as $user)
                                         <option value="{{ $user->name }}">
                                             {{ $user->name }}</option>
@@ -44,7 +44,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                 <thead>
@@ -60,7 +59,6 @@
                     <th style="text-align:center;">Action</th>
                 </thead>
                 <tbody>
-
                     @foreach ($users as $user)
                         <tr class="table_row">
                             <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
@@ -405,13 +403,10 @@
                                     <option value="Wokingham">Wokingham</option>
                                     <option value="Wrexham">Wrexham</option>
                                     <option value="York">York</option>
-                                </select> --}}
-
-
+                            </select> --}}
                             <div class="col-sm-9">
-                                <input list="magicHouses" name="city" class="form-control"
-                                    placeholder="Select City" />
-                                <datalist id="magicHouses">
+                                <input list="citylist" name="city" class="form-control" placeholder="Select City" />
+                                <datalist id="citylist">
                                     <option value="London">London</option>
                                     <option ption value="Aberdeen City">Aberdeen City</option>
                                     <option value="Aberdeenshire">Aberdeenshire</option>
@@ -632,7 +627,6 @@
                                     <option value="York">York</option>
                                 </datalist>
                             </div>
-
                         </div>
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Country</label>
@@ -757,14 +751,19 @@
                         <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">License</label>
                             <div class="col-sm-9">
-                                {{-- <input type="text" name="license[]" class="form-control" multiple id="license"
-                                    required>
+                                {{-- <input type="file" name="license[]" class="form-control" multiple id="license"
+                                    required> --}}
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('license')
                                         *{{ $message }}
                                     @enderror
-                                </div> --}}
-                                <img src="{{ url('images/' . explode(',', 'id=license')[0]) }}"
-                                    class="rounded-0 border border-secondary" width="50px" height="50px">
+                                </div>
+                                @foreach ($users as $user)
+                                    {{-- @dd($user->license); --}}
+                                    <img src="{{ url('images/' . $user->license) }}"
+                                        class="rounded-0 border border-secondary" width="50px" height="50px">
+                                @endforeach
+                                {{-- <img src="{{ url('images/' . explode(',', 'id=license')[0]) }}"
+                                    class="rounded-0 border border-secondary" width="50px" height="50px"> --}}
                             </div>
                         </div>
                     </div>
@@ -779,9 +778,8 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2 col-form-label"> City</label>
+                            <label for="" class="col-sm-2 col-form-label">City</label>
                             <div class="col-sm-9">
                                 {{-- <select class="select" id="select" name="city">
                                     <option>Select City</option>
@@ -1006,9 +1004,8 @@
                                     <option value="Wrexham">Wrexham</option>
                                     <option value="York">York</option>
                                 </select> --}}
-                                <input list="magicHouses" name="city" class="form-control" placeholder="Select City"
-                                    id="city" />
-                                <datalist id="magicHouses">
+                                <input list="citylist" name="city" class="form-control" id="city">
+                                <datalist id="citylist">
                                     <option value="London">London</option>
                                     <option ption value="Aberdeen City">Aberdeen City</option>
                                     <option value="Aberdeenshire">Aberdeenshire</option>

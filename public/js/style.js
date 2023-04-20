@@ -96,10 +96,12 @@ function check(val) {
     document.getElementById('date_of_birth').value = val['date_of_birth']
     document.getElementById('company').value = val['company']
     document.getElementById('address').value = val['address']
+    document.getElementById('address').value = val['address']
     document.getElementById('email').value = val['email']
+    document.getElementById('city').value = val['city']
     document.getElementById('mobile').value = val['mobile']
     document.getElementById('license').value = val['license']
-    document.getElementById('city').value = val['city']
+
 }
 
 //update vehicle
