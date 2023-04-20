@@ -140,7 +140,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
-                                <input type="date" name="date_of_birth" class="form-control" id="datepicker">
+                                <input type="date" name="date_of_birth" class="form-control">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
                                     @enderror
@@ -173,7 +173,7 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">
-                                <input type="text" name="address" class="form-control" placeholder="House.NO/Street">
+                                <input type="text" name="address" class="form-control" placeholder="House.No/Street">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
                                         *{{ $message }}
                                     @enderror
@@ -739,6 +739,13 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label">Previous_Image</label>
+                            <div class="col-sm-6">
+                                <img id="updateImage" class="rounded-0 border border-secondary" width="50px"
+                                    height="50px">
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">License</label>
                             <div class="col-sm-9">
                                 <input type="file" name="license[]" class="form-control" multiple required>
@@ -746,24 +753,6 @@
                                         *{{ $message }}
                                     @enderror
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4 ">
-                            <label class="col-sm-2 col-form-label">License</label>
-                            <div class="col-sm-9">
-                                {{-- <input type="file" name="license[]" class="form-control" multiple id="license"
-                                    required> --}}
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('license')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
-                                @foreach ($users as $user)
-                                    {{-- @dd($user->license); --}}
-                                    <img src="{{ url('images/' . $user->license) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px">
-                                @endforeach
-                                {{-- <img src="{{ url('images/' . explode(',', 'id=license')[0]) }}"
-                                    class="rounded-0 border border-secondary" width="50px" height="50px"> --}}
                             </div>
                         </div>
                     </div>

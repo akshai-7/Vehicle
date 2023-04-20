@@ -58,9 +58,7 @@ class UserController extends Controller
     {
         $role = 'User';
         $users = User::where('role', $role)->get();
-        $countries = Country::all();
-        $states = State::all();
-        return  view('/user', ['users' => $users], ['countries' => $countries], ['states' => $states]);
+        return  view('/user', ['users' => $users]);
     }
     public function updateuserdetails(Request $request, $id)
 

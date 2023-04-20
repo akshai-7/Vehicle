@@ -100,8 +100,7 @@ function check(val) {
     document.getElementById('email').value = val['email']
     document.getElementById('city').value = val['city']
     document.getElementById('mobile').value = val['mobile']
-    document.getElementById('license').value = val['license']
-
+    document.getElementById('updateImage').src = "http://127.0.0.1:8000/images/"+val['license']
 }
 
 //update vehicle
