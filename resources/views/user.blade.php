@@ -42,11 +42,10 @@
                             <a href="/user" class="btn btn-success btn-sm mt-1"><i
                                     class="fa-solid fa-arrow-rotate-right"></i></a>
                         </div>
-
                     </div>
                 </form>
             </div>
-            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
+            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                 <thead>
                     <th style="text-align:center;">S.No</th>
                     <th style="text-align:center;">Driver Name</th>
@@ -68,7 +67,9 @@
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
                             <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
-                            <td style="text-align:center;" class="table_data">{{ $user->address }}</td>
+                            <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
+                                {{ $user->city }}-{{ $user->country }}
+                            </td>
                             <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
                             <td style="text-align:center;" class="table_data">
                                 @if ($user->license != null)
@@ -140,7 +141,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
-                                <input type="text" name="date_of_birth" class="form-control" id="datepicker">
+                                <input type="date" name="date_of_birth" class="form-control" id="datepicker">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
                                     @enderror
@@ -167,13 +168,23 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="subreport">
-
-                        <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2 col-form-label"> Address</label>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">
-                                <select class="select" id="select" name="address" id="address">
+                                <input type="text" name="address" class="form-control">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2 col-form-label">City</label>
+                            <div class="col-sm-9">
+                                <select class="select" id="select" name="city">
                                     <option>Select City</option>
                                     <!--- United Kingdom states -->
                                     <option value="London">London</option>
@@ -395,6 +406,22 @@
                                     <option value="Wrexham">Wrexham</option>
                                     <option value="York">York</option>
                                 </select>
+                                {{-- <select name="address" id="country" class="form-control">
+                                    <option value="">Select Country</option>
+                                    @foreach ($countries as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @endforeach
+                                </select> --}}
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label">Country</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="country" class="form-control" value="United Kingdom">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row mt-4">
@@ -444,7 +471,6 @@
                         <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                     </a>
                 </div>
-
                 <div class="report1">
                     <div class="report">
                         <div class="form-group row mt-4 ">
@@ -498,9 +524,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="subreport">
-
                         <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">License</label>
                             <div class="col-sm-9">
@@ -511,11 +534,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2 col-form-label"> Address</label>
+                    </div>
+                    <div class="subreport">
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">
                                 <input type="text" name="address" class="form-control" id="address">
-                                <select class="select" id="select" name="address">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2 col-form-label"> City</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="city" class="form-control" id="city">
+                                <select class="select" id="select" name="city">
                                     <option>Select City</option>
                                     <!--- United Kingdom states -->
                                     <option value="London">London</option>
@@ -741,7 +777,16 @@
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
                                         *{{ $message }}
                                     @enderror
-
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label">Country</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="country" class="form-control" value="United Kingdom">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
+                                        *{{ $message }}
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -773,16 +818,5 @@
             </form>
         </div>
     </div>
-    <script>
-        $('#datepicker').datepicker({
-            changeMonth: true,
-            changeYear: true,
-            dateFormat: "dd-mm-yy",
-            constrainInput: true,
-            yearRange: "1970:2025",
-            onSelect: function() {
-                alert($('#datepicker').val());
-            }
-        });
-    </script>
+
 @endsection

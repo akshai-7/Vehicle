@@ -25,36 +25,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var multipleCancelButton = new Choices('#select')
-        });
-    </script>
 
 
 
-    <link rel="stylesheet"
-        href="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css"
-        type="text/css" />
-    <link rel="stylesheet" href="https://rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css"
-        type="text/css" />
-
-    <script type="text/javascript"
-        src="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.core.min.js"></script>
-    <script type="text/javascript"
-        src="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.widget.min.js">
-        < /scrip> <
-        script type = "text/javascript"
-        src = "https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.tabs.min.js" >
-    </script>
-    <script type="text/javascript"
-        src="https://rawgit.com/fgelinas/timepicker/master/include/ui-1.10.0/jquery.ui.position.min.js"></script>
-
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script type="text/javascript" src="https://rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -146,5 +128,10 @@
     </section>
 
 </body>
+<script>
+    $(document).ready(function() {
+        var multipleCancelButton = new Choices('#select')
+    });
+</script>
 
 </html>

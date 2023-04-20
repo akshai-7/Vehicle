@@ -99,6 +99,7 @@ function check(val) {
     document.getElementById('email').value = val['email']
     document.getElementById('mobile').value = val['mobile']
      document.getElementById('license').value = val['license']
+
 }
 
 //update vehicle
@@ -171,19 +172,13 @@ function report(val) {
 
 }
 
+// function selectOption(val) {
+//     let country_id = val;
+//     console.log(country_id);
+//     $data = country_id;
+// }
 
 
-
-$('#datepicker').datepicker({
-  changeMonth: true,
-  changeYear: true,
-  dateFormat: "dd-mm-yy",
-  constrainInput: true,
-  yearRange: "1970:2025",
-  onSelect: function() {
-    alert($('#datepicker').val());
-  }
-});
 
 
 

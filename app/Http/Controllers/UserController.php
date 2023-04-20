@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
-
+use WisdomDiala\Countrypkg\Models\Country;
+use WisdomDiala\Countrypkg\Models\State;
 
 class UserController extends Controller
 {
+
     public function createuser(Request $request)
     {
         // dd($request);
@@ -18,6 +20,8 @@ class UserController extends Controller
             'gender' => 'required',
             'date_of_birth' => 'required',
             'address' => 'required',
+            'city' => 'required',
+            'country' => 'required',
             'company' => 'required',
             'email' => 'required|email',
             'password' => 'required',
@@ -30,6 +34,8 @@ class UserController extends Controller
         $user->gender = $request['gender'];
         $user->date_of_birth = $request['date_of_birth'];
         $user->address = $request['address'];
+        $user->city = $request['city'];
+        $user->country = $request['country'];
         $user->company = $request['company'];
         $data = $request->all();
         $img = array();
@@ -49,31 +55,26 @@ class UserController extends Controller
         session()->flash('message', 'Driver is Created');
         return redirect('/user');
     }
-
-
     public function userlist()
     {
         $role = 'User';
         $users = User::where('role', $role)->get();
-        return view('/user', ['users' => $users]);
-    }
-    public function updateuser($id)
-    {
-        $user = User::where('id', $id)->get();
-        $role = 'user';
-        $user1 = User::where('role', $role)->get();
-        return view('/updateuser', ['user' => $user], ['user1' => $user1]);
+        $countries = Country::all();
+        $states = State::all();
+        return  view('/user', ['users' => $users], ['countries' => $countries], ['states' => $states]);
     }
     public function updateuserdetails(Request $request, $id)
+
     {
-
-
+        // dd($request);
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
             'date_of_birth' => 'required',
             'company' => 'required',
             'address' => 'required',
+            'city' => 'required',
+            'country' => 'required',
             'email' => 'required|email',
             'mobile' => 'required',
         ]);
@@ -105,6 +106,8 @@ class UserController extends Controller
         }
         $user->license = $data4['license'];
         $user->address = $request['address'];
+        $user->city = $request['city'];
+        $user->country = $request['country'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
         $user->mobile = $request['mobile'];
@@ -144,5 +147,15 @@ class UserController extends Controller
             $users = User::where('role', $role)->where('created_at', $request->date)->where('name', $request->name)->paginate(10);
             return view('/user', ['users' => $users]);
         }
+    }
+    public function getStates()
+    {
+        $country_id = request('country');
+        $states = State::where('country_id', $country_id)->get();
+        $option = "<option  value=''>Select State</option>";
+        foreach ($states as $state) {
+            $option .= '<option  value="' . $state->name . '">' . $state->name . '</option>';
+        }
+        return $option;
     }
 }

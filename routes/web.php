@@ -33,7 +33,7 @@ Route::post('/user', [LoginController::class, 'admin']);
 Route::post('/createuser', [UserController::class, 'createuser']);
 Route::get('/users', [UserController::class, 'users']);
 Route::get('/user', [UserController::class, 'userlist']);
-Route::get('/updateuser/{id}', [UserController::class, 'updateuser'])->name('update');
+Route::get('/getStates', [UserController::class, 'getStates']);
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
 Route::get('/licenseimage/{id}', [UserController::class, 'licenseimage']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
