@@ -35,6 +35,7 @@
                                     @endforeach
                                 @endif
                             </select>
+
                         </div>
                         <div class="col-md-5" style="margin-left: 6px">
                             <br />
@@ -739,7 +740,7 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
-                            <label class="col-sm-2 col-form-label">Previous_Image</label>
+                            <label class="col-sm-2 col-form-label">Current_Image</label>
                             <div class="col-sm-6">
                                 <img id="updateImage" class="rounded-0 border border-secondary" width="50px"
                                     height="50px">
@@ -1254,5 +1255,4 @@
             </form>
         </div>
     </div>
-
 @endsection
