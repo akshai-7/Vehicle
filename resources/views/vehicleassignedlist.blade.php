@@ -40,7 +40,7 @@
                             @if (isset($_GET['date']))
                                 <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
                             @else
-                                <input type="date" name="date" class="form-control">
+                                <input type="text1" name="date" class="form-control" value="Select Date">
                             @endif
                         </div>
                         <div class="col-md-3">

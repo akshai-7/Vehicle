@@ -18,15 +18,15 @@
                 <form action="/search" method="GET" autocomplete="off">
                     <div id="filterDiv">
                         <div class="col-md-3" id="filter">
-                            <label>Filter by Date</label>
+                            <label></label>
                             @if (isset($_GET['date']))
                                 <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
                             @else
-                                <input type="date" name="date" class="form-control">
+                                <input type="text1" name="date" class="form-control" value="Select Date">
                             @endif
                         </div>
                         <div class="col-md-3" id="">
-                            <label>Filter by Name</label>
+                            <label></label>
                             <select class="form-select form-control" name="name">
                                 @if (isset($_GET['name']))
                                     <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
@@ -35,7 +35,7 @@
                                             {{ $assign->name }}</option>
                                     @endforeach
                                 @else
-                                    <option>Select</option>
+                                    <option>Select Name</option>
                                     @foreach ($assigns as $assign)
                                         <option value="{{ $assign->name }}">
                                             {{ $assign->name }}</option>

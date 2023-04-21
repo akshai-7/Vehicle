@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 @import "/path/to/bootstrap/less/variables";
-@import "/path/to/bootstrap-datetimepicker/src/less/bootstrap-datetimepicker-build.less";
+@import "~flatpickr/dist/flatpickr.css";
 html {
     overflow-y: hidden;
     overflow-x: hidden;

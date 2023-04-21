@@ -20,6 +20,7 @@ class UserController extends Controller
             'date_of_birth' => 'required',
             'address' => 'required',
             'city' => 'required',
+            'postcode' => 'required',
             'country' => 'required',
             'company' => 'required',
             'email' => 'required|email',
@@ -34,6 +35,7 @@ class UserController extends Controller
         $user->date_of_birth = $request['date_of_birth'];
         $user->address = $request['address'];
         $user->city = $request['city'];
+        $user->postcode = $request['postcode'];
         $user->country = $request['country'];
         $user->company = $request['company'];
         $data = $request->all();
@@ -71,6 +73,7 @@ class UserController extends Controller
             'company' => 'required',
             'address' => 'required',
             'city' => 'required',
+            'postcode' => 'required',
             'country' => 'required',
             'email' => 'required|email',
             'mobile' => 'required',
@@ -104,6 +107,7 @@ class UserController extends Controller
         $user->license = $data4['license'];
         $user->address = $request['address'];
         $user->city = $request['city'];
+        $user->postcode = $request['postcode'];
         $user->country = $request['country'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);

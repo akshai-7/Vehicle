@@ -33,6 +33,10 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </head>
 
 <body>
@@ -123,12 +127,16 @@
 
     </section>
 
+
 </body>
 <script>
     $(document).ready(function() {
         var multipleCancelButton = new Choices('#select')
 
     });
+    flatpickr("input[type=text1]");
 </script>
+
+
 
 </html>

@@ -13,9 +13,9 @@
                         <div class="col-md-3" id="filter">
                             <label></label>
                             @if (isset($_GET['date']))
-                                <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
+                                <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
                             @else
-                                <input type="date" name="date" class="form-control">
+                                <input type="text1" name="date" class="form-control" value="Select Date">
                             @endif
                         </div>
                         <div class="col-md-3">
@@ -68,7 +68,7 @@
                             <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
                             <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
                             <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
-                                {{ $user->city }}-{{ $user->country }}
+                                {{ $user->city }},{{ $user->country }},{{ $user->postcode }}
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
                             <td style="text-align:center;" class="table_data">
@@ -141,7 +141,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
-                                <input type="date" name="date_of_birth" class="form-control">
+                                <input type="text1" name="date_of_birth" class="form-control" id="">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
                                     @enderror
@@ -168,9 +168,6 @@
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="subreport">
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">
@@ -181,6 +178,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="subreport">
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label">City</label>
                             {{-- <select class="select" id="select" name="city">
@@ -630,6 +629,16 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label">PostCode</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="postcode" class="form-control">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Country</label>
                             <div class="col-sm-9">
                                 <input type="text" name="country" class="form-control" value="United Kingdom">
@@ -722,7 +731,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
-                                <input type="date" name="date_of_birth" class="form-control" id="date_of_birth">
+                                <input type="text1" name="date_of_birth" class="form-control" id="date_of_birth">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
                                     @enderror
@@ -1218,39 +1227,48 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4">
-                            <label for="" class="col-sm-1  col-form-label">Country</label>
+                            <label for="" class="col-sm-2  col-form-label">PostCode</label>
                             <div class="col-sm-9">
-                                <input type="text" name="country" class="form-control" value="United Kingdom">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
+                                <input type="text" name="postcode" class="form-control" id="postcode">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
                                         *{{ $message }}
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row mt-4">
-                            <label for="" class="col-sm-2  col-form-label"> Email</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="email" class="form-control" id="email">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
-                                        *{{ $message }}
-                                    @enderror
+                            <div class="form-group row mt-4">
+                                <label for="" class="col-sm-1  col-form-label">Country</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="country" class="form-control" value="United Kingdom">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row mt-4">
-                            <label for="" class="col-sm-2 col-form-label"> Mobile</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="mobile" class="form-control" id="mobile">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
-                                        *{{ $message }}
-                                    @enderror
+                            <div class="form-group row mt-4">
+                                <label for="" class="col-sm-2  col-form-label"> Email</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="email" class="form-control" id="email">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
-                                <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                                    id="add" style="float:right;">
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label for="" class="col-sm-2 col-form-label"> Mobile</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="mobile" class="form-control" id="mobile">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                    <input type="submit" name="" value="Submit" class="btn text-white mt-4"
+                                        id="add" style="float:right;">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
             </form>
         </div>

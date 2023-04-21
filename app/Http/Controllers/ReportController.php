@@ -69,4 +69,27 @@ class ReportController extends Controller
         session()->flash('message1', ' Report is Deleted');
         return redirect('/reportlist');
     }
+    public function searchreport(Request $request)
+    {
+        if ($request->name == "Select Name" && $request->date == null) {
+            $assigns = Assign::all();
+            $reports = Report::with('assign')->get();
+            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
+        } elseif ($request->name == "Select Name" && $request->date != null) {
+            $assigns = Assign::all();
+            $assign = Assign::where('name', $request->name)->first();
+            $reports = Report::where('assign_id', $assign->id)->where('created_at', $request->date)->get();
+            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
+        } elseif ($request->name != "Select Name" && $request->date == null) {
+            $assigns = Assign::all();
+            $assign = Assign::where('name', $request->name)->first();
+            $reports = Report::where('assign_id', $assign->id)->get();
+            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
+        } else {
+            $assigns = Assign::all();
+            $assign = Assign::where('name', $request->name)->first();
+            $reports = Report::where('assign_id', $assign->id)->where('created_at', $request->date)->get();
+            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
+        }
+    }
 }

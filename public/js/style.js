@@ -100,6 +100,7 @@ function check(val) {
     document.getElementById('email').value = val['email']
     document.getElementById('city').value = val['city']
     document.getElementById('mobile').value = val['mobile']
+    document.getElementById('postcode').value = val['postcode']
     document.getElementById('updateImage').src = "http://127.0.0.1:8000/images/"+val['license']
 }
 
@@ -172,13 +173,6 @@ function report(val) {
     document.getElementById('image').value = val['image']
 
 }
-
-// function selectOption(val) {
-//     let country_id = val;
-//     console.log(country_id);
-//     $data = country_id;
-// }
-
 
 
 
