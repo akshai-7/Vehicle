@@ -71,16 +71,16 @@ class ReportController extends Controller
     }
     public function searchreport(Request $request)
     {
-        if ($request->name == "Select Name" && $request->date == null) {
+
+        if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $assigns = Assign::all();
             $reports = Report::with('assign')->get();
             return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
-        } elseif ($request->name == "Select Name" && $request->date != null) {
+        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
             $assigns = Assign::all();
-            $assign = Assign::where('name', $request->name)->first();
-            $reports = Report::where('assign_id', $assign->id)->where('created_at', $request->date)->get();
+            $reports = Report::where('date', $request->date)->get();
             return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
-        } elseif ($request->name != "Select Name" && $request->date == null) {
+        } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
             $assigns = Assign::all();
             $assign = Assign::where('name', $request->name)->first();
             $reports = Report::where('assign_id', $assign->id)->get();
@@ -88,7 +88,7 @@ class ReportController extends Controller
         } else {
             $assigns = Assign::all();
             $assign = Assign::where('name', $request->name)->first();
-            $reports = Report::where('assign_id', $assign->id)->where('created_at', $request->date)->get();
+            $reports = Report::where('assign_id', $assign->id)->where('date', $request->date)->get();
             return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
         }
     }

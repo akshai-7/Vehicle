@@ -20,7 +20,7 @@
                         <div class="col-md-3" id="filter">
                             <label></label>
                             @if (isset($_GET['date']))
-                                <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
+                                <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
                             @else
                                 <input type="text1" name="date" class="form-control" value="Select Date">
                             @endif

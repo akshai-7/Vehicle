@@ -79,7 +79,7 @@ class AssignController extends Controller
     }
     public function assignsearch(Request $request)
     {
-        if ($request->number_plate == "Select Number plate" && $request->date == null) {
+        if ($request->number_plate == "Select Number plate" && $request->date == 'Select Date') {
             $role = 'user';
             $vehicle_id = null;
             $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
@@ -87,7 +87,7 @@ class AssignController extends Controller
             $vehicle = Vehicle::where('user_id', $user_id)->get();
             $assigns = Assign::paginate(10);
             return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
-        } elseif ($request->number_plate == "Select Number plate" && $request->date != null) {
+        } elseif ($request->number_plate == "Select Number plate" && $request->date != 'Select Date') {
             $role = 'user';
             $vehicle_id = null;
             $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
@@ -95,7 +95,7 @@ class AssignController extends Controller
             $vehicle = Vehicle::where('user_id', $user_id)->get();
             $assigns = Assign::where('created_at', $request->date)->paginate(10);
             return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
-        } elseif ($request->number_plate != "Select Number plate" && $request->date == null) {
+        } elseif ($request->number_plate != "Select Number plate" && $request->date == 'Select Date') {
             $role = 'user';
             $vehicle_id = null;
             $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();

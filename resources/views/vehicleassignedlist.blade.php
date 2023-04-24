@@ -38,7 +38,7 @@
                         <div class="col-md-3" id="filter">
                             <label></label>
                             @if (isset($_GET['date']))
-                                <input type="date" name="date" class="form-control" value="{{ $_GET['date'] }}">
+                                <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
                             @else
                                 <input type="text1" name="date" class="form-control" value="Select Date">
                             @endif
@@ -99,6 +99,13 @@
 
                     </tbody>
                 </table>
+                @if (isset($assigns))
+                    @if (count($assigns) < 1)
+                        <div id="dataNotFound">
+                            <p>Data not found</p>
+                        </div>
+                    @endif
+                @endif
                 <div class="active">
                     {!! $assigns->links() !!}
                 </div>

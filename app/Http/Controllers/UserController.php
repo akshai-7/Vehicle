@@ -130,16 +130,15 @@ class UserController extends Controller
 
     public function users(Request $request)
     {
-
-        if ($request->name == "Select Name" && $request->date == null) {
+        if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $role = 'User';
             $users = User::where('role', $role)->paginate(10);
             return view('/user', ['users' => $users]);
-        } elseif ($request->name == "Select Name" && $request->date != null) {
+        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
             $role = 'User';
             $users = User::where('role', $role)->where('created_at', $request->date)->paginate(10);
             return view('/user', ['users' => $users]);
-        } elseif ($request->name != "Select Name" && $request->date == null) {
+        } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
             $role = 'User';
             $users = User::where('role', $role)->where('name', $request->name)->paginate(10);
             return view('/user', ['users' => $users]);
@@ -148,15 +147,5 @@ class UserController extends Controller
             $users = User::where('role', $role)->where('created_at', $request->date)->where('name', $request->name)->paginate(10);
             return view('/user', ['users' => $users]);
         }
-    }
-    public function getStates()
-    {
-        $country_id = request('country');
-        $states = State::where('country_id', $country_id)->get();
-        $option = "<option  value=''>Select State</option>";
-        foreach ($states as $state) {
-            $option .= '<option  value="' . $state->name . '">' . $state->name . '</option>';
-        }
-        return $option;
     }
 }

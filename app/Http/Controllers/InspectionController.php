@@ -161,15 +161,15 @@ class InspectionController extends Controller
     }
     public function search(Request $request)
     {
-        if ($request->name == "Select Name" && $request->date == null) {
+        if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $inspections = Inspection::paginate(10);
             $assigns = Assign::paginate(10);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
-        } elseif ($request->name == "Select Name" && $request->date != null) {
+        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
             $inspections = Inspection::where('date', $request->date)->paginate(10);
             $assigns = Assign::paginate(10);
             return view('/inspectiondetails', compact('inspections', 'assigns'));
-        } elseif ($request->name != "Select Name" && $request->date == null) {
+        } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
 
             $inspections = Inspection::where('name', $request->name)->paginate(10);
             $assigns = Assign::paginate(10);
