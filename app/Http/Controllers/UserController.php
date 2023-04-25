@@ -59,8 +59,9 @@ class UserController extends Controller
     public function userlist()
     {
         $role = 'User';
-        $users = User::where('role', $role)->get();
-        return  view('/user', ['users' => $users]);
+        $users = User::where('role', $role)->paginate(5);
+        $datas = User::where('role', $role)->get();
+        return  view('/user', ['users' => $users], ['datas' => $datas]);
     }
     public function updateuserdetails(Request $request, $id)
 
@@ -130,22 +131,17 @@ class UserController extends Controller
 
     public function users(Request $request)
     {
+        $role = 'User';
+        $datas = User::where('role', $role)->get();
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
-            $role = 'User';
             $users = User::where('role', $role)->paginate(10);
-            return view('/user', ['users' => $users]);
         } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
-            $role = 'User';
             $users = User::where('role', $role)->where('created_at', $request->date)->paginate(10);
-            return view('/user', ['users' => $users]);
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
-            $role = 'User';
             $users = User::where('role', $role)->where('name', $request->name)->paginate(10);
-            return view('/user', ['users' => $users]);
         } else {
-            $role = 'User';
             $users = User::where('role', $role)->where('created_at', $request->date)->where('name', $request->name)->paginate(10);
-            return view('/user', ['users' => $users]);
         }
+        return view('/user', ['users' => $users], ['datas' => $datas]);
     }
 }

@@ -8,10 +8,10 @@
             <div class="box1">
                 <a href="/user" class="boxContainer">
                     <div class="boxContainerValue">
-                        <h3><i class="fa-solid fa-user mt-5 "></i></h3>
-                        <h3> Total_Drivers</h3>
+                        <h2><i class="fa-solid fa-user"></i></h2>
+                        <h4> Total Drivers</h4>
                     </div>
-                    <div class="boxContainerValue mb-5">
+                    <div class="boxContainertext ">
                         <h1>{{ $user }}</h1>
                     </div>
                 </a>
@@ -20,10 +20,10 @@
                 <a href="/vehiclelist" class="boxContainer">
 
                     <div class="boxContainerValue">
-                        <h3><i class="fa-solid fa-car  mt-5"></i></h3>
-                        <h3> Total_Vehicles</h3>
+                        <h2><i class="fa-solid fa-car  "></i></h2>
+                        <h4> Total Vehicles</h4>
                     </div>
-                    <div class="boxContainerValue mb-5">
+                    <div class="boxContainertext">
                         <h1>{{ $vehicle }}</h1>
                     </div>
                 </a>
@@ -32,10 +32,10 @@
                 <a href="/vehicleassignedlist" class="boxContainer">
 
                     <div class="boxContainerValue">
-                        <h3><i class="fa-solid fa-link mt-5 "></i></h3>
-                        <h3> Assigned_Vehicles</h3>
+                        <h2><i class="fa-solid fa-link  "></i></h2>
+                        <h4> Assigned Vehicles</h4>
                     </div>
-                    <div class="boxContainerValue mb-5">
+                    <div class="boxContainertext ">
                         <h1>{{ $assign }}</h1>
                     </div>
                 </a>
@@ -46,10 +46,10 @@
                 <a href="/inspectiondetails" class="boxContainer">
 
                     <div class="boxContainerValue">
-                        <h3><i class="fa-solid fa-list mt-5"></i></h3>
-                        <h3> Total_Inspections</h3>
+                        <h2><i class="fa-solid fa-list "></i></h2>
+                        <h4> Total Inspections</h4>
                     </div>
-                    <div class="boxContainerValue mb-5">
+                    <div class="boxContainertext ">
                         <h1>{{ $inspection }}</h1>
                     </div>
                 </a>
@@ -58,10 +58,10 @@
                 <a href="/inspectiondetails" class="boxContainer">
 
                     <div class="boxContainerValue">
-                        <h3><i class="fa-solid fa-list mt-5"></i></h3>
-                        <h3>Pending_Inspections</h3>
+                        <h2><i class="fa-solid fa-list"></i></h2>
+                        <h4>Pending Inspections</h4>
                     </div>
-                    <div class="boxContainerValue mb-5">
+                    <div class="boxContainertext">
                         <h1>{{ $assign }}</h1>
                     </div>
                 </a>
@@ -69,10 +69,10 @@
             <div class="box1">
                 <a href="/reportlist" class="boxContainer">
                     <div class="boxContainerValue">
-                        <h3><i class="fa-solid fa-file mt-4 "></i></h3>
-                        <h3>Reported_Incidents</h3>
+                        <h2><i class="fa-solid fa-file  "></i></h2>
+                        <h4>Reported Incidents</h4>
                     </div>
-                    <div class="boxContainerValue mb-5">
+                    <div class="boxContainertext">
                         <h1>{{ $report }}</h1>
                     </div>
                 </a>

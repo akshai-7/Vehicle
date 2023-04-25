@@ -23,15 +23,15 @@
                             <select class="form-select form-control" name="name">
                                 @if (isset($_GET['name']))
                                     <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->name }}">
-                                            {{ $user->name }}</option>
+                                    @foreach ($datas as $data)
+                                        <option value="{{ $data->name }}">
+                                            {{ $data->name }}</option>
                                     @endforeach
                                 @else
                                     <option>Select Name</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->name }}">
-                                            {{ $user->name }}</option>
+                                    @foreach ($datas as $data)
+                                        <option value="{{ $data->name }}">
+                                            {{ $data->name }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -102,7 +102,7 @@
                 </div>
             @endif
             <div class="active">
-                {{-- {!! $users->links() !!} --}}
+                {!! $users->links() !!}
             </div>
         </div>
     </div>
