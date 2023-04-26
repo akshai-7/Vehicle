@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Carbon;
-use WisdomDiala\Countrypkg\Models\Country;
-use WisdomDiala\Countrypkg\Models\State;
 
 class UserController extends Controller
 {
@@ -59,14 +56,12 @@ class UserController extends Controller
     public function userlist()
     {
         $role = 'User';
-        $users = User::where('role', $role)->paginate(5);
+        $users = User::where('role', $role)->paginate(10);
         $datas = User::where('role', $role)->get();
         return  view('/user', ['users' => $users], ['datas' => $datas]);
     }
     public function updateuserdetails(Request $request, $id)
-
     {
-        // dd($request);
         $request->validate([
             'name' => 'required',
             'gender' => 'required',

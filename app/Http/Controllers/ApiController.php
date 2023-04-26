@@ -21,7 +21,8 @@ class ApiController extends Controller
 {
     public function login(Request $request)
     {
-        if (Auth::attempt($request->only(['email', 'password']))) {
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $response['token'] = Auth::user()->createToken('token')->plainTextToken;
             $user = Auth::user();
             $vehicle_id = $user->vehicle_id;
