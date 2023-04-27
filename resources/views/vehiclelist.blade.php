@@ -52,6 +52,9 @@
                         <th style="text-align:center;">Make</th>
                         <th style="text-align:center;">Model</th>
                         <th style="text-align:center;">Mileage</th>
+                        <th style="text-align:center;">Service Date</th>
+                        <th style="text-align:center;">Nextservice Date</th>
+                        <th style="text-align:center;">Service Due</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
                     <tbody>
@@ -67,6 +70,18 @@
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->vehicle_model }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}</td>
+                                <td style="text-align:center;" class="table_data">
+                                    {{ Carbon\Carbon::parse($vehicle->servicedate)->format('d-m-Y') }}</td>
+                                <td style="text-align:center;" class="table_data">
+                                    {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d-m-Y') }}
+                                </td>
+                                <td style="text-align:center;">
+                                    @if (Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d-m-Y') == Carbon\Carbon::today())
+                                        <button type="button" class="btn btn-danger btn-sm">Yes</button>
+                                    @else
+                                        <button type="button" class="btn btn-success btn-sm">No</button>
+                                    @endif
+                                </td>
                                 <td style="text-align:center;" class="table_data">
                                     <a onclick=" check1({{ $vehicle }})"><i
                                             class="fa-solid fa-edit btn btn-success"></i></a>
@@ -139,10 +154,21 @@
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label"> Mileage</label>
+                                <label class="col-sm-2 col-form-label">Mileage</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="mileage" class="form-control">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4 ">
+                                <label class="col-sm-2 col-form-label">Service_Date</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="service" class="form-control flatdate"
+                                        placeholder="Select Date">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('service')
                                             *{{ $message }}
                                         @enderror
                                     </div>
@@ -167,45 +193,51 @@
                                 </a>
                             </div>
                             <div class="vehicle">
-                                <div class="form-group row mt-4">
+                                <div class="form-group row mt-3">
                                     <label class="col-sm-2 col-form-label">Id</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="id" class="form-control" id="id">
                                     </div>
                                 </div>
-                                <div class="form-group row mt-4">
+                                <div class="form-group row mt-3">
                                     <label class="col-sm-2 col-form-label">Number_Plate</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="number_plate" class="form-control"
                                             id="number_plate">
-
                                     </div>
                                 </div>
-                                <div class="form-group row mt-4 ">
+                                <div class="form-group row mt-3 ">
                                     <label class="col-sm-2 col-form-label">Vehicle_Type</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="vehicle_type" class="form-control"
                                             id="vehicle_type">
                                     </div>
                                 </div>
-                                <div class="form-group row mt-4 ">
+                                <div class="form-group row mt-3 ">
                                     <label class="col-sm-2 col-form-label">Make</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="make" class="form-control" id="make">
                                     </div>
                                 </div>
-                                <div class="form-group row mt-4 ">
+                                <div class="form-group row mt-3 ">
                                     <label class="col-sm-2 col-form-label">Model</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="vehicle_model" class="form-control"
                                             id="vehicle_model">
                                     </div>
                                 </div>
-                                <div class="form-group row mt-4">
+                                <div class="form-group row mt-3">
                                     <label class="col-sm-2 col-form-label"> Mileage</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="mileage" class="form-control" id="mileage">
-                                        <input type="submit" name="" id="add" value="Submit"
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-3 ">
+                                    <label class="col-sm-2 col-form-label">Service_Date</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="service" class="form-control flatdate"
+                                            placeholder="Select Date" id="service">
+                                        <input type="submit" name="" value="Submit" id="add"
                                             class="btn text-white mt-4" style="float:right;">
                                     </div>
                                 </div>

@@ -142,6 +142,12 @@
                             <input class="form-control-plaintext" id="mobile">
                         </div>
                     </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 ">Statement</label>
+                        <div class="col-sm-9">
+                            <input class="form-control-plaintext" id="statement">
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

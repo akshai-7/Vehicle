@@ -8,6 +8,7 @@ use App\Models\Vehiclecheck;
 use App\Models\Visual;
 use App\Models\Inspection;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 
@@ -21,6 +22,7 @@ class VehicleController extends Controller
             'vehicle_type' => 'required',
             'vehicle_model' => 'required',
             'mileage' => 'required',
+            'service' => 'required',
         ]);
         $vehicle = new Vehicle();
         $vehicle->number_plate = $request['number_plate'];
@@ -28,6 +30,9 @@ class VehicleController extends Controller
         $vehicle->make = $request['make'];
         $vehicle->vehicle_model = $request['vehicle_model'];
         $vehicle->mileage = $request['mileage'];
+        $date = $request['service'];
+        $servicedate = Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d');
+        $vehicle->servicedate = $servicedate;
         $vehicle->save();
         session()->flash('message', 'Vehicle is Created');
         return redirect('/vehiclelist');

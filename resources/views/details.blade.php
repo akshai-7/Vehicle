@@ -19,7 +19,7 @@
                         <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">View</th>
                         <th style="text-align:center;">Image</th>
-                        <th style="text-align:center;">Feed Back</th>
+                        <th style="text-align:center;">Feedback</th>
                         <th style="text-align:center;">Status</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
@@ -59,7 +59,7 @@
                         <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">View</th>
                         <th style="text-align:center;">Image</th>
-                        <th style="text-align:center;">Feed Back</th>
+                        <th style="text-align:center;">Feedback</th>
                         <th style="text-align:center;">Status</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
@@ -105,7 +105,7 @@
                         <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">View</th>
                         <th style="text-align:center;">Image</th>
-                        <th style="text-align:center;">Feed Back</th>
+                        <th style="text-align:center;">Feedback</th>
                         <th style="text-align:center;">Status</th>
                         <th style="text-align:center;">Action</th>
                     </thead>

@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
 
     public function createuser(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
@@ -23,13 +25,13 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'mobile' => 'required',
-
         ]);
-
         $user = new User();
         $user->name = $request['name'];
         $user->gender = $request['gender'];
-        $user->date_of_birth = $request['date_of_birth'];
+        $date = $request['date_of_birth'];
+        $formatted_date = Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d');
+        $user->date_of_birth = $formatted_date;
         $user->address = $request['address'];
         $user->city = $request['city'];
         $user->postcode = $request['postcode'];

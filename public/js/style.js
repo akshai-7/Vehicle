@@ -113,6 +113,7 @@ function check1(val) {
     document.getElementById('make').value = val['make']
     document.getElementById('vehicle_model').value = val['vehicle_model']
     document.getElementById('mileage').value = val['mileage']
+    document.getElementById('service').value = val['servicedate']
 }
 
 //update visual check
@@ -170,7 +171,8 @@ function report(val) {
     document.getElementById('mobile').value = val['mobile']
     document.getElementById('witnessed_by').value = val['witnessed_by']
     document.getElementById('mobile').value = val['mobile']
-    document.getElementById('image').value = val['image']
+    document.getElementById('statement').value = val['statement']
+
 
 }
 

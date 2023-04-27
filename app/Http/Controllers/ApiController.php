@@ -99,7 +99,7 @@ class ApiController extends Controller
     }
     public function visualcheck(Request $request, $id)
     {
-
+        // dd($request);
         $request->validate([
             'type' => 'required',
             'name' => 'required',
@@ -124,10 +124,10 @@ class ApiController extends Controller
                     if (count($name) > count($image) && strtolower($request->type) === "visual") {
                         return response()->json(['message' => 'Image field Required'], 200);
                     }
-
+                    $imageName = "";
                     if (array_keys($image[$i])[0] == $row) {
                         $imgname = $image[$i][$row]->getClientOriginalName();
-                        $imageName = time() . '.' . $image[$i][$row]->extension();
+                        $imageName = time() . $imgname;
                         $image[$i][$row]->move(public_path('images'), $imageName);
                         array_push($img, $imageName);
                     }

@@ -34,7 +34,7 @@
                     <thead class=" col-md-1">
                         <th style="text-align:center;" class=" col-md-2">View</th>
                         <th style="text-align:center;" class=" col-md-2">Image</th>
-                        <th style="text-align:center;" class=" col-md-2">Feed Back</th>
+                        <th style="text-align:center;" class=" col-md-2">Feedback</th>
                         <th style="text-align:center;" class="col-md-2">Action</th>
                     </thead>
                     <tbody>

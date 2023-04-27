@@ -56,7 +56,7 @@
     <table style="width:80%;" class="">
         <th style="text-align:center;" class=" col-md-2">View</th>
         <th style="text-align:center;" class=" col-md-2">Image</th>
-        <th style="text-align:center;" class=" col-md-2">Feed Back</th>
+        <th style="text-align:center;" class=" col-md-2">Feedback</th>
         <th style="text-align:center;" class="col-md-2">Action</th>
         @foreach ($visual as $visual)
             <tr style="tect-align:center;">
@@ -82,7 +82,7 @@
     <table style="width:80%" class="vehicle">
         <th style="text-align:center;" class=" col-md-2">View</th>
         <th style="text-align:center;" class=" col-md-2">Image</th>
-        <th style="text-align:center;" class=" col-md-2">Feed Back</th>
+        <th style="text-align:center;" class=" col-md-2">Feedback</th>
         <th style="text-align:center;" class="col-md-2">Action</th>
         @foreach ($vehicle as $vehicle)
             <tr>
@@ -113,7 +113,7 @@
     <table style="width:80%">
         <th style="text-align:center;" class=" col-md-2">View</th>
         <th style="text-align:center;" class=" col-md-2">Image</th>
-        <th style="text-align:center;" class=" col-md-2">Feed Back</th>
+        <th style="text-align:center;" class=" col-md-2">Feedback</th>
         <th style="text-align:center;" class="col-md-2">Action</th>
         @foreach ($cabin as $cabin)
             <tr>
