@@ -113,8 +113,13 @@ function check1(val) {
     document.getElementById('make').value = val['make']
     document.getElementById('vehicle_model').value = val['vehicle_model']
     document.getElementById('mileage').value = val['mileage']
-    document.getElementById('service').value = val['servicedate']
+    // document.getElementById('service').value = val['servicedate']
+
 }
+
+
+
+
 
 //update visual check
 function visual(val) {

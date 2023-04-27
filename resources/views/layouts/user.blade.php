@@ -130,16 +130,10 @@
 
 </body>
 <script>
-    // $(document).ready(function() {
-    //     var multipleCancelButton = new Choices('#select')
-
-    // });
     flatpickr("input[type=text1]");
     $('.flatdate').flatpickr({
         dateFormat: "d-m-Y",
     });
 </script>
-
-
 
 </html>
