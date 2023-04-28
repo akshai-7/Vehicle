@@ -125,12 +125,8 @@
                         Back</a>
                     @yield('content')
                 </div>
-
             </div>
-
     </section>
-
-
 </body>
 <script>
     flatpickr("input[type=text1]");

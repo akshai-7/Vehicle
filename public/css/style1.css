@@ -2,11 +2,11 @@
 @import "/path/to/bootstrap/less/variables";
 @import "~flatpickr/dist/flatpickr.css";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-html {
+/* html {
     overflow-y: hidden;
     overflow-x: hidden;
     scroll-behavior: smooth;
-}
+} */
 
 body {
     font-family: "Mulish", sans-serif;
@@ -89,6 +89,7 @@ a {
     height: 94%;
     overflow: scroll;
 }
+
 #tabContainer {
     box-sizing: border-box;
     width: 100%;

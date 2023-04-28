@@ -15,7 +15,6 @@
                     <h3>Inspection Details</h3>
                     <a onclick="show('inspectionFrom')"><input type="submit" value="Add-Inspection" id="add1"></a>
                 </div>
-
                 <div class="serachbar">
                     <form action="/search" method="GET" autocomplete="off" style="margin-left:-5px">
                         <div id="filterDiv1">
