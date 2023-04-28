@@ -66,7 +66,8 @@
                                 <td style="text-align:center;" class="table_data">{{ $report->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $report->assign->name }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $report->assign->number_plate }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $report->date }}
+                                <td style="text-align:center;" class="table_data">
+                                    {{ Carbon\Carbon::parse($report->date)->format('d-m-Y') }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $report->location }}
                                 </td>

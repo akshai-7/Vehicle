@@ -79,7 +79,9 @@
                                         {{ $inspection->number_plate }}</td>
                                     <td style="text-align:center;">{{ $inspection->mileage }}
                                     </td>
-                                    <td style="text-align:center;">{{ $inspection->date }}
+                                    <td style="text-align:center;">
+                                        {{ Carbon\Carbon::parse($inspection->date)->format('d-m-Y') }}
+
                                     </td>
                                     <td style="text-align:center;"><button type="button"
                                             class="btn btn-success btn-sm">Completed</button>
@@ -129,7 +131,8 @@
                                     <td style="text-align:center;">{{ $assign->email }}</td>
                                     <td style="text-align:center;">{{ $assign->number_plate }}
                                     </td>
-                                    <td style="text-align:center;">{{ $assign->next_inspection }}
+                                    <td style="text-align:center;">
+                                        {{ Carbon\Carbon::parse($assign->next_inspection)->format('d-m-Y') }}
                                     </td>
                                     <td style="text-align:center;"><button type="button"
                                             class="btn btn-danger btn-sm">Pending</button>
