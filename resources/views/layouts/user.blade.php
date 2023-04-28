@@ -37,6 +37,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </head>
 
 <body>
@@ -132,7 +135,7 @@
 <script>
     flatpickr("input[type=text1]");
     $('.flatdate').flatpickr({
-        dateFormat: "d-m-Y",
+        dateFormat: "d/m/Y",
     });
 </script>
 

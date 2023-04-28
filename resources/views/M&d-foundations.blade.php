@@ -50,7 +50,7 @@
     </header>
     <h2 class="mt-3"> Report Summary</h2>
     <div class="date">
-        <strong> Date : {{ date('d.m.Y') }} </strong>
+        <strong> Date : {{ date('d/m/Y') }} </strong>
     </div>
     <h5 class="text-secondary check" class="check first" style="margin-top:10%;">Visual Damage</h5>
     <table style="width:80%;" class="">

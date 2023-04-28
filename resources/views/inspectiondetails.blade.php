@@ -80,18 +80,18 @@
                                     <td style="text-align:center;">{{ $inspection->mileage }}
                                     </td>
                                     <td style="text-align:center;">
-                                        {{ Carbon\Carbon::parse($inspection->date)->format('d-m-Y') }}
+                                        {{ Carbon\Carbon::parse($inspection->date)->format('d/m/Y') }}
 
                                     </td>
                                     <td style="text-align:center;"><button type="button"
                                             class="btn btn-success btn-sm">Completed</button>
                                     </td>
                                     <td style="text-align:center;">
-                                        <a href="/details/{{ $inspection->id }}"><i class="fa-solid fa-eye btn  text-white"
-                                                style="background:#06064b " data-toggle="tooltip" data-placement="top"
-                                                title="View"></i></a>
+                                        <a href="/details/{{ $inspection->id }}"><i
+                                                class="bi bi-eye-fill btn-sm btn btn-success" data-toggle="tooltip"
+                                                data-placement="top" title="View"></i></a>
                                         <a href="/deleteinspection/{{ $inspection->id }}"><i
-                                                class="fa-solid fa-trash btn btn-danger" data-toggle="tooltip"
+                                                class="bi bi-trash-fill btn btn-danger btn-sm" data-toggle="tooltip"
                                                 data-placement="right" title="Delete"></i></a>
                                     </td>
                                 </tr>
@@ -132,7 +132,7 @@
                                     <td style="text-align:center;">{{ $assign->number_plate }}
                                     </td>
                                     <td style="text-align:center;">
-                                        {{ Carbon\Carbon::parse($assign->next_inspection)->format('d-m-Y') }}
+                                        {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
                                     </td>
                                     <td style="text-align:center;"><button type="button"
                                             class="btn btn-danger btn-sm">Pending</button>

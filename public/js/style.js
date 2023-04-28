@@ -1,4 +1,3 @@
-
 //sidebar
     var toggleBtn = document.getElementById("toggle-container");
     var isOpen = true;
@@ -93,7 +92,7 @@ function check(val) {
     document.getElementById('id').value = val['id']
     document.getElementById('name').value = val['name']
     document.getElementById('gender').value = val['gender']
-    document.getElementById('date_of_birth').value = val['date_of_birth']
+    document.getElementById('date_of_birth').value = new Date(val['date_of_birth']).toLocaleDateString()
     document.getElementById('company').value = val['company']
     document.getElementById('address').value = val['address']
     document.getElementById('address').value = val['address']
@@ -106,6 +105,7 @@ function check(val) {
 
 //update vehicle
 function check1(val) {
+
     document.getElementById('sam1').style.display="flex"
     document.getElementById('id').value = val['id']
     document.getElementById('number_plate').value = val['number_plate']
@@ -113,13 +113,8 @@ function check1(val) {
     document.getElementById('make').value = val['make']
     document.getElementById('vehicle_model').value = val['vehicle_model']
     document.getElementById('mileage').value = val['mileage']
-    // document.getElementById('service').value = val['servicedate']
-
+    document.getElementById('service').value = new Date(val['servicedate']).toLocaleDateString()
 }
-
-
-
-
 
 //update visual check
 function visual(val) {
@@ -171,15 +166,14 @@ function assign(val) {
 function report(val) {
     document.getElementById('updatePopup5').style.display="flex"
     document.getElementById('id').value = val['id']
-    document.getElementById('date').value = val['date']
+    document.getElementById('date').value = new Date(val['date']).toLocaleDateString()
     document.getElementById('location').value = val['location']
     document.getElementById('mobile').value = val['mobile']
     document.getElementById('witnessed_by').value = val['witnessed_by']
     document.getElementById('mobile').value = val['mobile']
     document.getElementById('statement').value = val['statement']
-
-
 }
+
 
 
 

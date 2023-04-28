@@ -84,12 +84,12 @@
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
                             <td style="text-align:center;" class="table_data">
-                                {{ $user->created_at->format('d-m-Y') }}</td>
+                                {{ $user->created_at->format('d/m/Y') }}</td>
                             <td style="text-align:center;" class="table_data">
-                                <a onclick=" check({{ $user }})"><i
-                                        class="fa-solid fa-edit btn btn-success"></i></a>
+                                <a onclick=" check({{ $user }})">
+                                    <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                 <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
-                                    title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                                    title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                             </td>
                         </tr>
                     @endforeach

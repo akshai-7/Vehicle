@@ -41,6 +41,7 @@ Route::get('/delete/{id}', [UserController::class, 'delete']);
 Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
 Route::get('/vehiclelist', [VehicleController::class, 'vehiclelist']);
 Route::get('/vehiclelists', [VehicleController::class, 'vehiclelists']);
+Route::get('/searchbar', [VehicleController::class, 'searchbar']);
 Route::get('/updatevehicles/{id}', [VehicleController::class, 'updatevehicles']);
 Route::post('/updatevehicle/{id}', [VehicleController::class, 'updatevehicle']);
 Route::get('/remove/{id}', [VehicleController::class, 'remove']);

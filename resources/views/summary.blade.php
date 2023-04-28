@@ -131,8 +131,8 @@
             </div>
             <div class="print">
                 <a href="/pdf/{{ $cabin->inspection_id }}" data-toggle="tooltip" data-placement="top" title="Print"><i
-                        class="fa-solid fa-print btn btn-danger"></i></a>
-                <a href="/edit/{{ $cabin->inspection_id }}"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                        class="bi bi-printer-fill btn btn-danger btn-sm"></i></a>
+                <a href="/edit/{{ $cabin->inspection_id }}"><i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
             </div>
         </div>
     </div>

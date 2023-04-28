@@ -8,42 +8,51 @@
                     <a style="margin-right: 20px;"><input type="submit" value="Add-Vehicle" id="add"
                             onclick="show('sam')"></a>
                 </div>
-                <form action="/vehiclelists" method="GET" autocomplete="off">
-                    <div id="filterDiv1">
-                        <div class="col-md-3" id="filter">
-                            <label></label>
-                            @if (isset($_GET['date']))
-                                <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
-                            @else
-                                <input type="text1" name="date" class="form-control" value="Select Date">
-                            @endif
+                <div class="serachbar">
+                    <form action="/vehiclelists" method="GET" autocomplete="off" style="margin-left:-5px">
+                        <div id="filterDiv1">
+                            <div class="col-md-11">
+                                <label></label>
+                                <select class="form-select form-control" name="number_plate">
+                                    @if (isset($_GET['number_plate']))
+                                        <option value="{{ $_GET['number_plate'] }}">{{ $_GET['number_plate'] }}</option>
+                                        @foreach ($vehicles as $vehicle)
+                                            <option value="{{ $vehicle->number_plate }}">
+                                                {{ $vehicle->number_plate }}</option>
+                                        @endforeach
+                                    @else
+                                        <option>Select Number plate</option>
+                                        @foreach ($vehicles as $vehicle)
+                                            <option value="{{ $vehicle->number_plate }}">
+                                                {{ $vehicle->number_plate }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="bi bi-funnel-fill"></i></button>
+                            </div>
                         </div>
-                        <div class="col-md-3" id="">
-                            <label></label>
-                            <select class="form-select form-control" name="number_plate">
-                                @if (isset($_GET['number_plate']))
-                                    <option value="{{ $_GET['number_plate'] }}">{{ $_GET['number_plate'] }}</option>
-                                    @foreach ($vehicles as $vehicle)
-                                        <option value="{{ $vehicle->number_plate }}">
-                                            {{ $vehicle->number_plate }}</option>
-                                    @endforeach
-                                @else
-                                    <option>Select Number plate</option>
-                                    @foreach ($vehicles as $vehicle)
-                                        <option value="{{ $vehicle->number_plate }}">
-                                            {{ $vehicle->number_plate }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
+                    </form>
+                    <form action="/searchbar" method="GET" style="margin-left:20px" autocomplete="off">
+                        <div id="filterDiv1">
+                            <div class="col-md-9">
+                                <label></label>
+                                <input type="text" name="query" placeholder="Vehicle Type/Make/Model"
+                                    class="form-control">
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></i></button>
+                                <a href="/vehiclelist" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
                         </div>
-                        <div class="col-md-5" style="margin-left: 6px">
-                            <br />
-                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
-                            <a href="/vehiclelist" class="btn btn-success btn-sm mt-1"><i
-                                    class="fa-solid fa-arrow-rotate-right"></i></a>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead>
                         <th style="text-align:center;">Id</th>
@@ -71,12 +80,12 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->mileage }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    {{ Carbon\Carbon::parse($vehicle->servicedate)->format('d-m-Y') }}</td>
+                                    {{ Carbon\Carbon::parse($vehicle->servicedate)->format('d/m/Y') }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d-m-Y') }}
+                                    {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') }}
                                 </td>
                                 <td style="text-align:center;">
-                                    @if (Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d-m-Y') == Carbon\Carbon::today())
+                                    @if (Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') == Carbon\Carbon::today())
                                         <button type="button" class="btn btn-danger btn-sm">Yes</button>
                                     @else
                                         <button type="button" class="btn btn-success btn-sm">No</button>
@@ -84,9 +93,9 @@
                                 </td>
                                 <td style="text-align:center;" class="table_data">
                                     <a onclick=" check1({{ $vehicle }})"><i
-                                            class="fa-solid fa-edit btn btn-success"></i></a>
+                                            class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                     <a href="/remove/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach

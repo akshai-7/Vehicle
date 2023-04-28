@@ -90,9 +90,10 @@
                                 <td style="text-align:center;" class="table_data">{{ $assign->mileage }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">
-                                    <a onclick="assign({{ $assign }})" class="fa-solid fa-eye btn btn-success"></a>
+                                    <a onclick="assign({{ $assign }})"
+                                        class="bi bi-eye-fill btn btn-success btn-sm"></a>
                                     <a href="/deleteId/{{ $assign->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach

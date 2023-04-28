@@ -104,19 +104,20 @@ class VehicleController extends Controller
 
     public function vehiclelists(Request $request)
     {
-
-        if ($request->number_plate == "Select Number plate" && $request->date == 'Select Date') {
-            $vehicles = Vehicle::paginate(10);
-            return view('vehiclelist', compact('vehicles'));
-        } elseif ($request->number_plate == "Select Number plate" && $request->date != 'Select Date') {
-            $vehicles = Vehicle::where('created_at', $request->date)->paginate(10);
-            return view('vehiclelist', compact('vehicles'));
-        } elseif ($request->number_plate != "Select Number plate" && $request->date == 'Select Date') {
+        if ($request->number_plate == "Select Number plate") {
+            $vehicles = Vehicle::paginate();
+        } elseif ($request->number_plate != "Select Number plate") {
             $vehicles = Vehicle::where('number_plate', $request->number_plate)->paginate(10);
-            return view('vehiclelist', compact('vehicles'));
-        } else {
-            $vehicles = Vehicle::where('created_at', $request->date)->where('number_plate', $request->number_plate)->paginate(10);
-            return view('vehiclelist', compact('vehicles'));
         }
+        return view('vehiclelist', compact('vehicles'));
+    }
+    public function searchbar(Request $request)
+    {
+        $query = $request['query'];
+        $vehicles = Vehicle::where('vehicle_type', 'LIKE', "%$query%")
+            ->orWhere('make', 'LIKE', "%$query%")
+            ->orWhere('vehicle_model', 'LIKE', "%$query%")
+            ->paginate(10);
+        return view('/vehiclelist', compact('vehicles'));
     }
 }

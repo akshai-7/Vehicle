@@ -30,7 +30,7 @@ class UserController extends Controller
         $user->name = $request['name'];
         $user->gender = $request['gender'];
         $date = $request['date_of_birth'];
-        $formatted_date = Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d');
+        $formatted_date = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
         $user->date_of_birth = $formatted_date;
         $user->address = $request['address'];
         $user->city = $request['city'];
@@ -84,7 +84,9 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         $user->name = $request['name'];
         $user->gender = $request['gender'];
-        $user->date_of_birth = $request['date_of_birth'];
+        $date = $request['date_of_birth'];
+        $formatted_date = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
+        $user->date_of_birth = $formatted_date;
         $user->company = $request['company'];
         $data = $request->all();
         $img = array();

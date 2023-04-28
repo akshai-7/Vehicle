@@ -38,9 +38,9 @@
                                 <td style="text-align:center;" class="table_data">{{ $visual->action }}</td>
                                 <td style="text-align:center;" class="table_data">
                                     <a onclick=" visual({{ $visual }})" data-toggle="tooltip" data-placement="top"
-                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                        title="Edit"><i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                     <a href="/deletevisual/{{ $visual->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -84,9 +84,9 @@
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->action }}</td>
                                 <td style="text-align:center;" class="table_data">
                                     <a onclick=" vehicle({{ $vehicle }})" data-toggle="tooltip" data-placement="top"
-                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                        title="Edit"><i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                     <a href="/deletevehicle/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
+                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -129,10 +129,10 @@
                                 <td style="text-align:center;" class="table_data">{{ $cabin->action }}</td>
                                 <td style="text-align:center;" class="table_data">
                                     <a onclick=" cabin({{ $cabin }})" data-toggle="tooltip" data-placement="top"
-                                        title="Edit"><i class="fa-solid fa-edit btn btn-success"></i></a>
+                                        title="Edit"><i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                     <a href="/deletecabin/{{ $cabin->id }}" data-toggle="tooltip"
                                         data-placement="top" title="Delete"><i
-                                            class="fa-solid fa-trash btn btn-danger"></i></a>
+                                            class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach
