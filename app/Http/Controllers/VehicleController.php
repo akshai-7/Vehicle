@@ -31,7 +31,7 @@ class VehicleController extends Controller
         $vehicle->vehicle_model = $request['vehicle_model'];
         $vehicle->mileage = $request['mileage'];
         $date = $request['service'];
-        $servicedate = Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d');
+        $servicedate = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
         $vehicle->servicedate = $servicedate;
         $vehicle->save();
         session()->flash('message', 'Vehicle is Created');
@@ -40,13 +40,8 @@ class VehicleController extends Controller
     public function vehiclelist()
     {
         $vehicles = Vehicle::paginate(10);
-        return view('vehiclelist', compact('vehicles'));
-    }
-
-    public function updatevehicles($id)
-    {
-        $vehicle = Vehicle::where('id', $id)->get();
-        return view('/updatevehicle', ['vehicle' => $vehicle]);
+        $datas = Vehicle::get();
+        return view('vehiclelist', compact('vehicles', 'datas'));
     }
     public function updatevehicle(Request $request, $id)
     {
@@ -67,6 +62,9 @@ class VehicleController extends Controller
         $vehicle->make = $request['make'];
         $vehicle->vehicle_model = $request['vehicle_model'];
         $vehicle->mileage = $request['mileage'];
+        $date = $request['service'];
+        $servicedate = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
+        $vehicle->servicedate = $servicedate;
         $vehicle->save();
         session()->flash('message', 'Updated Successfully');
         return redirect('/vehiclelist');
@@ -104,20 +102,22 @@ class VehicleController extends Controller
 
     public function vehiclelists(Request $request)
     {
+        $datas = Vehicle::get();
         if ($request->number_plate == "Select Number plate") {
             $vehicles = Vehicle::paginate();
         } elseif ($request->number_plate != "Select Number plate") {
             $vehicles = Vehicle::where('number_plate', $request->number_plate)->paginate(10);
         }
-        return view('vehiclelist', compact('vehicles'));
+        return view('vehiclelist', compact('vehicles', 'datas'));
     }
     public function searchbar(Request $request)
     {
+        $datas = Vehicle::get();
         $query = $request['query'];
         $vehicles = Vehicle::where('vehicle_type', 'LIKE', "%$query%")
             ->orWhere('make', 'LIKE', "%$query%")
             ->orWhere('vehicle_model', 'LIKE', "%$query%")
             ->paginate(10);
-        return view('/vehiclelist', compact('vehicles'));
+        return view('/vehiclelist', compact('vehicles', 'datas'));
     }
 }

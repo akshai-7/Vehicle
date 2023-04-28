@@ -16,15 +16,15 @@
                                 <select class="form-select form-control" name="number_plate">
                                     @if (isset($_GET['number_plate']))
                                         <option value="{{ $_GET['number_plate'] }}">{{ $_GET['number_plate'] }}</option>
-                                        @foreach ($vehicles as $vehicle)
-                                            <option value="{{ $vehicle->number_plate }}">
-                                                {{ $vehicle->number_plate }}</option>
+                                        @foreach ($datas as $data)
+                                            <option value="{{ $data->number_plate }}">
+                                                {{ $data->number_plate }}</option>
                                         @endforeach
                                     @else
                                         <option>Select Number plate</option>
-                                        @foreach ($vehicles as $vehicle)
-                                            <option value="{{ $vehicle->number_plate }}">
-                                                {{ $vehicle->number_plate }}</option>
+                                        @foreach ($datas as $data)
+                                            <option value="{{ $data->number_plate }}">
+                                                {{ $data->number_plate }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -33,10 +33,12 @@
                                 <br />
                                 <button type="submit" class="btn btn-primary btn-sm mt-1"><i
                                         class="bi bi-funnel-fill"></i></button>
+                                <a href="/vehiclelist" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
                             </div>
                         </div>
                     </form>
-                    <form action="/searchbar" method="GET" style="margin-left:20px" autocomplete="off">
+                    <form action="/searchbar" method="GET" style="margin-left:46%" autocomplete="off">
                         <div id="filterDiv1">
                             <div class="col-md-9">
                                 <label></label>

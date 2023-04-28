@@ -143,4 +143,13 @@ class UserController extends Controller
         }
         return view('/user', ['users' => $users], ['datas' => $datas]);
     }
+    public function driversearchbar(Request $request)
+    {
+        $datas = User::get();
+        $query = $request['query'];
+        $users = User::where('name', 'LIKE', "%$query%")
+            ->orWhere('email', 'LIKE', "%$query%")
+            ->paginate(5);
+        return view('/user', compact('users', 'datas'));
+    }
 }

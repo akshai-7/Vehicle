@@ -8,43 +8,61 @@
                     <a style="margin-right:20px;"><input type="submit" value="Add-Driver" id="add"
                             onclick="show('sam')"></a>
                 </div>
-                <form action="/users" method="GET" autocomplete="off">
-                    <div id="filterDiv1">
-                        <div class="col-md-3" id="filter">
-                            <label></label>
-                            @if (isset($_GET['date']))
-                                <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
-                            @else
-                                <input type="text1" name="date" class="form-control" value="Select Date">
-                            @endif
-                        </div>
-                        <div class="col-md-3">
-                            <label></label>
-                            <select class="form-select form-control" name="name">
-                                @if (isset($_GET['name']))
-                                    <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
-                                    @foreach ($datas as $data)
-                                        <option value="{{ $data->name }}">
-                                            {{ $data->name }}</option>
-                                    @endforeach
+                <div class="serachbar">
+                    <form action="/users" method="GET" autocomplete="off" style="margin-left:-5px">
+                        <div id="filterDiv1">
+                            <div class="col-md-7" id="filter">
+                                <label></label>
+                                @if (isset($_GET['date']))
+                                    <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
                                 @else
-                                    <option>Select Name</option>
-                                    @foreach ($datas as $data)
-                                        <option value="{{ $data->name }}">
-                                            {{ $data->name }}</option>
-                                    @endforeach
+                                    <input type="text1" name="date" class="form-control" value="Select Date">
                                 @endif
-                            </select>
+                            </div>
+                            <div class="col-md-7" style="margin-left:5px">
+                                <label></label>
+                                <select class="form-select form-control" name="name">
+                                    @if (isset($_GET['name']))
+                                        <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
+                                        @foreach ($datas as $data)
+                                            <option value="{{ $data->name }}">
+                                                {{ $data->name }}</option>
+                                        @endforeach
+                                    @else
+                                        <option>Select Name</option>
+                                        @foreach ($datas as $data)
+                                            <option value="{{ $data->name }}">
+                                                {{ $data->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
 
+                            </div>
+                            <div class="col-md-5" style="margin-left:6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="bi bi-funnel-fill"></i></button>
+                                <a href="/user" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
                         </div>
-                        <div class="col-md-5" style="margin-left: 6px">
-                            <br />
-                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
-                            <a href="/user" class="btn btn-success btn-sm mt-1"><i
-                                    class="fa-solid fa-arrow-rotate-right"></i></a>
+                    </form>
+                    <form action="/inspectionsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
+                        <div id="filterDiv1">
+                            <div class="col-md-9">
+                                <label></label>
+                                <input type="text" name="query" placeholder="Name/Email" class="form-control">
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></i></button>
+                                <a href="/user" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                 <thead>

@@ -7,44 +7,62 @@
                     <h3>Reported Incidents</h3>
                     <a onclick="show('incidentFrom')"><input type="submit" value="Add-Incident" id="add1"></a>
                 </div>
-                <form action="/searchreport" method="GET" autocomplete="off">
-                    <div id="filterDiv1">
-                        <div class="col-md-3" id="filter">
-                            <label></label>
-                            @if (isset($_GET['date']))
-                                <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
-                            @else
-                                <input type="text1" name="date" class="form-control" value="Select Date">
-                            @endif
-                        </div>
-                        <div class="col-md-3" id="">
-                            <label></label>
-                            <select class="form-select form-control" name="name">
-                                @if (isset($_GET['name']))
-                                    <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
-                                    @foreach ($assigns as $assign)
-                                        <option value="{{ $assign->name }}">
-                                            {{ $assign->name }}</option>
-                                    @endforeach
+                <div class="serachbar">
+                    <form action="/searchreport" method="GET" autocomplete="off" style="margin-left:-5px">
+                        <div id="filterDiv1">
+                            <div class="col-md-7" id="filter">
+                                <label></label>
+                                @if (isset($_GET['date']))
+                                    <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
                                 @else
-                                    <option>Select Name</option>
-                                    @foreach ($assigns as $assign)
-                                        <option value="{{ $assign->name }}">
-                                            {{ $assign->name }}</option>
-                                    @endforeach
+                                    <input type="text1" name="date" class="form-control" value="Select Date">
                                 @endif
-                            </select>
-                        </div>
-                        <div class="col-md-5" style="margin-left: 6px">
-                            <br />
-                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
-                            <a href="/reportlist" class="btn btn-success btn-sm mt-1"><i
-                                    class="fa-solid fa-arrow-rotate-right"></i></a>
-                        </div>
+                            </div>
+                            <div class="col-md-7" id="" style="margin-left:5px">
+                                <label></label>
+                                <select class="form-select form-control" name="name">
+                                    @if (isset($_GET['name']))
+                                        <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
+                                        @foreach ($assigns as $assign)
+                                            <option value="{{ $assign->name }}">
+                                                {{ $assign->name }}</option>
+                                        @endforeach
+                                    @else
+                                        <option>Select Name</option>
+                                        @foreach ($assigns as $assign)
+                                            <option value="{{ $assign->name }}">
+                                                {{ $assign->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa fa-filter"></i></button>
+                                <a href="/reportlist" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
 
-                    </div>
-                </form>
-
+                        </div>
+                    </form>
+                    <form action="/reportsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
+                        <div id="filterDiv1">
+                            <div class="col-md-9">
+                                <label></label>
+                                <input type="text" name="query" placeholder="Id/WitnessedBy/Location"
+                                    class="form-control">
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></i></button>
+                                <a href="/reportlist" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
 
                     <tbody>
@@ -65,7 +83,8 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">{{ $report->id }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $report->assign->name }}</td>
-                                <td style="text-align:center;" class="table_data">{{ $report->assign->number_plate }}</td>
+                                <td style="text-align:center;" class="table_data">{{ $report->assign->number_plate }}
+                                </td>
                                 <td style="text-align:center;" class="table_data">
                                     {{ Carbon\Carbon::parse($report->date)->format('d/m/Y') }}
                                 </td>

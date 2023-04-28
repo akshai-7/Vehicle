@@ -32,6 +32,7 @@ Route::post('/user', [LoginController::class, 'admin']);
 //driver
 Route::post('/createuser', [UserController::class, 'createuser']);
 Route::get('/users', [UserController::class, 'users']);
+Route::get('/driversearchbar', [UserController::class, 'driversearchbar']);
 Route::get('/user', [UserController::class, 'userlist']);
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
 Route::get('/licenseimage/{id}', [UserController::class, 'licenseimage']);
@@ -42,7 +43,6 @@ Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
 Route::get('/vehiclelist', [VehicleController::class, 'vehiclelist']);
 Route::get('/vehiclelists', [VehicleController::class, 'vehiclelists']);
 Route::get('/searchbar', [VehicleController::class, 'searchbar']);
-Route::get('/updatevehicles/{id}', [VehicleController::class, 'updatevehicles']);
 Route::post('/updatevehicle/{id}', [VehicleController::class, 'updatevehicle']);
 Route::get('/remove/{id}', [VehicleController::class, 'remove']);
 
@@ -50,8 +50,8 @@ Route::get('/remove/{id}', [VehicleController::class, 'remove']);
 // Route::get('/vehicleassign', [AssignController::class, 'vehicleassign']);
 Route::post('/vehicleassignlist', [AssignController::class, 'vehicleassignlist']);
 Route::get('/assignsearch', [AssignController::class, 'assignsearch']);
+Route::get('/assignsearchbar', [AssignController::class, 'assignsearchbar']);
 Route::get('/vehicleassignedlist', [AssignController::class, 'vehicleassignedlist']);
-Route::get('/updateassignlist/{id}', [AssignController::class, 'updateassignlist']);
 Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 
 //inspection
@@ -59,6 +59,7 @@ Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
 Route::get('/search', [InspectionController::class, 'search']);
+Route::get('/inspectionsearchbar', [InspectionController::class, 'inspectionsearchbar']);
 
 //report
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);
@@ -67,6 +68,7 @@ Route::get('/reportlist', [ReportController::class, 'reportlist']);
 Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
 Route::get('/reportimages/{id}', [ReportController::class, 'reportimages']);
 Route::get('/searchreport', [ReportController::class, 'searchreport']);
+Route::get('/reportsearchbar', [ReportController::class, 'reportsearchbar']);
 
 
 Route::get('/details/{inspection_id}', [VisualdamageController::class, 'check']);

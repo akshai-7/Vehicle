@@ -53,12 +53,8 @@ class AssignController extends Controller
         $user_id = null;
         $vehicle = Vehicle::where('user_id', $user_id)->get();
         $assigns = Assign::paginate(10);
-        return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
-    }
-    public function updateassignlist($id)
-    {
-        $assign = Assign::where('id', $id)->get();
-        return view('/updateassignlist', compact('assign'));
+        $datas = Assign::get();
+        return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns, 'datas' => $datas]);
     }
     public function deleteId($id)
     {
@@ -79,38 +75,33 @@ class AssignController extends Controller
     }
     public function assignsearch(Request $request)
     {
-        if ($request->number_plate == "Select Number plate" && $request->date == 'Select Date') {
-            $role = 'user';
-            $vehicle_id = null;
-            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
-            $user_id = null;
-            $vehicle = Vehicle::where('user_id', $user_id)->get();
+        $role = 'user';
+        $vehicle_id = null;
+        $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
+        $user_id = null;
+        $vehicle = Vehicle::where('user_id', $user_id)->get();
+        $datas = Assign::get();
+        if ($request->number_plate == "Select Number plate") {
             $assigns = Assign::paginate(10);
-            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
-        } elseif ($request->number_plate == "Select Number plate" && $request->date != 'Select Date') {
-            $role = 'user';
-            $vehicle_id = null;
-            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
-            $user_id = null;
-            $vehicle = Vehicle::where('user_id', $user_id)->get();
-            $assigns = Assign::where('created_at', $request->date)->paginate(10);
-            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
-        } elseif ($request->number_plate != "Select Number plate" && $request->date == 'Select Date') {
-            $role = 'user';
-            $vehicle_id = null;
-            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
-            $user_id = null;
-            $vehicle = Vehicle::where('user_id', $user_id)->get();
+        } elseif ($request->number_plate != "Select Number plate") {
             $assigns = Assign::where('number_plate', $request->number_plate)->paginate(10);
-            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
-        } else {
-            $role = 'user';
-            $vehicle_id = null;
-            $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
-            $user_id = null;
-            $vehicle = Vehicle::where('user_id', $user_id)->get();
-            $assigns = Assign::where('created_at', $request->date)->where('number_plate', $request->number_plate)->paginate(10);
-            return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns]);
         }
+        return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns, 'datas' => $datas]);
+    }
+    public function assignsearchbar(Request $request)
+    {
+        $role = 'user';
+        $vehicle_id = null;
+        $user = User::where('role', $role)->where('vehicle_id', $vehicle_id)->get();
+        $user_id = null;
+        $vehicle = Vehicle::where('user_id', $user_id)->get();
+        $datas = Assign::get();
+        $query = $request['query'];
+        $assigns = Assign::where('name', 'LIKE', "%$query%")
+            ->orWhere('id', 'LIKE', "%$query%")
+            ->orWhere('email', 'LIKE', "%$query%")
+            ->paginate(10);
+
+        return view('/vehicleassignedlist', ['user' => $user, 'vehicle' => $vehicle, 'assigns' => $assigns, 'datas' => $datas]);
     }
 }

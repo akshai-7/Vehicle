@@ -161,23 +161,26 @@ class InspectionController extends Controller
     }
     public function search(Request $request)
     {
+        $assigns = Assign::paginate(10);
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $inspections = Inspection::paginate(10);
-            $assigns = Assign::paginate(10);
-            return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
             $inspections = Inspection::where('date', $request->date)->paginate(10);
-            $assigns = Assign::paginate(10);
-            return view('/inspectiondetails', compact('inspections', 'assigns'));
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
-
             $inspections = Inspection::where('name', $request->name)->paginate(10);
-            $assigns = Assign::paginate(10);
-            return view('/inspectiondetails', compact('inspections', 'assigns'));
         } else {
             $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->paginate(10);
-            $assigns = Assign::paginate(10);
-            return view('/inspectiondetails', compact('inspections', 'assigns'));
         }
+        return view('/inspectiondetails', compact('inspections', 'assigns'));
+    }
+    public function inspectionsearchbar(Request $request)
+    {
+        $assigns = Assign::paginate(10);
+        $query = $request['query'];
+        $inspections = Inspection::where('number_plate', 'LIKE', "%$query%")
+            ->orWhere('inspected_by', 'LIKE', "%$query%")
+            ->orWhere('report_no', 'LIKE', "%$query%")
+            ->paginate(10);
+        return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
 }

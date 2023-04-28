@@ -71,25 +71,28 @@ class ReportController extends Controller
     }
     public function searchreport(Request $request)
     {
-
+        $assigns = Assign::all();
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
-            $assigns = Assign::all();
             $reports = Report::with('assign')->get();
-            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
         } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
-            $assigns = Assign::all();
             $reports = Report::where('date', $request->date)->get();
-            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
-            $assigns = Assign::all();
             $assign = Assign::where('name', $request->name)->first();
             $reports = Report::where('assign_id', $assign->id)->get();
-            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
         } else {
-            $assigns = Assign::all();
             $assign = Assign::where('name', $request->name)->first();
             $reports = Report::where('assign_id', $assign->id)->where('date', $request->date)->get();
-            return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
         }
+        return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
+    }
+    public function reportsearchbar(Request $request)
+    {
+        $assigns = Assign::all();
+        $query = $request['query'];
+        $reports = Report::where('witnessed_by', 'LIKE', "%$query%")
+            ->orWhere('location', 'LIKE', "%$query%")
+            ->orWhere('id', 'LIKE', "%$query%")
+            ->paginate(10);
+        return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
     }
 }

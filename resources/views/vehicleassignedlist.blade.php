@@ -3,19 +3,19 @@
     <div class="userContainer">
         <div class="table-data">
             <div>
-                <div class="head mt-5">
+                <div class="head mt-2">
                     <h3>Vehicle Assign</h3>
                 </div>
                 <form action="/vehicleassignlist" method="POST">
                     @csrf
-                    <div class="select" style="margin-top:30px;margin-right:30px;">
-                        <select class="form-select" style="width: 500px;" name="name">
+                    <div class="select" style="margin-top:20px;">
+                        <select class="form-select" style="width:450px;" name="name">
                             <option>Please Select Driver</option>
                             @foreach ($user as $user)
                                 <option value="{{ $user->name }}" name="name">{{ $user->name }}</option>
                             @endforeach
                         </select>
-                        <select class="form-select" name="number_plate" style="width: 500px;">
+                        <select class="form-select" name="number_plate" style="width:450px;margin-right:150px;">
                             <option>Please Select Vehicle</option>
                             @foreach ($vehicle as $vehicle)
                                 <option value="{{ $vehicle->number_plate }}" name="number_plate">
@@ -23,53 +23,61 @@
                             @endforeach
                         </select>
                     </div>
-                    <input type="submit" name="" value="Submit" id="add" class="btn text-white mt-4"
-                        style="float:right;">
+                    <input type="submit" value="Submit" id="add2" class="btn text-white" style="float:right;">
                 </form>
             </div>
             <div class="order">
                 <div class="head">
-                    <div style="display:flex;margin-top:60px;">
+                    <div style="display:flex;margin-top:20px;">
                         <h3>Vehicle Assigned List</h3>
                     </div>
                 </div>
-                <form action="/assignsearch" method="GET" autocomplete="off">
-                    <div id="filterDiv1">
-                        <div class="col-md-3" id="filter">
-                            <label></label>
-                            @if (isset($_GET['date']))
-                                <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
-                            @else
-                                <input type="text1" name="date" class="form-control" value="Select Date">
-                            @endif
+                <div class="serachbar">
+                    <form action="/assignsearch" method="GET" autocomplete="off" style="margin-left:-5px">
+                        <div id="filterDiv1">
+                            <div class="col-md-11">
+                                <label></label>
+                                <select class="form-select form-control" name="number_plate">
+                                    @if (isset($_GET['number_plate']))
+                                        <option value="{{ $_GET['number_plate'] }}">{{ $_GET['number_plate'] }}</option>
+                                        @foreach ($datas as $data)
+                                            <option value="{{ $data->number_plate }}">
+                                                {{ $data->number_plate }}</option>
+                                        @endforeach
+                                    @else
+                                        <option>Select Number plate</option>
+                                        @foreach ($datas as $data)
+                                            <option value="{{ $data->number_plate }}">
+                                                {{ $data->number_plate }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="bi bi-funnel-fill"></i></button>
+                                <a href="/vehicleassignedlist" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <label></label>
-                            <select class="form-select form-control" name="number_plate">
-                                @if (isset($_GET['number_plate']))
-                                    <option value="{{ $_GET['number_plate'] }}">{{ $_GET['number_plate'] }}</option>
-                                    @foreach ($assigns as $assign)
-                                        <option value="{{ $assign->number_plate }}">
-                                            {{ $assign->number_plate }}</option>
-                                    @endforeach
-                                @else
-                                    <option>Select Number plate</option>
-                                    @foreach ($assigns as $assign)
-                                        <option value="{{ $assign->number_plate }}">
-                                            {{ $assign->number_plate }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
+                    </form>
+                    <form action="/assignsearchbar" method="GET" style="margin-left:46%" autocomplete="off">
+                        <div id="filterDiv1">
+                            <div class="col-md-9">
+                                <label></label>
+                                <input type="text" name="query" placeholder="Name/Email/Id" class="form-control">
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></i></button>
+                                <a href="/vehicleassignedlist" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
                         </div>
-                        <div class="col-md-5" style="margin-left: 6px">
-                            <br />
-                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
-                            <a href="/vehicleassignedlist" class="btn btn-success btn-sm mt-1"><i
-                                    class="fa-solid fa-arrow-rotate-right"></i></a>
-                        </div>
-
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
                         <th style="text-align:center;">Id</th>
