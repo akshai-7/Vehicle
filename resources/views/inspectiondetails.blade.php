@@ -51,7 +51,6 @@
                                 <a href="/inspectiondetails" class="btn btn-success btn-sm mt-1"><i
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
-
                         </div>
                     </form>
                     <form action="/inspectionsearchbar" method="GET" style="margin-left:32%" autocomplete="off">

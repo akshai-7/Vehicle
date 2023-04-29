@@ -13,12 +13,9 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $role = 'user';
-        $user = User::where('role', $role)->count();
-        $vehicle = Vehicle::count();
-        $assign = Assign::count();
-        $inspection = Inspection::count();
-        $report = Report::count();
-        return view('/dashboard', compact('user', 'vehicle', 'assign', 'inspection', 'report'));
+        $vehicles = Vehicle::paginate(5);
+        $reports = Report::with('assign')->paginate(5);
+        $assigns = Assign::whereNotNull('last_inspection')->paginate(5);
+        return view('/dashboard', ['assigns' => $assigns, 'vehicles' => $vehicles, 'reports' => $reports]);
     }
 }

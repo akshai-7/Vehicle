@@ -60,7 +60,7 @@ class ReportController extends Controller
     public function reportlist()
     {
         $assigns = Assign::all();
-        $reports = Report::with('assign')->get();
+        $reports = Report::with('assign')->paginate(5);
         return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
     }
     public function deletereport($id)

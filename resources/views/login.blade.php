@@ -16,6 +16,11 @@
                     <input type="password" class="login__inpu form-control" placehoder=" Enter Your Password"
                         name="password" required id="myInput">
                     <label class="check"><input type="checkbox" onclick="myFunction()"> Show Password</label>
+                    @if (Route::has('password.request'))
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+                    @endif
                 </div>
                 <button class="button login__submit" type="submit">
                     <span class="button__text">Log In Now</span>

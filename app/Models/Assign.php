@@ -14,4 +14,9 @@ class Assign extends Model
     {
         return $this->hasMany(Report::class, 'assign_id');
     }
+
+    public function inspection()
+    {
+        return $this->hasMany(Inspection::class, 'assign_id');
+    }
 }

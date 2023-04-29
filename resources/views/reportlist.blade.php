@@ -117,6 +117,9 @@
                     @endif
                 @endif
             </div>
+            <div class="active">
+                {!! $reports->links() !!}
+            </div>
         </div>
     </div>
     <div id="updatePopup5">

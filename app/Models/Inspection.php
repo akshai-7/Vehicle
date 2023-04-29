@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Inspection extends Model
 {
     use HasFactory;
+
+    public function assign()
+    {
+        return $this->belongsTo(Assign::class, 'assign_id');
+    }
 }

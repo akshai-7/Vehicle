@@ -94,3 +94,7 @@ Route::get('/deletecabin/{id}', [CabinController::class, 'deletecabin']);
 Route::get('/summary/{id}', [VehicleController::class, 'summary']);
 Route::get('/pdf/{id}', [VehicleController::class, 'pdf']);
 Route::get('/edit/{id}', [VehicleController::class, 'edit']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

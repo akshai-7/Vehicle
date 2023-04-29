@@ -39,7 +39,7 @@ class InspectionController extends Controller
         $assign = Assign::where('name', $name)->first();
         $inspection = new Inspection;
         $inspection->assign_id = $assign->id;
-        $inspection->report_no = $assign->number_plate . date('Y-m-d');
+        $inspection->report_no = $assign->number_plate . date('d/m/Y');
         $inspection->inspected_by = $request['inspected_by'];
         $inspection->name = $assign->name;
         $inspection->email = $assign->email;
@@ -53,6 +53,7 @@ class InspectionController extends Controller
         $id = $assign->id;
         $assign = Assign::where('id', $id)->first();
         $assign->mileage = $inspection->mileage;
+        $assign->report_no = $inspection->report_no;
         $assign->last_inspection = $inspection->date;
         $assign->next_inspection = $inspection->next_inspection;
         $assign->save();
