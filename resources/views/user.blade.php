@@ -73,6 +73,7 @@
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                 <thead>
                     <th style="text-align:center;">S.No</th>
+                    <th style="text-align:center;">Creation Date</th>
                     <th style="text-align:center;">Driver Name</th>
                     <th style="text-align:center;">Email</th>
                     <th style="text-align:center;">Mobile.no</th>
@@ -80,13 +81,14 @@
                     <th style="text-align:center;">Company</th>
                     <th style="text-align:center;">License</th>
                     <th style="text-align:center;">Role</th>
-                    <th style="text-align:center;">Creation Date</th>
                     <th style="text-align:center;">Action</th>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="table_row">
                             <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                {{ $user->created_at->format('d/m/Y') }}</td>
                             <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
@@ -107,8 +109,7 @@
                                 @endif
                             </td>
                             <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
-                            <td style="text-align:center;" class="table_data">
-                                {{ $user->created_at->format('d/m/Y') }}</td>
+
                             <td style="text-align:center;" class="table_data">
                                 <a onclick=" check({{ $user }})">
                                     <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
@@ -432,7 +433,7 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4">
-                            <label for="" class="col-sm-2  col-form-label">PostCode</label>
+                            <label for="" class="col-sm-2  col-form-label">Postcode</label>
                             <div class="col-sm-9">
                                 <input type="text" name="postcode" class="form-control">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
@@ -808,7 +809,7 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4">
-                            <label for="" class="col-sm-2  col-form-label">PostCode</label>
+                            <label for="" class="col-sm-2  col-form-label">Postcode</label>
                             <div class="col-sm-9">
                                 <input type="text" name="postcode" class="form-control" id="postcode">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
