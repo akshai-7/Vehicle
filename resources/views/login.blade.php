@@ -2,8 +2,8 @@
 @section('content')
     <div class="main">
         <div>
-            <img id="img-logo" src="{{ url('images/m-d-foundation.png') }}">
-            <h5>Login to your account</h5>
+            <img id="" src="{{ url('images/m-d-foundation.png') }}">
+            <h5 class="loginh5">Login to your account</h5>
             <form class="login" action="/user" method="POST" autocomplete="off">
                 @csrf
                 <div class="login__field">

@@ -145,11 +145,16 @@ class UserController extends Controller
     }
     public function driversearchbar(Request $request)
     {
-        $datas = User::get();
+        $role = 'User';
+        $datas = User::where('role', $role)->get();
         $query = $request['query'];
-        $users = User::where('name', 'LIKE', "%$query%")
-            ->orWhere('email', 'LIKE', "%$query%")
-            ->paginate(5);
+        if ($request['query'] == null) {
+            $users = User::where('role', $role)->paginate(10);
+        } elseif ($request['query'] != null) {
+            $users = User::where('name', 'LIKE', "%$query%")
+                ->orWhere('email', 'LIKE', "%$query%")
+                ->paginate(10);
+        }
         return view('/user', compact('users', 'datas'));
     }
 }

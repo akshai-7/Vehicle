@@ -53,9 +53,10 @@
                                 <label></label>
                                 @if (isset($_GET['query']))
                                     <input type="text" name="query" placeholder="Name/Email" class="form-control"
-                                        value="{{ $_GET['query'] }}">
+                                        value="{{ $_GET['query'] }}" required>
                                 @else
-                                    <input type="text" name="query" placeholder="Name/Email" class="form-control">
+                                    <input type="text" name="query" placeholder="Name/Email" class="form-control"
+                                        required>
                                 @endif
                             </div>
                             <div class="col-md-5" style="margin-left: 6px">

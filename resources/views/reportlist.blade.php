@@ -73,8 +73,8 @@
                             <th style="text-align:center;">Number_plate</th>
                             </th>
                             <th style="text-align:center;">Date</th>
-                            <th style="text-align:center;">Location</th>
-                            <th style="text-align:center;">Statement</th>
+                            <th style="text-align:center;" class=" col-md-2">Location</th>
+                            <th style="text-align:center;" class=" col-md-2">Statement</th>
                             <th style="text-align:center;">Image</th>
                             <th style="text-align:center;">Action</th>
                         </thead>
@@ -102,8 +102,9 @@
                                     <a onclick="report({{ $report }})" class="tool"><i
                                             class="bi bi-eye-fill btn-sm btn btn-success" data-toggle="tooltip"
                                             data-placement="top" title="View"></i></a>
-                                    <a href="/deletereport/{{ $report->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
+                                    <a href="/deletereport/{{ $report->id }}" data-toggle="tooltip"
+                                        data-placement="top" title="Delete"><i
+                                            class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach

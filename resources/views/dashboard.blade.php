@@ -91,7 +91,7 @@
                     <th style="text-align:center;">Driver Name</th>
                     <th style="text-align:center;">Number plate</th>
                     <th style="text-align:center;">Next_inspection</th>
-                    <th style="text-align:center;">Over Due</th>
+                    {{-- <th style="text-align:center;">Over Due</th> --}}
                 </thead>
                 <tbody>
                     @foreach ($assigns as $assign)
@@ -104,13 +104,13 @@
                             <td style="text-align:center;">
                                 {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
                             </td>
-                            <td style="text-align:center;">
+                            {{-- <td style="text-align:center;">
                                 @if ($assign->next_inspection >= Carbon\Carbon::today())
                                     <button type="button" class="btn btn-success btn-sm">No</button>
                                 @else
                                     <button type="button" class="btn btn-danger btn-sm">Yes</button>
                                 @endif
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

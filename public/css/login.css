@@ -9,6 +9,15 @@
     border-radius: 1.5em;
     box-shadow: 0px 11px 35px 2px rgba(49, 49, 49, 0.14);
 }
+.main1 {
+    margin-left: 30%;
+    margin-top: 15%;
+    background: rgb(242, 241, 255);
+    width: 600px;
+    height: 300px;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(49, 49, 49, 0.14);
+}
 
 body {
     font-family: "Mulish", sans-serif;
@@ -75,7 +84,6 @@ body {
     align-items: center;
     width: 80%;
     color: #fff;
-    /* box-shadow: 0px 2px 2px #f29f/9f; */
     cursor: pointer;
     background: #bb1138;
 }
@@ -99,7 +107,45 @@ img {
     margin-top: 10px;
     font-size: 15px;
 }
-h5 {
+.loginh5 {
     margin-left: 115px;
     margin-top: 40px;
+}
+.reseth5 {
+    margin-left: 115px;
+    top: 80px;
+    background: #000;
+}
+#img-logo {
+    margin-left: 230px;
+}
+.reset {
+    margin-left: 220px;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    width: 40%;
+    color: #fff;
+    cursor: pointer;
+    background: #bb1138;
+}
+.reset1 {
+    margin-left: 200px;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 10px 13px;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    width: 30%;
+    color: #fff;
+    cursor: pointer;
+    background: #bb1138;
 }
