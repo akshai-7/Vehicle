@@ -1,5 +1,14 @@
 @extends('layouts.login')
 @section('content')
+    <div class="message" id="message">
+        @if (session('status'))
+            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" style="width: 400px;height:20px">
+                <div div class="alert alert-success">
+                    <i class="fa-regular fa-circle-check"></i> {{ session('status') }}
+                </div>
+            </div>
+        @endif
+    </div>
     <div class="main1 card">
         <div>
             <h5 class="card-header">Reset Password</h5>

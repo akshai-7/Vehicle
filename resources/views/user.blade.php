@@ -86,7 +86,8 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="table_row">
-                            <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
+                            <td style="text-align:center;" class="table_data">{{ Carbon\Carbon::now() }}
+                            </td>
                             <td style="text-align:center;" class="table_data">
                                 {{ $user->created_at->format('d/m/Y') }}</td>
                             <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
@@ -156,11 +157,12 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label">Gender</label>
                             <div class="col-sm-9">
-                                <input type="text" name="gender" class="form-control" value="Male">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
+                                <select name="gender" class="form-select">
+                                    <option value="">Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
