@@ -90,7 +90,16 @@
                     <tbody>
                         @foreach ($assigns as $assign)
                             <tr class="table_row">
-                                <td style="text-align:center;" class="table_data">{{ $assign->id }}</td>
+                                <td style="text-align:center;" class="table_data">
+                                    @php
+                                        $date = \Carbon\Carbon::now();
+                                        $financialYearStartMonth = 4; // Assuming financial year starts in April
+                                        $financialYearStart = $date->copy()->month($financialYearStartMonth);
+                                        $diffInWeeks = $date->diffInWeeks($financialYearStart);
+                                        $financialWeekNumber = $diffInWeeks + 1;
+                                    @endphp
+                                    {{ \Carbon\Carbon::now()->format('y') }}{{ $financialWeekNumber }}{{ $assign->id }}
+                                </td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->number_plate }}

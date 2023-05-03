@@ -12,7 +12,6 @@ class UserController extends Controller
 
     public function createuser(Request $request)
     {
-
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
@@ -37,6 +36,7 @@ class UserController extends Controller
         $user->postcode = $request['postcode'];
         $user->country = $request['country'];
         $user->company = $request['company'];
+
         $data = $request->all();
         $img = array();
         for ($i = 0; $i < count($data['license']); $i++) {
@@ -56,6 +56,7 @@ class UserController extends Controller
         return redirect('/user');
     }
     public function userlist()
+
     {
         $role = 'User';
         $users = User::where('role', $role)->paginate(10);

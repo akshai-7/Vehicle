@@ -86,7 +86,22 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="table_row">
-                            <td style="text-align:center;" class="table_data">{{ Carbon\Carbon::now() }}
+                            <td style="text-align:center;" class="table_data">
+                                @php
+                                    
+                                    $date = $user->created_at; // the date you want to get the financial week number for
+                                    $fiscalYearStart = '2023-04-01'; // the start date of your fiscal year
+                                    
+                                    // calculate the difference between the date and fiscal year start in days
+                                    $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                    
+                                    // calculate the number of weeks between the date and fiscal year start
+                                    $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
+                                    
+                                @endphp
+
+                                {{ $weekNumber }}
+
                             </td>
                             <td style="text-align:center;" class="table_data">
                                 {{ $user->created_at->format('d/m/Y') }}</td>
