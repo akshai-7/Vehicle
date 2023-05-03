@@ -57,14 +57,14 @@
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead>
-                        <th style="text-align:center;">Id</th>
+                        <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">Number plate</th>
                         <th style="text-align:center;">Vehicle Type</th>
                         <th style="text-align:center;">Make</th>
                         <th style="text-align:center;">Model</th>
                         <th style="text-align:center;">Mileage</th>
                         <th style="text-align:center;">Service Date</th>
-                        <th style="text-align:center;">Nextservice Date</th>
+                        <th style="text-align:center;">Next Service Date</th>
                         <th style="text-align:center;">Service Due</th>
                         <th style="text-align:center;">Action</th>
                     </thead>
@@ -74,13 +74,12 @@
                                 <td style="text-align:center;" class="table_data">
                                     @php
                                         $date = $vehicle->created_at;
-                                        $financialYearStartMonth = 4; // Assuming financial year starts in April
-                                        $financialYearStart = $date->copy()->month($financialYearStartMonth);
-                                        
-                                        $diffInWeeks = $date->diffInWeeks($financialYearStart);
-                                        $financialWeekNumber = $diffInWeeks + 1;
+                                        $dates = $date->weekOfYear;
+                                        $fiscalYearStart = date('01-04-Y');
+                                        $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                        $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
                                     @endphp
-                                    {{ $financialWeekNumber }}
+                                    {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $vehicle->id }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $vehicle->number_plate }}
                                 </td>

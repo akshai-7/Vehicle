@@ -71,37 +71,32 @@
                 </div>
             </div>
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
-                <thead>
-                    <th style="text-align:center;">S.No</th>
-                    <th style="text-align:center;">Creation Date</th>
-                    <th style="text-align:center;">Driver Name</th>
-                    <th style="text-align:center;">Email</th>
-                    <th style="text-align:center;">Mobile.no</th>
-                    <th style="text-align:center;">Address</th>
-                    <th style="text-align:center;">Company</th>
-                    <th style="text-align:center;">License</th>
-                    <th style="text-align:center;">Role</th>
-                    <th style="text-align:center;">Action</th>
+                <thead style="text-align:center;">
+                    <th>S.No</th>
+                    <th>Creation Date</th>
+                    <th>Driver Name</th>
+                    <th>Email</th>
+                    <th>Mobile.no</th>
+                    <th>Address</th>
+                    <th>Company</th>
+                    <th>License</th>
+                    <th>Role</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="table_row">
                             <td style="text-align:center;" class="table_data">
                                 @php
-                                    
                                     $date = $user->created_at; // the date you want to get the financial week number for
-                                    $fiscalYearStart = '2023-04-01'; // the start date of your fiscal year
-                                    
+                                    $dates = $date->weekOfYear; // the date you want to get the financial week number for
+                                    $fiscalYearStart = date('01-04-Y'); // the start date of your fiscal year
                                     // calculate the difference between the date and fiscal year start in days
                                     $diff = strtotime($date) - strtotime($fiscalYearStart);
-                                    
                                     // calculate the number of weeks between the date and fiscal year start
                                     $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
-                                    
                                 @endphp
-
-                                {{ $weekNumber }}
-
+                                {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $user->id }}
                             </td>
                             <td style="text-align:center;" class="table_data">
                                 {{ $user->created_at->format('d/m/Y') }}</td>
@@ -115,7 +110,7 @@
                             <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
                             <td style="text-align:center;" class="table_data">
                                 @if ($user->license != null)
-                                    <a href="/licenseimage/{{ $user->id }}">
+                                    <a onclick="image({{ $user }})">
                                         <img src="{{ url('images/' . explode(',', $user->license)[0]) }}"
                                             class="rounded-0 border border-secondary" width="50px" height="50px">
                                     </a>
@@ -147,6 +142,15 @@
             </div>
         </div>
     </div>
+    <div id="sam2">
+        <div class="userPopUp2">
+            <a href="/user">
+                <h4 style="color:#bf0e3a;float:right;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+            </a>
+
+            <img id="licenseimage" class="rounded-0 border border-secondary" width="600px" height="400px">
+        </div>
+    </div>
     <div id="sam">
         <div class="userPopUp">
             <form action="/createuser" method="POST" autocomplete="off" enctype="multipart/form-data">
@@ -172,7 +176,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label">Gender</label>
                             <div class="col-sm-9">
-                                <select name="gender" class="form-select">
+                                <select name="gender" class="form-select" required>
                                     <option value="">Select</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -184,7 +188,7 @@
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
                                 <input type="text1" name="date_of_birth" class="form-control flatdate" id="flatate"
-                                    placeholder="Select Date">
+                                    placeholder="Select Date" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
                                     @enderror
@@ -194,7 +198,8 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label"> Company</label>
                             <div class="col-sm-9">
-                                <input type="text" name="company" class="form-control" value="M&D foundations">
+                                <input type="text" name="company" class="form-control" value="M&D foundations"
+                                    required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')
                                         *{{ $message }}
                                     @enderror
@@ -214,7 +219,8 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">
-                                <input type="text" name="address" class="form-control" placeholder="House.No/Street">
+                                <input type="text" name="address" class="form-control" placeholder="House.No/Street"
+                                    required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
                                         *{{ $message }}
                                     @enderror
@@ -226,7 +232,8 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label">City</label>
                             <div class="col-sm-9">
-                                <input list="citylist" name="city" class="form-control" placeholder="Select City" />
+                                <input list="citylist" name="city" class="form-control" placeholder="Select City"
+                                    required />
                                 <datalist id="citylist">
                                     <option value="London">London</option>
                                     <option ption value="Aberdeen City">Aberdeen City</option>
@@ -452,7 +459,7 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Postcode</label>
                             <div class="col-sm-9">
-                                <input type="text" name="postcode" class="form-control">
+                                <input type="text" name="postcode" class="form-control" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
                                         *{{ $message }}
                                     @enderror
@@ -462,7 +469,8 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Country</label>
                             <div class="col-sm-9">
-                                <input type="text" name="country" class="form-control" value="United Kingdom">
+                                <input type="text" name="country" class="form-control" value="United Kingdom"
+                                    required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
                                         *{{ $message }}
                                     @enderror
@@ -472,7 +480,7 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label"> Email</label>
                             <div class="col-sm-9">
-                                <input type="text" name="email" class="form-control">
+                                <input type="text" name="email" class="form-control" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
                                         *{{ $message }}
                                     @enderror
@@ -482,7 +490,7 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="text" name="password" class="form-control">
+                                <input type="text" name="password" class="form-control" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('password')
                                         *{{ $message }}
                                     @enderror
@@ -492,7 +500,7 @@
                         <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label"> Mobile</label>
                             <div class="col-sm-9">
-                                <input type="text" name="mobile" class="form-control">
+                                <input type="text" name="mobile" class="form-control" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
                                         *{{ $message }}
                                     @enderror
@@ -521,7 +529,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Id</label>
                             <div class="col-sm-9">
-                                <input type="text" name="id" class="form-control" id="id">
+                                <input type="text" name="id" class="form-control" id="id" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
                                         *{{ $message }}
                                     @enderror
@@ -531,7 +539,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Name</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" class="form-control" id="name">
+                                <input type="text" name="name" class="form-control" id="name" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                         *{{ $message }}
                                     @enderror
@@ -541,7 +549,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Gender</label>
                             <div class="col-sm-9">
-                                <input type="text" name="gender" class="form-control" id="gender">
+                                <input type="text" name="gender" class="form-control" id="gender" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
                                         *{{ $message }}
                                     @enderror
@@ -553,7 +561,7 @@
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
                                 <input type="text1" name="date_of_birth" class="form-control flatdate"
-                                    id="date_of_birth">
+                                    id="date_of_birth" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
                                     @enderror
@@ -563,7 +571,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label"> Company</label>
                             <div class="col-sm-9">
-                                <input type="text" name="company" class="form-control" id="company">
+                                <input type="text" name="company" class="form-control" id="company" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')
                                         *{{ $message }}
                                     @enderror
@@ -592,7 +600,7 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">
-                                <input type="text" name="address" class="form-control" id="address">
+                                <input type="text" name="address" class="form-control" id="address" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
                                         *{{ $message }}
                                     @enderror
@@ -602,7 +610,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label">City</label>
                             <div class="col-sm-9">
-                                <input list="citylist" name="city" class="form-control" id="city">
+                                <input list="citylist" name="city" class="form-control" id="city" required>
                                 <datalist id="citylist">
                                     <option value="London">London</option>
                                     <option ption value="Aberdeen City">Aberdeen City</option>
@@ -828,7 +836,7 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Postcode</label>
                             <div class="col-sm-9">
-                                <input type="text" name="postcode" class="form-control" id="postcode">
+                                <input type="text" name="postcode" class="form-control" id="postcode" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
                                         *{{ $message }}
                                     @enderror
@@ -837,7 +845,8 @@
                             <div class="form-group row mt-4">
                                 <label for="" class="col-sm-1  col-form-label">Country</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="country" class="form-control" value="United Kingdom">
+                                    <input type="text" name="country" class="form-control" value="United Kingdom"
+                                        required>
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
                                             *{{ $message }}
                                         @enderror
@@ -847,7 +856,7 @@
                             <div class="form-group row mt-4">
                                 <label for="" class="col-sm-2  col-form-label"> Email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="email" class="form-control" id="email">
+                                    <input type="text" name="email" class="form-control" id="email" required>
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
                                             *{{ $message }}
                                         @enderror
@@ -857,7 +866,7 @@
                             <div class="form-group row mt-4">
                                 <label for="" class="col-sm-2 col-form-label"> Mobile</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="mobile" class="form-control" id="mobile">
+                                    <input type="text" name="mobile" class="form-control" id="mobile" required>
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
                                             *{{ $message }}
                                         @enderror
@@ -872,4 +881,5 @@
             </form>
         </div>
     </div>
+
 @endsection

@@ -174,6 +174,11 @@ function report(val) {
     document.getElementById('statement').value = val['statement']
 }
 
+function image(val) {
+    document.getElementById('sam2').style.display = "flex"
+    document.getElementById('licenseimage').src = "http://127.0.0.1:8000/images/"+val['license']
+}
+
 
 
 

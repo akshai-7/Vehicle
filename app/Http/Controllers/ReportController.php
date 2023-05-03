@@ -66,7 +66,7 @@ class ReportController extends Controller
     public function deletereport($id)
     {
         Report::find($id)->delete();
-        session()->flash('message1', ' Report is Deleted');
+        session()->flash('message1', ' Reportedincident Deleted');
         return redirect('/reportlist');
     }
     public function searchreport(Request $request)

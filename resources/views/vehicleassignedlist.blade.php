@@ -80,7 +80,7 @@
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                     <thead class="text-primary">
-                        <th style="text-align:center;">Id</th>
+                        <th style="text-align:center;">S.No</th>
                         <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Email</th>
                         <th style="text-align:center;">Number plate</th>
@@ -92,13 +92,13 @@
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">
                                     @php
-                                        $date = \Carbon\Carbon::now();
-                                        $financialYearStartMonth = 4; // Assuming financial year starts in April
-                                        $financialYearStart = $date->copy()->month($financialYearStartMonth);
-                                        $diffInWeeks = $date->diffInWeeks($financialYearStart);
-                                        $financialWeekNumber = $diffInWeeks + 1;
+                                        $date = $assign->created_at;
+                                        $dates = $date->weekOfYear;
+                                        $fiscalYearStart = date('01-04-Y');
+                                        $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                        $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
                                     @endphp
-                                    {{ \Carbon\Carbon::now()->format('y') }}{{ $financialWeekNumber }}{{ $assign->id }}
+                                    {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $assign->id }}
                                 </td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->name }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $assign->email }}</td>

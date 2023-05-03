@@ -72,7 +72,7 @@ class VehicleController extends Controller
     public function remove($id)
     {
         Vehicle::find($id)->delete();
-        session()->flash('message1', ' Vehicle is Deleted');
+        session()->flash('message1', ' Vehicle Deleted');
         return redirect('/vehiclelist');
     }
 

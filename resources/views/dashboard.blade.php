@@ -133,7 +133,7 @@
                     <th style="text-align:center;">Make</th>
                     <th style="text-align:center;">Model</th>
                     <th style="text-align:center;">Service Date</th>
-                    <th style="text-align:center;">Nextservice Date</th>
+                    <th style="text-align:center;">Next Service Date</th>
                 </thead>
                 <tbody>
                     @foreach ($vehicles as $vehicle)

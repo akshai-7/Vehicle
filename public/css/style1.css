@@ -187,6 +187,7 @@ a {
 #inspectionFrom,
 #incidentFrom,
 #sam1,
+#sam2,
 #updatePopup1,
 #updatePopup2,
 #updatePopup3,
@@ -231,14 +232,7 @@ a {
     overflow: scroll;
     background: rgb(230, 230, 236);
 }
-.userPopUp {
-    border-radius: 10px;
-    padding: 4%;
-    width: 70%;
-    height: 80%;
-    overflow: scroll;
-    background: rgb(230, 230, 236);
-}
+.userPopUp,
 .userPopUp1 {
     border-radius: 10px;
     padding: 4%;
@@ -247,6 +241,15 @@ a {
     overflow: scroll;
     background: rgb(230, 230, 236);
 }
+.userPopUp2 {
+    border-radius: 10px;
+    padding: 4%;
+    width: 60%;
+    height: 80%;
+    overflow: scroll;
+    background: rgb(206, 206, 246);
+}
+
 .vehiclePopUp,
 .vehiclePopUp1 {
     border-radius: 10px;
@@ -297,7 +300,7 @@ a {
 }
 table th {
     padding-bottom: 12px;
-    font-size: 14px;
+    font-size: 17px;
     color: #bf0e3a;
 }
 .order table td {

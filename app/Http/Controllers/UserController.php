@@ -125,7 +125,7 @@ class UserController extends Controller
     public function delete($id)
     {
         User::find($id)->delete();
-        session()->flash('message1', ' User is Deleted');
+        session()->flash('message1', ' User Deleted');
         return redirect('/user');
     }
 

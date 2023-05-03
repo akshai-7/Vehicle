@@ -157,7 +157,7 @@ class InspectionController extends Controller
         Visual::where('inspection_id', $id)->delete();
         Vehiclecheck::where('inspection_id', $id)->delete();
         Cabin::where('inspection_id', $id)->delete();
-        session()->flash('message1', ' Inspection detail is Deleted');
+        session()->flash('message1', ' Inspection details Deleted');
         return redirect('/inspectiondetails');
     }
     public function search(Request $request)

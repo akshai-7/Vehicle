@@ -67,7 +67,7 @@
 
                     <tbody>
                         <thead class="text-primary">
-                            <th style="text-align:center;">Id</th>
+                            <th style="text-align:center;">S.no</th>
                             <th style="text-align:center;">Driver Name</th>
                             </th>
                             <th style="text-align:center;">Number_plate</th>
@@ -81,7 +81,16 @@
 
                         @foreach ($reports as $report)
                             <tr class="table_row">
-                                <td style="text-align:center;" class="table_data">{{ $report->id }}</td>
+                                <td style="text-align:center;" class="table_data">
+                                    @php
+                                        $date = $report->created_at;
+                                        $dates = $date->weekOfYear;
+                                        $fiscalYearStart = date('01-04-Y');
+                                        $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                        $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
+                                    @endphp
+                                    {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $report->id }}
+                                </td>
                                 <td style="text-align:center;" class="table_data">{{ $report->assign->name }}</td>
                                 <td style="text-align:center;" class="table_data">{{ $report->assign->number_plate }}
                                 </td>
