@@ -100,7 +100,8 @@ function check(val) {
     document.getElementById('city').value = val['city']
     document.getElementById('mobile').value = val['mobile']
     document.getElementById('postcode').value = val['postcode']
-    document.getElementById('updateImage').src = "http://127.0.0.1:8000/images/"+val['license']
+    document.getElementById('updateImage').src = "http://127.0.0.1:8000/images/" + val['license']
+    document.getElementById('role').value=val['role']
 }
 
 //update vehicle

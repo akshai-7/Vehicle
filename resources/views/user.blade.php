@@ -147,7 +147,6 @@
             <a href="/user">
                 <h4 style="color:#bf0e3a;float:right;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
             </a>
-
             <img id="licenseimage" class="rounded-0 border border-secondary" width="600px" height="400px">
         </div>
     </div>
@@ -537,6 +536,16 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2  col-form-label"> Role</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="role" class="form-control" id="role" required>
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Name</label>
                             <div class="col-sm-9">
                                 <input type="text" name="name" class="form-control" id="name" required>
@@ -585,6 +594,8 @@
                                     height="50px">
                             </div>
                         </div>
+                    </div>
+                    <div class="subreport">
                         <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">License</label>
                             <div class="col-sm-9">
@@ -595,8 +606,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="subreport">
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">

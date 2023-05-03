@@ -72,6 +72,7 @@ class UserController extends Controller
             'company' => 'required',
             'address' => 'required',
             'city' => 'required',
+            'role' => 'required',
             'postcode' => 'required',
             'country' => 'required',
             'email' => 'required|email',
@@ -85,6 +86,7 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         $user->name = $request['name'];
         $user->gender = $request['gender'];
+        $user->role = $request['role'];
         $date = $request['date_of_birth'];
         $formatted_date = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
         $user->date_of_birth = $formatted_date;
