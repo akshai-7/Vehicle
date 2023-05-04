@@ -64,6 +64,15 @@ class UserController extends Controller
         $datas = User::where('role', $role)->get();
         return  view('/user', ['users' => $users], ['datas' => $datas]);
     }
+
+    public function admin()
+
+    {
+        $role = 'admin';
+        $users = User::where('role', $role)->paginate(10);
+        $datas = User::where('role', $role)->get();
+        return  view('/admin', ['users' => $users], ['datas' => $datas]);
+    }
     public function updateuserdetails(Request $request, $id)
     {
         $request->validate([

@@ -13,4 +13,9 @@ class Inspection extends Model
     {
         return $this->belongsTo(Assign::class, 'assign_id');
     }
+
+    public function visual()
+    {
+        return $this->hasMany(Visual::class, 'inspection_id');
+    }
 }

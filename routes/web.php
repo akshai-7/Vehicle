@@ -33,6 +33,7 @@ Route::post('/user', [LoginController::class, 'admin']);
 //driver
 Route::post('/createuser', [UserController::class, 'createuser']);
 Route::get('/users', [UserController::class, 'users']);
+Route::get('/admin', [UserController::class, 'admin']);
 Route::get('/driversearchbar', [UserController::class, 'driversearchbar']);
 Route::get('/user', [UserController::class, 'userlist']);
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
@@ -61,7 +62,7 @@ Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspec
 Route::get('/search', [InspectionController::class, 'search']);
 Route::get('/inspectionsearchbar', [InspectionController::class, 'inspectionsearchbar']);
 Route::get('/archive', [InspectionController::class, 'archive']);
-
+Route::get('/searcharchive', [InspectionController::class, 'searcharchive']);
 
 //report
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);

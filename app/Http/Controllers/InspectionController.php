@@ -187,7 +187,22 @@ class InspectionController extends Controller
     public function archive()
     {
         $inspections = Inspection::get();
-        $assigns = Assign::paginate(10);
-        return view('/archive', ['inspections' => $inspections, 'assigns' => $assigns]);
+        return view('/archive', ['inspections' => $inspections]);
+    }
+    public function searcharchive(Request $request)
+    {
+        $month =  $request->month;
+        $year = $request->year;
+        if ($year == 'Select Year' && $month != 'Select Month') {
+            session()->flash('message1', ' Please Select The Year');
+            $inspections = Inspection::get();
+        } elseif ($year == 'Select Year' &&  $month = 'Select Month') {
+            $inspections = Inspection::get();
+        } elseif ($year != 'Select Year' &&  $month != 'Select Month') {
+            $inspections = Inspection::whereYear('date',  $year)->whereMonth('date', $month)->get();
+        } else {
+            $inspections = Inspection::whereYear('date',  $year)->get();
+        }
+        return view('/archive', ['inspections' => $inspections]);
     }
 }

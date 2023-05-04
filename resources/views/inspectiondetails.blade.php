@@ -75,12 +75,12 @@
                         <tbody>
                             <thead class="text-primary">
                                 <th style="text-align:center;">S.No</th>
+                                <th style="text-align:center;">Inspection_date</th>
                                 <th style="text-align:center;">Report.no</th>
                                 <th style="text-align:center;">Inspected_by</th>
                                 <th style="text-align:center;">Driver Name</th>
                                 <th style="text-align:center;">Number plate</th>
                                 <th style="text-align:center;">Mileage</th>
-                                <th style="text-align:center;">Inspection_date</th>
                                 <th style="text-align:center;">Status</th>
                                 <th style="text-align:center;">Action</th>
                             </thead>
@@ -96,6 +96,9 @@
                                         @endphp
                                         {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $inspection->id }}
                                     </td>
+                                    <td style="text-align:center;">
+                                        {{ Carbon\Carbon::parse($inspection->date)->format('d/m/Y') }}
+                                    </td>
                                     <td style="text-align:center;">{{ $inspection->report_no }}
                                     </td>
                                     <td style="text-align:center;">
@@ -106,10 +109,7 @@
                                         {{ $inspection->number_plate }}</td>
                                     <td style="text-align:center;">{{ $inspection->mileage }}
                                     </td>
-                                    <td style="text-align:center;">
-                                        {{ Carbon\Carbon::parse($inspection->date)->format('d/m/Y') }}
 
-                                    </td>
                                     <td style="text-align:center;"><button type="button"
                                             class="btn btn-success btn-sm">Completed</button>
                                     </td>
@@ -260,8 +260,14 @@
                                             style="text-align:center;" id='feedback'></td>
                                     <td><input type="text" name="notes[]" class="form-control notes border-0"
                                             style="text-align:center; width;10px;" id='notes'></td>
-                                    <td><input type="text" name="action[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder=""></td>
+                                    <td>
+                                        <input type="text" name="action[]" class="form-control action border-0"
+                                            style="text-align:center;" id='action' placeholder="">
+                                        {{-- <input type="radio" id='good' name="action[]" value="Good">
+                                        <label for="good">Good</label><br>
+                                        <input type="radio" id='bad' name="action[]" value="Bad">
+                                        <label for="bad">Bad</label><br> --}}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-1"><input type="" name="sno[]"

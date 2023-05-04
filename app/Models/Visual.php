@@ -16,4 +16,8 @@ class Visual extends Model
         'action',
         'notes'
     ];
+    public function inspection()
+    {
+        return $this->belongsTo(Inspection::class, 'id');
+    }
 }

@@ -54,6 +54,12 @@
                     <div class="nav_name">Dashboard </div>
                 </a>
             </li>
+            <li {{ Request::is('admin') ? 'class=active' : '' }}>
+                <a class="nav_list" href="/admin" id="myButton">
+                    <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
+                    <div class="nav_name">Admins </div>
+                </a>
+            </li>
             <li {{ Request::is('user', 'users', 'driversearchbar') ? 'class=active' : '' }}>
                 <a class="nav_list" href="/user" id="myButton">
                     <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
@@ -88,7 +94,7 @@
                     </span>
                 </a>
             </li>
-            <li {{ Request::is('archive') ? 'class=active' : '' }}>
+            <li {{ Request::is('archive', 'searcharchive') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/archive">
                     <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
                         Archive
@@ -139,6 +145,11 @@
     flatpickr("input[type=text1]");
     $('.flatdate').flatpickr({
         dateFormat: "d/m/Y",
+    });
+    $('.flatemonth').flatpickr({
+        dateFormat: "F Y", // set date format to only display month and year
+        enableTime: false
+
     });
 </script>
 
