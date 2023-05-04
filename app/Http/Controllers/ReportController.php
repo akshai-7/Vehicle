@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Assign;
 use App\Models\Report;
+use Illuminate\Support\Facades\Validator;
 
 class ReportController extends Controller
 {
@@ -20,9 +21,7 @@ class ReportController extends Controller
     }
 
     public function reportonincident(Request $request)
-
     {
-        dd($request);
         $request->validate([
             'date' => 'required',
             'location' => 'required',
@@ -31,6 +30,18 @@ class ReportController extends Controller
             'statement' => 'required',
 
         ]);
+        // $validator = Validator::make($request->all(), [
+        //     'date' => 'required',
+        //     'location' => 'required',
+        //     'witnessed_by' => 'required',
+        //     'mobile' => 'required',
+        //     'statement' => 'required',
+        // ]);
+        // if ($validator->fails()) {
+        //     session()->flash('message1', ' Reportedincident Deleted');
+        //     return redirect('/reportlist');
+        // }
+
         $assign = Assign::where('name', $request->name)->first();
         if ($assign == null) {
             return response()->json(['message' => 'Invalid Id']);

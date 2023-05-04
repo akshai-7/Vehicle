@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
@@ -118,11 +119,6 @@ class UserController extends Controller
         $user->save();
         session()->flash('message', ' Updated Successfully');
         return redirect('/user');
-    }
-    public function licenseimage($id)
-    {
-        $user = User::where('id', $id)->first();
-        return view('/licenseimage', ['user' => $user]);
     }
     public function delete($id)
     {

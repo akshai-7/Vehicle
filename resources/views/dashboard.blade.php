@@ -162,7 +162,7 @@
             {!! $vehicles->links() !!}
         </div>
     </div>
-    <div class="table-data mt-5">
+    <div class="table-datas mt-5">
         <div class="order">
             <div class="head">
                 <h3>Reported Incidents</h3>

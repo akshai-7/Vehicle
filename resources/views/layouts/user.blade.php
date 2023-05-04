@@ -88,6 +88,13 @@
                     </span>
                 </a>
             </li>
+            <li {{ Request::is('archive') ? 'class=active' : '' }}>
+                <a class="nav_list gradient-hover-effect" href="/archive">
+                    <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
+                        Archive
+                    </span>
+                </a>
+            </li>
             <a class="nav_list gradient-hover-effect"href="/">
                 <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span
                     class="nav_name">SignOut</span>

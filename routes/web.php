@@ -36,7 +36,6 @@ Route::get('/users', [UserController::class, 'users']);
 Route::get('/driversearchbar', [UserController::class, 'driversearchbar']);
 Route::get('/user', [UserController::class, 'userlist']);
 Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetails']);
-Route::get('/licenseimage/{id}', [UserController::class, 'licenseimage']);
 Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 //vehicle
@@ -61,6 +60,8 @@ Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
 Route::get('/search', [InspectionController::class, 'search']);
 Route::get('/inspectionsearchbar', [InspectionController::class, 'inspectionsearchbar']);
+Route::get('/archive', [InspectionController::class, 'archive']);
+
 
 //report
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);

@@ -184,4 +184,10 @@ class InspectionController extends Controller
             ->paginate(10);
         return view('/inspectiondetails', compact('inspections', 'assigns'));
     }
+    public function archive()
+    {
+        $inspections = Inspection::get();
+        $assigns = Assign::paginate(10);
+        return view('/archive', ['inspections' => $inspections, 'assigns' => $assigns]);
+    }
 }
