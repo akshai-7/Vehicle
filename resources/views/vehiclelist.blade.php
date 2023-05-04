@@ -133,7 +133,7 @@
                         </div>
                         <div class="vehicle">
                             <div class="form-group row mt-4">
-                                <label class="col-sm-2 col-form-label">Number_Plate</label>
+                                <label class="col-sm-2 col-form-label">Numberplate</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="number_plate" class="form-control">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('number_plate')
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label">Vehicle_Type</label>
+                                <label class="col-sm-2 col-form-label">Vehicletype</label>
                                 <div class="col-sm-9">
                                     <select name="vehicle_type" class="form-select">
                                         <option value="">Select</option>
@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="form-group row mt-4 ">
-                                <label class="col-sm-2 col-form-label">Service_Date</label>
+                                <label class="col-sm-2 col-form-label">Service Date</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="service" class="form-control flatdate"
                                         placeholder="Select Date">
@@ -220,14 +220,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-2 col-form-label">Number_Plate</label>
+                                    <label class="col-sm-2 col-form-label">Numberplate</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="number_plate" class="form-control"
                                             id="number_plate">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3 ">
-                                    <label class="col-sm-2 col-form-label">Vehicle_Type</label>
+                                    <label class="col-sm-2 col-form-label">Vehicletype</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="vehicle_type" class="form-control"
                                             id="vehicle_type">
@@ -253,7 +253,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3 ">
-                                    <label class="col-sm-2 col-form-label">Service_Date</label>
+                                    <label class="col-sm-2 col-form-label">Service Date</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="service" class="form-control flatdate"
                                             placeholder="Select Date" id="service">

@@ -66,7 +66,6 @@ class UserController extends Controller
     }
 
     public function admin()
-
     {
         $role = 'admin';
         $users = User::where('role', $role)->paginate(10);
@@ -126,8 +125,15 @@ class UserController extends Controller
         $user->password = Hash::make($request['password']);
         $user->mobile = $request['mobile'];
         $user->save();
-        session()->flash('message', ' Updated Successfully');
-        return redirect('/user');
+
+
+        if ($request->role == 'User') {
+            session()->flash('message', ' Updated Successfully');
+            return redirect('/user');
+        } else {
+            session()->flash('message', ' Updated Successfully');
+            return redirect('/admin');
+        }
     }
     public function delete($id)
     {
@@ -151,6 +157,21 @@ class UserController extends Controller
         }
         return view('/user', ['users' => $users], ['datas' => $datas]);
     }
+    public function adminsearch(Request $request)
+    {
+        $role = 'admin';
+        $datas = User::where('role', $role)->get();
+        if ($request->name == "Select Name" && $request->date == 'Select Date') {
+            $users = User::where('role', $role)->paginate(10);
+        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
+            $users = User::where('role', $role)->where('created_at', $request->date)->paginate(10);
+        } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
+            $users = User::where('role', $role)->where('name', $request->name)->paginate(10);
+        } else {
+            $users = User::where('role', $role)->where('created_at', $request->date)->where('name', $request->name)->paginate(10);
+        }
+        return view('/admin', ['users' => $users], ['datas' => $datas]);
+    }
     public function driversearchbar(Request $request)
     {
         $role = 'User';
@@ -164,5 +185,19 @@ class UserController extends Controller
                 ->paginate(10);
         }
         return view('/user', compact('users', 'datas'));
+    }
+    public function adminsearchbar(Request $request)
+    {
+        $role = 'admin';
+        $datas = User::where('role', $role)->get();
+        $query = $request['query'];
+        if ($request['query'] == null) {
+            $users = User::where('role', $role)->paginate(10);
+        } elseif ($request['query'] != null) {
+            $users = User::where('name', 'LIKE', "%$query%")
+                ->orWhere('email', 'LIKE', "%$query%")
+                ->paginate(10);
+        }
+        return view('/admin', compact('users', 'datas'));
     }
 }

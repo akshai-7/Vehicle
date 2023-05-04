@@ -75,11 +75,11 @@
                         <tbody>
                             <thead class="text-primary">
                                 <th style="text-align:center;">S.No</th>
-                                <th style="text-align:center;">Inspection_date</th>
+                                <th style="text-align:center;">Inspection Date</th>
                                 <th style="text-align:center;">Report.no</th>
-                                <th style="text-align:center;">Inspected_by</th>
+                                <th style="text-align:center;">Inspected by</th>
                                 <th style="text-align:center;">Driver Name</th>
-                                <th style="text-align:center;">Number plate</th>
+                                <th style="text-align:center;">Number Plate</th>
                                 <th style="text-align:center;">Mileage</th>
                                 <th style="text-align:center;">Status</th>
                                 <th style="text-align:center;">Action</th>
@@ -145,8 +145,8 @@
                             <th style="text-align:center;">S.No</th>
                             <th style="text-align:center;">Driver Name</th>
                             <th style="text-align:center;">Email</th>
-                            <th style="text-align:center;">Number plate</th>
-                            <th style="text-align:center;">Next_inspection</th>
+                            <th style="text-align:center;">Number Plate</th>
+                            <th style="text-align:center;">Next Inspection</th>
                             <th style="text-align:center;">status</th>
                             <th style="text-align:center;">Over Due</th>
                         </thead>

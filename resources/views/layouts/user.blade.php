@@ -54,9 +54,9 @@
                     <div class="nav_name">Dashboard </div>
                 </a>
             </li>
-            <li {{ Request::is('admin') ? 'class=active' : '' }}>
+            <li {{ Request::is('admin', 'adminsearch') ? 'class=active' : '' }}>
                 <a class="nav_list" href="/admin" id="myButton">
-                    <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
+                    <div class="icon-name"><i class="fa-solid fa-shield-halved"></i></div>
                     <div class="nav_name">Admins </div>
                 </a>
             </li>

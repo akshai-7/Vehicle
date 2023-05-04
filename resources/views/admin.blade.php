@@ -1,13 +1,13 @@
 @extends('layouts.user')
 @section('content')
     <div class="userContainer">
-        <div class="table-data">
+        <div class="table-datas">
             <div class="order">
                 <div class="head">
                     <h3>Admin Details</h3>
                 </div>
                 <div class="serachbar">
-                    <form action="/users" method="GET" autocomplete="off" style="margin-left:-5px">
+                    <form action="/adminsearch" method="GET" autocomplete="off" style="margin-left:-5px">
                         <div id="filterDiv1">
                             <div class="col-md-7" id="filter">
                                 <label></label>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </form>
-                    <form action="/driversearchbar" method="GET" style="margin-left:32%" autocomplete="off">
+                    <form action="/adminsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
                         <div id="filterDiv1">
                             <div class="col-md-9">
                                 <label></label>
@@ -61,7 +61,7 @@
                                 <br />
                                 <button type="submit" class="btn btn-primary btn-sm mt-1"><i
                                         class="fa-solid fa-magnifying-glass"></i></i></button>
-                                <a href="/user" class="btn btn-success btn-sm mt-1"><i
+                                <a href="/admin" class="btn btn-success btn-sm mt-1"><i
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
                         </div>
@@ -145,8 +145,8 @@
             <form action="/updateuserdetails/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <div id="userHeading">
-                    <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Update Driver</h5>
-                    <a href="/user">
+                    <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Update Admin</h5>
+                    <a href="/admin">
                         <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                     </a>
                 </div>

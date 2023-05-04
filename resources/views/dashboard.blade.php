@@ -89,8 +89,8 @@
                     <th style="text-align:center;">Id</th>
                     <th style="text-align:center;">Report No</th>
                     <th style="text-align:center;">Driver Name</th>
-                    <th style="text-align:center;">Number plate</th>
-                    <th style="text-align:center;">Next_inspection</th>
+                    <th style="text-align:center;">Number Plate</th>
+                    <th style="text-align:center;">Next Inspection</th>
                     {{-- <th style="text-align:center;">Over Due</th> --}}
                 </thead>
                 <tbody>
@@ -128,7 +128,7 @@
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                 <thead>
                     <th style="text-align:center;">ID</th>
-                    <th style="text-align:center;">Number plate</th>
+                    <th style="text-align:center;">NumberPlate</th>
                     <th style="text-align:center;">Vehicle Type</th>
                     <th style="text-align:center;">Make</th>
                     <th style="text-align:center;">Model</th>
@@ -173,7 +173,7 @@
                         <th style="text-align:center;">Id</th>
                         <th style="text-align:center;">Driver Name</th>
                         </th>
-                        <th style="text-align:center;">Number_plate</th>
+                        <th style="text-align:center;">Number Plate</th>
                         </th>
                         <th style="text-align:center;">Date</th>
                         <th style="text-align:center;">Statement</th>

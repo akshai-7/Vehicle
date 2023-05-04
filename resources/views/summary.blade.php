@@ -8,9 +8,9 @@
             <div class="order">
                 <table class="table table-bordered mt-5">
                     <thead class=" col-md-1">
-                        <th style="text-align:center;" class=" col-md-2">Inspection_Id</th>
+                        <th style="text-align:center;" class=" col-md-2">Inspection Id</th>
                         <th style="text-align:center;" class=" col-md-2">Driver Name</th>
-                        <th style="text-align:center;" class="col-md-2">Number_plate</th>
+                        <th style="text-align:center;" class="col-md-2">Number Plate</th>
                     </thead>
                     <tbody>
                         @foreach ($inspection as $inspection)

@@ -144,13 +144,13 @@
                 </div>
                 <div class="vehicle">
                     <div class="form-group row mt-4">
-                        <label class="col-sm-2">User_Id</label>
+                        <label class="col-sm-3">User Id</label>
                         <div class="col-sm-8">
                             <input id="user_id" class="form-control-plaintext" readonly />
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-sm-2">DriverName</label>
+                        <label class="col-sm-3">Driver Name</label>
                         <div class="col-sm-8">
                             <input id="name" class="form-control-plaintext" readonly />
                         </div>
@@ -168,13 +168,13 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-sm-2 ">Vehicle_Id</label>
+                        <label class="col-sm-3">Vehicle Id</label>
                         <div class="col-sm-8">
                             <input id="vehicle_id" class="form-control-plaintext" readonly />
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 ">Number_plate</label>
+                        <label class="col-sm-3 ">Number Plate</label>
                         <div class="col-sm-8">
                             <input id="number_plate" class="form-control-plaintext" readonly />
                         </div>
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4">
-                        <label class="col-sm-2"> Assigned_Date</label>
+                        <label class="col-sm-4"> Assigned Date</label>
                         <div class="col-sm-8">
                             <input id="date" class="form-control-plaintext" readonly />
                         </div>

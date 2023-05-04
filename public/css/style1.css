@@ -165,7 +165,7 @@ a {
 }
 .table-data {
     width: 100%;
-    height: 90%;
+    height: auto;
     border-radius: 8px;
     background: rgb(242, 241, 255);
     padding: 24px;

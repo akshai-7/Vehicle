@@ -70,7 +70,7 @@
                             <th style="text-align:center;">S.no</th>
                             <th style="text-align:center;">Driver Name</th>
                             </th>
-                            <th style="text-align:center;">Number_plate</th>
+                            <th style="text-align:center;">Number Plate</th>
                             </th>
                             <th style="text-align:center;">Date</th>
                             <th style="text-align:center;" class=" col-md-2">Location</th>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="incident">
                     <div class="form-group row mt-4">
-                        <label class="col-sm-2">Assign_ID</label>
+                        <label class="col-sm-3">Assign ID</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="id">
                         </div>
@@ -164,7 +164,7 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 "> Witnessed_by</label>
+                        <label class="col-sm-3 "> Witnessed by</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="witnessed_by">
                         </div>
@@ -200,7 +200,7 @@
                 </div>
                 <div class="vehicle">
                     <div class="form-group mt-5">
-                        <label class="col-sm-2 col-form-label">Driver_Name</label>
+                        <label class="col-sm-3 col-form-label">Driver Name</label>
                         <select class="form-select " style="width: 370px;" name="name">
                             <option>Please Select Driver</option>
                             @foreach ($assigns as $assign)
@@ -229,7 +229,7 @@
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 col-form-label"> Witnessed_by</label>
+                        <label class="col-sm-3 col-form-label"> Witnessed by</label>
                         <div class="col-sm-9">
                             <input type="text" name="witnessed_by" class="form-control">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('witnessed_by')
