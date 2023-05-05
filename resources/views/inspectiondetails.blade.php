@@ -9,8 +9,8 @@
                 <h6>Pending Vehicle Inspection </h6>
             </button>
         </div>
-        <div id="Visual" class="tabcontent">
-            <div class="table-data" id="table-data">
+        <div id="Visual" class="table-data">
+            <div class="" id="table-data">
                 <div class="head">
                     <h3>Inspection Details</h3>
                     <a onclick="show('inspectionFrom')"><input type="submit" value="Add-Inspection" id="add1"></a>
