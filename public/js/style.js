@@ -86,6 +86,23 @@
         $('[data-toggle="tooltip"]').tooltip()
     })
 
+//admin update
+function checkadmin(val) {
+    document.getElementById('sam1').style.display="flex"
+    document.getElementById('id').value = val['id']
+    document.getElementById('name').value = val['name']
+    document.getElementById('gender').value = val['gender']
+    document.getElementById('date_of_birth').value = new Date(val['date_of_birth']).toLocaleDateString()
+    document.getElementById('company').value = val['company']
+    document.getElementById('address').value = val['address']
+    document.getElementById('address').value = val['address']
+    document.getElementById('email').value = val['email']
+    document.getElementById('city').value = val['city']
+    document.getElementById('mobile').value = val['mobile']
+    document.getElementById('postcode').value = val['postcode']
+    document.getElementById('updateImage').src = "http://127.0.0.1:8000/images/" + val['license']
+    document.getElementById('role').value=val['role']
+    }
 //user update
 function check(val) {
     document.getElementById('sam1').style.display="flex"
@@ -177,7 +194,7 @@ function report(val) {
 
 function image(val) {
     document.getElementById('sam2').style.display = "flex"
-    document.getElementById('licenseimage').src = "http://127.0.0.1:8000/images/"+val['license']
+    document.getElementById('licenseimage').src = "http://127.0.0.1:8000/images/" + val['license']
 }
 
 

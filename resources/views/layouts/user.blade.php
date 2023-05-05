@@ -96,7 +96,7 @@
             </li>
             <li {{ Request::is('archive', 'searcharchive') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/archive">
-                    <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
+                    <div class="icon-name"> <i class="fa-solid fa-box-archive"></i> </div><span class="nav_name">
                         Archive
                     </span>
                 </a>

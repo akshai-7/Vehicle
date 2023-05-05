@@ -80,7 +80,7 @@
                     <th>Address</th>
                     <th>Company</th>
                     <th>License</th>
-                    <th>Role</th>
+                    {{-- <th>Role</th> --}}
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -119,7 +119,7 @@
                                     <p style="text-align:center;">--</p>
                                 @endif
                             </td>
-                            <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
+                            {{-- <td style="text-align:center;" class="table_data">{{ $user->role }}</td> --}}
 
                             <td style="text-align:center;" class="table_data">
                                 <a onclick=" check({{ $user }})">
@@ -538,11 +538,15 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Role</label>
                             <div class="col-sm-9">
-                                <input type="text" name="role" class="form-control" id="role" required>
+                                {{-- <input type="text" name="role" class="form-control" id="role" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                         *{{ $message }}
                                     @enderror
-                                </div>
+                                </div> --}}
+                                <select name="role" class="form-select" required>
+                                    <option value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">

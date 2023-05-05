@@ -73,12 +73,12 @@
                     <th>S.No</th>
                     <th>Creation Date</th>
                     <th>Driver Name</th>
-                    <th>Email</th>
+                    <th class="col-md-1">Email</th>
                     <th>Mobile.no</th>
                     <th>Address</th>
-                    <th>Company</th>
-                    <th>License</th>
-                    <th>Role</th>
+                    <th class="col-md-1">Company</th>
+                    <th class="col-md-1">License</th>
+                    {{-- <th>Role</th> --}}
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -117,10 +117,10 @@
                                     <p style="text-align:center;">--</p>
                                 @endif
                             </td>
-                            <td style="text-align:center;" class="table_data">{{ $user->role }}</td>
+                            {{-- <td style="text-align:center;" class="table_data">{{ $user->role }}</td> --}}
 
                             <td style="text-align:center;" class="table_data">
-                                <a onclick=" check({{ $user }})">
+                                <a onclick=" checkadmin({{ $user }})">
                                     <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                 <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
                                     title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
@@ -138,6 +138,14 @@
             <div class="active">
                 {!! $users->links() !!}
             </div>
+        </div>
+    </div>
+    <div id="sam2">
+        <div class="userPopUp2">
+            <a href="/admin">
+                <h4 style="color:#bf0e3a;float:right;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+            </a>
+            <img id="licenseimage" class="rounded-0 border border-secondary" width="600px" height="400px">
         </div>
     </div>
     <div id="sam1">
@@ -165,11 +173,15 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Role</label>
                             <div class="col-sm-9">
-                                <input type="text" name="role" class="form-control" id="role" required>
+                                {{-- <input type="text" name="role" class="form-control" id="role" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                         *{{ $message }}
                                     @enderror
-                                </div>
+                                </div> --}}
+                                <select name="role" class="form-select" required>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
@@ -180,6 +192,7 @@
                                         *{{ $message }}
                                     @enderror
                                 </div>
+
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
@@ -517,4 +530,5 @@
             </form>
         </div>
     </div>
+
 @endsection

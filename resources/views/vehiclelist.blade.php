@@ -96,7 +96,8 @@
                                     {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') }}
                                 </td>
                                 <td style="text-align:center;">
-                                    @if (Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') == Carbon\Carbon::today())
+                                    @if (Carbon\Carbon::today()->format('d/m/Y') >=
+                                            Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y'))
                                         <button type="button" class="btn btn-danger btn-sm">Yes</button>
                                     @else
                                         <button type="button" class="btn btn-success btn-sm">No</button>
@@ -220,14 +221,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
-                                    <label class="col-sm-2 col-form-label">Numberplate</label>
+                                    <label class="col-sm-3 col-form-label">Number Plate</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="number_plate" class="form-control"
                                             id="number_plate">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3 ">
-                                    <label class="col-sm-2 col-form-label">Vehicletype</label>
+                                    <label class="col-sm-3 col-form-label">Vehicle Type</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="vehicle_type" class="form-control"
                                             id="vehicle_type">
@@ -253,7 +254,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3 ">
-                                    <label class="col-sm-2 col-form-label">Service Date</label>
+                                    <label class="col-sm-3 col-form-label">Service Date</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="service" class="form-control flatdate"
                                             placeholder="Select Date" id="service">
