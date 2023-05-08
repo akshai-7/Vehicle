@@ -144,9 +144,15 @@ class UserController extends Controller
     }
     public function delete($id)
     {
-        User::find($id)->delete();
-        session()->flash('message1', ' User Deleted');
-        return redirect('/user');
+        $id = User::where('id', $id)->first();
+        $id->delete();
+        if ($id->role == 'User') {
+            session()->flash('message1', ' Driver Deleted');
+            return redirect('/user');
+        } else {
+            session()->flash('message1', '  Admin Deleted');
+            return redirect('/admin');
+        }
     }
 
     public function users(Request $request)

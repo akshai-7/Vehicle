@@ -1,7 +1,7 @@
 @extends('layouts.user')
 @section('content')
     <div class="userContainer">
-        <div class="table-datas">
+        <div class="table-data">
             <div class="order">
                 <div class="head">
                     <h3>Admin Details</h3>
