@@ -36,7 +36,6 @@
                                         @endforeach
                                     @endif
                                 </select>
-
                             </div>
                             <div class="col-md-5" style="margin-left:6px">
                                 <br />
