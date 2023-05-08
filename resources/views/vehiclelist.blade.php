@@ -96,8 +96,9 @@
                                     {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') }}
                                 </td>
                                 <td style="text-align:center;">
-                                    @if (Carbon\Carbon::today()->format('d/m/Y') >=
-                                            Carbon\Carbon::parse($vehicle->sgitervicedate)->addYear(1)->format('d/m/Y'))
+
+                                    @if (Carbon\Carbon::today()->format('Y/m/d') >=
+                                            Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('Y/m/d'))
                                         <button type="button" class="btn btn-danger btn-sm">Yes</button>
                                     @else
                                         <button type="button" class="btn btn-success btn-sm">No</button>

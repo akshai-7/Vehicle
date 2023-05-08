@@ -28,6 +28,7 @@ class UserController extends Controller
         ]);
         $user = new User();
         $user->name = $request['name'];
+        $user->role = $request['role'];
         $user->gender = $request['gender'];
         $date = $request['date_of_birth'];
         $formatted_date = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
@@ -53,8 +54,14 @@ class UserController extends Controller
         $user->password = Hash::make($request['password']);
         $user->mobile = $request['mobile'];
         $user->save();
-        session()->flash('message', 'Driver is Created');
-        return redirect('/user');
+
+        if ($request->role == 'User') {
+            session()->flash('message', 'Driver is Created');
+            return redirect('/user');
+        } else {
+            session()->flash('message', 'Admin is Created');
+            return redirect('/admin');
+        }
     }
     public function userlist()
 

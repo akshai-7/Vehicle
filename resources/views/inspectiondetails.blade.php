@@ -9,7 +9,7 @@
                 <h6>Pending Vehicle Inspection </h6>
             </button>
         </div>
-        <div id="Visual" class="table-data">
+        <div id="Visual" class="table-data tabcontent">
             <div class="" id="table-data">
                 <div class="head">
                     <h3>Inspection Details</h3>
@@ -130,7 +130,6 @@
                             <p>Data not found</p>
                         </div>
                     @endif
-
                 </div>
             </div>
             <div class="active">
@@ -599,6 +598,5 @@
                         </div>
                 </form>
         </div>
-
     </div>
 @endsection

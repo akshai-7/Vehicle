@@ -1,6 +1,20 @@
 @extends('layouts.user')
 @section('content')
-    <div class="table-datas">
+    <div class="button mt-3">
+        <button class="tablinks " onclick="openCheck(event, 'Pending')" id="defaultOpen">
+            <h6>Pending Vehicle Inspection</h6>
+        </button>
+        <button class="tablinks" onclick="openCheck(event, 'ServiceDue')">
+            <h6>Service Due</h6>
+        </button>
+        <button class="tablinks" onclick="openCheck(event, 'Inspection')">
+            <h6>Damaged Vehicle Details</h6>
+        </button>
+        <button class="tablinks" onclick="openCheck(event, 'Reported')">
+            <h6>Reported Incidents</h6>
+        </button>
+    </div>
+    <div class="table-datas  mt-3 tabcontent" id="Pending">
         <div class="order">
             <div class="head">
                 <h3>Pending Vehicle Inspection</h3>
@@ -37,11 +51,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="active">
-            {!! $assigns->links() !!}
-        </div>
     </div>
-    <div class="table-datas mt-5">
+    <div class="table-datas mt-3 tabcontent" id="ServiceDue">
         <div class="order">
             <div class="head">
                 <h3>Service Due</h3>
@@ -79,11 +90,59 @@
                 </tbody>
             </table>
         </div>
-        <div class="active">
-            {!! $vehicles->links() !!}
+    </div>
+
+    <div class="table-datas mt-3 tabcontent" id="Inspection">
+        <div class="order">
+            <div class="head">
+                <h3> Damaged Vehicle Details</h3>
+            </div>
+            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
+                <tbody>
+                    <thead class="text-primary">
+                        <th style="text-align:center;">S.No</th>
+                        <th style="text-align:center;">Inspection Date</th>
+                        <th style="text-align:center;">Report.no</th>
+                        <th style="text-align:center;">Inspected by</th>
+                        <th style="text-align:center;">Driver Name</th>
+                        <th style="text-align:center;">Number Plate</th>
+                    </thead>
+                    @foreach ($inspectionLists as $inspection)
+                        <tr class="table_row">
+                            <td style="text-align:center;">
+                                @php
+                                    $date = $inspection->created_at;
+                                    $dates = $date->weekOfYear;
+                                    $fiscalYearStart = date('01-04-Y');
+                                    $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                    $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
+                                @endphp
+                                {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $inspection->id }}
+                            </td>
+                            <td style="text-align:center;">
+                                {{ Carbon\Carbon::parse($inspection->date)->format('d/m/Y') }}
+                            </td>
+                            <td style="text-align:center;">{{ $inspection->report_no }}
+                            </td>
+                            <td style="text-align:center;">
+                                {{ ucfirst(strtolower($inspection->inspected_by)) }}
+                            </td>
+                            <td style="text-align:center;">{{ $inspection->name }}</td>
+                            <td style="text-align:center;">
+                                {{ $inspection->number_plate }}</td>
+
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            @if (count($inspectionLists) < 1)
+                <div id="dataNotFound">
+                    <p>Data not found</p>
+                </div>
+            @endif
         </div>
     </div>
-    <div class="table-datas mt-5">
+    <div class="table-datas mt-3 tabcontent" id="Reported">
         <div class="order">
             <div class="head">
                 <h3>Reported Incidents</h3>
@@ -117,9 +176,6 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
-        <div class="active">
-            {!! $reports->links() !!}
         </div>
     </div>
 @endsection

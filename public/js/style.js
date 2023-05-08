@@ -52,7 +52,6 @@
     }
 
 
-
       function openCheck(evt, Name) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
