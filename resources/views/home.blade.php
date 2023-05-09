@@ -7,9 +7,10 @@
                 <div class="card">
                     <div class="card-header">{{ __('M&d Foundations') }}</div>
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                        @if (session('message3'))
+                            <div role="alert" class="alert alert-success" x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)"
+                                x-show="show">
+                                <i class="fa-regular fa-circle-check"></i> {{ session('message3') }}
                             </div>
                         @endif
                         <a href="/">{{ __('Log Out') }}</a>

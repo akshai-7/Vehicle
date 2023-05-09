@@ -26,6 +26,7 @@
                             </span>
                         @enderror
                     </div>
+
                 </div>
                 <button class="reset mt-4" type="submit">
                     {{ __('Send Password Reset Link') }}

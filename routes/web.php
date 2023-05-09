@@ -30,6 +30,7 @@ Route::view('dashboard', 'dashboard');
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::post('/user', [LoginController::class, 'admin']);
 Route::post('/passwordreset', [LoginController::class, 'passwordreset']);
+Route::post('/passwordupdate', [LoginController::class, 'passwordupdate']);
 
 //driver
 Route::post('/createuser', [UserController::class, 'createuser']);

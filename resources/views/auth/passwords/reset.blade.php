@@ -3,7 +3,8 @@
     <div class="main1 card">
         <div>
             <h5 class="card-header">Reset Password</h5>
-            <form method="POST" action="{{ route('password.update') }}" class="passwordreset">
+            <form method="POST" action="/passwordupdate" class="passwordreset">
+                {{-- <form method="POST" action="{{ route('password.update') }}" class="passwordreset"> --}}
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="row mb-3 mt-3">
