@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,18 +17,28 @@ class passwordRest extends Mailable
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+
 
     /**
      * Build the message.
      *
      * @return $this
      */
+
+    public $request;
+
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
     public function build()
     {
-        return $this->view('mail.passwordresetmail');
+
+
+        $data = [
+            'email' => $this->request->input('email'),
+            'token' => $this->request->input('_token'),
+        ];
+        return $this->view('mail.passwordresetmail')->with('data', $data);;
     }
 }

@@ -27,8 +27,11 @@ class LoginController extends Controller
 
     public function passwordreset(Request $request)
     {
-        // dd($request);
-        Mail::To($request->email)->send(new passwordRest);
+
+        // $reset = [
+        //     'token' => $request->_token,
+        // ];
+        Mail::To($request->email)->send(new passwordRest($request));
         session()->flash('message', ' We have emailed your password reset link!');
         return redirect('/password/reset');
     }

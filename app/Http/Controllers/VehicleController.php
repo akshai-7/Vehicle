@@ -73,14 +73,10 @@ class VehicleController extends Controller
     }
     public function remove($id)
     {
-        // Vehicle::find($id)->delete();
-
-
         $id = Vehicle::where('id', $id)->first();
         $vehicle_id = $id->id;
 
         $assign = Assign::where('vehicle_id', $vehicle_id)->first();
-        // dd($assign);
         if ($assign == null) {
             $id->delete();
         } else {

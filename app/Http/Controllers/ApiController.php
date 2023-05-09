@@ -57,6 +57,8 @@ class ApiController extends Controller
 
         $id = $assign->id;
         $assign = Assign::where('id', $id)->first();
+        $assign->mileage = $inspection->mileage;
+        $assign->report_no = $inspection->report_no;
         $assign->last_inspection = $inspection->date;
         $assign->next_inspection = $inspection->next_inspection;
         $assign->save();

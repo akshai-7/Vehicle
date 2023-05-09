@@ -67,7 +67,7 @@
 
                     <tbody>
                         <thead class="text-primary">
-                            <th style="text-align:center;">S.no</th>
+                            <th style="text-align:center;">S.No</th>
                             <th style="text-align:center;">Driver Name</th>
                             </th>
                             <th style="text-align:center;">Number Plate</th>
