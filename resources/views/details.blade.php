@@ -189,10 +189,16 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label">Current_Image</label>
+                            <div class="col-sm-9">
+                                <img class="rounded-0 border border-secondary" width="50px" height="50px"
+                                    id="image">
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">Image</label>
                             <div class="col-sm-9">
-                                <input type="file" name="image[]" class="form-control" placeholder="image" multiple
-                                    id="image">
+                                <input type="file" name="image[]" class="form-control" placeholder="image" multiple>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                         *{{ $message }}
                                     @enderror
@@ -267,6 +273,13 @@
                                         *{{ $message }}
                                     @enderror
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label">Current_Image</label>
+                            <div class="col-sm-9">
+                                <img class="rounded-0 border border-secondary" width="50px" height="50px"
+                                    id="image1">
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
@@ -348,6 +361,13 @@
                                         *{{ $message }}
                                     @enderror
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label">Current_Image</label>
+                            <div class="col-sm-9">
+                                <img class="rounded-0 border border-secondary" width="50px" height="50px"
+                                    id="image2">
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">

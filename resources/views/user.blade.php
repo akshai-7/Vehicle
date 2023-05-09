@@ -125,7 +125,7 @@
                                 <a onclick=" check({{ $user }})">
                                     <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                 <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
-                                    title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
+                                    title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm "></i></a>
                             </td>
                         </tr>
                     @endforeach

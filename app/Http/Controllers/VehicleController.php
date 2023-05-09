@@ -6,6 +6,8 @@ use App\Models\Cabin;
 use App\Models\Vehicle;
 use App\Models\Vehiclecheck;
 use App\Models\Visual;
+use App\Models\User;
+use App\Models\Assign;
 use App\Models\Inspection;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -71,7 +73,24 @@ class VehicleController extends Controller
     }
     public function remove($id)
     {
-        Vehicle::find($id)->delete();
+        // Vehicle::find($id)->delete();
+
+
+        $id = Vehicle::where('id', $id)->first();
+        $vehicle_id = $id->id;
+
+        $assign = Assign::where('vehicle_id', $vehicle_id)->first();
+        // dd($assign);
+        if ($assign == null) {
+            $id->delete();
+        } else {
+            Assign::where('vehicle_id', $vehicle_id)->delete();
+            $user = User::where('vehicle_id', $vehicle_id)->first();
+            $user->vehicle_id = null;
+            $user->vehicle_no = null;
+            $user->save();
+            $id->delete();
+        }
         session()->flash('message1', ' Vehicle Deleted');
         return redirect('/vehiclelist');
     }

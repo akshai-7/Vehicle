@@ -141,7 +141,7 @@ function visual(val) {
     document.getElementById('view').value = val['view']
     document.getElementById('feedback').value = val['feedback']
     document.getElementById('action').value = val['action']
-    document.getElementById('image').value = val['image']
+    document.getElementById('image').src =  "http://127.0.0.1:8000/images/" + val['image']
 }
 
 //update vehicle check
@@ -152,7 +152,7 @@ function vehicle(val) {
     document.getElementById('view1').value = val['view']
     document.getElementById('feedback1').value = val['feedback']
     document.getElementById('action1').value = val['action']
-    document.getElementById('image1').value = val['image']
+    document.getElementById('image1').src ="http://127.0.0.1:8000/images/" + val['image']
 }
 
 //update cabin check
@@ -163,7 +163,7 @@ function cabin(val) {
     document.getElementById('view2').value = val['view']
     document.getElementById('feedback2').value = val['feedback']
     document.getElementById('action2').value = val['action']
-    document.getElementById('image2').value = val['image']
+    document.getElementById('image2').src = "http://127.0.0.1:8000/images/" + val['image']
 }
 
 //assign
@@ -195,6 +195,8 @@ function image(val) {
     document.getElementById('sam2').style.display = "flex"
     document.getElementById('licenseimage').src = "http://127.0.0.1:8000/images/" + val['license']
 }
+
+
 
 
 

@@ -138,6 +138,62 @@
         </div>
         <div id="Vehicle" class="tabcontent">
             <div class="table-data" id="table-data">
+                {{-- <div class="serachbar">
+                    <form action="/search" method="GET" autocomplete="off" style="margin-left:-5px">
+                        <div id="filterDiv1">
+                            <div class="col-md-7" id="filter">
+                                <label></label>
+                                @if (isset($_GET['date']))
+                                    <input type="text1" name="date" class="form-control"
+                                        value="{{ $_GET['date'] }}">
+                                @else
+                                    <input type="text1" name="date" class="form-control" value="Select Date">
+                                @endif
+                            </div>
+                            <div class="col-md-7" id="" style="margin-left:5px">
+                                <label></label>
+                                <select class="form-select form-control" name="name">
+                                    @if (isset($_GET['name']))
+                                        <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
+                                        @foreach ($assigns as $assign)
+                                            <option value="{{ $assign->name }}">
+                                                {{ $assign->name }}</option>
+                                        @endforeach
+                                    @else
+                                        <option>Select Name</option>
+                                        @foreach ($assigns as $assign)
+                                            <option value="{{ $assign->name }}">
+                                                {{ $assign->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa fa-filter"></i></button>
+                                <a href="/inspectiondetails" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="/inspectionsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
+                        <div id="filterDiv1">
+                            <div class="col-md-9">
+                                <label></label>
+                                <input type="text" name="query" placeholder="Inspected_by/Number Plate/Report.no"
+                                    class="form-control">
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></i></button>
+                                <a href="/inspectiondetails" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
+                        </div>
+                    </form>
+                </div> --}}
                 <div class="order">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                         <thead class="text-primary">

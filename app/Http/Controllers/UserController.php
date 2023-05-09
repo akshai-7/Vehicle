@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Assign;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
@@ -145,7 +146,19 @@ class UserController extends Controller
     public function delete($id)
     {
         $id = User::where('id', $id)->first();
-        $id->delete();
+        $user_id = $id->id;
+        $assign = Assign::where('user_id', $user_id)->first();
+        if ($assign == null) {
+            $id->delete();
+        } else {
+            Assign::where('user_id', $user_id)->delete();
+            $vehicle = Vehicle::where('user_id', $user_id)->first();
+            $vehicle->user_id = null;
+            $vehicle->name = null;
+            $vehicle->save();
+            $id->delete();
+        }
+
         if ($id->role == 'User') {
             session()->flash('message1', ' Driver Deleted');
             return redirect('/user');

@@ -10,9 +10,8 @@
                 </div>
                 <div>
                     @foreach (explode(',', $vehicle->image) as $image)
-                        <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary" width="150px"
-                            height="120px">
-
+                        <img src="{{ url('images/' . $image) }}" class="rounded-0 border border-secondary" width="180px"
+                            height="160px">
                         <span></span>
                     @endforeach
                 </div>

@@ -13,8 +13,6 @@ use App\Models\User;
 use Illuminate\Support\Carbon;
 use App\Mail\inspectionMail;
 
-// $name1 = "Select";
-// $date2 = null;
 
 class InspectionController extends Controller
 {
