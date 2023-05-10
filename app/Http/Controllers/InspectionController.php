@@ -9,7 +9,6 @@ use App\Models\Visual;
 use App\Models\Vehiclecheck;
 use App\Models\Cabin;
 use App\Models\Assign;
-use App\Models\User;
 use Illuminate\Support\Carbon;
 use App\Mail\inspectionMail;
 

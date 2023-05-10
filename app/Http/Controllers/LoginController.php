@@ -35,10 +35,12 @@ class LoginController extends Controller
 
     public function passwordupdate(Request $request)
     {
+
         $user = User::where('email', $request->email)->first();
-        $user->password = $request['password'];
+        $user->password = Hash::make($request->password);
+        // dd($user->password);
         $user->save();
         session()->flash('message3', ' Your Password is Updated!');
-        return redirect('/home');
+        return view('/home');
     }
 }

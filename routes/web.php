@@ -27,6 +27,7 @@ use App\Http\Controllers\DashboardController;
 //login
 Route::view('/', 'login');
 Route::view('dashboard', 'dashboard');
+Route::view('/home', 'home');
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::post('/user', [LoginController::class, 'admin']);
 Route::post('/passwordreset', [LoginController::class, 'passwordreset']);
@@ -103,5 +104,3 @@ Route::get('/pdf/{id}', [VehicleController::class, 'pdf']);
 Route::get('/edit/{id}', [VehicleController::class, 'edit']);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
