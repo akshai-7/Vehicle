@@ -8,6 +8,7 @@ use App\Models\Assign;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -65,7 +66,6 @@ class UserController extends Controller
         }
     }
     public function userlist()
-
     {
         $role = 'User';
         $users = User::where('role', $role)->paginate(10);
