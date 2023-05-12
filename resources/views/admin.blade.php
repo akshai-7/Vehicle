@@ -72,13 +72,13 @@
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                 <thead style="text-align:center;">
                     <th>S.No</th>
-                    <th class="col-md-1">Creation Date</th>
-                    <th>Driver Name</th>
-                    <th class="col-md-1">Email</th>
+                    {{-- <th class="col-md-1">Creation Date</th> --}}
+                    <th>Name</th>
+                    {{-- <th class="col-md-1">Email</th> --}}
                     <th>Mobile.no</th>
-                    <th>Address</th>
-                    <th class="col-md-1">Company</th>
-                    <th class="col-md-1">License</th>
+                    {{-- <th>Address</th> --}}
+                    {{-- <th class="col-md-1">Company</th> --}}
+                    {{-- <th class="col-md-1">License</th> --}}
                     {{-- <th>Role</th> --}}
                     <th class="col-md-1">Action</th>
                 </thead>
@@ -97,17 +97,17 @@
                                 @endphp
                                 {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $user->id }}
                             </td>
-                            <td style="text-align:center;" class="table_data">
-                                {{ $user->created_at->format('d/m/Y') }}</td>
+                            {{-- <td style="text-align:center;" class="table_data">
+                                {{ $user->created_at->format('d/m/Y') }}</td> --}}
                             <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
                             </td>
-                            <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
+                            {{-- <td style="text-align:center;" class="table_data">{{ $user->email }}</td> --}}
                             <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
-                            <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
+                            {{-- <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
                                 {{ $user->city }},{{ $user->country }},{{ $user->postcode }}
-                            </td>
-                            <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
-                            <td style="text-align:center;" class="table_data">
+                            </td> --}}
+                            {{-- <td style="text-align:center;" class="table_data">{{ $user->company }}</td> --}}
+                            {{-- <td style="text-align:center;" class="table_data">
                                 @if ($user->license != null)
                                     <a onclick="image({{ $user }})">
                                         <img src="{{ url('images/' . explode(',', $user->license)[0]) }}"
@@ -117,7 +117,7 @@
                                 @if ($user->license == null)
                                     <p style="text-align:center;">--</p>
                                 @endif
-                            </td>
+                            </td> --}}
                             {{-- <td style="text-align:center;" class="table_data">{{ $user->role }}</td> --}}
 
                             <td style="text-align:center;" class="table_data">

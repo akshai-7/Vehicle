@@ -68,7 +68,7 @@
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
                         </div>
-                    </form>
+                    </form>`
                 </div>
                 <div class="order">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
@@ -111,7 +111,7 @@
                                     </td>
 
                                     <td style="text-align:center;"><button type="button"
-                                            class="btn btn-success btn-sm">Completed</button>
+                                            class="btn btn-success btn-sm">Passed</button>
                                     </td>
                                     <td style="text-align:center;">
                                         <a href="/details/{{ $inspection->id }}"><i
@@ -202,7 +202,7 @@
                             <th style="text-align:center;">Email</th>
                             <th style="text-align:center;">Number Plate</th>
                             <th style="text-align:center;">Next Inspection</th>
-                            <th style="text-align:center;">status</th>
+                            <th style="text-align:center;">Status</th>
                             <th style="text-align:center;">Over Due</th>
                         </thead>
                         <tbody>
@@ -226,7 +226,7 @@
                                         {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
                                     </td>
                                     <td style="text-align:center;"><button type="button"
-                                            class="btn btn-danger btn-sm">Pending</button>
+                                            class="btn btn-danger btn-sm">Failed</button>
                                     </td>
                                     <td style="text-align:center;">
                                         @if ($assign->next_inspection >= Carbon\Carbon::today())

@@ -54,12 +54,7 @@
                     <div class="nav_name">Dashboard </div>
                 </a>
             </li>
-            <li {{ Request::is('admin', 'adminsearch') ? 'class=active' : '' }}>
-                <a class="nav_list" href="/admin" id="myButton">
-                    <div class="icon-name"><i class="fa-solid fa-shield-halved"></i></div>
-                    <div class="nav_name">Admins </div>
-                </a>
-            </li>
+
             <li {{ Request::is('user', 'users', 'driversearchbar') ? 'class=active' : '' }}>
                 <a class="nav_list" href="/user" id="myButton">
                     <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
@@ -101,8 +96,14 @@
                     </span>
                 </a>
             </li>
+            <li {{ Request::is('admin', 'adminsearch') ? 'class=active' : '' }}>
+                <a class="nav_list" href="/admin" id="myButton">
+                    <div class="icon-name"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="nav_name">Admin Portal </div>
+                </a>
+            </li>
             <a class="nav_list gradient-hover-effect"href="/">
-                <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span
+                <div class="icon-name"><i class='`bx bx-log-out nav_icon'></i> </div><span
                     class="nav_name">SignOut</span>
             </a>
         </div>
