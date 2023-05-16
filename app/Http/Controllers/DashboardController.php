@@ -9,14 +9,19 @@ use App\Models\Report;
 use App\Models\Visual;
 use App\Models\Vehiclecheck;
 use App\Models\Cabin;
+use PHPUnit\Framework\Constraint\Count;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
         $vehicles = Vehicle::paginate(5);
+        $vehiclecount = Count($vehicles);
         $reports = Report::with('assign')->paginate(5);
+        $reportcount = Count($reports);
         $assigns = Assign::whereNotNull('last_inspection')->paginate(5);
+        $asigncounts = Count($assigns);
+
 
         $visual = Visual::where('action', 'Bad')->get();
         $vehicle = Vehiclecheck::where('action', 'Bad')->get();
@@ -62,6 +67,7 @@ class DashboardController extends Controller
             $inspections = Inspection::where('id', $inspectionsId[$i])->first();
             array_push($inspectionLists, $inspections);
         }
-        return view('/dashboard', ['assigns' => $assigns, 'vehicles' => $vehicles, 'reports' => $reports, 'inspectionLists' => $inspectionLists]);
+        $inspectionListscount = Count($inspectionLists);
+        return view('/dashboard', ['assigns' => $assigns, 'vehicles' => $vehicles, 'reports' => $reports, 'inspectionLists' => $inspectionLists, 'asigncounts' => $asigncounts, 'vehiclecount' => $vehiclecount, 'reportcount' => $reportcount, 'inspectionListscount' => $inspectionListscount]);
     }
 }

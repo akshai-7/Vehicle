@@ -23,24 +23,15 @@ class ReportController extends Controller
     public function reportonincident(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'date' => 'required',
             'location' => 'required',
             'witnessed_by' => 'required',
             'mobile' => 'required',
+            'image' => 'required',
             'statement' => 'required',
 
         ]);
-        // $validator = Validator::make($request->all(), [
-        //     'date' => 'required',
-        //     'location' => 'required',
-        //     'witnessed_by' => 'required',
-        //     'mobile' => 'required',
-        //     'statement' => 'required',
-        // ]);
-        // if ($validator->fails()) {
-        //     session()->flash('message1', ' Reportedincident Deleted');
-        //     return redirect('/reportlist');
-        // }
 
         $assign = Assign::where('name', $request->name)->first();
         if ($assign == null) {

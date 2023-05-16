@@ -28,12 +28,14 @@ use App\Http\Controllers\DashboardController;
 Route::view('/', 'login');
 Route::view('dashboard', 'dashboard');
 Route::view('/home', 'home');
+Route::view('/addadmin', 'addadmin');
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::post('/user', [LoginController::class, 'admin']);
 Route::post('/passwordreset', [LoginController::class, 'passwordreset']);
 Route::post('/passwordupdate', [LoginController::class, 'passwordupdate']);
 
 //driver
+Route::view('/adduser', 'adduser');
 Route::post('/createuser', [UserController::class, 'createuser']);
 Route::get('/users', [UserController::class, 'users']);
 Route::get('/admin', [UserController::class, 'admin']);
@@ -45,6 +47,7 @@ Route::post('/updateuserdetails/{id}', [UserController::class, 'updateuserdetail
 Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 //vehicle
+Route::view('/addvehicle', 'addvehicle');
 Route::post('/createvehicle', [VehicleController::class, 'createvehicle']);
 Route::get('/vehiclelist', [VehicleController::class, 'vehiclelist']);
 Route::get('/vehiclelists', [VehicleController::class, 'vehiclelists']);
@@ -61,6 +64,7 @@ Route::get('/vehicleassignedlist', [AssignController::class, 'vehicleassignedlis
 Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 
 //inspection
+Route::view('/inspectionform', 'inspectionform');
 Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
@@ -70,6 +74,7 @@ Route::get('/archive', [InspectionController::class, 'archive']);
 Route::get('/searcharchive', [InspectionController::class, 'searcharchive']);
 
 //report
+Route::view('/incidentform', 'incidentform');
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);
 Route::post('/reportonincident/{id}', [ReportController::class, 'reportonincident']);
 Route::get('/reportlist', [ReportController::class, 'reportlist']);

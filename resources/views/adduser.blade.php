@@ -1,170 +1,22 @@
 @extends('layouts.user')
 @section('content')
-    <div class="userContainer">
-        <div class="table-data">
-            <div class="order">
-                <div class="head">
-                    <h3>Admin Details</h3>
-                    <a href="/addadmin" style="margin-right:20px;"><input type="submit" value="Add-Admin" id="add"></a>
-                </div>
-                <div class="serachbar">
-                    <form action="/adminsearch" method="GET" autocomplete="off" style="margin-left:-5px">
-                        <div id="filterDiv1">
-                            <div class="col-md-7" id="filter">
-                                <label></label>
-                                @if (isset($_GET['date']))
-                                    <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
-                                @else
-                                    <input type="text1" name="date" class="form-control" value="Select Date">
-                                @endif
-                            </div>
-                            <div class="col-md-7" style="margin-left:5px">
-                                <label></label>
-                                <select class="form-select form-control" name="name">
-                                    @if (isset($_GET['name']))
-                                        <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
-                                        @foreach ($datas as $data)
-                                            <option value="{{ $data->name }}">
-                                                {{ $data->name }}</option>
-                                        @endforeach
-                                    @else
-                                        <option>Select Name</option>
-                                        @foreach ($datas as $data)
-                                            <option value="{{ $data->name }}">
-                                                {{ $data->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="col-md-5" style="margin-left:6px">
-                                <br />
-                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
-                                        class="bi bi-funnel-fill"></i></button>
-                                <a href="/admin" class="btn btn-success btn-sm mt-1"><i
-                                        class="fa-solid fa fa-refresh"></i></a>
-                            </div>
-                        </div>
-                    </form>
-                    <form action="/adminsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
-                        <div id="filterDiv1">
-                            <div class="col-md-9">
-                                <label></label>
-                                @if (isset($_GET['query']))
-                                    <input type="text" name="query" placeholder="Name/Email" class="form-control"
-                                        value="{{ $_GET['query'] }}" required>
-                                @else
-                                    <input type="text" name="query" placeholder="Name/Email" class="form-control"
-                                        required>
-                                @endif
-                            </div>
-                            <div class="col-md-5" style="margin-left: 6px">
-                                <br />
-                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
-                                        class="fa-solid fa-magnifying-glass"></i></i></button>
-                                <a href="/admin" class="btn btn-success btn-sm mt-1"><i
-                                        class="fa-solid fa fa-refresh"></i></a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
-                <thead style="text-align:center;">
-                    <th>S.No</th>
-                    {{-- <th class="col-md-1">Creation Date</th> --}}
-                    <th>Name</th>
-                    {{-- <th class="col-md-1">Email</th> --}}
-                    <th>Mobile.no</th>
-                    {{-- <th>Address</th> --}}
-                    {{-- <th class="col-md-1">Company</th> --}}
-                    {{-- <th class="col-md-1">License</th> --}}
-                    {{-- <th>Role</th> --}}
-                    <th class="col-md-1">Action</th>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr class="table_row">
-                            <td style="text-align:center;" class="table_data">
-                                @php
-                                    $date = $user->created_at; // the date you want to get the financial week number for
-                                    $dates = $date->weekOfYear; // the date you want to get the financial week number for
-                                    $fiscalYearStart = date('01-04-Y'); // the start date of your fiscal year
-                                    // calculate the difference between the date and fiscal year start in days
-                                    $diff = strtotime($date) - strtotime($fiscalYearStart);
-                                    // calculate the number of weeks between the date and fiscal year start
-                                    $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
-                                @endphp
-                                {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $user->id }}
-                            </td>
-                            {{-- <td style="text-align:center;" class="table_data">
-                                {{ $user->created_at->format('d/m/Y') }}</td> --}}
-                            <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
-                            </td>
-                            {{-- <td style="text-align:center;" class="table_data">{{ $user->email }}</td> --}}
-                            <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
-                            {{-- <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
-                                {{ $user->city }},{{ $user->country }},{{ $user->postcode }}
-                            </td> --}}
-                            {{-- <td style="text-align:center;" class="table_data">{{ $user->company }}</td> --}}
-                            {{-- <td style="text-align:center;" class="table_data">
-                                @if ($user->license != null)
-                                    <a onclick="image({{ $user }})">
-                                        <img src="{{ url('images/' . explode(',', $user->license)[0]) }}"
-                                            class="rounded-0 border border-secondary" width="50px" height="50px">
-                                    </a>
-                                @endif
-                                @if ($user->license == null)
-                                    <p style="text-align:center;">--</p>
-                                @endif
-                            </td> --}}
-                            {{-- <td style="text-align:center;" class="table_data">{{ $user->role }}</td> --}}
-
-                            <td style="text-align:center;" class="table_data">
-                                <a onclick=" checkadmin({{ $user }})">
-                                    <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
-                                <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
-                                    title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-
-            </table>
-            @if (count($users) < 1)
-                <div id="dataNotFound">
-                    <p>Data not found</p>
-                </div>
-            @endif
-            <div class="active">
-                {!! $users->links() !!}
-            </div>
-        </div>
-    </div>
-    <div id="sam2">
-        <div class="userPopUp2">
-            <a href="/admin">
-                <h4 style="color:#bf0e3a;float:right;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
-            </a>
-            <img id="licenseimage" class="rounded-0 border border-secondary" width="600px" height="400px">
-        </div>
-    </div>
-    <div id="sam1">
-        <div class="userPopUp1">
-            <form action="/updateuserdetails/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div id="userContainer">
+        <div class=" mt-4">
+            <form action="/createuser" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <div id="userHeading">
-                    <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Update Admin</h5>
-                    <a href="/admin">
+                    <h5 class="mt-3" style="color:#bf0e3a;"><i class="fa-solid fa-user"></i> Create Driver</h5>
+                    <a href="/user">
                         <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                     </a>
                 </div>
                 <div class="report1">
                     <div class="report">
                         <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2  col-form-label"> Id</label>
+                            <label for="" class="col-sm-2  col-form-label"> Name</label>
                             <div class="col-sm-9">
-                                <input type="text" name="id" class="form-control" id="id" required>
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('id')
+                                <input type="text" name="name" class="form-control">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                         *{{ $message }}
                                     @enderror
                                 </div>
@@ -173,44 +25,29 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Role</label>
                             <div class="col-sm-9">
-                                {{-- <input type="text" name="role" class="form-control" id="role" required>
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                                        *{{ $message }}
-                                    @enderror
-                                </div> --}}
-                                <select name="role" class="form-select" required>
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
+                                <input type="text" name="role" class="form-control" value="User">
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-2  col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                                <select name="gender" class="form-select">
+                                    <option value="">Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2  col-form-label"> Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="name" class="form-control" id="name" required>
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4 ">
-                            <label for="" class="col-sm-2  col-form-label"> Gender</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="gender" class="form-control" id="gender" required>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
                                         *{{ $message }}
                                     @enderror
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
-                                <input type="text1" name="date_of_birth" class="form-control flatdate"
-                                    id="date_of_birth" required>
+                                <input type="text1" name="date_of_birth" class="form-control flatdate" id="flatate"
+                                    placeholder="Select Date">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
                                     @enderror
@@ -220,7 +57,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label"> Company</label>
                             <div class="col-sm-9">
-                                <input type="text" name="company" class="form-control" id="company" required>
+                                <input type="text" name="company" class="form-control" value="M&D foundations">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('company')
                                         *{{ $message }}
                                     @enderror
@@ -228,18 +65,9 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4 ">
-                            <label class="col-sm-2 col-form-label">Current_Image</label>
-                            <div class="col-sm-6">
-                                <img id="updateImage" class="rounded-0 border border-secondary" width="50px"
-                                    height="50px">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="subreport">
-                        <div class="form-group row mt-4 ">
                             <label class="col-sm-2 col-form-label">License</label>
                             <div class="col-sm-9">
-                                <input type="file" name="license[]" class="form-control" multiple required>
+                                <input type="file" name="license[]" class="form-control" multiple>
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('license')
                                         *{{ $message }}
                                     @enderror
@@ -249,17 +77,19 @@
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Address</label>
                             <div class="col-sm-9">
-                                <input type="text" name="address" class="form-control" id="address" required>
+                                <input type="text" name="address" class="form-control" placeholder="House.No/Street">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
                                         *{{ $message }}
                                     @enderror
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="subreport">
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2 col-form-label">City</label>
                             <div class="col-sm-9">
-                                <input list="citylist" name="city" class="form-control" id="city" required>
+                                <input list="citylist" name="city" class="form-control" placeholder="Select City" />
                                 <datalist id="citylist">
                                     <option value="London">London</option>
                                     <option ption value="Aberdeen City">Aberdeen City</option>
@@ -480,55 +310,67 @@
                                     <option value="Wrexham">Wrexham</option>
                                     <option value="York">York</option>
                                 </datalist>
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('city')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-2  col-form-label">Postcode</label>
                             <div class="col-sm-9">
-                                <input type="text" name="postcode" class="form-control" id="postcode" required>
+                                <input type="text" name="postcode" class="form-control">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
                                         *{{ $message }}
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row mt-4">
-                                <label for="" class="col-sm-1  col-form-label">Country</label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="country" class="form-control" value="United Kingdom"
-                                        required>
-                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
-                                            *{{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row mt-4">
-                                <label for="" class="col-sm-2  col-form-label"> Email</label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="email" class="form-control" id="email" required>
-                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
-                                            *{{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row mt-4">
-                                <label for="" class="col-sm-2 col-form-label"> Mobile</label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="mobile" class="form-control" id="mobile" required>
-                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
-                                            *{{ $message }}
-                                        @enderror
-                                    </div>
-                                    <input type="submit" name="" value="Submit" class="btn text-white mt-4"
-                                        id="add" style="float:right;">
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label">Country</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="country" class="form-control" value="United Kingdom">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('country')
+                                        *{{ $message }}
+                                    @enderror
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2  col-form-label"> Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="email" class="form-control">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label for="" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="password" class="form-control">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('password')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label class="col-sm-2 col-form-label"> Mobile</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="mobile" class="form-control">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                                <input type="submit" class="btn text-white mt-4"
+                                    style="float:right;background:#bf0e3a;">
+                            </div>
+                        </div>
                     </div>
-
+                </div>
             </form>
         </div>
     </div>
-
 @endsection

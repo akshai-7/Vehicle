@@ -9,16 +9,19 @@ use App\Models\Vehicle;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
 
     public function createuser(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
             'date_of_birth' => 'required',
+            'license' => 'required',
             'address' => 'required',
             'city' => 'required',
             'postcode' => 'required',
@@ -28,6 +31,7 @@ class UserController extends Controller
             'password' => 'required',
             'mobile' => 'required',
         ]);
+
         $user = new User();
         $user->name = $request['name'];
         $user->role = $request['role'];
@@ -56,7 +60,6 @@ class UserController extends Controller
         $user->password = Hash::make($request['password']);
         $user->mobile = $request['mobile'];
         $user->save();
-
         if ($request->role == 'User') {
             session()->flash('message', 'Driver is Created');
             return redirect('/user');
@@ -82,6 +85,7 @@ class UserController extends Controller
     }
     public function updateuserdetails(Request $request, $id)
     {
+
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
@@ -95,6 +99,23 @@ class UserController extends Controller
             'email' => 'required|email',
             'mobile' => 'required',
         ]);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'company' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'role' => 'required',
+            'postcode' => 'required',
+            'country' => 'required',
+            'email' => 'required|email',
+            'mobile' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
         $id = $request->id;
         $data1 = User::find($id);
         if ($data1 == null) {
@@ -130,7 +151,6 @@ class UserController extends Controller
         $user->postcode = $request['postcode'];
         $user->country = $request['country'];
         $user->email = $request['email'];
-        $user->password = Hash::make($request['password']);
         $user->mobile = $request['mobile'];
         $user->save();
 

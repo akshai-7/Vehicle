@@ -256,8 +256,8 @@ a {
 }
 #inspectionFromPopUp {
     padding: 2%;
-    width: 90%;
-    height: 95%;
+    width: 95%;
+    height: aut;
     overflow: scroll;
     background: rgb(230, 230, 236);
 }
@@ -269,8 +269,8 @@ a {
     overflow: scroll;
     background: rgb(230, 230, 236);
 }
-#inspectionFrom table td input {
-    background: rgb(230, 230, 236);
+#form table td input {
+    background: rgb(236, 236, 239);
 }
 #userHeading {
     width: 100%;
@@ -374,7 +374,7 @@ h2 {
 }
 
 .report {
-    width: 40%;
+    width: 45%;
 }
 
 .subreport {

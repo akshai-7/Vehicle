@@ -2,22 +2,24 @@
 @section('content')
     <div class="button mt-3">
         <button class="tablinks " onclick="openCheck(event, 'Pending')" id="defaultOpen">
-            <h6>Pending Vehicle Inspection</h6>
+            <h6>Pending Vehicle Inspection-{{ $asigncounts }}
+            </h6>
         </button>
         <button class="tablinks" onclick="openCheck(event, 'ServiceDue')">
-            <h6>Service Due</h6>
+            <h6>Service Due-{{ $vehiclecount }}</h6>
         </button>
         <button class="tablinks" onclick="openCheck(event, 'Inspection')">
-            <h6>Damaged Vehicle Details</h6>
+            <h6>Damaged Vehicle Details-{{ $inspectionListscount }} </h6>
         </button>
         <button class="tablinks" onclick="openCheck(event, 'Reported')">
-            <h6>Reported Incidents</h6>
+            <h6>Reported Incidents-{{ $reportcount }}</h6>
         </button>
     </div>
     <div class="table-datas  mt-4 tabcontent" id="Pending">
         <div class="order">
             <div class="head">
                 <h3>Pending Vehicle Inspection</h3>
+
             </div>
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                 <thead class="text-primary">
@@ -26,12 +28,10 @@
                     <th style="text-align:center;">Driver Name</th>
                     <th style="text-align:center;">Number Plate</th>
                     <th style="text-align:center;">Next Inspection</th>
-                    {{-- <th style="text-align:center;">Over Due</th> --}}
                 </thead>
                 <tbody>
                     @foreach ($assigns as $assign)
                         <tr class="table_row">
-                            {{-- <td style="text-align:center;">{{ $assign->id }}</td> --}}
                             <td style="text-align:center;">
                                 @php
                                     $date = $assign->created_at;
@@ -49,13 +49,6 @@
                             <td style="text-align:center;">
                                 {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
                             </td>
-                            {{-- <td style="text-align:center;">
-                                @if ($assign->next_inspection >= Carbon\Carbon::today())
-                                    <button type="button" class="btn btn-success btn-sm">No</button>
-                                @else
-                                    <button type="button" class="btn btn-danger btn-sm">Yes</button>
-                                @endif
-                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>
@@ -118,9 +111,7 @@
                 <tbody>
                     <thead class="text-primary">
                         <th style="text-align:center;">S.No</th>
-                        <th style="text-align:center;">Inspection Date</th>
                         <th style="text-align:center;">Report.no</th>
-                        <th style="text-align:center;">Inspected by</th>
                         <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Number Plate</th>
                     </thead>
@@ -136,13 +127,7 @@
                                 @endphp
                                 {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $inspection->id }}
                             </td>
-                            <td style="text-align:center;">
-                                {{ Carbon\Carbon::parse($inspection->date)->format('d/m/Y') }}
-                            </td>
                             <td style="text-align:center;">{{ $inspection->report_no }}
-                            </td>
-                            <td style="text-align:center;">
-                                {{ ucfirst(strtolower($inspection->inspected_by)) }}
                             </td>
                             <td style="text-align:center;">{{ $inspection->name }}</td>
                             <td style="text-align:center;">

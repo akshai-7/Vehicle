@@ -12,7 +12,6 @@ class LoginController extends Controller
 {
     public function admin(Request $request)
     {
-
         $user = User::where(['email' => $request->email])->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
             session()->flash('message1', 'Email-id or Password is not matched');
@@ -38,7 +37,6 @@ class LoginController extends Controller
 
         $user = User::where('email', $request->email)->first();
         $user->password = Hash::make($request->password);
-        // dd($user->password);
         $user->save();
         session()->flash('message3', ' Your Password is Updated!');
         return view('/home');

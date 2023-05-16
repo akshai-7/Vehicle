@@ -13,7 +13,6 @@
         <div>
             <h5 class="card-header">Reset Password</h5>
             <form method="POST" action="/passwordreset">
-                {{-- <form method="POST" action="{{ route('password.email') }}"> --}}
                 @csrf
                 <div class="row  mt-5">
                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
