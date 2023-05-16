@@ -65,6 +65,13 @@ class ReportController extends Controller
         $reports = Report::with('assign')->paginate(5);
         return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
     }
+    public function incidentform()
+    {
+        $assigns = Assign::all();
+        return view('/incidentform',  ['assigns' => $assigns]);
+    }
+
+
     public function deletereport($id)
     {
         Report::find($id)->delete();

@@ -17,11 +17,16 @@
                     <select class="form-select form-control" style="width: 500px;background: rgb(236, 236, 239);"
                         name="name">
                         <option>Please Select Driver</option>
-                        {{-- @foreach ($assigns as $assign)
-                                <option value="{{ $assign->name }}">{{ $assign->name }}
-                                </option>
-                            @endforeach --}}
+                        @foreach ($assigns as $assign)
+                            <option value="{{ $assign->name }}">{{ $assign->name }}
+                            </option>
+                        @endforeach
                     </select>
+
+                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                            *{{ $message }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="subreport">
                     <div class="form-group row mt-5 ">
@@ -66,17 +71,26 @@
                                         id='image' multiple>
                                 </td>
                                 <td><input type="text" name="feedback[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback' required>
-                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback')
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback[]')
                                             *{{ $message }}
                                         @enderror
                                     </div>
                                 </td>
                                 <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                        style="text-align:center; width;10px;" id='notes'></td>
+                                        style="text-align:center; width;10px;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td>
                                     <input type="text" name="action[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder="">
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -87,13 +101,30 @@
                                         style="text-align:center;" id='view' value="Near-Side" readonly>
                                 </td>
                                 <td><input type="file" name="Near-Side[]" class="form-control "
-                                        style="text-align:center;" id='image' multiple></td>
+                                        style="text-align:center;" id='image' multiple>
+                                </td>
                                 <td><input type="text" name="feedback[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'></td>
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                        style="text-align:center;" id='notes'></td>
-                                <td><input type="text" name="action[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder=""></td>
+                                        style="text-align:center; width;10px;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" name="action[]" class="form-control action border-0"
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -105,11 +136,27 @@
                                 <td><input type="file" name="Rear[]" class="form-control image "
                                         style="text-align:center;" id='image' multiple></td>
                                 <td><input type="text" name="feedback[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'></td>
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                        style="text-align:center;" id='notes'></td>
-                                <td><input type="text" name="action[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder=""></td>
+                                        style="text-align:center; width;10px;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" name="action[]" class="form-control action border-0"
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -121,11 +168,27 @@
                                 <td><input type="file" name="Off-side[]" class="form-control image "
                                         style="text-align:center;" id='image' multiple></td>
                                 <td><input type="text" name="feedback[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'></td>
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="notes[]" class="form-control notes border-0"
-                                        style="text-align:center;" id='notes'></td>
-                                <td><input type="text" name="action[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder=""></td>
+                                        style="text-align:center; width;10px;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" name="action[]" class="form-control action border-0"
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -156,13 +219,29 @@
                                         style="text-align:center;" id='view' value="Adblue-levels" readonly>
                                 </td>
                                 <td><input type="file" name="Adblue-levels[]" class="form-control image "
-                                        style="text-align:center;" id='image' multiple></td>
+                                        style="text-align:center;" id='image' multiple>
+                                </td>
                                 <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'></td>
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                        style="text-align:center;" id='notes'></td>
+                                        style="text-align:center;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="action1[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder=""></td>
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                             <tr class="list">
                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -174,11 +253,26 @@
                                 <td><input type="file" name="Fuel&Oil-Leaks[]" class="form-control image"
                                         style="text-align:center;" id='image' multiple></td>
                                 <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'></td>
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                        style="text-align:center;" id='notes'></td>
+                                        style="text-align:center;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="action1[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder=""></td>
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                             <tr class="list">
                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -190,11 +284,26 @@
                                 <td><input type="file" name="Lights[]" class="form-control image "
                                         style="text-align:center;" id='image' multiple></td>
                                 <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'></td>
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                        style="text-align:center;" id='notes'></td>
+                                        style="text-align:center;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="action1[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder=""></td>
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                             <tr class="list">
                                 <td class="col-md-1"><input type="text" name="sno[]"
@@ -206,11 +315,26 @@
                                 <td><input type="file" name="Indicators/Signals[]" class="form-control image "
                                         style="text-align:center;" id='image' multiple></td>
                                 <td><input type="text" name="feedback1[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'></td>
+                                        style="text-align:center;" id='feedback'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="notes1[]" class="form-control notes border-0"
-                                        style="text-align:center;" id='notes'></td>
+                                        style="text-align:center;" id='notes'>
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                                 <td><input type="text" name="action1[]" class="form-control action border-0"
-                                        style="text-align:center;" id='action' placeholder=""></td>
+                                        style="text-align:center;" id='action' placeholder="Good/Bad">
+                                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action1[]')
+                                            *{{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -244,11 +368,25 @@
                                     <td><input type="file" name="Steering[]" class="form-control image "
                                             style="text-align:center;" id='image' multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -261,11 +399,26 @@
                                     <td><input type="file" name="Wipers[]" class="form-control image "
                                             style="text-align:center;" id='image' multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -278,11 +431,26 @@
                                     <td><input type="file" name="Washers[]" class="form-control image "
                                             style="text-align:center;" id='image' multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -296,11 +464,26 @@
                                     <td><input type="file" name="Horn[]" class="form-control image "
                                             style="text-align:center;" id='image' multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -313,11 +496,26 @@
                                     <td><input type="file" name="Breakes-inc-ABS/EBS[]" class="form-control image "
                                             style="text-align:center;" id='image' multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -332,11 +530,26 @@
                                             class="form-control image " style="text-align:center;" id='image'
                                             multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -350,11 +563,26 @@
                                             class="form-control image " style="text-align:center;" id='image'
                                             multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -367,11 +595,26 @@
                                     <td><input type="file" name="WariningLamps/MIL[]" class="form-control image "
                                             style="text-align:center;" id='image' multiple></td>
                                     <td><input type="text" name="feedback2[]" class="form-control feedback border-0"
-                                            style="text-align:center;" id='feedback'></td>
+                                            style="text-align:center;" id='feedback'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="notes2[]" class="form-control notes border-0"
-                                            style="text-align:center;" id='notes'></td>
+                                            style="text-align:center;" id='notes'>
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('notes2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     <td><input type="text" name="action2[]" class="form-control action border-0"
-                                            style="text-align:center;" id='action' placeholder="">
+                                            style="text-align:center;" id='action' placeholder="Good/Bad">
+                                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('action2[]')
+                                                *{{ $message }}
+                                            @enderror
+                                        </div>
+                                    </td>
                                     </td>
                                 </tr>
                             </tbody>

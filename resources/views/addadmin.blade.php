@@ -14,7 +14,7 @@
                     <div class="form-group row mt-4 ">
                         <label for="" class="col-sm-2  col-form-label"> Name</label>
                         <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                     *{{ $message }}
                                 @enderror
@@ -25,7 +25,7 @@
                         <label for="" class="col-sm-2  col-form-label"> Role</label>
                         <div class="col-sm-9">
                             <input type="text" name="role" class="form-control" value="Admin">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('role')
                                     *{{ $message }}
                                 @enderror
                             </div>
@@ -40,13 +40,17 @@
                                 <option value="Female">Female</option>
                                 <option value="Others">Others</option>
                             </select>
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
                         <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                         <div class="col-sm-9">
                             <input type="text1" name="date_of_birth" class="form-control flatdate" id="flatate"
-                                placeholder="Select Date">
+                                placeholder="Select Date" value="{{ old('date_of_birth') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                     *{{ $message }}
                                 @enderror
@@ -66,7 +70,8 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">License</label>
                         <div class="col-sm-9">
-                            <input type="file" name="license[]" class="form-control" multiple>
+                            <input type="file" name="license[]" class="form-control" multiple
+                                value="{{ old('license[]') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('license')
                                     *{{ $message }}
                                 @enderror
@@ -76,7 +81,8 @@
                     <div class="form-group row mt-4">
                         <label for="" class="col-sm-2  col-form-label">Address</label>
                         <div class="col-sm-9">
-                            <input type="text" name="address" class="form-control" placeholder="House.No/Street">
+                            <input type="text" name="address" class="form-control" placeholder="House.No/Street"
+                                value="{{ old('address') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('address')
                                     *{{ $message }}
                                 @enderror
@@ -88,7 +94,8 @@
                     <div class="form-group row mt-4 ">
                         <label for="" class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-9">
-                            <input list="citylist" name="city" class="form-control" placeholder="Select City" />
+                            <input list="citylist" name="city" class="form-control" placeholder="Select City"
+                                value="{{ old('city') }}">
                             <datalist id="citylist">
                                 <option value="London">London</option>
                                 <option ption value="Aberdeen City">Aberdeen City</option>
@@ -319,7 +326,7 @@
                     <div class="form-group row mt-4">
                         <label for="" class="col-sm-2  col-form-label">Postcode</label>
                         <div class="col-sm-9">
-                            <input type="text" name="postcode" class="form-control">
+                            <input type="text" name="postcode" class="form-control" value="{{ old('postcode') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('postcode')
                                     *{{ $message }}
                                 @enderror
@@ -339,7 +346,7 @@
                     <div class="form-group row mt-4">
                         <label for="" class="col-sm-2  col-form-label"> Email</label>
                         <div class="col-sm-9">
-                            <input type="text" name="email" class="form-control">
+                            <input type="text" name="email" class="form-control" value="{{ old('email') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
                                     *{{ $message }}
                                 @enderror
@@ -349,7 +356,7 @@
                     <div class="form-group row mt-4">
                         <label for="" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="text" name="password" class="form-control">
+                            <input type="text" name="password" class="form-control" value="{{ old('password') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('password')
                                     *{{ $message }}
                                 @enderror
@@ -359,7 +366,7 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label"> Mobile</label>
                         <div class="col-sm-9">
-                            <input type="text" name="mobile" class="form-control">
+                            <input type="text" name="mobile" class="form-control" value="{{ old('mobile') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
                                     *{{ $message }}
                                 @enderror

@@ -55,13 +55,13 @@
                 </a>
             </li>
 
-            <li {{ Request::is('user', 'users', 'driversearchbar') ? 'class=active' : '' }}>
+            <li {{ Request::is('user', 'users', 'driversearchbar', 'adduser') ? 'class=active' : '' }}>
                 <a class="nav_list" href="/user" id="myButton">
                     <div class="icon-name"><i class="fa-solid fa-user nav_icon"></i></div>
                     <div class="nav_name">Drivers </div>
                 </a>
             </li>
-            <li {{ Request::is('vehiclelist', 'vehiclelists', 'searchbar') ? 'class=active' : '' }}>
+            <li {{ Request::is('vehiclelist', 'vehiclelists', 'searchbar', 'addvehicle') ? 'class=active' : '' }}>
                 <a class="nav_list " href="/vehiclelist">
                     <div class="icon-name"> <i class="fa-solid fa-car nav_icon"></i> </div><span
                         class="nav_name">Vehicles</span>
@@ -74,7 +74,8 @@
                         Assign</span>
                 </a>
             </li>
-            <li {{ Request::is('inspectiondetails', 'search', 'inspectionsearchbar') ? 'class=active' : '' }}>
+            <li
+                {{ Request::is('inspectiondetails', 'search', 'inspectionsearchbar', 'inspectionform') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/inspectiondetails">
                     <div class="icon-name"> <i class="fa-solid fa-list-check nav_icon"></i> </div><span
                         class="nav_name">
@@ -82,7 +83,7 @@
                         List</span>
                 </a>
             </li>
-            <li {{ Request::is('reportlist', 'reportsearchbar') ? 'class=active' : '' }}>
+            <li {{ Request::is('reportlist', 'reportsearchbar', 'incidentform') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/reportlist">
                     <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
                         Reported Incidents
@@ -96,7 +97,7 @@
                     </span>
                 </a>
             </li>
-            <li {{ Request::is('admin', 'adminsearch') ? 'class=active' : '' }}>
+            <li {{ Request::is('admin', 'adminsearch', 'addadmin') ? 'class=active' : '' }}>
                 <a class="nav_list" href="/admin" id="myButton">
                     <div class="icon-name"><i class="fa-solid fa-shield-halved"></i></div>
                     <div class="nav_name">Admin Portal </div>

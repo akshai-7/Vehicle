@@ -64,9 +64,10 @@ Route::get('/vehicleassignedlist', [AssignController::class, 'vehicleassignedlis
 Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 
 //inspection
-Route::view('/inspectionform', 'inspectionform');
+// Route::view('/inspectionform', 'inspectionform');
 Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
+Route::get('/inspectionform', [InspectionController::class, 'inspectionform']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
 Route::get('/search', [InspectionController::class, 'search']);
 Route::get('/inspectionsearchbar', [InspectionController::class, 'inspectionsearchbar']);
@@ -74,10 +75,10 @@ Route::get('/archive', [InspectionController::class, 'archive']);
 Route::get('/searcharchive', [InspectionController::class, 'searcharchive']);
 
 //report
-Route::view('/incidentform', 'incidentform');
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);
 Route::post('/reportonincident/{id}', [ReportController::class, 'reportonincident']);
 Route::get('/reportlist', [ReportController::class, 'reportlist']);
+Route::get('/incidentform', [ReportController::class, 'incidentform']);
 Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
 Route::get('/reportimages/{id}', [ReportController::class, 'reportimages']);
 Route::get('/searchreport', [ReportController::class, 'searchreport']);

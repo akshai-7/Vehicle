@@ -15,22 +15,23 @@
                 <div class="report">
                     <div class="form-group">
                         <label class="col-sm-3 col-form-label">Driver Name</label>
-                        <select class="form-select " style="width: 370px;" name="name">
+                        <select class="form-select " style="width: 370px;" name="name" value="{{ old('name') }}">
                             <option value="">Please Select Driver</option>
-                            {{-- @foreach ($assigns as $assign)
+                            @foreach ($assigns as $assign)
                                 <option value="{{ $assign->name }}">{{ $assign->name }}</option>
-                            @endforeach --}}
+                            @endforeach
                         </select>
+                        <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                                *{{ $message }}
+                            @enderror
+                        </div>
+                    </div>
 
-                    </div>
-                    <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                            *{{ $message }}
-                        @enderror
-                    </div>
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">Date</label>
                         <div class="col-sm-9">
-                            <input type="date" name="date" class="form-control">
+                            <input type="text1" name="date" class="form-control flatdate" id="flatate"
+                                placeholder="Select Date" value="{{ old('date_of_birth') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')
                                     *{{ $message }}
                                 @enderror
@@ -40,7 +41,7 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Location</label>
                         <div class="col-sm-9">
-                            <input type="text" name="location" class="form-control">
+                            <input type="text" name="location" class="form-control" value="{{ old('location') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('location')
                                     *{{ $message }}
                                 @enderror
@@ -50,7 +51,8 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-3 col-form-label">Witnessed by</label>
                         <div class="col-sm-9">
-                            <input type="text" name="witnessed_by" class="form-control">
+                            <input type="text" name="witnessed_by" class="form-control"
+                                value="{{ old('witnessed_by') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('witnessed_by')
                                     *{{ $message }}
                                 @enderror
@@ -62,7 +64,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Mobile.no</label>
                         <div class="col-sm-9">
-                            <input type="text" name="mobile" class="form-control">
+                            <input type="text" name="mobile" class="form-control" value="{{ old('mobile') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
                                     *{{ $message }}
                                 @enderror
@@ -72,7 +74,7 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Statement</label>
                         <div class="col-sm-9">
-                            <input type="text" name="statement" class="form-control">
+                            <input type="text" name="statement" class="form-control" value="{{ old('statement') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('statement')
                                     *{{ $message }}
                                 @enderror
@@ -83,7 +85,8 @@
                     <div class="form-group row mt-4 ">
                         <label class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-9">
-                            <input type="file" name="image[]" class="form-control" multiple>
+                            <input type="file" name="image[]" class="form-control" multiple id="myFileInput"
+                                onchange="handleFileChange(event)">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                     *{{ $message }}
                                 @enderror
@@ -98,4 +101,12 @@
             </div>
         </form>
     </div>
+    <script>
+        function handleFileChange(event) {
+            const input = event.target;
+            const file = input.files[0];
+            const fileName = file.name;
+            console.log(fileName);
+        }
+    </script>
 @endsection

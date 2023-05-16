@@ -36,6 +36,10 @@ class LoginController extends Controller
     {
 
         $user = User::where('email', $request->email)->first();
+        if ($user == null) {
+            session()->flash('message1', 'Invalid Email');
+            return redirect('/password/reset');
+        }
         $user->password = Hash::make($request->password);
         $user->save();
         session()->flash('message3', ' Your Password is Updated!');

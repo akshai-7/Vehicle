@@ -18,18 +18,20 @@ class InspectionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
+            'mileage' => 'required',
             'view' => 'required',
-            'feedback' => 'required',
-            'action' => 'required',
-            'notes' => 'required',
-            'view1' => 'required',
-            'feedback1' => 'required',
-            'action1' => 'required',
-            'notes1' => 'required',
-            'view2' => 'required',
-            'feedback2' => 'required',
-            'action2' => 'required',
-            'notes2' => 'required',
+            'feedback[]' => 'required',
+            'action[]' => 'required',
+            'notes[]' => 'required',
+            'view1[]' => 'required',
+            'feedback1[]' => 'required',
+            'action1[]' => 'required',
+            'notes1[]' => 'required',
+            'view2[]' => 'required',
+            'feedback2[]' => 'required',
+            'action2[]' => 'required',
+            'notes2[]' => 'required',
         ]);
 
         $name = $request->name;
@@ -147,6 +149,11 @@ class InspectionController extends Controller
         $inspections = Inspection::paginate(10);
         $assigns = Assign::paginate(10);
         return view('/inspectiondetails', compact('inspections', 'assigns'));
+    }
+    public function inspectionform()
+    {
+        $assigns = Assign::get();
+        return view('/inspectionform', compact('assigns'));
     }
     public function deleteinspection($id)
     {
