@@ -32,7 +32,7 @@
                     <div class="form-group row mt-5 ">
                         <div class="col-sm-9">
                             <input type="text" name="mileage" placeholder="Current Mileage" class="form-control"
-                                style="width: 500px;background: rgb(236, 236, 239);">
+                                style="width: 500px;background: rgb(236, 236, 239);" value="{{ old('mileage') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mileage')
                                     *{{ $message }}
                                 @enderror
@@ -71,7 +71,7 @@
                                         id='image' multiple>
                                 </td>
                                 <td><input type="text" name="feedback[]" class="form-control feedback border-0"
-                                        style="text-align:center;" id='feedback'>
+                                        style="text-align:center;" id='feedback' value="{{ old('feedback[]') }}">
                                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('feedback[]')
                                             *{{ $message }}
                                         @enderror
@@ -419,7 +419,6 @@
                                             @enderror
                                         </div>
                                     </td>
-                                    </td>
                                 </tr>
                                 <tr class="list">
                                     <td class="col-md-1"><input type="text" name="sno[]"
@@ -450,7 +449,6 @@
                                                 *{{ $message }}
                                             @enderror
                                         </div>
-                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -484,7 +482,6 @@
                                             @enderror
                                         </div>
                                     </td>
-                                    </td>
                                 </tr>
                                 <tr class="list">
                                     <td class="col-md-1"><input type="text" name="sno[]"
@@ -515,7 +512,6 @@
                                                 *{{ $message }}
                                             @enderror
                                         </div>
-                                    </td>
                                     </td>
                                 </tr>
                                 <tr class="list">
@@ -550,7 +546,6 @@
                                             @enderror
                                         </div>
                                     </td>
-                                    </td>
                                 </tr>
                                 <tr class="list">
                                     <td class="col-md-1"><input type="text" name="sno[]"
@@ -583,7 +578,6 @@
                                             @enderror
                                         </div>
                                     </td>
-                                    </td>
                                 </tr>
                                 <tr class="list">
                                     <td class="col-md-1"><input type="text" name="sno[]"
@@ -615,7 +609,6 @@
                                             @enderror
                                         </div>
                                     </td>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -625,8 +618,6 @@
                     <a href="#" style="margin-left:750px;"><input type="submit" value="Submit"
                             class="text-white mt-4" id="add"></a>
                 </div>
-
-
         </form>
     </div>
 @endsection
