@@ -143,51 +143,51 @@
                     </a>
                 </div>
                 <div class="vehicle">
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-3">User Id</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-3  col-form-label">User Id</label>
                         <div class="col-sm-8">
                             <input id="user_id" class="form-control-plaintext" readonly />
                         </div>
                     </div>
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-3">Driver Name</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-3 col-form-label">Driver Name</label>
                         <div class="col-sm-8">
                             <input id="name" class="form-control-plaintext" readonly />
                         </div>
                     </div>
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-2 ">Email</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-2 col-form-label ">Email</label>
                         <div class="col-sm-8">
                             <input id="email" class="form-control-plaintext" readonly />
                         </div>
                     </div>
-                    <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 ">Mobile.no</label>
+                    <div class="form-group  mt-4 ">
+                        <label class="col-sm-2 col-form-label">Mobile.no</label>
                         <div class="col-sm-8">
                             <input id="mobile" class="form-control-plaintext" readonly />
                         </div>
                     </div>
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-3">Vehicle Id</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-3 col-form-label">Vehicle Id</label>
                         <div class="col-sm-8">
                             <input id="vehicle_id" class="form-control-plaintext" readonly />
                         </div>
                     </div>
-                    <div class="form-group row mt-4 ">
-                        <label class="col-sm-3 ">Number Plate</label>
+                    <div class="form-group  mt-4 ">
+                        <label class="col-sm-3  col-form-label ">Number Plate</label>
                         <div class="col-sm-8">
                             <input id="number_plate" class="form-control-plaintext" readonly />
                         </div>
                     </div>
 
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-2 "> Mileage</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-2   col-form-label"> Mileage</label>
                         <div class="col-sm-8">
                             <input id="mileage" class="form-control-plaintext" readonly />
                         </div>
                     </div>
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-4"> Assigned Date</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-4  col-form-label"> Assigned Date</label>
                         <div class="col-sm-8">
                             <input id="date" class="form-control-plaintext" readonly />
                         </div>

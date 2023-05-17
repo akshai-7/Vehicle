@@ -141,7 +141,6 @@
             </tr>
         @endforeach
     </table>
-
     <h4 class="sign">Signature</h4>
 </body>
 

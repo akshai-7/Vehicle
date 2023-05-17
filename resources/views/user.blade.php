@@ -199,7 +199,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
@@ -519,7 +518,6 @@
                             </div>
                         </div>
                     </div>
-
             </form>
         </div>
     </div>

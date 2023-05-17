@@ -1,6 +1,4 @@
 @extends('layouts.user')
-
-
 @section('content')
     <div class="userContainer">
         <div id="updatePopup" class="table-data">

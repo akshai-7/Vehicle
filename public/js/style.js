@@ -123,7 +123,6 @@ function check(val) {
 
 //update vehicle
 function check1(val) {
-
     document.getElementById('sam1').style.display="flex"
     document.getElementById('id').value = val['id']
     document.getElementById('number_plate').value = val['number_plate']
@@ -133,7 +132,10 @@ function check1(val) {
     document.getElementById('mileage').value = val['mileage']
     document.getElementById('service').value = new Date(val['servicedate']).toLocaleDateString()
 }
-
+function check1(val){
+    document.getElementById('sam1').style.display = "flex"
+    document.getElementById('servicedate').value = new Date(val['servicedate']).toLocaleDateString()
+}
 //update visual check
 function visual(val) {
     document.getElementById('updatePopup1').style.display="flex"
@@ -177,7 +179,7 @@ function assign(val) {
     document.getElementById('vehicle_id').value = val['vehicle_id']
     document.getElementById('number_plate').value = val['number_plate']
     document.getElementById('mileage').value = val['mileage']
-    document.getElementById('date').value = val['created_at']
+    document.getElementById('date').value = new Date(val['created_at']).toLocaleDateString()
 }
 
 //report

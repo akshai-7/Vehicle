@@ -20,7 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->date('date_of_birth');
             $table->string('address');
+            $table->string('city');
+            $table->string('postcode');
+            $table->string('country');
             $table->string('company');
+            $table->string('license');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->default('user');

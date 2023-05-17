@@ -43,7 +43,6 @@
                                 <a href="/reportlist" class="btn btn-success btn-sm mt-1"><i
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
-
                         </div>
                     </form>
                     <form action="/reportsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
@@ -64,7 +63,6 @@
                     </form>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
-
                     <tbody>
                         <thead class="text-primary">
                             <th style="text-align:center;">S.No</th>
@@ -78,7 +76,6 @@
                             <th style="text-align:center;">Image</th>
                             <th style="text-align:center;">Action</th>
                         </thead>
-
                         @foreach ($reports as $report)
                             <tr class="table_row">
                                 <td style="text-align:center;" class="table_data">
@@ -145,38 +142,38 @@
                     </a>
                 </div>
                 <div class="incident">
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-3">Assign ID</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-3 col-form-label">Assign ID</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="id">
                         </div>
                     </div>
-                    <div class="form-group row mt-4">
-                        <label class="col-sm-2 ">Date</label>
+                    <div class="form-group  mt-4">
+                        <label class="col-sm-2 col-form-label ">Date</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="date">
                         </div>
                     </div>
-                    <div class="form-group row mt-4 ">
-                        <label class="col-sm-2">Location</label>
+                    <div class="form-group  mt-4 ">
+                        <label class="col-sm-2 col-form-label">Location</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="location">
                         </div>
                     </div>
-                    <div class="form-group row mt-4 ">
-                        <label class="col-sm-3 "> Witnessed by</label>
+                    <div class="form-group  mt-4 ">
+                        <label class="col-sm-3 col-form-label"> Witnessed by</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="witnessed_by">
                         </div>
                     </div>
-                    <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 ">Mobile.no</label>
+                    <div class="form-group  mt-4 ">
+                        <label class="col-sm-2 col-form-label">Mobile.no</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="mobile">
                         </div>
                     </div>
-                    <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 ">Statement</label>
+                    <div class="form-group  mt-4 ">
+                        <label class="col-sm-2 col-form-label">Statement</label>
                         <div class="col-sm-9">
                             <input class="form-control-plaintext" id="statement">
                         </div>
@@ -184,6 +181,5 @@
                 </div>
             </form>
         </div>
-
     </div>
 @endsection

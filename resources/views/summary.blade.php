@@ -43,7 +43,6 @@
                                 <a href="/reportlist" class="btn btn-success btn-sm mt-1"><i
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
-
                         </div>
                     </form>
                     <form action="/reportsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
@@ -64,7 +63,6 @@
                     </form>
                 </div>
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
-
                     <tbody>
                         <thead class="text-primary">
                             <th style="text-align:center;">S.No</th>
@@ -256,7 +254,6 @@
                                     *{{ $message }}
                                 @enderror
                             </div>
-
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">

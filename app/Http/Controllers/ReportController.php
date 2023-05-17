@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Assign;
 use App\Models\Report;
-use Illuminate\Support\Facades\Validator;
 
 class ReportController extends Controller
 {
@@ -82,15 +81,15 @@ class ReportController extends Controller
     {
         $assigns = Assign::all();
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
-            $reports = Report::with('assign')->get();
+            $reports = Report::with('assign')->paginate(5);
         } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
-            $reports = Report::where('date', $request->date)->get();
+            $reports = Report::where('date', $request->date)->paginate(5);
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
             $assign = Assign::where('name', $request->name)->first();
-            $reports = Report::where('assign_id', $assign->id)->get();
+            $reports = Report::where('assign_id', $assign->id)->paginate(5);
         } else {
             $assign = Assign::where('name', $request->name)->first();
-            $reports = Report::where('assign_id', $assign->id)->where('date', $request->date)->get();
+            $reports = Report::where('assign_id', $assign->id)->where('date', $request->date)->paginate(5);
         }
         return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
     }

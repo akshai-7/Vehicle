@@ -19,7 +19,6 @@
         <div class="order">
             <div class="head">
                 <h3>Pending Vehicle Inspection</h3>
-
             </div>
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                 <thead class="text-primary">
@@ -69,6 +68,8 @@
                     <th style="text-align:center;">Model</th>
                     <th style="text-align:center;">Service Date</th>
                     <th style="text-align:center;">Next Service Date</th>
+                    <th style="text-align:center;">Over Due</th>
+                    <th style="text-align:center;">Action</th>
                 </thead>
                 <tbody>
                     @foreach ($vehicles as $vehicle)
@@ -95,6 +96,15 @@
                                 {{ Carbon\Carbon::parse($vehicle->servicedate)->format('d/m/Y') }}</td>
                             <td style="text-align:center;" class="table_data">
                                 {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') }}
+                            </td>
+                            <td style="text-align:center;" class="table_data">
+                                @if ($vehicle->servicestatus == 'YES')
+                                    <button type="button" class="btn btn-danger btn-sm">Yes</button>
+                                @endif
+                            </td>
+                            <td style="text-align:center;" class="table_data">
+                                <a onclick=" check1({{ $vehicle }})"><i
+                                        class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -132,7 +142,6 @@
                             <td style="text-align:center;">{{ $inspection->name }}</td>
                             <td style="text-align:center;">
                                 {{ $inspection->number_plate }}</td>
-
                         </tr>
                     @endforeach
                 </tbody>
@@ -187,6 +196,33 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div id="sam1">
+        <div class="vehiclePopUp2">
+            <div>
+                <form action="/updatevehicle/{id}" method="POST" autocomplete="off">
+                    @csrf
+                    <div id="userHeading">
+                        <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-car"></i> Update Vehicle
+                        </h5>
+                        <a href="/dashboard">
+                            <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                        </a>
+                    </div>
+                    <div class="vehicle">
+                        <div class="form-group row mt-3 ">
+                            <label class="col-sm-3 col-form-label">Service Date</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="service" class="form-control flatdate"
+                                    placeholder="Select Date" id="service">
+                                <input type="submit" name="" value="Submit" id="add"
+                                    class="btn text-white mt-4" style="float:right;">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

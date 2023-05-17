@@ -8,7 +8,6 @@ use App\Models\Assign;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -16,7 +15,6 @@ class UserController extends Controller
 
     public function createuser(Request $request)
     {
-
         $request->validate([
             'name' => 'required',
             'role' => 'required',
@@ -32,7 +30,6 @@ class UserController extends Controller
             'password' => 'required',
             'mobile' => 'required',
         ]);
-
         $user = new User();
         $user->name = $request['name'];
         $user->role = $request['role'];
@@ -86,7 +83,6 @@ class UserController extends Controller
     }
     public function updateuserdetails(Request $request, $id)
     {
-
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
@@ -154,8 +150,6 @@ class UserController extends Controller
         $user->email = $request['email'];
         $user->mobile = $request['mobile'];
         $user->save();
-
-
         if ($request->role == 'User') {
             session()->flash('message', ' Updated Successfully');
             return redirect('/user');
@@ -179,7 +173,6 @@ class UserController extends Controller
             $vehicle->save();
             $id->delete();
         }
-
         if ($id->role == 'User') {
             session()->flash('message1', ' Driver Deleted');
             return redirect('/user');

@@ -9,13 +9,14 @@ use App\Models\Report;
 use App\Models\Visual;
 use App\Models\Vehiclecheck;
 use App\Models\Cabin;
+use Illuminate\Support\Carbon;
 use PHPUnit\Framework\Constraint\Count;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $vehicles = Vehicle::paginate(5);
+        $vehicles = Vehicle::where('servicestatus', 'YES')->get();
         $vehiclecount = Count($vehicles);
         $reports = Report::with('assign')->paginate(5);
         $reportcount = Count($reports);

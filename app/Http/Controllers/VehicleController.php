@@ -35,6 +35,11 @@ class VehicleController extends Controller
         $date = $request['service'];
         $servicedate = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
         $vehicle->servicedate = $servicedate;
+        if (Carbon::today()->format('Y/m/d')   >= Carbon::parse($servicedate)->addYear(1)->format('Y/m/d')) {
+            $vehicle->servicestatus = 'YES';
+        } else {
+            $vehicle->servicestatus = 'NO';
+        }
         $vehicle->save();
         session()->flash('message', 'Vehicle is Created');
         return redirect('/vehiclelist');
@@ -67,6 +72,11 @@ class VehicleController extends Controller
         $date = $request['service'];
         $servicedate = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
         $vehicle->servicedate = $servicedate;
+        if (Carbon::today()->format('Y/m/d')   >= Carbon::parse($servicedate)->addYear(1)->format('Y/m/d')) {
+            $vehicle->servicestatus = 'YES';
+        } else {
+            $vehicle->servicestatus = 'NO';
+        }
         $vehicle->save();
         session()->flash('message', 'Updated Successfully');
         return redirect('/vehiclelist');

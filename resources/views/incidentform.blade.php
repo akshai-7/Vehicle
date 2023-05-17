@@ -26,7 +26,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">Date</label>
                         <div class="col-sm-9">
@@ -101,12 +100,4 @@
             </div>
         </form>
     </div>
-    <script>
-        function handleFileChange(event) {
-            const input = event.target;
-            const file = input.files[0];
-            const fileName = file.name;
-            console.log(fileName);
-        }
-    </script>
 @endsection

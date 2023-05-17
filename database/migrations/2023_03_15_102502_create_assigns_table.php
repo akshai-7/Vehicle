@@ -22,6 +22,9 @@ class CreateAssignsTable extends Migration
             $table->string('mobile');
             $table->string('number_plate');
             $table->string('mileage');
+            $table->string('report_no');
+            $table->string('last_inspection');
+            $table->string('next_inspection');
             $table->timestamps();
         });
     }

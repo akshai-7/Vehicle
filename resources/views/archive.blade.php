@@ -101,7 +101,6 @@
                                             class="bi bi-trash-fill btn btn-danger btn-sm" data-toggle="tooltip"
                                             data-placement="right" title="Delete"></i></a>
                                 </td>
-
                             </tr>
                         @endforeach
                     </tbody>
@@ -113,6 +112,5 @@
                 @endif
             </div>
         </div>
-
     </div>
 @endsection

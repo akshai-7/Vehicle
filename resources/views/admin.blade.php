@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </form>
-                    <form action="/adminsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
+                    {{-- <form action="/adminsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
                         <div id="filterDiv1">
                             <div class="col-md-9">
                                 <label></label>
@@ -65,20 +65,14 @@
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
             </div>
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                 <thead style="text-align:center;">
                     <th>S.No</th>
-                    {{-- <th class="col-md-1">Creation Date</th> --}}
                     <th>Name</th>
-                    {{-- <th class="col-md-1">Email</th> --}}
                     <th>Mobile.no</th>
-                    {{-- <th>Address</th> --}}
-                    {{-- <th class="col-md-1">Company</th> --}}
-                    {{-- <th class="col-md-1">License</th> --}}
-                    {{-- <th>Role</th> --}}
                     <th class="col-md-1">Action</th>
                 </thead>
                 <tbody>
@@ -96,29 +90,9 @@
                                 @endphp
                                 {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $user->id }}
                             </td>
-                            {{-- <td style="text-align:center;" class="table_data">
-                                {{ $user->created_at->format('d/m/Y') }}</td> --}}
                             <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
                             </td>
-                            {{-- <td style="text-align:center;" class="table_data">{{ $user->email }}</td> --}}
                             <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
-                            {{-- <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
-                                {{ $user->city }},{{ $user->country }},{{ $user->postcode }}
-                            </td> --}}
-                            {{-- <td style="text-align:center;" class="table_data">{{ $user->company }}</td> --}}
-                            {{-- <td style="text-align:center;" class="table_data">
-                                @if ($user->license != null)
-                                    <a onclick="image({{ $user }})">
-                                        <img src="{{ url('images/' . explode(',', $user->license)[0]) }}"
-                                            class="rounded-0 border border-secondary" width="50px" height="50px">
-                                    </a>
-                                @endif
-                                @if ($user->license == null)
-                                    <p style="text-align:center;">--</p>
-                                @endif
-                            </td> --}}
-                            {{-- <td style="text-align:center;" class="table_data">{{ $user->role }}</td> --}}
-
                             <td style="text-align:center;" class="table_data">
                                 <a onclick=" checkadmin({{ $user }})">
                                     <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
@@ -128,7 +102,6 @@
                         </tr>
                     @endforeach
                 </tbody>
-
             </table>
             @if (count($users) < 1)
                 <div id="dataNotFound">
@@ -173,11 +146,6 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> Role</label>
                             <div class="col-sm-9">
-                                {{-- <input type="text" name="role" class="form-control" id="role" required>
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                                        *{{ $message }}
-                                    @enderror
-                                </div> --}}
                                 <select name="role" class="form-select" required>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
@@ -526,7 +494,6 @@
                             </div>
                         </div>
                     </div>
-
             </form>
         </div>
     </div>
