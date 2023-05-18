@@ -117,9 +117,10 @@
                                         <a href="/details/{{ $inspection->id }}"><i
                                                 class="bi bi-eye-fill btn-sm btn btn-success" data-toggle="tooltip"
                                                 data-placement="top" title="View"></i></a>
-                                        <a href="/deleteinspection/{{ $inspection->id }}"><i
-                                                class="bi bi-trash-fill btn btn-danger btn-sm" data-toggle="tooltip"
-                                                data-placement="right" title="Delete"></i></a>
+                                        <a href="/deleteinspection/{{ $inspection->id }}"
+                                            onclick="event.preventDefault(); deleteinspection('{{ $inspection->id }}');"><i><i
+                                                    class="bi bi-trash-fill btn btn-danger btn-sm" data-toggle="tooltip"
+                                                    data-placement="right" title="Delete"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

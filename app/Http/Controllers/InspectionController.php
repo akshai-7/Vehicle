@@ -55,6 +55,7 @@ class InspectionController extends Controller
         $assign->report_no = $inspection->report_no;
         $assign->last_inspection = $inspection->date;
         $assign->next_inspection = $inspection->next_inspection;
+        $assign->overdue = 'NO';
         $assign->save();
 
         $assign_id = $assign->id;

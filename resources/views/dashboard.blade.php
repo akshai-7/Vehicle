@@ -1,5 +1,13 @@
 @extends('layouts.user')
 @section('content')
+    {{-- <div>
+        <div class="card card-1"></div>
+        <div class="card card-2"></div>
+    </div>
+    <div>
+        <div class="card card-3"></div>
+        <div class="card card-4"></div>
+    </div> --}}
     <div class="button mt-3">
         <button class="tablinks " onclick="openCheck(event, 'Pending')" id="defaultOpen">
             <h6>Pending Vehicle Inspection-{{ $asigncounts }}
@@ -31,37 +39,38 @@
                 </thead>
                 <tbody>
                     @foreach ($assigns as $assign)
-                        @if ($assign->next_inspection <= Carbon\Carbon::today())
-                            <tr class="table_row">
-                                <td style="text-align:center;">
-                                    @php
-                                        $date = $assign->created_at;
-                                        $dates = $date->weekOfYear;
-                                        $fiscalYearStart = date('01-04-Y');
-                                        $diff = strtotime($date) - strtotime($fiscalYearStart);
-                                        $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
-                                    @endphp
-                                    {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $assign->id }}
-                                </td>
-                                <td style="text-align:center;">{{ $assign->report_no }}</td>
-                                <td style="text-align:center;">{{ $assign->name }}</td>
-                                <td style="text-align:center;">{{ $assign->number_plate }}
-                                </td>
-                                <td style="text-align:center;">
-                                    {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
-                                </td>
-                                <td style="text-align:center;">
-                                    @if ($assign->next_inspection >= Carbon\Carbon::today())
-                                        <button type="button" class="btn btn-success btn-sm">No</button>
-                                    @else
-                                        <button type="button" class="btn btn-danger btn-sm">Yes</button>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endif
+                        <tr class="table_row">
+                            <td style="text-align:center;">
+                                @php
+                                    $date = $assign->created_at;
+                                    $dates = $date->weekOfYear;
+                                    $fiscalYearStart = date('01-04-Y');
+                                    $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                    $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
+                                @endphp
+                                {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $assign->id }}
+                            </td>
+                            <td style="text-align:center;">{{ $assign->report_no }}</td>
+                            <td style="text-align:center;">{{ $assign->name }}</td>
+                            <td style="text-align:center;">{{ $assign->number_plate }}
+                            </td>
+                            <td style="text-align:center;">
+                                {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
+                            </td>
+                            <td style="text-align:center;">
+                                @if ($assign->overdue == 'YES')
+                                    <button type="button" class="btn btn-danger btn-sm">Yes</button>
+                                @endif
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
+            @if (count($assigns) < 1)
+                <div id="dataNotFound">
+                    <p>Data not found</p>
+                </div>
+            @endif
         </div>
     </div>
     <div class="table-datas mt-4 tabcontent" id="ServiceDue">
@@ -105,7 +114,7 @@
                             <td style="text-align:center;" class="table_data">
                                 {{ Carbon\Carbon::parse($vehicle->servicedate)->format('d/m/Y') }}</td>
                             <td style="text-align:center;" class="table_data">
-                                {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') }}
+                                {{ Carbon\Carbon::parse($vehicle->nextservice)->format('d/m/Y') }}</td>
                             </td>
                             <td style="text-align:center;" class="table_data">
                                 @if ($vehicle->servicestatus == 'YES')
@@ -120,6 +129,11 @@
                     @endforeach
                 </tbody>
             </table>
+            @if (count($vehicles) < 1)
+                <div id="dataNotFound">
+                    <p>Data not found</p>
+                </div>
+            @endif
         </div>
     </div>
     <div class="table-datas mt-4 tabcontent" id="Inspection">

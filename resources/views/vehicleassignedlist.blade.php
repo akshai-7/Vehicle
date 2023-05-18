@@ -110,6 +110,7 @@
                                     <a onclick="assign({{ $assign }})"
                                         class="bi bi-eye-fill btn btn-success btn-sm"></a>
                                     <a href="/deleteId/{{ $assign->id }}" data-toggle="tooltip" data-placement="top"
+                                        onclick="event.preventDefault(); deleteassign('{{ $assign->id }}');"
                                         title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>

@@ -202,5 +202,34 @@ function image(val) {
 
 
 
+//deletvehicle
+function deletevehicle(Id) {
+            if (confirm('Are you sure you want to delete this Vehicle?')) {
+                window.location.href = '/remove/' + Id;
+            }
+        }
 
-
+//deleteuser
+function deleteuser(Id) {
+            if (confirm('Are you sure you want to delete this User?')) {
+                window.location.href = '/delete/' + Id;
+            }
+        }
+//deleteassign
+function deleteassign(Id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                window.location.href = '/deleteId/' + Id;
+            }
+        }
+//deleteinspection
+function deleteinspection(Id) {
+            if (confirm('Are you sure you want to delete this Inspection?')) {
+                window.location.href = '/deleteinspection/' + Id;
+            }
+        }
+//deletereport
+function deletereport(Id) {
+            if (confirm('Are you sure you want to delete this Report?')) {
+                window.location.href = '/deletereport/' + Id;
+            }
+        }

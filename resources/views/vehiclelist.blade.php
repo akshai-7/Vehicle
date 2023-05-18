@@ -93,7 +93,7 @@
                                 <td style="text-align:center;" class="table_data">
                                     {{ Carbon\Carbon::parse($vehicle->servicedate)->format('d/m/Y') }}</td>
                                 <td style="text-align:center;" class="table_data">
-                                    {{ Carbon\Carbon::parse($vehicle->servicedate)->addYear(1)->format('d/m/Y') }}
+                                    {{ Carbon\Carbon::parse($vehicle->nextservice)->format('d/m/Y') }}</td>
                                 </td>
                                 <td style="text-align:center;">
                                     @if ($vehicle->servicestatus == 'YES')
@@ -106,7 +106,9 @@
                                     <a onclick=" check1({{ $vehicle }})"><i
                                             class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
                                     <a href="/remove/{{ $vehicle->id }}" data-toggle="tooltip" data-placement="top"
-                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
+                                        title="Delete"
+                                        onclick="event.preventDefault(); deletevehicle('{{ $vehicle->id }}');"><i
+                                            class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach

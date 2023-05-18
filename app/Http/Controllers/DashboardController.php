@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $vehiclecount = Count($vehicles);
         $reports = Report::with('assign')->paginate(5);
         $reportcount = Count($reports);
-        $assigns = Assign::whereNotNull('last_inspection')->get();
+        $assigns = Assign::whereNotNull('last_inspection')->where('overdue', 'YES')->get();
         $asigncounts = Count($assigns);
         $visual = Visual::where('action', 'Bad')->get();
         $vehicle = Vehiclecheck::where('action', 'Bad')->get();
