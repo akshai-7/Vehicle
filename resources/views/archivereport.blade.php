@@ -2,66 +2,67 @@
 @section('content')
     <div class="userContainer">
         <div class="table-datas">
-            <div class="order">
-                <div class="head">
-                    <h3>Reported Incidents</h3>
-                    <a href="/incidentform"><input type="submit" value="Add-Incident" id="add1"></a>
-                </div>
-                <div class="serachbar">
-                    <form action="/searchreport" method="GET" autocomplete="off" style="margin-left:-5px">
+            <div class="head">
+                <a href="/archive"> <button class="tablinks ">
+                        <h6>Inspection Details</h6>
+                    </button></a>
+                <li {{ Request::is('archivereport') ? 'class=active' : '' }}>
+                    <a href="/archivereport"> <button class="tablinks active">
+                            <h6>Reported Incidents </h6>
+                        </button></a>
+                </li>
+                <div class="serachbar1">
+                    <form action="/searcharchivereport" method="GET" autocomplete="off" style="margin-left:-5px">
                         <div id="filterDiv1">
-                            <div class="col-md-7" id="filter">
+                            <div class="col-md-7" id="">
                                 <label></label>
-                                @if (isset($_GET['date']))
-                                    <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
-                                @else
-                                    <input type="text1" name="date" class="form-control" value="Select Date">
-                                @endif
+                                <select name="year" class="form-select form-control">
+                                    @if (isset($_GET['year']))
+                                        <option value="{{ $_GET['year'] }}">{{ $_GET['year'] }}</option>
+                                        @for ($year = date('Y'); $year >= 2000; $year--)
+                                            <option value="{{ $year }}">{{ $year }}</option>
+                                        @endfor
+                                    @else
+                                        <option>Select Year</option>
+                                        @for ($year = date('Y'); $year >= 2000; $year--)
+                                            <option value="{{ $year }}">{{ $year }}</option>
+                                        @endfor
+                                    @endif
+                                </select>
                             </div>
                             <div class="col-md-7" id="" style="margin-left:5px">
                                 <label></label>
-                                <select class="form-select form-control" name="name">
-                                    @if (isset($_GET['name']))
-                                        <option value="{{ $_GET['name'] }}">{{ $_GET['name'] }}</option>
-                                        @foreach ($assigns as $assign)
-                                            <option value="{{ $assign->name }}">
-                                                {{ $assign->name }}</option>
+                                <select class="form-select form-control" name="month">
+                                    @if (isset($_GET['month']))
+                                        <option value="{{ $_GET['month'] }}">{{ $_GET['month'] }}</option>
+                                        @foreach (range(1, 12) as $month)
+                                            <option value="{{ $month }}">
+                                                {{ date('F', mktime(0, 0, 0, $month, 1)) }}-{{ $month }}
+                                            </option>
                                         @endforeach
                                     @else
-                                        <option>Select Name</option>
-                                        @foreach ($assigns as $assign)
-                                            <option value="{{ $assign->name }}">
-                                                {{ $assign->name }}</option>
+                                        <option>Select Month</option>
+                                        @foreach (range(1, 12) as $month)
+                                            <option value="{{ $month }}">
+                                                {{ date('F', mktime(0, 0, 0, $month, 1)) }}-{{ $month }}
+                                            </option>
                                         @endforeach
                                     @endif
                                 </select>
+
                             </div>
                             <div class="col-md-5" style="margin-left: 6px">
                                 <br />
                                 <button type="submit" class="btn btn-primary btn-sm mt-1"><i
                                         class="fa fa-filter"></i></button>
-                                <a href="/reportlist" class="btn btn-success btn-sm mt-1"><i
-                                        class="fa-solid fa fa-refresh"></i></a>
-                            </div>
-                        </div>
-                    </form>
-                    <form action="/reportsearchbar" method="GET" style="margin-left:32%" autocomplete="off">
-                        <div id="filterDiv1">
-                            <div class="col-md-9">
-                                <label></label>
-                                <input type="text" name="query" placeholder="Id/WitnessedBy/Location"
-                                    class="form-control">
-                            </div>
-                            <div class="col-md-5" style="margin-left: 6px">
-                                <br />
-                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
-                                        class="fa-solid fa-magnifying-glass"></i></i></button>
-                                <a href="/reportlist" class="btn btn-success btn-sm mt-1"><i
+                                <a href="/archivereport" class="btn btn-success btn-sm mt-1"><i
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="order">
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                     <tbody>
                         <thead class="text-primary">
@@ -108,9 +109,8 @@
                                     <a onclick="report({{ $report }})" class="tool"><i
                                             class="bi bi-eye-fill btn-sm btn btn-success" data-toggle="tooltip"
                                             data-placement="top" title="View"></i></a>
-                                    <a href="/deletereport/{{ $report->id }}" data-toggle="tooltip"
-                                        data-placement="top" title="Delete"><i
-                                            class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
+                                    <a href="/deletereport/{{ $report->id }}" data-toggle="tooltip" data-placement="top"
+                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -124,9 +124,6 @@
                     @endif
                 @endif
             </div>
-            <div class="active">
-                {!! $reports->links() !!}
-            </div>
         </div>
     </div>
     <div id="updatePopup5">
@@ -137,7 +134,7 @@
                     <h4 style="margin-top: 2%">
                         Report an Incident
                     </h4>
-                    <a href="/reportlist">
+                    <a href="/archivereport">
                         <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                     </a>
                 </div>

@@ -1,58 +1,66 @@
 @extends('layouts.user')
 @section('content')
     <div class="userContainer">
-        <div class="table-data">
+        <div class="table-datas">
             <div class="head">
-                <h3>Archive Details</h3>
-            </div>
-            <div class="serachbar">
-                <form action="/searcharchive" method="GET" autocomplete="off" style="margin-left:-5px">
-                    <div id="filterDiv1">
-                        <div class="col-md-7" id="">
-                            <label></label>
-                            <select name="year" class="form-select form-control">
-                                @if (isset($_GET['year']))
-                                    <option value="{{ $_GET['year'] }}">{{ $_GET['year'] }}</option>
-                                    @for ($year = date('Y'); $year >= 2000; $year--)
-                                        <option value="{{ $year }}">{{ $year }}</option>
-                                    @endfor
-                                @else
-                                    <option>Select Year</option>
-                                    @for ($year = date('Y'); $year >= 2000; $year--)
-                                        <option value="{{ $year }}">{{ $year }}</option>
-                                    @endfor
-                                @endif
-                            </select>
-                        </div>
-                        <div class="col-md-7" id="" style="margin-left:5px">
-                            <label></label>
-                            <select class="form-select form-control" name="month">
-                                @if (isset($_GET['month']))
-                                    <option value="{{ $_GET['month'] }}">{{ $_GET['month'] }}</option>
-                                    @foreach (range(1, 12) as $month)
-                                        <option value="{{ $month }}">
-                                            {{ date('F', mktime(0, 0, 0, $month, 1)) }}-{{ $month }}
-                                        </option>
-                                    @endforeach
-                                @else
-                                    <option>Select Month</option>
-                                    @foreach (range(1, 12) as $month)
-                                        <option value="{{ $month }}">
-                                            {{ date('F', mktime(0, 0, 0, $month, 1)) }}-{{ $month }}
-                                        </option>
-                                    @endforeach
-                                @endif
-                            </select>
+                <li {{ Request::is('archive') ? 'class=active' : '' }}>
+                    <a href="/archivereport"> <button class="tablinks active">
+                            <h6>Inspection Details </h6>
+                        </button></a>
+                </li>
+                <a href="/archivereport"> <button class="tablinks">
+                        <h6>Reported Incidents </h6>
+                    </button></a>
+                <div class="serachbar1">
+                    <form action="/searcharchive" method="GET" autocomplete="off" style="margin-left:-5px">
+                        <div id="filterDiv1">
+                            <div class="col-md-7" id="">
+                                <label></label>
+                                <select name="year" class="form-select form-control">
+                                    @if (isset($_GET['year']))
+                                        <option value="{{ $_GET['year'] }}">{{ $_GET['year'] }}</option>
+                                        @for ($year = date('Y'); $year >= 2000; $year--)
+                                            <option value="{{ $year }}">{{ $year }}</option>
+                                        @endfor
+                                    @else
+                                        <option>Select Year</option>
+                                        @for ($year = date('Y'); $year >= 2000; $year--)
+                                            <option value="{{ $year }}">{{ $year }}</option>
+                                        @endfor
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-7" id="" style="margin-left:5px">
+                                <label></label>
+                                <select class="form-select form-control" name="month">
+                                    @if (isset($_GET['month']))
+                                        <option value="{{ $_GET['month'] }}">{{ $_GET['month'] }}</option>
+                                        @foreach (range(1, 12) as $month)
+                                            <option value="{{ $month }}">
+                                                {{ date('F', mktime(0, 0, 0, $month, 1)) }}-{{ $month }}
+                                            </option>
+                                        @endforeach
+                                    @else
+                                        <option>Select Month</option>
+                                        @foreach (range(1, 12) as $month)
+                                            <option value="{{ $month }}">
+                                                {{ date('F', mktime(0, 0, 0, $month, 1)) }}-{{ $month }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+                                </select>
 
+                            </div>
+                            <div class="col-md-5" style="margin-left: 6px">
+                                <br />
+                                <button type="submit" class="btn btn-primary btn-sm mt-1"><i
+                                        class="fa fa-filter"></i></button>
+                                <a href="/archive" class="btn btn-success btn-sm mt-1"><i
+                                        class="fa-solid fa fa-refresh"></i></a>
+                            </div>
                         </div>
-                        <div class="col-md-5" style="margin-left: 6px">
-                            <br />
-                            <button type="submit" class="btn btn-primary btn-sm mt-1"><i class="fa fa-filter"></i></button>
-                            <a href="/archive" class="btn btn-success btn-sm mt-1"><i
-                                    class="fa-solid fa fa-refresh"></i></a>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
             <div class="order">
                 <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
@@ -113,4 +121,5 @@
             </div>
         </div>
     </div>
+
 @endsection

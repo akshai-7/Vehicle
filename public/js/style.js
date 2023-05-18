@@ -132,7 +132,7 @@ function check1(val) {
     document.getElementById('mileage').value = val['mileage']
     document.getElementById('service').value = new Date(val['servicedate']).toLocaleDateString()
 }
-function check1(val){
+function check2(val){
     document.getElementById('sam1').style.display = "flex"
     document.getElementById('servicedate').value = new Date(val['servicedate']).toLocaleDateString()
 }

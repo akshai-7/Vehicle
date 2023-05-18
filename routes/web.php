@@ -83,6 +83,8 @@ Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);
 Route::get('/reportimages/{id}', [ReportController::class, 'reportimages']);
 Route::get('/searchreport', [ReportController::class, 'searchreport']);
 Route::get('/reportsearchbar', [ReportController::class, 'reportsearchbar']);
+Route::get('/archivereport', [ReportController::class, 'archivereport']);
+Route::get('/searcharchivereport', [ReportController::class, 'searcharchivereport']);
 
 
 Route::get('/details/{inspection_id}', [VisualdamageController::class, 'check']);

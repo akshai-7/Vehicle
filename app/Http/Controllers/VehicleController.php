@@ -78,8 +78,13 @@ class VehicleController extends Controller
             $vehicle->servicestatus = 'NO';
         }
         $vehicle->save();
-        session()->flash('message', 'Updated Successfully');
-        return redirect('/vehiclelist');
+        if ($request->path == 'Dashboard') {
+            session()->flash('message', 'Service Date Updated');
+            return redirect('/dashboard');
+        } else {
+            session()->flash('message', 'Updated Successfully');
+            return redirect('/vehiclelist');
+        }
     }
     public function remove($id)
     {

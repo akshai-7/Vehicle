@@ -90,7 +90,8 @@
                     </span>
                 </a>
             </li>
-            <li {{ Request::is('archive', 'searcharchive') ? 'class=active' : '' }}>
+            <li
+                {{ Request::is('archive', 'searcharchive', 'archivereport', 'searcharchivereport') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/archive">
                     <div class="icon-name"> <i class="fa-solid fa-box-archive"></i> </div><span class="nav_name">
                         Archive
@@ -104,8 +105,8 @@
                 </a>
             </li>
             <a class="nav_list gradient-hover-effect"href="/">
-                <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span
-                    class="nav_name">SignOut</span>
+                <div class="icon-name"><i class='bx bx-log-out nav_icon'></i> </div><span class="nav_name">Sign
+                    Out</span>
             </a>
         </div>
         <div id="div-2">

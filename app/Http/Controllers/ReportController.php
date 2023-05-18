@@ -103,4 +103,26 @@ class ReportController extends Controller
             ->paginate(10);
         return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
     }
+
+    public function archivereport()
+    {
+        $reports = Report::with('assign')->paginate(5);
+        return view('/archivereport', ['reports' => $reports]);
+    }
+    public function searcharchivereport(Request $request)
+    {
+        $month =  $request->month;
+        $year = $request->year;
+        if ($year == 'Select Year' && $month != 'Select Month') {
+            session()->flash('message1', ' Please Select The Year');
+            $reports = Report::with('assign')->get();
+        } elseif ($year == 'Select Year' &&  $month = 'Select Month') {
+            $reports = Report::with('assign')->get();
+        } elseif ($year != 'Select Year' &&  $month != 'Select Month') {
+            $reports = Report::whereYear('date',  $year)->whereMonth('date', $month)->get();
+        } else {
+            $reports = Report::whereYear('date',  $year)->get();
+        }
+        return view('/archivereport', ['reports' => $reports]);
+    }
 }

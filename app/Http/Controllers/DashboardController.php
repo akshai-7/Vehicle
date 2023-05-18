@@ -10,7 +10,6 @@ use App\Models\Visual;
 use App\Models\Vehiclecheck;
 use App\Models\Cabin;
 use Illuminate\Support\Carbon;
-use PHPUnit\Framework\Constraint\Count;
 
 class DashboardController extends Controller
 {
@@ -20,10 +19,8 @@ class DashboardController extends Controller
         $vehiclecount = Count($vehicles);
         $reports = Report::with('assign')->paginate(5);
         $reportcount = Count($reports);
-        $assigns = Assign::whereNotNull('last_inspection')->paginate(5);
+        $assigns = Assign::whereNotNull('last_inspection')->get();
         $asigncounts = Count($assigns);
-
-
         $visual = Visual::where('action', 'Bad')->get();
         $vehicle = Vehiclecheck::where('action', 'Bad')->get();
         $cabin = Cabin::where('action', 'Bad')->get();

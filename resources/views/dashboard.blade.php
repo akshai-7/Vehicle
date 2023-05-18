@@ -27,28 +27,38 @@
                     <th style="text-align:center;">Driver Name</th>
                     <th style="text-align:center;">Number Plate</th>
                     <th style="text-align:center;">Next Inspection</th>
+                    <th style="text-align:center;">Over Due</th>
                 </thead>
                 <tbody>
                     @foreach ($assigns as $assign)
-                        <tr class="table_row">
-                            <td style="text-align:center;">
-                                @php
-                                    $date = $assign->created_at;
-                                    $dates = $date->weekOfYear;
-                                    $fiscalYearStart = date('01-04-Y');
-                                    $diff = strtotime($date) - strtotime($fiscalYearStart);
-                                    $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
-                                @endphp
-                                {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $assign->id }}
-                            </td>
-                            <td style="text-align:center;">{{ $assign->report_no }}</td>
-                            <td style="text-align:center;">{{ $assign->name }}</td>
-                            <td style="text-align:center;">{{ $assign->number_plate }}
-                            </td>
-                            <td style="text-align:center;">
-                                {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
-                            </td>
-                        </tr>
+                        @if ($assign->next_inspection <= Carbon\Carbon::today())
+                            <tr class="table_row">
+                                <td style="text-align:center;">
+                                    @php
+                                        $date = $assign->created_at;
+                                        $dates = $date->weekOfYear;
+                                        $fiscalYearStart = date('01-04-Y');
+                                        $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                        $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
+                                    @endphp
+                                    {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $assign->id }}
+                                </td>
+                                <td style="text-align:center;">{{ $assign->report_no }}</td>
+                                <td style="text-align:center;">{{ $assign->name }}</td>
+                                <td style="text-align:center;">{{ $assign->number_plate }}
+                                </td>
+                                <td style="text-align:center;">
+                                    {{ Carbon\Carbon::parse($assign->next_inspection)->format('d/m/Y') }}
+                                </td>
+                                <td style="text-align:center;">
+                                    @if ($assign->next_inspection >= Carbon\Carbon::today())
+                                        <button type="button" class="btn btn-success btn-sm">No</button>
+                                    @else
+                                        <button type="button" class="btn btn-danger btn-sm">Yes</button>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
@@ -199,7 +209,7 @@
         </div>
     </div>
     <div id="sam1">
-        <div class="vehiclePopUp2">
+        <div class="vehiclePopUp1">
             <div>
                 <form action="/updatevehicle/{id}" method="POST" autocomplete="off">
                     @csrf
@@ -211,9 +221,49 @@
                         </a>
                     </div>
                     <div class="vehicle">
+                        <div class="form-group row mt-3">
+                            <label class="col-sm-2 col-form-label">Id</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="id" class="form-control" id="id" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-3">
+                            <label class="col-sm-3 col-form-label">Number Plate</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="number_plate" class="form-control" id="number_plate"
+                                    readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-3 ">
+                            <label class="col-sm-3 col-form-label">Vehicle Type</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="vehicle_type" class="form-control" id="vehicle_type"
+                                    readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-3 ">
+                            <label class="col-sm-2 col-form-label">Make</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="make" class="form-control" id="make" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-3 ">
+                            <label class="col-sm-2 col-form-label">Model</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="vehicle_model" class="form-control" id="vehicle_model"
+                                    readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-3">
+                            <label class="col-sm-2 col-form-label"> Mileage</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="mileage" class="form-control" id="mileage" readonly>
+                            </div>
+                        </div>
                         <div class="form-group row mt-3 ">
                             <label class="col-sm-3 col-form-label">Service Date</label>
                             <div class="col-sm-9">
+                                <input type="hidden" name="path" class="form-control" value="Dashboard">
                                 <input type="text" name="service" class="form-control flatdate"
                                     placeholder="Select Date" id="service">
                                 <input type="submit" name="" value="Submit" id="add"

@@ -7,6 +7,7 @@ body {
     font-family: "Mulish", sans-serif;
     background: rgb(236, 236, 239);
 }
+
 a {
     text-decoration: none;
     color: black;
@@ -85,6 +86,9 @@ a {
     overflow: scroll;
 }
 
+#mainContainer::-webkit-scrollbar {
+    display: none;
+}
 #tabContainer {
     box-sizing: border-box;
     width: 100%;
@@ -166,6 +170,10 @@ a {
     padding: 24px;
     overflow: scroll;
 }
+.table-data::-webkit-scrollbar {
+    display: none;
+}
+
 #table-data {
     margin-top: 3%;
 }
@@ -177,7 +185,9 @@ a {
     padding: 24px;
     overflow: scroll;
 }
-
+.table-datas::-webkit-scrollbar {
+    display: none;
+}
 #sam,
 #inspectionFrom,
 #incidentFrom,
@@ -219,6 +229,10 @@ a {
     overflow: scroll;
     background: rgb(230, 230, 236);
 }
+
+.updatePopup::-webkit-scrollbar {
+    display: none;
+}
 .updateassignPopup {
     padding: 4%;
     width: 60%;
@@ -226,6 +240,9 @@ a {
     height: 90%;
     overflow: scroll;
     background: rgb(230, 230, 236);
+}
+.updateassignPopup::-webkit-scrollbar {
+    display: none;
 }
 .userPopUp,
 .userPopUp1 {
@@ -235,6 +252,10 @@ a {
     height: 80%;
     overflow: scroll;
     background: rgb(230, 230, 236);
+}
+
+.userPopUp1::-webkit-scrollbar {
+    display: none;
 }
 .userPopUp2 {
     border-radius: 10px;
@@ -267,6 +288,10 @@ a {
     overflow: scroll;
     background: rgb(230, 230, 236);
 }
+#inspectionFromPopUp::-webkit-scrollbar {
+    display: none;
+}
+
 #incidentFromPopUp {
     border-radius: 10px;
     padding: 2%;
@@ -274,6 +299,9 @@ a {
     height: 85%;
     overflow: scroll;
     background: rgb(230, 230, 236);
+}
+#incidentFromPopUp::-webkit-scrollbar {
+    display: none;
 }
 #form table td input {
     background: rgb(236, 236, 239);
@@ -476,4 +504,9 @@ span {
 
 .serachbar {
     display: flex;
+}
+.serachbar1 {
+    display: flex;
+    margin-top: -30px;
+    margin-left: 300px;
 }

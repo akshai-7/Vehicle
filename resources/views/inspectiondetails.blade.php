@@ -9,7 +9,7 @@
                 <h6>Pending Vehicle Inspection </h6>
             </button>
         </div>
-        <div id="Visual" class="table-data tabcontent">
+        <div id="Visual" class="table-datas tabcontent">
             <div class="" id="table-data">
                 <div class="head">
                     <h3>Inspection Details</h3>
@@ -110,8 +110,8 @@
                                     <td style="text-align:center;">{{ $inspection->mileage }}
                                     </td>
 
-                                    <td style="text-align:center;"><button type="button"
-                                            class="btn btn-success btn-sm">Passed</button>
+                                    <td style="text-align:center;">
+                                        <button type="button" class="btn btn-success btn-sm">Passed</button>
                                     </td>
                                     <td style="text-align:center;">
                                         <a href="/details/{{ $inspection->id }}"><i
@@ -137,7 +137,11 @@
             </div>
         </div>
         <div id="Vehicle" class="tabcontent">
-            <div class="table-data" id="table-data">
+
+            <div class="table-datas" id="table-data">
+                <div class="head">
+                    <h3>Inspection Pending</h3>
+                </div>
                 <div class="order">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                         <thead class="text-primary">
