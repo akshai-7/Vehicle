@@ -13,7 +13,7 @@
             <div class="" id="table-data">
                 <div class="head">
                     <h3>Inspection Details</h3>
-                    <a href="/inspectionform"><input type="submit" value="Add-Inspection" id="add1"></a>
+                    <a href="/inspectionform"><input type="submit" value="AddInspection" id="add1"></a>
                 </div>
                 <div class="serachbar">
                     <form action="/search" method="GET" autocomplete="off" style="margin-left:-5px">

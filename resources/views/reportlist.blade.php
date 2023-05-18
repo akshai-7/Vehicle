@@ -5,7 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Reported Incidents</h3>
-                    <a href="/incidentform"><input type="submit" value="Add-Incident" id="add1"></a>
+                    <a href="/incidentform"><input type="submit" value="AddIncident" id="add1"></a>
                 </div>
                 <div class="serachbar">
                     <form action="/searchreport" method="GET" autocomplete="off" style="margin-left:-5px">

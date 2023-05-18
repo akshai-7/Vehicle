@@ -5,7 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Vehicle Details</h3>
-                    <a href="/addvehicle" style="margin-right: 20px;"><input type="submit" value="Add-Vehicle"
+                    <a href="/addvehicle" style="margin-right: 20px;"><input type="submit" value="AddVehicle"
                             id="add"></a>
                 </div>
                 <div class="serachbar">

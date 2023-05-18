@@ -5,7 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Driver Details</h3>
-                    <a href="/adduser" style="margin-right:20px;"><input type="submit" value="Add-Driver" id="add"></a>
+                    <a href="/adduser" style="margin-right:20px;"><input type="submit" value="AddDriver" id="add"></a>
                 </div>
                 <div class="serachbar">
                     <form action="/users" method="GET" autocomplete="off" style="margin-left:-5px">

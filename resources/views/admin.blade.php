@@ -5,7 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Admin Details</h3>
-                    <a href="/addadmin" style="margin-right:20px;"><input type="submit" value="Add-Admin" id="add"></a>
+                    <a href="/addadmin" style="margin-right:20px;"><input type="submit" value="AddAdmin" id="add"></a>
                 </div>
                 <div class="serachbar">
                     <form action="/adminsearch" method="GET" autocomplete="off" style="margin-left:-5px">
