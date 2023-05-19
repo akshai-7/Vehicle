@@ -53,6 +53,7 @@ class VehicleController extends Controller
     }
     public function updatevehicle(Request $request, $id)
     {
+
         $request->validate([
             'number_plate' => 'required',
             'vehicle_type' => 'required',

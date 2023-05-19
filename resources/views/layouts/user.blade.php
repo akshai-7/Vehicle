@@ -98,14 +98,14 @@
             <li
                 {{ Request::is('archive', 'searcharchive', 'archivereport', 'searcharchivereport') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/archive">
-                    <div class="icon-name"> <i class="fa-solid fa-box-archive"></i> </div><span class="nav_name">
+                    <div class="icon-name"> <i class='bx bxs-archive-in nav_icon'></i> </div><span class="nav_name">
                         Archive
                     </span>
                 </a>
             </li>
             <li {{ Request::is('admin', 'adminsearch', 'addadmin') ? 'class=active' : '' }}>
                 <a class="nav_list" href="/admin" id="myButton">
-                    <div class="icon-name"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="icon-name"><i class="fa-solid fa-shield-halved nav_icon"></i></div>
                     <div class="nav_name">Admin Portal </div>
                 </a>
             </li>
@@ -116,8 +116,8 @@
         </div>
         <div id="div-2">
             <div id="headers">
-                <div id="toggle-container"><i class="fa-solid fa-chevron-left"></i>
-                </div>
+                {{-- <div id="toggle-container"><i class="fa-solid fa-chevron-left"></i>
+                </div> --}}
             </div>
             <div id="mainContainer">
                 <div id="tabContainer">
@@ -142,7 +142,9 @@
                         @endif
 
                     </div>
-                    <a href="{{ URL::previous() }}" class="btn btn-default"> <i class="fas fa-arrow-left"></i> Go
+                    {{-- <a href="{{ URL::previous() }}" class="btn btn-default"> <i class="fas fa-arrow-left"></i> Go
+                        Back</a> --}}
+                    <a href="javascript:history.back()" class="btn btn-default"><i class="fas fa-arrow-left"></i> Go
                         Back</a>
                     @yield('content')
                 </div>
@@ -150,14 +152,19 @@
     </section>
 </body>
 <script>
-    flatpickr("input[type=text1]");
-    $('.flatdate').flatpickr({
-        dateFormat: "d/m/Y",
-    });
-    $('.flatemonth').flatpickr({
-        dateFormat: "F Y", // set date format to only display month and year
-        enableTime: false
+    // flatpickr("input[type=text1]");
+    // $('.flatdate').flatpickr({
+    //     dateFormat: "d/m/Y",
+    // });
+    // $('.flatemonth').flatpickr({
+    //     dateFormat: "F Y", // set date format to only display month and year
+    //     enableTime: false
 
+    // });
+
+    flatpickr(".flatdate", {
+        dateFormat: "d/m/Y", // Set the desired date format
+        // Other options and configurations can be added here
     });
 </script>
 

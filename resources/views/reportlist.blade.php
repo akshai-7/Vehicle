@@ -5,7 +5,7 @@
             <div class="order">
                 <div class="head">
                     <h3>Reported Incidents</h3>
-                    <a href="/incidentform"><input type="submit" value="AddIncident" id="add1"></a>
+                    <a href="/incidentform"><input type="submit" value="Add Incident" id="add1"></a>
                 </div>
                 <div class="serachbar">
                     <form action="/searchreport" method="GET" autocomplete="off" style="margin-left:-5px">
@@ -49,8 +49,13 @@
                         <div id="filterDiv1">
                             <div class="col-md-9">
                                 <label></label>
-                                <input type="text" name="query" placeholder="Id/WitnessedBy/Location"
-                                    class="form-control">
+                                @if (isset($_GET['query']))
+                                    <input type="text" name="query" placeholder="Id/WitnessedBy/Location"
+                                        class="form-control" value="{{ $_GET['query'] }}">
+                                @else
+                                    <input type="text" name="query" placeholder="Id/WitnessedBy/Location"
+                                        class="form-control">
+                                @endif
                             </div>
                             <div class="col-md-5" style="margin-left: 6px">
                                 <br />

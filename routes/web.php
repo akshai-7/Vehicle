@@ -77,6 +77,7 @@ Route::get('/searcharchive', [InspectionController::class, 'searcharchive']);
 //report
 Route::get('/updatereport/{id}', [ReportController::class, 'updatereport']);
 Route::post('/reportonincident/{id}', [ReportController::class, 'reportonincident']);
+Route::post('/updatereport/{id}', [ReportController::class, 'updatereport']);
 Route::get('/reportlist', [ReportController::class, 'reportlist']);
 Route::get('/incidentform', [ReportController::class, 'incidentform']);
 Route::get('/deletereport/{id}', [ReportController::class, 'deletereport']);

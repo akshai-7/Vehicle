@@ -17,12 +17,14 @@ class DashboardController extends Controller
     {
         $vehicles = Vehicle::where('servicestatus', 'YES')->get();
         $vehiclecount = Count($vehicles);
-        $reports = Report::with('assign')->paginate(5);
+        $reports = Report::where('feedback', null)->with('assign')->paginate(5);
         $reportcount = Count($reports);
         $assigns = Assign::whereNotNull('last_inspection')->where('overdue', 'YES')->get();
         $asigncounts = Count($assigns);
         $visual = Visual::where('action', 'Bad')->get();
         $vehicle = Vehiclecheck::where('action', 'Bad')->get();
+
+
         $cabin = Cabin::where('action', 'Bad')->get();
         $inspectionsId = [];
         for (

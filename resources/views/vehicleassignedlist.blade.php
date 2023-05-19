@@ -66,7 +66,12 @@
                         <div id="filterDiv1">
                             <div class="col-md-9">
                                 <label></label>
-                                <input type="text" name="query" placeholder="Name/Email/Id" class="form-control">
+                                @if (isset($_GET['query']))
+                                    <input type="text" name="query" placeholder="Name/Email/Id" class="form-control"
+                                        value="{{ $_GET['query'] }}">
+                                @else
+                                    <input type="text" name="query" placeholder="Name/Email/Id" class="form-control">
+                                @endif
                             </div>
                             <div class="col-md-5" style="margin-left: 6px">
                                 <br />

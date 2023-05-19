@@ -42,8 +42,13 @@
                         <div id="filterDiv1">
                             <div class="col-md-9">
                                 <label></label>
-                                <input type="text" name="query" placeholder="Vehicle Type/Make/Model"
-                                    class="form-control">
+                                @if (isset($_GET['query']))
+                                    <input type="text" name="query" placeholder="Vehicle Type/Make/Model"
+                                        class="form-control" value="{{ $_GET['query'] }}">
+                                @else
+                                    <input type="text" name="query" placeholder="Vehicle Type/Make/Model"
+                                        class="form-control">
+                                @endif
                             </div>
                             <div class="col-md-5" style="margin-left: 6px">
                                 <br />
@@ -178,7 +183,7 @@
                                 <div class="form-group row mt-3 ">
                                     <label class="col-sm-3 col-form-label">Service Date</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="service" class="form-control flatdate"
+                                        <input type="text1" name="service" class="form-control flatdate"
                                             placeholder="Select Date" id="service">
                                         <input type="submit" name="" value="Submit" id="add"
                                             class="btn text-white mt-4" style="float:right;">

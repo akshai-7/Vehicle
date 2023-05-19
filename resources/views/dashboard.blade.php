@@ -193,6 +193,7 @@
                         <th style="text-align:center;">Date</th>
                         <th style="text-align:center;">Statement</th>
                         <th style="text-align:center;">Mobile.no</th>
+                        <th style="text-align:center;">Action</th>
                     </thead>
                     @foreach ($reports as $report)
                         <tr class="table_row">
@@ -216,6 +217,11 @@
                             </td>
                             <td style="text-align:center;width:300px;" class="table_data">{{ $report->mobile }}
                             </td>
+                            <td style="text-align:center;" class="table_data">
+                                <a onclick="report({{ $report }})" class="tool"><i
+                                        class="bi bi-pencil-square btn-sm btn btn-success" data-toggle="tooltip"
+                                        data-placement="top" title="View"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -223,70 +229,98 @@
         </div>
     </div>
     <div id="sam1">
-        <div class="vehiclePopUp1">
+        <div class="vehiclePopUp2">
             <div>
                 <form action="/updatevehicle/{id}" method="POST" autocomplete="off">
                     @csrf
                     <div id="userHeading">
-                        <h5 class="" style="color:#bf0e3a;"><i class="fa-solid fa-car"></i> Update Vehicle
+                        <h5 class="" style="color:#bf0e3a;"><i class="bi bi-calendar-date"></i> Update Service
+                            Date
                         </h5>
                         <a href="/dashboard">
                             <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
                         </a>
                     </div>
+                    <div class="form-group  mt-5 ">
+                        <label class="col-sm-3 mt-2">Service Date</label>
+                        <div class="col-sm-9">
+                            <input type="hidden" name="path" class="form-control" value="Dashboard">
+                            <input type="text1" name="service" class="form-control flatdate" placeholder="Select Date"
+                                id="service">
+                            <input type="submit" name="" value="Submit" id="add"
+                                class="btn text-white mt-4" style="float:right;">
+                        </div>
+                    </div>
                     <div class="vehicle">
                         <div class="form-group row mt-3">
-                            <label class="col-sm-2 col-form-label">Id</label>
                             <div class="col-sm-9">
-                                <input type="text" name="id" class="form-control" id="id" readonly>
+                                <input type="hidden" name="id" class="form-control" id="id" readonly>
                             </div>
                         </div>
                         <div class="form-group row mt-3">
-                            <label class="col-sm-3 col-form-label">Number Plate</label>
                             <div class="col-sm-9">
-                                <input type="text" name="number_plate" class="form-control" id="number_plate"
+                                <input type="hidden" name="number_plate" class="form-control" id="number_plate"
                                     readonly>
                             </div>
                         </div>
                         <div class="form-group row mt-3 ">
-                            <label class="col-sm-3 col-form-label">Vehicle Type</label>
                             <div class="col-sm-9">
-                                <input type="text" name="vehicle_type" class="form-control" id="vehicle_type"
+                                <input type="hidden" name="vehicle_type" class="form-control" id="vehicle_type"
                                     readonly>
                             </div>
                         </div>
                         <div class="form-group row mt-3 ">
-                            <label class="col-sm-2 col-form-label">Make</label>
                             <div class="col-sm-9">
-                                <input type="text" name="make" class="form-control" id="make" readonly>
+                                <input type="hidden" name="make" class="form-control" id="make" readonly>
                             </div>
                         </div>
                         <div class="form-group row mt-3 ">
-                            <label class="col-sm-2 col-form-label">Model</label>
                             <div class="col-sm-9">
-                                <input type="text" name="vehicle_model" class="form-control" id="vehicle_model"
+                                <input type="hidden" name="vehicle_model" class="form-control" id="vehicle_model"
                                     readonly>
                             </div>
                         </div>
                         <div class="form-group row mt-3">
-                            <label class="col-sm-2 col-form-label"> Mileage</label>
                             <div class="col-sm-9">
-                                <input type="text" name="mileage" class="form-control" id="mileage" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row mt-3 ">
-                            <label class="col-sm-3 col-form-label">Service Date</label>
-                            <div class="col-sm-9">
-                                <input type="hidden" name="path" class="form-control" value="Dashboard">
-                                <input type="text" name="service" class="form-control flatdate"
-                                    placeholder="Select Date" id="service">
-                                <input type="submit" name="" value="Submit" id="add"
-                                    class="btn text-white mt-4" style="float:right;">
+                                <input type="hidden" name="mileage" class="form-control" id="mileage" readonly>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+    </div>
+    <div id="updatePopup5">
+        <div class="vehiclePopUp2">
+            <form action="/updatereport/{id}" method="POST" autocomplete="off">
+                @csrf
+                <div id="userHeading">
+                    <h4 style="margin-top: 2%">
+                        Report an Incident
+                    </h4>
+                    <a href="/dashboard">
+                        <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                    </a>
+                </div>
+                <div class="form-group  mt-5 ">
+                    <label class="col-sm-3 mt-2">Feedback</label>
+                    <div class="col-sm-9">
+                        <input type="hidden" name="path" class="form-control" value="Dashboard">
+                        <input type="text" name="feedback" class="form-control flatdate" placeholder=""
+                            id="feedback">
+                        <input type="submit" name="" value="Submit" id="add" class="btn text-white mt-4"
+                            style="float:right;">
+                    </div>
+                </div>
+                <div class="incident">
+                    <div class="form-group  mt-4">
+                        <div class="col-sm-9">
+                            <input type="hidden" name="id" class="form-control" id="id1" readonly>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
     </div>
 @endsection

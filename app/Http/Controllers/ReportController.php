@@ -8,10 +8,13 @@ use App\Models\Report;
 
 class ReportController extends Controller
 {
-    public function updatereport($id)
+    public function updatereport(Request $request)
     {
-        $report = Report::where('id', $id)->get();
-        return view('/updatereport', compact('report'));
+        $reports = Report::where('id', $request->id)->first();
+        $reports->feedback = $request->feedback;
+        $reports->save();
+        session()->flash('message', 'Feedback Updated');
+        return redirect('/dashboard');
     }
     public function reportimages($id)
     {

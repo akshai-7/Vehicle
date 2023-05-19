@@ -22,7 +22,6 @@ class VehiclecheckController extends Controller
     }
     public function vehicleupdate(Request $request, $id)
     {
-        // dd($request);
         $request->validate([
             'view' => 'required',
             'feedback' => 'required',

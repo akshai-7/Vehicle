@@ -618,6 +618,7 @@
                     <a href="#" style="margin-left:750px;"><input type="submit" value="Submit"
                             class="text-white mt-4" id="add"></a>
                 </div>
+            </div>
         </form>
     </div>
 @endsection

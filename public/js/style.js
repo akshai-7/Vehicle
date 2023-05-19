@@ -1,35 +1,35 @@
 //sidebar
-    var toggleBtn = document.getElementById("toggle-container");
-    var isOpen = true;
-    toggleBtn.addEventListener("click", () => {
-        if (isOpen) {
-            var divsToHide = document.getElementsByClassName("nav_name");
-            document.getElementById("div-1").style.width = "5%";
-            document.getElementById("div-1").style.transition = "0.6s";
-            document.getElementById("div-2").style.width = "95%";
+    // var toggleBtn = document.getElementById("toggle-container");
+    // var isOpen = true;
+    // toggleBtn.addEventListener("click", () => {
+    //     if (isOpen) {
+    //         var divsToHide = document.getElementsByClassName("nav_name");
+    //         document.getElementById("div-1").style.width = "5%";
+    //         document.getElementById("div-1").style.transition = "0.6s";
+    //         document.getElementById("div-2").style.width = "95%";
 
-            document.getElementById("toggle-container").innerHTML =
-                "<i class='fa-solid fa-chevron-right header_toggle'></i>";
-            for (var i = 0; i < divsToHide.length; i++) {
+    //         document.getElementById("toggle-container").innerHTML =
+    //             "<i class='fa-solid fa-chevron-right header_toggle'></i>";
+    //         for (var i = 0; i < divsToHide.length; i++) {
 
-                divsToHide[i].style.display = "none";
-            }
-            isOpen = !isOpen;
-        } else {
-            document.getElementById("div-1").style.width = "15%";
-            document.getElementById("div-2").style.transition = "0.6s";
-            var divsToHide = document.getElementsByClassName("nav_name");
-            document.getElementById("toggle-container").innerHTML =
-                "<i class='fa-solid fa-chevron-left  header_toggle'></i>";
+    //             divsToHide[i].style.display = "none";
+    //         }
+    //         isOpen = !isOpen;
+    //     } else {
+    //         document.getElementById("div-1").style.width = "15%";
+    //         document.getElementById("div-2").style.transition = "0.6s";
+    //         var divsToHide = document.getElementsByClassName("nav_name");
+    //         document.getElementById("toggle-container").innerHTML =
+    //             "<i class='fa-solid fa-chevron-left  header_toggle'></i>";
 
-            for (var i = 0; i < divsToHide.length; i++) {
-                divsToHide[i].style.display = "block";
+    //         for (var i = 0; i < divsToHide.length; i++) {
+    //             divsToHide[i].style.display = "block";
 
-            }
-            document.getElementById("div-2").style.width = "85%";
-            isOpen = !isOpen;
-        }
-    })
+    //         }
+    //         document.getElementById("div-2").style.width = "85%";
+    //         isOpen = !isOpen;
+    //     }
+    // })
 
     //create user
     $ = function(id) {
@@ -185,13 +185,14 @@ function assign(val) {
 //report
 function report(val) {
     document.getElementById('updatePopup5').style.display="flex"
-    document.getElementById('id').value = val['id']
+    document.getElementById('id1').value = val['id']
     document.getElementById('date').value = new Date(val['date']).toLocaleDateString()
     document.getElementById('location').value = val['location']
     document.getElementById('mobile').value = val['mobile']
     document.getElementById('witnessed_by').value = val['witnessed_by']
     document.getElementById('mobile').value = val['mobile']
     document.getElementById('statement').value = val['statement']
+    document.getElementById('feedback').value = val['feedback']
 }
 
 function image(val) {
