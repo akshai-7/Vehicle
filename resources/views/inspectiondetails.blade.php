@@ -9,7 +9,7 @@
                 <h6>Pending Vehicle Inspection </h6>
             </button>
         </div>
-        <div id="Visual" class="table-datas tabcontent">
+        <div id="Visual" class=" tabcontent">
             <div class="" id="table-data">
                 <div class="head">
                     <h3>Inspection Details</h3>
@@ -75,7 +75,7 @@
                         </div>
                     </form>`
                 </div>
-                <div class="order">
+                <div class="order table-data">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
                         <tbody>
                             <thead class="text-primary">
