@@ -1,32 +1,39 @@
 @extends('layouts.user')
 @section('content')
-    {{-- <div>
-        <div class="card card-1"></div>
-        <div class="card card-2"></div>
-    </div>
-    <div>
-        <div class="card card-3"></div>
-        <div class="card card-4"></div>
-    </div> --}}
     <div class="button mt-3">
-        <button class="tablinks " onclick="openCheck(event, 'Pending')" id="defaultOpen">
-            <h6>Pending Vehicle Inspection-{{ $asigncounts }}
-            </h6>
+        <button class="tablinks  card card-1" onclick="openCheck(event, 'Pending')" id="defaultOpen">
+            <div class="data">
+                <h3 class="mt-2"><i class="bi bi-pen-fill"></i></h3>
+                <h1>{{ $asigncounts }}</h1>
+            </div>
+            <h5 style="margin-left:60px;">Pending Inspection</h5>
         </button>
-        <button class="tablinks" onclick="openCheck(event, 'ServiceDue')">
-            <h6>Service Due-{{ $vehiclecount }}</h6>
+        <button class="tablinks card card-2" onclick="openCheck(event, 'ServiceDue')">
+            <div class="data">
+                <h3 class="mt-2"><i class="bi bi-tools nav-icon"></i></h3>
+                <h1>{{ $vehiclecount }}</h1>
+            </div>
+            <h5 style="margin-left:130px;">Service Due</h5>
         </button>
-        <button class="tablinks" onclick="openCheck(event, 'Inspection')">
-            <h6>Damaged Vehicle Details-{{ $inspectionListscount }} </h6>
+        <button class="tablinks card card-3" onclick="openCheck(event, 'Inspection')">
+            <div class="data">
+                <h3 class="mt-2"><i class="bi bi-car-front-fill"></i></h3>
+                <h1>{{ $inspectionListscount }}</h1>
+            </div>
+            <h5 style="margin-left:60px;">Damaged Vehicles</h5>
         </button>
-        <button class="tablinks" onclick="openCheck(event, 'Reported')">
-            <h6>Reported Incidents-{{ $reportcount }}</h6>
+        <button class="tablinks card card-4" onclick="openCheck(event, 'Reported')">
+            <div class="data">
+                <h3 class="mt-2"><i class="bi bi-file-earmark"></i></h3>
+                <h1>{{ $reportcount }}</h1>
+            </div>
+            <h5 style="margin-left:60px;">Reported Incidents</h5>
         </button>
     </div>
     <div class="table-datas  mt-4 tabcontent" id="Pending">
         <div class="order">
             <div class="head">
-                <h3>Pending Vehicle Inspection</h3>
+                <h3>Pending Inspection</h3>
             </div>
             <table class="table table-bordered mt-3" style="border: 1px solid lightgrey">
                 <thead class="text-primary">

@@ -88,7 +88,8 @@
                         List</span>
                 </a>
             </li>
-            <li {{ Request::is('reportlist', 'reportsearchbar', 'incidentform') ? 'class=active' : '' }}>
+            <li
+                {{ Request::is('reportlist', 'reportsearchbar', 'incidentform', 'searchreport') ? 'class=active' : '' }}>
                 <a class="nav_list gradient-hover-effect" href="/reportlist">
                     <div class="icon-name"> <i class="fa-solid fa-file nav_icon"></i> </div><span class="nav_name">
                         Reported Incidents
@@ -153,6 +154,7 @@
 </body>
 <script>
     // flatpickr("input[type=text1]");
+
     // $('.flatdate').flatpickr({
     //     dateFormat: "d/m/Y",
     // });
@@ -162,6 +164,7 @@
 
     // });
 
+    flatpickr("input[type=text1]");
     flatpickr(".flatdate", {
         dateFormat: "d/m/Y", // Set the desired date format
         // Other options and configurations can be added here

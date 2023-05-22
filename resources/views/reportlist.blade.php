@@ -13,9 +13,10 @@
                             <div class="col-md-7" id="filter">
                                 <label></label>
                                 @if (isset($_GET['date']))
-                                    <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
+                                    <input type="text" name="date" class="form-control flatdate"
+                                        value="{{ $_GET['date'] }}">
                                 @else
-                                    <input type="text1" name="date" class="form-control" value="Select Date">
+                                    <input type="text" name="date" class="form-control flatdate" value="Select Date">
                                 @endif
                             </div>
                             <div class="col-md-7" id="" style="margin-left:5px">
@@ -151,7 +152,7 @@
                     <div class="form-group  mt-4">
                         <label class="col-sm-3 col-form-label">Assign ID</label>
                         <div class="col-sm-9">
-                            <input class="form-control-plaintext" id="id">
+                            <input class="form-control-plaintext" id="id1">
                         </div>
                     </div>
                     <div class="form-group  mt-4">

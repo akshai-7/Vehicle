@@ -6,7 +6,7 @@
                 Inspection Details
             </h4>
             <a href="/inspectiondetails">
-                <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                <h4 style="color:#bf0e3a;"><i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
             </a>
         </div>
         <form action="/store/{id}" method="POST" enctype="multipart/form-data" autocomplete="off" id="form"
@@ -22,7 +22,6 @@
                             </option>
                         @endforeach
                     </select>
-
                     <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                             *{{ $message }}
                         @enderror

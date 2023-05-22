@@ -183,17 +183,19 @@ class UserController extends Controller
     }
 
     public function users(Request $request)
+
     {
+
         $role = 'User';
         $datas = User::where('role', $role)->get();
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $users = User::where('role', $role)->paginate(10);
-        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
-            $users = User::where('role', $role)->where('created_at', $request->date)->paginate(10);
+        } elseif ($request->name == "Select Name" && Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d') != 'Select Date') {
+            $users = User::where('role', $role)->where('created_at', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->paginate(10);
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
             $users = User::where('role', $role)->where('name', $request->name)->paginate(10);
         } else {
-            $users = User::where('role', $role)->where('created_at', $request->date)->where('name', $request->name)->paginate(10);
+            $users = User::where('role', $role)->where('created_at', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->where('name', $request->name)->paginate(10);
         }
         return view('/user', ['users' => $users], ['datas' => $datas]);
     }
@@ -203,12 +205,12 @@ class UserController extends Controller
         $datas = User::where('role', $role)->get();
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $users = User::where('role', $role)->paginate(10);
-        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
-            $users = User::where('role', $role)->where('created_at', $request->date)->paginate(10);
+        } elseif ($request->name == "Select Name" && Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d') != 'Select Date') {
+            $users = User::where('role', $role)->where('created_at', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->paginate(10);
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
             $users = User::where('role', $role)->where('name', $request->name)->paginate(10);
         } else {
-            $users = User::where('role', $role)->where('created_at', $request->date)->where('name', $request->name)->paginate(10);
+            $users = User::where('role', $role)->where('created_at', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->where('name', $request->name)->paginate(10);
         }
         return view('/admin', ['users' => $users], ['datas' => $datas]);
     }

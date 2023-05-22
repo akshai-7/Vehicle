@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Assign;
 use App\Models\Report;
+use Illuminate\Support\Carbon;
 
 class ReportController extends Controller
 {
@@ -85,14 +86,14 @@ class ReportController extends Controller
         $assigns = Assign::all();
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $reports = Report::with('assign')->paginate(5);
-        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
-            $reports = Report::where('date', $request->date)->paginate(5);
+        } elseif ($request->name == "Select Name" && Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d') != 'Select Date') {
+            $reports = Report::where('date', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->paginate(5);
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
             $assign = Assign::where('name', $request->name)->first();
             $reports = Report::where('assign_id', $assign->id)->paginate(5);
         } else {
             $assign = Assign::where('name', $request->name)->first();
-            $reports = Report::where('assign_id', $assign->id)->where('date', $request->date)->paginate(5);
+            $reports = Report::where('assign_id', $assign->id)->where('date', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->paginate(5);
         }
         return view('/reportlist', ['reports' => $reports], ['assigns' => $assigns]);
     }

@@ -170,12 +170,12 @@ class InspectionController extends Controller
         $assigns = Assign::paginate(10);
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
             $inspections = Inspection::paginate(10);
-        } elseif ($request->name == "Select Name" && $request->date != 'Select Date') {
-            $inspections = Inspection::where('date', $request->date)->paginate(10);
+        } elseif ($request->name == "Select Name" && Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d') != 'Select Date') {
+            $inspections = Inspection::where('date', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->paginate(10);
         } elseif ($request->name != "Select Name" && $request->date == 'Select Date') {
             $inspections = Inspection::where('name', $request->name)->paginate(10);
         } else {
-            $inspections = Inspection::where('created_at', $request->date)->where('name', $request->name)->paginate(10);
+            $inspections = Inspection::where('created_at', Carbon::createFromFormat('d/m/Y', $request->date)->format('Y-m-d'))->where('name', $request->name)->paginate(10);
         }
         return view('/inspectiondetails', compact('inspections', 'assigns'));
     }

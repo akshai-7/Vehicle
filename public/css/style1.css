@@ -153,7 +153,6 @@ a {
     background: #bb2f52;
     color: white;
 }
-
 .nav_icon {
     font-size: 16px;
 }
@@ -512,13 +511,20 @@ span {
 }
 
 .card {
-    background: #fff;
-    border-radius: 2px;
+    background: rgb(236, 236, 239);
+    border-radius: 7px;
     display: inline-block;
     height: 100px;
     margin: 1rem;
-    /* position: relative; */
-    width: 400px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #bf0e3a;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .card-1 {
@@ -534,4 +540,8 @@ span {
 
 .card-4 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.data {
+    display: flex;
+    justify-content: space-between;
 }

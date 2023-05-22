@@ -15,15 +15,16 @@
                     <h3>Inspection Details</h3>
                     <a href="/inspectionform"><input type="submit" value="Add Inspection" id="add1"></a>
                 </div>
-                <div class="serachbar">
+                <div class="serachbar table-data">
                     <form action="/search" method="GET" autocomplete="off" style="margin-left:-5px">
                         <div id="filterDiv1">
                             <div class="col-md-7" id="filter">
                                 <label></label>
                                 @if (isset($_GET['date']))
-                                    <input type="text1" name="date" class="form-control" value="{{ $_GET['date'] }}">
+                                    <input type="text" name="date" class="form-control flatdate"
+                                        value="{{ $_GET['date'] }}">
                                 @else
-                                    <input type="text1" name="date" class="form-control" value="Select Date">
+                                    <input type="text" name="date" class="form-control flatdate" value="Select Date">
                                 @endif
                             </div>
                             <div class="col-md-7" id="" style="margin-left:5px">
@@ -73,7 +74,7 @@
                                         class="fa-solid fa fa-refresh"></i></a>
                             </div>
                         </div>
-                    </form>`
+                    </form>
                 </div>
                 <div class="order table-data">
                     <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
@@ -143,7 +144,6 @@
             </div>
         </div>
         <div id="Vehicle" class="tabcontent">
-
             <div class="table-datas" id="table-data">
                 <div class="head">
                     <h3>Inspection Pending</h3>
