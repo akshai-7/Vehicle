@@ -201,6 +201,12 @@ function image(val) {
 }
 
 
+function inspection(val) {
+    document.getElementById('updatePopup6').style.display = "flex"
+    document.getElementById('id2').value = val['id']
+}
+
+
 
 
 //deletvehicle

@@ -3,7 +3,7 @@
     <div class="button mt-3">
         <button class="tablinks  card card-1" onclick="openCheck(event, 'Pending')" id="defaultOpen">
             <div class="data">
-                <h3 class="mt-2"><i class="bi bi-pen-fill"></i></h3>
+                <h3 class="mt-2"><i class="bi bi-alarm-fill"></i></h3>
                 <h1>{{ $asigncounts }}</h1>
             </div>
             <h5 style="margin-left:60px;">Pending Inspection</h5>
@@ -155,6 +155,7 @@
                         <th style="text-align:center;">Report.no</th>
                         <th style="text-align:center;">Driver Name</th>
                         <th style="text-align:center;">Number Plate</th>
+                        <th style="text-align:center;">Action</th>
                     </thead>
                     @foreach ($inspectionLists as $inspection)
                         <tr class="table_row">
@@ -173,6 +174,11 @@
                             <td style="text-align:center;">{{ $inspection->name }}</td>
                             <td style="text-align:center;">
                                 {{ $inspection->number_plate }}</td>
+                            <td style="text-align:center;" class="table_data">
+                                <a onclick="inspection({{ $inspection }})" class="tool"><i
+                                        class="bi bi-pencil-square btn-sm btn btn-success" data-toggle="tooltip"
+                                        data-placement="top" title="View"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -233,6 +239,11 @@
                     @endforeach
                 </tbody>
             </table>
+            @if (count($reports) < 1)
+                <div id="dataNotFound">
+                    <p>Data not found</p>
+                </div>
+            @endif
         </div>
     </div>
     <div id="sam1">
@@ -313,8 +324,7 @@
                     <label class="col-sm-3 mt-2">Feedback</label>
                     <div class="col-sm-9">
                         <input type="hidden" name="path" class="form-control" value="Dashboard">
-                        <input type="text" name="feedback" class="form-control flatdate" placeholder=""
-                            id="feedback">
+                        <input type="text" name="feedback" class="form-control " placeholder="">
                         <input type="submit" name="" value="Submit" id="add" class="btn text-white mt-4"
                             style="float:right;">
                     </div>
@@ -323,6 +333,36 @@
                     <div class="form-group  mt-4">
                         <div class="col-sm-9">
                             <input type="hidden" name="id" class="form-control" id="id1" readonly>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+    <div id="updatePopup6">
+        <div class="vehiclePopUp2">
+            <form action="/inspectionupdate/{id}" method="POST" autocomplete="off">
+                @csrf
+                <div id="userHeading">
+                    <h4 style="margin-top: 2%">
+                        Damaged Vehicle Details</h4>
+                    <a href="/dashboard">
+                        <h4 style="color:#bf0e3a;"> <i class="fa-sharp fa-regular fa-circle-xmark"></i></h4>
+                    </a>
+                </div>
+                <div class="form-group  mt-5 ">
+                    <label class="col-sm-3 mt-2">Feedback</label>
+                    <div class="col-sm-9">
+                        <input type="hidden" name="path" class="form-control" value="Dashboard">
+                        <input type="text" name="feedback" class="form-control " placeholder="">
+                        <input type="submit" name="" value="Submit" id="add" class="btn text-white mt-4"
+                            style="float:right;">
+                    </div>
+                </div>
+                <div class="incident">
+                    <div class="form-group  mt-4">
+                        <div class="col-sm-9">
+                            <input type="hidden" name="id" class="form-control" id="id2" readonly>
                         </div>
                     </div>
                 </div>

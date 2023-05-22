@@ -144,6 +144,13 @@ class InspectionController extends Controller
         session()->flash('message', 'Vehicle Inspection  Successfully');
         return redirect('/inspectiondetails');
     }
+    public function inspectionupdate(Request $request)
+    {
+        $inspection = Inspection::where('id', $request->id)->first();
+        $inspection->feedback = $request->feedback;
+        $inspection->save();
+        return redirect('/dashboard');
+    }
 
     public function inspection()
     {

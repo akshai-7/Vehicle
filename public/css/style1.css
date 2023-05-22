@@ -196,7 +196,8 @@ a {
 #updatePopup2,
 #updatePopup3,
 #updatePopup4,
-#updatePopup5 {
+#updatePopup5,
+#updatePopup6 {
     cursor: pointer;
     width: 100%;
     height: 100%;

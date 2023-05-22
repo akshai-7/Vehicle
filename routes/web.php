@@ -56,7 +56,6 @@ Route::post('/updatevehicle/{id}', [VehicleController::class, 'updatevehicle']);
 Route::get('/remove/{id}', [VehicleController::class, 'remove']);
 
 //assign
-// Route::get('/vehicleassign', [AssignController::class, 'vehicleassign']);
 Route::post('/vehicleassignlist', [AssignController::class, 'vehicleassignlist']);
 Route::get('/assignsearch', [AssignController::class, 'assignsearch']);
 Route::get('/assignsearchbar', [AssignController::class, 'assignsearchbar']);
@@ -64,9 +63,9 @@ Route::get('/vehicleassignedlist', [AssignController::class, 'vehicleassignedlis
 Route::get('/deleteId/{id}', [AssignController::class, 'deleteId']);
 
 //inspection
-// Route::view('/inspectionform', 'inspectionform');
 Route::post('/store/{id}', [InspectionController::class, 'store']);
 Route::get('/inspectiondetails', [InspectionController::class, 'inspection']);
+Route::post('/inspectionupdate/{id}', [InspectionController::class, 'inspectionupdate']);
 Route::get('/inspectionform', [InspectionController::class, 'inspectionform']);
 Route::get('/deleteinspection/{id}', [InspectionController::class, 'deleteinspection']);
 Route::get('/search', [InspectionController::class, 'search']);

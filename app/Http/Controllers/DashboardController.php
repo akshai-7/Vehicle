@@ -21,10 +21,9 @@ class DashboardController extends Controller
         $reportcount = Count($reports);
         $assigns = Assign::whereNotNull('last_inspection')->where('overdue', 'YES')->get();
         $asigncounts = Count($assigns);
+
         $visual = Visual::where('action', 'Bad')->get();
         $vehicle = Vehiclecheck::where('action', 'Bad')->get();
-
-
         $cabin = Cabin::where('action', 'Bad')->get();
         $inspectionsId = [];
         for (
@@ -65,7 +64,9 @@ class DashboardController extends Controller
             $i++
         ) {
             $inspections = Inspection::where('id', $inspectionsId[$i])->first();
-            array_push($inspectionLists, $inspections);
+            if ($inspections->feedback == Null) {
+                array_push($inspectionLists, $inspections);
+            }
         }
         $inspectionListscount = Count($inspectionLists);
         return view('/dashboard', ['assigns' => $assigns, 'vehicles' => $vehicles, 'reports' => $reports, 'inspectionLists' => $inspectionLists, 'asigncounts' => $asigncounts, 'vehiclecount' => $vehiclecount, 'reportcount' => $reportcount, 'inspectionListscount' => $inspectionListscount]);

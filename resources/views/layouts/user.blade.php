@@ -153,21 +153,15 @@
     </section>
 </body>
 <script>
-    // flatpickr("input[type=text1]");
-
-    // $('.flatdate').flatpickr({
-    //     dateFormat: "d/m/Y",
-    // });
-    // $('.flatemonth').flatpickr({
-    //     dateFormat: "F Y", // set date format to only display month and year
-    //     enableTime: false
-
-    // });
-
-    flatpickr("input[type=text1]");
     flatpickr(".flatdate", {
         dateFormat: "d/m/Y", // Set the desired date format
         // Other options and configurations can be added here
+    });
+
+    $('.flatemonth').flatpickr({
+        dateFormat: "F Y", // set date format to only display month and year
+        enableTime: false
+
     });
 </script>
 
