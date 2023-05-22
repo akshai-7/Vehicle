@@ -69,69 +69,73 @@
                     </form>
                 </div>
             </div>
-            <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
-                <thead style="text-align:center;">
-                    <th>S.No</th>
-                    <th class="col-md-1">Creation Date</th>
-                    <th>Driver Name</th>
-                    <th>Email</th>
-                    <th>Mobile.no</th>
-                    <th>Address</th>
-                    <th>Company</th>
-                    <th>License</th>
-                    {{-- <th>Role</th> --}}
-                    <th class="col-md-1">Action</th>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr class="table_row">
-                            <td style="text-align:center;" class="table_data">
-                                @php
-                                    $date = $user->created_at; // the date you want to get the financial week number for
-                                    $dates = $date->weekOfYear; // the date you want to get the financial week number for
-                                    $fiscalYearStart = date('01-04-Y'); // the start date of your fiscal year
-                                    // calculate the difference between the date and fiscal year start in days
-                                    $diff = strtotime($date) - strtotime($fiscalYearStart);
-                                    // calculate the number of weeks between the date and fiscal year start
-                                    $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
-                                @endphp
-                                {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $user->id }}
-                            </td>
-                            <td style="text-align:center;" class="table_data">
-                                {{ $user->created_at->format('d/m/Y') }}</td>
-                            <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
-                            </td>
-                            <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
-                            <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
-                            <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
-                                {{ $user->city }},{{ $user->country }},{{ $user->postcode }}
-                            </td>
-                            <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
-                            <td style="text-align:center;" class="table_data">
-                                @if ($user->license != null)
-                                    <a onclick="image({{ $user }})">
-                                        <img src="{{ url('images/' . explode(',', $user->license)[0]) }}"
-                                            class="rounded-0 border border-secondary" width="50px" height="50px">
-                                    </a>
-                                @endif
-                                @if ($user->license == null)
-                                    <p style="text-align:center;">--</p>
-                                @endif
-                            </td>
-                            {{-- <td style="text-align:center;" class="table_data">{{ $user->role }}</td> --}}
+            <div class="table-container">
+                <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;">
+                    <thead style="text-align:center;">
+                        <th>S.No</th>
+                        <th class="col-md-1">Creation Date</th>
+                        <th>Driver Name</th>
+                        <th>Email</th>
+                        <th>Mobile.no</th>
+                        <th>Address</th>
+                        <th>Company</th>
+                        <th>License</th>
+                        {{-- <th>Role</th> --}}
+                        <th class="col-md-1">Action</th>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                            <tr class="table_row">
+                                <td style="text-align:center;" class="table_data">
+                                    @php
+                                        $date = $user->created_at; // the date you want to get the financial week number for
+                                        $dates = $date->weekOfYear; // the date you want to get the financial week number for
+                                        $fiscalYearStart = date('01-04-Y'); // the start date of your fiscal year
+                                        // calculate the difference between the date and fiscal year start in days
+                                        $diff = strtotime($date) - strtotime($fiscalYearStart);
+                                        // calculate the number of weeks between the date and fiscal year start
+                                        $weekNumber = ceil($diff / (7 * 24 * 60 * 60));
+                                    @endphp
+                                    {{ \Carbon\Carbon::now()->format('y') }}W{{ $weekNumber }}{{ $user->id }}
+                                </td>
+                                <td style="text-align:center;" class="table_data">
+                                    {{ $user->created_at->format('d/m/Y') }}</td>
+                                <td style="text-align:center;" class="table_data">{{ ucfirst(strtolower($user->name)) }}
+                                </td>
+                                <td style="text-align:center;" class="table_data">{{ $user->email }}</td>
+                                <td style="text-align:center;" class="table_data">{{ $user->mobile }}</td>
+                                <td style="text-align:center;" class="table_data col-md-2">{{ $user->address }},
+                                    {{ $user->city }},{{ $user->country }},{{ $user->postcode }}
+                                </td>
+                                <td style="text-align:center;" class="table_data">{{ $user->company }}</td>
+                                <td style="text-align:center;" class="table_data">
+                                    @if ($user->license != null)
+                                        <a onclick="image({{ $user }})">
+                                            <img src="{{ url('images/' . explode(',', $user->license)[0]) }}"
+                                                class="rounded-0 border border-secondary" width="50px" height="50px">
+                                        </a>
+                                    @endif
+                                    @if ($user->license == null)
+                                        <p style="text-align:center;">--</p>
+                                    @endif
+                                </td>
+                                {{-- <td style="text-align:center;" class="table_data">{{ $user->role }}</td> --}}
 
-                            <td style="text-align:center;" class="table_data">
-                                <a onclick=" check({{ $user }})">
-                                    <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
-                                <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
-                                    onclick="event.preventDefault(); deleteuser('{{ $user->id }}');" title="Delete"><i
-                                        class="bi bi-trash-fill btn btn-danger btn-sm "></i></a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
+                                <td style="text-align:center;" class="table_data">
+                                    <a onclick=" check({{ $user }})">
+                                        <i class="bi bi-pencil-square  btn btn-success btn-sm"></i></a>
+                                    <a href="/delete/{{ $user->id }}" data-toggle="tooltip" data-placement="top"
+                                        onclick="event.preventDefault(); deleteuser('{{ $user->id }}');"
+                                        title="Delete"><i class="bi bi-trash-fill btn btn-danger btn-sm "></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
-            </table>
+
+
             @if (count($users) < 1)
                 <div id="dataNotFound">
                     <p>Data not found</p>

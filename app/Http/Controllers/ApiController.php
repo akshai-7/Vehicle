@@ -22,7 +22,15 @@ class ApiController extends Controller
     public function login(Request $request)
     {
 
+        $email = User::where('email', $request->email)->first();
+        if ($email == Null) {
+            return response()->json(['error' => 'Invaild Email'], 401);
+        }
+        // if ($email->role != 'User') {
+        //     return response()->json(['error' => ''], 401);
+        // }
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
             $response['token'] = Auth::user()->createToken('token')->plainTextToken;
             $user = Auth::user();
             $vehicle_id = $user->vehicle_id;
@@ -30,7 +38,7 @@ class ApiController extends Controller
             $assign = Assign::where('vehicle_id', $vehicle_id)->first();
             return response()->json(["status" => "true", $response, "user" => [$user], "vehicle" => [$vehicle], "assign" => [$assign]], 200);
         } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Incorrect Password'], 401);
         }
     }
     public function inspection(Request $request, $id)
