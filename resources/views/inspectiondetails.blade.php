@@ -87,6 +87,7 @@
                                 <th style="text-align:center;">Driver Name</th>
                                 <th style="text-align:center;">Number Plate</th>
                                 <th style="text-align:center;">Mileage</th>
+                                <th style="text-align:center;">Feedback</th>
                                 <th style="text-align:center;">Status</th>
                                 <th style="text-align:center;">Action</th>
                             </thead>
@@ -115,7 +116,14 @@
                                         {{ $inspection->number_plate }}</td>
                                     <td style="text-align:center;">{{ $inspection->mileage }}
                                     </td>
-
+                                    <td style="text-align:center;">
+                                        @if ($inspection->feedback != null)
+                                            {{ $inspection->feedback }}
+                                        @endif
+                                        @if ($inspection->feedback == null)
+                                            <p style="text-align:center;">--</p>
+                                        @endif
+                                    </td>
                                     <td style="text-align:center;">
                                         <button type="button" class="btn btn-success btn-sm">Passed</button>
                                     </td>

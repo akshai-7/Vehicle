@@ -25,6 +25,7 @@ class CreateInspectionsTable extends Migration
             $table->string('mileage');
             $table->date('date');
             $table->date('next_inspection');
+            $table->string('feedback')->default(Null);
             $table->timestamps();
         });
     }

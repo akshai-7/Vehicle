@@ -116,36 +116,9 @@
         </div>
         <div id="div-2">
             <div id="headers">
-                {{-- <div id="toggle-container"><i class="fa-solid fa-chevron-left"></i>
-                </div> --}}
-
-                {{-- <div id="popup1">
-                    <ul class="mt-3">
-                        <li class="name">
-                            <a><img src="{{ url('images/host.png') }}" id="img-logo1"></a>
-                            <p class="button1"> {{ ucfirst(strtolower(Auth::user()->name)) }}</p>
-                        </li>
-                        <li class="mt-4">
-                            <i class='bx bxl-gmail icon'></i><a class="button">{{ Auth::user()->email }}</a>
-                        </li>
-                        <li class="mt-4">
-                            <i class='bx bx-building-house icon'></i><a href="/createhouse" class="button ">Properties<i
-                                    class="button__icon fas fa-chevron-right  button"></i></a>
-                        </li>
-                        <li class="mt-4">
-                            <i class='bx bxs-bookmarks icon'></i><a href="/bookinglist" class="button mt-4">Booking <i
-                                    class="button__icon fas fa-chevron-right  button"></i></a>
-                        </li>
-                        <li class="mt-4">
-                            <i class="bx bx-log-out icon"></i><a href="/" class="button">Log Out<i
-                                    class="button__icon fas fa-chevron-right  button"></i></a>
-                        </li>
-                        <hr style="border-top:1px solid rgb(131, 126, 126);">
-                        <li>
-                            <p onclick="hide('popup1')" class="button2">close</p>
-                        </li>
-                    </ul>
-                </div> --}}
+                <div>
+                    <h6>{{ Auth::user()->name }}</h6>
+                </div>
             </div>
             <div id="mainContainer">
                 <div id="tabContainer">
@@ -187,7 +160,6 @@
     $('.flatemonth').flatpickr({
         dateFormat: "F Y", // set date format to only display month and year
         enableTime: false
-
     });
 </script>
 

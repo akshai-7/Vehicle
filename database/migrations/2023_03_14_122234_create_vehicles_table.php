@@ -20,8 +20,10 @@ class CreateVehiclesTable extends Migration
             $table->string('make');
             $table->string('vehicle_model');
             $table->string('mileage');
-            $table->date('servicedate')->format('d-m-Y');
-            $table->string('user_id')->nullable();;
+            $table->date('servicedate');
+            $table->date('nextservice');
+            $table->string('servicestatus');
+            $table->string('user_id')->nullable();
             $table->string('name')->nullable();;
             $table->timestamps();
         });

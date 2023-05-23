@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('license');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('role')->default('user');
+            $table->string('role')->default('User');
             $table->string('vehicle_id')->nullable();
             $table->string('vehicle_no')->nullable();
             $table->rememberToken();

@@ -9,7 +9,6 @@ use App\Models\Report;
 use App\Models\Visual;
 use App\Models\Vehiclecheck;
 use App\Models\Cabin;
-use Illuminate\Support\Carbon;
 
 class DashboardController extends Controller
 {

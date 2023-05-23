@@ -25,6 +25,7 @@ class CreateAssignsTable extends Migration
             $table->string('report_no');
             $table->string('last_inspection');
             $table->string('next_inspection');
+            $table->string('overdue');
             $table->timestamps();
         });
     }

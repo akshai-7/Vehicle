@@ -78,6 +78,10 @@ a {
     justify-content: start;
     background: rgb(242, 241, 255);
 }
+#headers h6 {
+    margin-left: 1100px;
+    margin-top: 5px;
+}
 #mainContainer {
     position: relative;
     width: 100%;
@@ -126,6 +130,7 @@ a {
     border-radius: 4px;
     padding: 10px;
 }
+
 #img-logo1 {
     width: 80%;
     border-radius: 50%;
@@ -546,15 +551,3 @@ span {
     display: flex;
     justify-content: space-between;
 }
-/* .table-container {
-    height: 75%;
-    overflow-y: scroll;
-}
-.table-container::-webkit-scrollbar {
-    display: none;
-}
-thead {
-    position: sticky;
-    top: 0;
-    background-color: #f5f5f5;
-} */
