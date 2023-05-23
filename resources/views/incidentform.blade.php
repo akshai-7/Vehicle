@@ -29,7 +29,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-2 col-form-label">Date</label>
                         <div class="col-sm-9">
-                            <input type="text1" name="date" class="form-control flatdate" id="flatate"
+                            <input type="text" name="date" class="form-control flatdate" id="flatate"
                                 placeholder="Select Date" value="{{ old('date_of_birth') }}">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')
                                     *{{ $message }}

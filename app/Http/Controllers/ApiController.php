@@ -30,7 +30,6 @@ class ApiController extends Controller
         //     return response()->json(['error' => ''], 401);
         // }
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
             $response['token'] = Auth::user()->createToken('token')->plainTextToken;
             $user = Auth::user();
             $vehicle_id = $user->vehicle_id;

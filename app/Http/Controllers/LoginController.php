@@ -7,22 +7,25 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
     public function admin(Request $request)
     {
-        $user = User::where(['email' => $request->email])->first();
-        if (!$user || !Hash::check($request->password, $user->password)) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            if (Auth::user()->role == 'Admin') {
+                session()->flash('message', 'Login Successfully');
+                return redirect('/dashboard');
+            }
+            if (Auth::user()->role != 'Admin') {
+                session()->flash('message1', 'You Are Not Admin');
+                return redirect('/');
+            }
+        } else {
             session()->flash('message1', 'Email-id or Password is not matched');
             return redirect('/');
         }
-        if ($user->role != 'Admin') {
-            session()->flash('message1', 'You Are Not Admin');
-            return redirect('/');
-        }
-        session()->flash('message', 'Login Successfully');
-        return redirect('/dashboard');
     }
 
     public function passwordreset(Request $request)
@@ -34,7 +37,6 @@ class LoginController extends Controller
 
     public function passwordupdate(Request $request)
     {
-
         $user = User::where('email', $request->email)->first();
         if ($user == null) {
             session()->flash('message1', 'Invalid Email');

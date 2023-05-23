@@ -133,9 +133,6 @@
                     </tbody>
                 </table>
             </div>
-
-
-
             @if (count($users) < 1)
                 <div id="dataNotFound">
                     <p>Data not found</p>

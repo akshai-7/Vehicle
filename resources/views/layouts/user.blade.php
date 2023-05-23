@@ -40,7 +40,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-
     <!------image---------->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -119,6 +118,34 @@
             <div id="headers">
                 {{-- <div id="toggle-container"><i class="fa-solid fa-chevron-left"></i>
                 </div> --}}
+
+                {{-- <div id="popup1">
+                    <ul class="mt-3">
+                        <li class="name">
+                            <a><img src="{{ url('images/host.png') }}" id="img-logo1"></a>
+                            <p class="button1"> {{ ucfirst(strtolower(Auth::user()->name)) }}</p>
+                        </li>
+                        <li class="mt-4">
+                            <i class='bx bxl-gmail icon'></i><a class="button">{{ Auth::user()->email }}</a>
+                        </li>
+                        <li class="mt-4">
+                            <i class='bx bx-building-house icon'></i><a href="/createhouse" class="button ">Properties<i
+                                    class="button__icon fas fa-chevron-right  button"></i></a>
+                        </li>
+                        <li class="mt-4">
+                            <i class='bx bxs-bookmarks icon'></i><a href="/bookinglist" class="button mt-4">Booking <i
+                                    class="button__icon fas fa-chevron-right  button"></i></a>
+                        </li>
+                        <li class="mt-4">
+                            <i class="bx bx-log-out icon"></i><a href="/" class="button">Log Out<i
+                                    class="button__icon fas fa-chevron-right  button"></i></a>
+                        </li>
+                        <hr style="border-top:1px solid rgb(131, 126, 126);">
+                        <li>
+                            <p onclick="hide('popup1')" class="button2">close</p>
+                        </li>
+                    </ul>
+                </div> --}}
             </div>
             <div id="mainContainer">
                 <div id="tabContainer">
@@ -141,7 +168,6 @@
                                 </div>
                             </div>
                         @endif
-
                     </div>
                     {{-- <a href="{{ URL::previous() }}" class="btn btn-default"> <i class="fas fa-arrow-left"></i> Go
                         Back</a> --}}

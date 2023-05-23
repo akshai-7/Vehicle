@@ -546,7 +546,7 @@ span {
     display: flex;
     justify-content: space-between;
 }
-.table-container {
+/* .table-container {
     height: 75%;
     overflow-y: scroll;
 }
@@ -557,4 +557,4 @@ thead {
     position: sticky;
     top: 0;
     background-color: #f5f5f5;
-}
+} */
