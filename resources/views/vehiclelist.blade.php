@@ -183,7 +183,7 @@
                                 <div class="form-group row mt-3 ">
                                     <label class="col-sm-3 col-form-label">Service Date</label>
                                     <div class="col-sm-9">
-                                        <input type="text1" name="service" class="form-control flatdate"
+                                        <input type="text" name="service" class="form-control flatdate"
                                             placeholder="Select Date" id="service">
                                         <input type="submit" name="" value="Submit" id="add"
                                             class="btn text-white mt-4" style="float:right;">

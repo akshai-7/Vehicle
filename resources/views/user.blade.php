@@ -199,7 +199,7 @@
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-2  col-form-label"> D.O.B</label>
                             <div class="col-sm-9">
-                                <input type="text1" name="date_of_birth" class="form-control flatdate"
+                                <input type="text" name="date_of_birth" class="form-control flatdate"
                                     id="date_of_birth">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
                                         *{{ $message }}
