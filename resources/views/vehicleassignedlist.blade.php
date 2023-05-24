@@ -98,7 +98,6 @@
                                 <td style="text-align:center;" class="table_data">
                                     @php
                                         $date = $assign->created_at;
-                                        $dates = $date->weekOfYear;
                                         $fiscalYearStart = date('01-04-Y');
                                         $diff = strtotime($date) - strtotime($fiscalYearStart);
                                         $weekNumber = ceil($diff / (7 * 24 * 60 * 60));

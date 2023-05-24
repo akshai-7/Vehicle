@@ -116,9 +116,9 @@
         </div>
         <div id="div-2">
             <div id="headers">
-                <div>
+                {{-- <div>
                     <h6 class="button2">{{ ucfirst(strtolower(Auth::user()->name)) }}</h6>
-                </div>
+                </div> --}}
             </div>
             <div id="mainContainer">
                 <div id="tabContainer">

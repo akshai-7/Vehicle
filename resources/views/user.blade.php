@@ -86,7 +86,6 @@
                             <td style="text-align:center;" class="table_data">
                                 @php
                                     $date = $user->created_at; // the date you want to get the financial week number for
-                                    $dates = $date->weekOfYear; // the date you want to get the financial week number for
                                     $fiscalYearStart = date('01-04-Y'); // the start date of your fiscal year
                                     // calculate the difference between the date and fiscal year start in days
                                     $diff = strtotime($date) - strtotime($fiscalYearStart);
