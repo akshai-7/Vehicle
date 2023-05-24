@@ -17,21 +17,11 @@ class InspectionController extends Controller
 {
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'mileage' => 'required',
-            'view' => 'required',
-            'feedback[]' => 'required',
-            'action[]' => 'required',
-            'notes[]' => 'required',
-            'view1[]' => 'required',
-            'feedback1[]' => 'required',
-            'action1[]' => 'required',
-            'notes1[]' => 'required',
-            'view2[]' => 'required',
-            'feedback2[]' => 'required',
-            'action2[]' => 'required',
-            'notes2[]' => 'required',
+
         ]);
 
         $name = $request->name;
@@ -48,6 +38,7 @@ class InspectionController extends Controller
         $inspection->number_plate = $assign->number_plate;
         $inspection->mileage = $request['mileage'];
         $inspection->save();
+
 
         $id = $assign->id;
         $assign = Assign::where('id', $id)->first();
@@ -137,9 +128,7 @@ class InspectionController extends Controller
             }
             Cabin::create($data5);
         }
-        $name = [
-            'name' => $assign->name,
-        ];
+        $name = $assign->name;
         Mail::To($assign->email)->send(new inspectionMail($name));
         session()->flash('message', 'Vehicle Inspection  Successfully');
         return redirect('/inspectiondetails');

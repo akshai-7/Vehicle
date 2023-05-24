@@ -551,3 +551,7 @@ span {
     display: flex;
     justify-content: space-between;
 }
+
+.button2 {
+    color: #bf0e3a;
+}
