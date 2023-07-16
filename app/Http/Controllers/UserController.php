@@ -185,7 +185,6 @@ class UserController extends Controller
     public function users(Request $request)
 
     {
-
         $role = 'User';
         $datas = User::where('role', $role)->get();
         if ($request->name == "Select Name" && $request->date == 'Select Date') {
