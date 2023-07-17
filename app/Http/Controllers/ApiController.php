@@ -108,7 +108,6 @@ class ApiController extends Controller
     }
     public function visualcheck(Request $request, $id)
     {
-        // dd($request);
         $request->validate([
             'type' => 'required',
             'name' => 'required',

@@ -11,7 +11,6 @@ class CabinController extends Controller
 
     public function cabinimages($id)
     {
-
         $cabin = Cabin::where('id', $id)->first();
         return view('/cabinimages', ['cabin' => $cabin]);
     }
@@ -41,6 +40,7 @@ class CabinController extends Controller
         $cabin->view = $request['view'];
         $data = $request->all();
         $img = array();
+
         if (isset($data['image'])) {
             for ($i = 0; $i < count($data['image']); $i++) {
                 $imageName = time() . '.' . $data['image'][$i]->getClientOriginalName();
