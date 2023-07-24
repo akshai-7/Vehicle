@@ -13,7 +13,6 @@ class VisualdamageController extends Controller
 {
     public function check($inspection_id)
     {
-
         $visual = Visual::where('inspection_id', $inspection_id)->first();
         if ($visual == null) {
             session()->flash('message1', ' Invalid Id');
@@ -56,7 +55,6 @@ class VisualdamageController extends Controller
         if ($data3 == null) {
             session()->flash('message', ' Invalid Id');
         }
-
         $visual = Visual::where('inspection_id', $data1->id)->where('id', $data3->id)->first();
         $visual->view = $request['view'];
         $data = $request->all();
@@ -76,7 +74,6 @@ class VisualdamageController extends Controller
         session()->flash('message', ' Updated Successfully');
         return redirect('/details/' . $data1->id);
     }
-
 
     public function deletevisual($id)
     {
